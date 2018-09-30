@@ -19,21 +19,14 @@ func helpMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         return 1
     }
     
-    var commands = [String]()
+    let commands = commandDictionary.keys
+    let extraCommands = extraCommandDictionary.keys
+    let builtinCommands = shell.builtins.keys
     
-    for (name, _) in commandDictionary {
-        commands.append(name)
-    }
+    var helpText = commands.joined(separator: ", ")+"\n\n"+extraCommands.joined(separator: ", ")+"\n\n"+builtinCommands.joined(separator: ", ")
+    helpText += "\n"
     
-    for (name, _) in extraCommandDictionary {
-        commands.append(name)
-    }
-    
-    for (name, _) in shell.builtins {
-        commands.append(name)
-    }
-    
-    guard let data = commands.joined(separator: ", ").data(using: .utf8) else {
+    guard let data = helpText.data(using: .utf8) else {
         return 1
     }
     
