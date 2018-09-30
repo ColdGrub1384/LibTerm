@@ -6,13 +6,18 @@
 //  Copyright © 2018 Adrian Labbé. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /// A class for managing input and output.
-class IO {
+@objc class IO: NSObject {
     
-    /// Initialize.
-    init() {
+    /// Initialize for writting to the given terminal.
+    ///
+    /// - Parameters:
+    ///     - terminal: The terminal that receives output.
+    init(terminal: TerminalViewController) {
+        super.init()
+        self.terminal = terminal
         ios_stdout = fdopen(outputPipe.fileHandleForWriting.fileDescriptor, "w")
         ios_stderr = ios_stdout
         ios_stdin = fdopen(inputPipe.fileHandleForReading.fileDescriptor, "r")
@@ -24,6 +29,8 @@ class IO {
                 }
             }
         }
+        setbuf(ios_stdout!, nil)
+        setbuf(ios_stderr!, nil)
     }
     
     /// The stdin file.

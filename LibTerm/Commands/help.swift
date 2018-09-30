@@ -30,7 +30,7 @@ func helpMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         return 1
     }
     
-    shell.io.outputPipe.fileHandleForWriting.write(data)
+    shell.io?.outputPipe.fileHandleForWriting.write(data)
     
     return 0
 }

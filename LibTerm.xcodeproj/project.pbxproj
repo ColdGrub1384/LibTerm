@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C91C345921612DBA0003BD90 /* clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345821612DBA0003BD90 /* clear.swift */; };
 		C91C345B21613A720003BD90 /* help.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345A21613A720003BD90 /* help.swift */; };
+		C91C481E21614CA00003BD90 /* python27.zip in Copy Python Home */ = {isa = PBXBuildFile; fileRef = C91C481C21614C920003BD90 /* python27.zip */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC42160467E00F870B5 /* AppDelegate.swift */; };
 		C9806BC72160467E00F870B5 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC62160467E00F870B5 /* TerminalViewController.swift */; };
 		C9806BCA2160467E00F870B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9806BC82160467E00F870B5 /* Main.storyboard */; };
@@ -36,6 +37,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C91C481A2161491B0003BD90 /* Copy Python Home */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = lib;
+			dstSubfolderSpec = 7;
+			files = (
+				C91C481E21614CA00003BD90 /* python27.zip in Copy Python Home */,
+			);
+			name = "Copy Python Home";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9806D0121604A1500F870B5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,6 +76,7 @@
 /* Begin PBXFileReference section */
 		C91C345821612DBA0003BD90 /* clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clear.swift; sourceTree = "<group>"; };
 		C91C345A21613A720003BD90 /* help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = help.swift; sourceTree = "<group>"; };
+		C91C481C21614C920003BD90 /* python27.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python27.zip; sourceTree = "<group>"; };
 		C9806BC12160467E00F870B5 /* LibTerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibTerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9806BC42160467E00F870B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9806BC62160467E00F870B5 /* TerminalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TerminalViewController.swift; path = "../New Group/TerminalViewController.swift"; sourceTree = "<group>"; };
@@ -195,6 +208,7 @@
 				C9806BD02160468200F870B5 /* Info.plist */,
 				C9806D0A21610B5300F870B5 /* commandDictionary.plist */,
 				C9806D0B21610B5300F870B5 /* extraCommandsDictionary.plist */,
+				C91C481C21614C920003BD90 /* python27.zip */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -228,6 +242,7 @@
 				C9806BBE2160467E00F870B5 /* Frameworks */,
 				C9806BBF2160467E00F870B5 /* Resources */,
 				C9806D0121604A1500F870B5 /* Embed Frameworks */,
+				C91C481A2161491B0003BD90 /* Copy Python Home */,
 			);
 			buildRules = (
 			);

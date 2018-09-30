@@ -11,7 +11,7 @@ import Foundation
 /// The `clear` command.
 func clearMain(_ argc: Int, argv: [String], shell: LibShell) -> Int32 {
     DispatchQueue.main.sync {
-        shell.io.terminal?.terminalTextView.text = ""
+        shell.io?.terminal?.terminalTextView.text = ""
     }
     return 0
 }

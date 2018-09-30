@@ -55,6 +55,9 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
         
+        navigationController?.navigationBar.shadowImage = UIImage()
+        edgesForExtendedLayout = []
+        
         terminalTextView.keyboardAppearance = .dark
         terminalTextView.autocorrectionType = .no
         terminalTextView.smartQuotesType = .no
@@ -62,7 +65,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
         terminalTextView.autocapitalizationType = .none
         terminalTextView.delegate = self
         
-        shell.io.terminal = self
+        shell.io = IO(terminal: self)
         shell.input()
     }
     
@@ -118,7 +121,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
                 
                 if !isAskingForInput, let data = self.prompt.data(using: .utf8) {
                     textView.text += "\n"
-                    shell.io.inputPipe.fileHandleForWriting.write(data)
+                    shell.io?.inputPipe.fileHandleForWriting.write(data)
                     self.prompt = ""
                     return false
                 }

@@ -21,7 +21,7 @@ class LibShell {
     }
     
     /// The IO object for reading output and writting input.
-    let io = IO()
+    var io: IO?
     
     /// `true` if a command is actually running on this shell.
     var isCommandRunning = false
@@ -32,7 +32,7 @@ class LibShell {
     /// Writes the prompt to the terminal.
     func input() {
         DispatchQueue.main.async {
-            self.io.terminal?.input(prompt: "\(UIDevice.current.name) $ ")
+            self.io?.terminal?.input(prompt: "\(UIDevice.current.name) $ ")
         }
     }
     
@@ -43,8 +43,10 @@ class LibShell {
     ///
     /// - Returns: The exit code.
     @discardableResult func run(command: String) -> Int32 {
-        ios_switchSession(io.ios_stdout)
-        ios_setStreams(io.ios_stdin, io.ios_stdout, io.ios_stderr)
+        if let io = io {
+            ios_switchSession(io.ios_stdout)
+            ios_setStreams(io.ios_stdin, io.ios_stdout, io.ios_stderr)
+        }
         
         thread_stderr = nil
         thread_stdout = nil
@@ -121,9 +123,11 @@ class LibShell {
         
         isCommandRunning = false
         
-        fflush(io.ios_stderr)
-        fflush(io.ios_stdout)
-                        
+        if let io = io {
+            fflush(io.ios_stderr)
+            fflush(io.ios_stdout)
+        }
+        
         return returnCode
     }
 }
