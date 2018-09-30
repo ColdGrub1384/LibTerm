@@ -43,7 +43,6 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
     func input(prompt: String) {
         title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
         terminalTextView.text += prompt
-        output += prompt
         textViewDidChange(terminalTextView)
         isAskingForInput = true
     }
@@ -125,7 +124,6 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
                 }
                 
                 self.prompt = String(self.prompt.dropLast())
-                output += self.prompt
                 textView.text += "\n"
                 textViewDidChange(textView)
                 isAskingForInput = false
