@@ -58,9 +58,9 @@ class LibShell {
             return 0
         }
         
-        if components == ["python"], let data = "python: Python REPL is not supported by LibTerm. Download Pyto on the App Store for having the full Python 3.6. You can still running Python 2.7 scripts.\n".data(using: .utf8) {
-            io?.outputPipe.fileHandleForWriting.write(data)
-            return 1
+        if components == ["python"] {
+            ios_system("python -c 'import code; code.interact()'")
+            return 0
         } else if components == ["lua"], let data = "lua: Lua REPL is not supported by LibTerm. You can still running scripts.\n".data(using: .utf8) {
             io?.outputPipe.fileHandleForWriting.write(data)
             return 1
