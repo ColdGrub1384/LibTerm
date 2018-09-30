@@ -9,6 +9,9 @@
 import UIKit
 import ios_system
 
+/// Type for a builtin command. A function with argc, argv and the shell running it.
+typealias Command = ((Int, [String], LibShell) -> Int32)
+
 /// The shell for executing commands.
 class LibShell {
     
@@ -22,6 +25,9 @@ class LibShell {
     
     /// `true` if a command is actually running on this shell.
     var isCommandRunning = false
+    
+    /// Builtin commands per name and functions.
+    let builtins: [String:Command] = ["clear" : clearMain, "help" : helpMain]
     
     /// Writes the prompt to the terminal.
     func input() {
@@ -45,7 +51,73 @@ class LibShell {
                 
         isCommandRunning = true
         
-        let returnCode = ios_system(command.cValue)
+        let components = command.components(separatedBy: .whitespaces)
+        guard components.count > 0 else {
+            return 0
+        }
+        
+        var returnCode: Int32
+        if builtins.keys.contains(components[0]) {
+            
+            // Separate in to command and arguments
+            
+            let program = components[0]
+            let args = Array(components[1..<components.endIndex])
+            
+            var parsedArgs = [String]()
+            
+            var currentArg = ""
+            
+            for arg in args {
+                
+                if arg.hasPrefix("\"") {
+                    
+                    if currentArg.isEmpty {
+                        
+                        currentArg = arg
+                        currentArg.removeFirst()
+                        
+                    } else {
+                        
+                        currentArg.append(" " + arg)
+                        
+                    }
+                    
+                } else if arg.hasSuffix("\"") {
+                    
+                    if currentArg.isEmpty {
+                        
+                        currentArg.append(arg)
+                        
+                    } else {
+                        
+                        currentArg.append(" " + arg)
+                        currentArg.removeLast()
+                        parsedArgs.append(currentArg)
+                        currentArg = ""
+                        
+                    }
+                    
+                } else {
+                    
+                    if currentArg.isEmpty {
+                        parsedArgs.append(arg)
+                    } else {
+                        currentArg.append(" " + arg)
+                    }
+                    
+                }
+                
+            }
+            
+            if !currentArg.isEmpty {
+                parsedArgs.append(currentArg)
+            }
+            
+            returnCode = builtins[program]?(args.count+1, [command]+args, self) ?? 1
+        } else {
+            returnCode = ios_system(command.cValue)
+        }
         
         isCommandRunning = false
         

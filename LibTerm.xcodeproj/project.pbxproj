@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C91C345921612DBA0003BD90 /* clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345821612DBA0003BD90 /* clear.swift */; };
+		C91C345B21613A720003BD90 /* help.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345A21613A720003BD90 /* help.swift */; };
 		C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC42160467E00F870B5 /* AppDelegate.swift */; };
 		C9806BC72160467E00F870B5 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC62160467E00F870B5 /* TerminalViewController.swift */; };
 		C9806BCA2160467E00F870B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9806BC82160467E00F870B5 /* Main.storyboard */; };
@@ -60,6 +62,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C91C345821612DBA0003BD90 /* clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clear.swift; sourceTree = "<group>"; };
+		C91C345A21613A720003BD90 /* help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = help.swift; sourceTree = "<group>"; };
 		C9806BC12160467E00F870B5 /* LibTerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibTerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9806BC42160467E00F870B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9806BC62160467E00F870B5 /* TerminalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TerminalViewController.swift; path = "../New Group/TerminalViewController.swift"; sourceTree = "<group>"; };
@@ -107,6 +111,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C91C345721612DA20003BD90 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				C91C345821612DBA0003BD90 /* clear.swift */,
+				C91C345A21613A720003BD90 /* help.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
 		C9806BB82160467E00F870B5 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +145,7 @@
 				C9806D0221604A3900F870B5 /* LibShell.swift */,
 				C9806D1121612B8D00F870B5 /* View controllers */,
 				C9806D1221612BA800F870B5 /* Helpers */,
+				C91C345721612DA20003BD90 /* Commands */,
 				C9806D1021612B7A00F870B5 /* Resources */,
 			);
 			path = LibTerm;
@@ -279,9 +293,11 @@
 			files = (
 				C9806BC72160467E00F870B5 /* TerminalViewController.swift in Sources */,
 				C9806D0F21611EA100F870B5 /* Keys.swift in Sources */,
+				C91C345921612DBA0003BD90 /* clear.swift in Sources */,
 				C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */,
 				C9806D0721604B2500F870B5 /* String.swift in Sources */,
 				C9806D0321604A3900F870B5 /* LibShell.swift in Sources */,
+				C91C345B21613A720003BD90 /* help.swift in Sources */,
 				C9806D0521604AE700F870B5 /* IO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
