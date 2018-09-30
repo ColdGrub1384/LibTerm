@@ -1,0 +1,5 @@
+*.xcuserstate
+xcschememanagement.plist
+.DS_Store
+
+ios_system

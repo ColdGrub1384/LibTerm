@@ -1,6 +1,0 @@
-framework module lua_ios {
-  umbrella header "lua_ios.h"
-
-  export *
-  module * { export * }
-}
