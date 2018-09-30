@@ -16,27 +16,10 @@
                     <view key="view" contentMode="scaleToFill" id="ckE-4m-39g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dFx-2r-5bb">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="textColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" red="0.124133032" green="0.12536207190000001" blue="0.12536207190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="dFx-2r-5bb" firstAttribute="leading" secondItem="ckE-4m-39g" secondAttribute="leading" id="96f-an-ivb"/>
-                            <constraint firstAttribute="trailing" secondItem="dFx-2r-5bb" secondAttribute="trailing" id="9Nq-ft-PvE"/>
-                            <constraint firstItem="dFx-2r-5bb" firstAttribute="top" secondItem="FvK-bC-7sL" secondAttribute="top" id="URN-Tz-aJA"/>
-                            <constraint firstItem="dFx-2r-5bb" firstAttribute="bottom" secondItem="FvK-bC-7sL" secondAttribute="bottom" id="buA-t6-gO8"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FvK-bC-7sL"/>
                     </view>
                     <navigationItem key="navigationItem" id="9z3-Wp-Biq"/>
-                    <connections>
-                        <outlet property="terminalTextView" destination="dFx-2r-5bb" id="g8N-eV-5rI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qOW-3Y-tNi" sceneMemberID="firstResponder"/>
             </objects>
