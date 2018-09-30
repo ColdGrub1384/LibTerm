@@ -1,0 +1,6 @@
+framework module Python_ios {
+  umbrella header "Python_ios.h"
+
+  export *
+  module * { export * }
+}
