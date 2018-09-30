@@ -16,10 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Python
         putenv("PYTHONHOME=\(Bundle.main.bundlePath)".cValue)
         putenv("PYTHONPATH=\(Bundle.main.bundlePath)/site-packages".cValue)
         putenv("PYTHONOPTIMIZE=".cValue)
         putenv("PYTHONDONTWRITEBYTECODE=1".cValue)
+        
+        // Home
+        let docs = ("~/Documents" as NSString).expandingTildeInPath
+        putenv("SSH_HOME=\(docs)".cValue)
+        putenv("DIG_HOME=\(docs)".cValue)
+        putenv("CURL_HOME=\(docs)".cValue)
         
         window?.accessibilityIgnoresInvertColors = true
         
