@@ -36,6 +36,7 @@
 		C9DE220C2162E12A007ED7A0 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */; };
 		C9DE222B2162E4E5007ED7A0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222A2162E4E5007ED7A0 /* Parser.swift */; };
 		C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222C2162E621007ED7A0 /* ANSITextState.swift */; };
+		C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -115,6 +116,7 @@
 		C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 		C9DE222A2162E4E5007ED7A0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		C9DE222C2162E621007ED7A0 /* ANSITextState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSITextState.swift; sourceTree = "<group>"; };
+		C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				C9806D1121612B8D00F870B5 /* View controllers */,
 				C9806D1221612BA800F870B5 /* Helpers */,
 				C91C345721612DA20003BD90 /* Commands */,
+				C9F0F0012164329E00CAC2A0 /* Views */,
 				C9806D1021612B7A00F870B5 /* Resources */,
 			);
 			path = LibTerm;
@@ -235,6 +238,14 @@
 				C9DE222C2162E621007ED7A0 /* ANSITextState.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C9F0F0012164329E00CAC2A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +330,7 @@
 				C9806D0721604B2500F870B5 /* String.swift in Sources */,
 				C9DE222B2162E4E5007ED7A0 /* Parser.swift in Sources */,
 				C9806D0321604A3900F870B5 /* LibShell.swift in Sources */,
+				C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */,
 				C91C345B21613A720003BD90 /* help.swift in Sources */,
 				C9806D0521604AE700F870B5 /* IO.swift in Sources */,
 				C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */,
