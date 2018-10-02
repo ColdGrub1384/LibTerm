@@ -84,6 +84,11 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
         terminalTextView.becomeFirstResponder()
     }
     
+    override func viewDidLayoutSubviews() {
+        putenv("COLUMNS=\(Int(terminalTextView.frame.width/14))".cValue)
+        putenv("ROWS=\(Int(terminalTextView.frame.height/14))".cValue)
+    }
+    
     // MARK: - Keyboard
 
     @objc func keyboardWillShow(_ notification: Notification) {
