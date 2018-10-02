@@ -65,7 +65,6 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
         
-        navigationController?.navigationBar.shadowImage = UIImage()
         edgesForExtendedLayout = []
         
         terminalTextView.keyboardAppearance = .dark
