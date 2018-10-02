@@ -28,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         putenv("DIG_HOME=\(docs)".cValue)
         putenv("CURL_HOME=\(docs)".cValue)
         
+        putenv("TERM=xterm".cValue)
+        putenv("CLICOLOR=1".cValue)
+        putenv("LSCOLORS=ExFxBxDxCxegedabagacad".cValue)
+        
         window?.accessibilityIgnoresInvertColors = true
         
         return true

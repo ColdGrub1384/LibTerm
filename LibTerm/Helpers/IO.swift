@@ -9,29 +9,26 @@
 import UIKit
 
 /// A class for managing input and output.
-@objc class IO: NSObject {
+class IO: ParserDelegate {
     
     /// Initialize for writting to the given terminal.
     ///
     /// - Parameters:
     ///     - terminal: The terminal that receives output.
     init(terminal: TerminalViewController) {
-        super.init()
         self.terminal = terminal
         ios_stdout = fdopen(outputPipe.fileHandleForWriting.fileDescriptor, "w")
         ios_stderr = ios_stdout
         ios_stdin = fdopen(inputPipe.fileHandleForReading.fileDescriptor, "r")
         outputPipe.fileHandleForReading.readabilityHandler = { handle in
-            if let str = String(data: handle.availableData, encoding: .utf8) {
-                DispatchQueue.main.async {
-                    self.terminal?.terminalTextView.text += str
-                    self.terminal?.textViewDidChange(self.terminal!.terminalTextView)
-                }
-            }
+            self.parser.delegate = self
+            self.parser.parse(handle.availableData)
         }
         setbuf(ios_stdout!, nil)
         setbuf(ios_stderr!, nil)
     }
+    
+    private let parser = Parser()
     
     /// The stdin file.
     var ios_stdin: UnsafeMutablePointer<FILE>?
@@ -60,4 +57,20 @@ import UIKit
             inputPipe.fileHandleForWriting.write(data)
         }
     }
+    
+    // MARK: - Parser delegate
+    
+    func parser(_ parser: Parser, didReceiveString string: NSAttributedString) {
+        DispatchQueue.main.async {
+            guard let term = self.terminal else {
+                return
+            }
+            
+            let attributedString = NSMutableAttributedString(attributedString: term.terminalTextView.attributedText ?? NSAttributedString())
+            attributedString.append(string)
+            term.terminalTextView.attributedText = attributedString
+        }
+    }
+    
+    func parserDidEndTransmission(_ parser: Parser) {}
 }

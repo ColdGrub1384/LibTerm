@@ -42,9 +42,19 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
     ///     - prompt: The prompt.
     func input(prompt: String) {
         title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
-        terminalTextView.text += prompt
+        tprint(prompt)
         textViewDidChange(terminalTextView)
         isAskingForInput = true
+    }
+    
+    /// Prints the given text.
+    ///
+    /// - Parameters:
+    ///     - text: Text to print.
+    func tprint(_ text: String) {
+        let newAttrs = NSMutableAttributedString(attributedString: terminalTextView.attributedText ?? NSAttributedString())
+        newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: 14) ?? UIFont.systemFont(ofSize: 14), .foregroundColor: ForegroundColor]))
+        terminalTextView.attributedText = newAttrs
     }
     
     // MARK: - View controller
@@ -120,14 +130,14 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
             if text == "\n" {
                 
                 if !isAskingForInput, let data = self.prompt.data(using: .utf8) {
-                    textView.text += "\n"
+                    tprint("\n")
                     shell.io?.inputPipe.fileHandleForWriting.write(data)
                     self.prompt = ""
                     return false
                 }
                 
                 self.prompt = String(self.prompt.dropLast())
-                textView.text += "\n"
+                tprint("\n")
                 textViewDidChange(textView)
                 isAskingForInput = false
                 isWrittingToStdin = false
