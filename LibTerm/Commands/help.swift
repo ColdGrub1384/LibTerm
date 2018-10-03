@@ -11,12 +11,7 @@ import ios_system
 
 /// All available commands.
 var Commands: [String] {
-    var commands = [String]()
-    for command in (commandsAsArray() as? [String]) ?? [] {
-        if !command.hasSuffix("tex") && command != "textluac" {
-            commands.append(command)
-        }
-    }
+    var commands = commandsAsArray() as? [String] ?? []
     commands.append("clear")
     commands.append("help")
     return commands

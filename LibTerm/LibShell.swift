@@ -60,8 +60,6 @@ class LibShell {
             ios_setStreams(io.ios_stdin, io.ios_stdout, io.ios_stderr)
         }
         
-        history.append(command)
-        
         thread_stderr = nil
         thread_stdout = nil
                 
@@ -148,6 +146,15 @@ class LibShell {
         if let io = io {
             fflush(io.ios_stderr)
             fflush(io.ios_stdout)
+        }
+        
+        if returnCode == 0 {
+            if !history.contains(command) {
+                history.append(command)
+            } else if let i = history.firstIndex(of: command) {
+                history.remove(at: i)
+                history.append(command)
+            }
         }
         
         return returnCode

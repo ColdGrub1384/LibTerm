@@ -8,6 +8,7 @@
 
 import UIKit
 import InputAssistant
+import ios_system
 
 /// The terminal interacting with the shell.
 class TerminalViewController: UIViewController, UITextViewDelegate, InputAssistantViewDelegate, InputAssistantViewDataSource {
@@ -53,6 +54,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         tprint(prompt)
         textViewDidChange(terminalTextView)
         isAskingForInput = true
+        assistant.reloadData()
     }
     
     /// Prints the given text.
@@ -185,9 +187,45 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     
     // MARK: - Input assistant
     
+    private enum CompletionType {
+        case none
+        case history
+        case command
+        case file
+        case directory
+    }
+    
+    private var completionType: CompletionType {
+        if prompt.hasSuffix(" "), let completion = operatesOn(prompt.components(separatedBy: " ")[0]), (prompt.hasSuffix(" ") || prompt.components(separatedBy: " ").count == 2), !completion.isEmpty {
+            switch completion {
+            case "file":
+                return .file
+            case "directory":
+                return .directory
+            default:
+                return .none
+            }
+        } else if prompt.isEmpty {
+            return .history
+        } else {
+            return .command
+        }
+    }
+    
     private var commands: [String] {
-        if prompt.isEmpty {
-            var commands_ = shell.history
+        if completionType == .file, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
+            return files
+        } else if completionType == .directory, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
+            var dirs = [String]()
+            for file in files {
+                var isDir: ObjCBool = false
+                if FileManager.default.fileExists(atPath: file, isDirectory: &isDir) && isDir.boolValue {
+                    dirs.append(file)
+                }
+            }
+            return dirs
+        } else if completionType == .history {
+            var commands_ = shell.history.reversed() as [String]
             for command in Commands {
                 if !commands_.contains(command) {
                     commands_.append(command)
@@ -195,7 +233,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
             }
             return commands_
         } else {
-            var commands_ = shell.history
+            var commands_ = shell.history.reversed() as [String]
             for command in Commands {
                 if command.contains(prompt.components(separatedBy: " ")[0].lowercased()) && !commands_.contains(command) {
                     commands_.append(command)
@@ -217,7 +255,11 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     // MARK: - Input assistant view delegate
     
     func inputAssistantView(_ inputAssistantView: InputAssistantView, didSelectSuggestionAtIndex index: Int) {
-        prompt = commands[index]+" "
+        if completionType != .command && completionType != .history {
+            prompt = prompt.components(separatedBy: " ")[0]+" "+commands[index]
+        } else {
+            prompt = commands[index]+" "
+        }
         terminalTextView.text = console+prompt
     }
     
