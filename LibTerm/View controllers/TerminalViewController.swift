@@ -89,6 +89,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         
         assistant.delegate = self
         assistant.dataSource = self
+        assistant.trailingActions = [InputAssistantAction(image: TerminalViewController.downArrow, target: terminalTextView, action: #selector(terminalTextView.resignFirstResponder))]
         assistant.attach(to: terminalTextView)
     }
     
@@ -186,6 +187,23 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     }
     
     // MARK: - Input assistant
+    
+    private static var downArrow: UIImage {
+        return UIGraphicsImageRenderer(size: .init(width: 24, height: 24)).image(actions: { context in
+            
+            let path = UIBezierPath()
+            path.move(to: CGPoint(x: 1, y: 7))
+            path.addLine(to: CGPoint(x: 11, y: 17))
+            path.addLine(to: CGPoint(x: 22, y: 7))
+            
+            UIColor.white.setStroke()
+            path.lineWidth = 2
+            path.stroke()
+            
+            context.cgContext.addPath(path.cgPath)
+            
+        }).withRenderingMode(.alwaysOriginal)
+    }
     
     private enum CompletionType {
         case none
