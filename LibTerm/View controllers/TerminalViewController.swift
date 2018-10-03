@@ -202,13 +202,15 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
                 }
             }
             var i = 0
+            var newCommands = commands_
             for command in commands_ {
                 if !command.contains(prompt) {
-                    commands_.remove(at: i)
+                    newCommands.remove(at: i)
+                } else {
+                    i += 1
                 }
-                i += 1
             }
-            return commands_
+            return newCommands
         }
     }
     
