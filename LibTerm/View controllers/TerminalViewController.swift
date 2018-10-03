@@ -21,7 +21,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
    @IBOutlet weak var terminalTextView: UITextView!
     
     /// The permanent console without the actual user input.
-    var console = ""
+    var attributedConsole = NSMutableAttributedString()
     
     /// The actual user input.
     var prompt = "" {
@@ -135,8 +135,8 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     // MARK: - Text view delegate
     
     func textViewDidChange(_ textView: UITextView) {
-        if !isAskingForInput && !isWrittingToStdin {
-            console = textView.text
+        if !isAskingForInput && !isWrittingToStdin, let attrs = textView.attributedText {
+            attributedConsole = NSMutableAttributedString(attributedString: attrs)
         }
         isWrittingToStdin = false
     }
@@ -152,7 +152,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
             return false
         }
         
-        if (textView.text as NSString).replacingCharacters(in: range, with: text).count >= console.count {
+        if (textView.text as NSString).replacingCharacters(in: range, with: text).count >= attributedConsole.string.count {
             
             isWrittingToStdin = !isAskingForInput
             
@@ -290,7 +290,8 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         } else {
             prompt = commands[index]+" "
         }
-        terminalTextView.text = console+prompt
+        terminalTextView.attributedText = attributedConsole
+        tprint(prompt)
     }
     
     // MARK: - Input assistant view data source
