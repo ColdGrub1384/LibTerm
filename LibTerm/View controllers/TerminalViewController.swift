@@ -244,9 +244,9 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     
     private var commands: [String] {
         if completionType == .file, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
-            return files
+            return [".", "../"]+files
         } else if completionType == .directory, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
-            var dirs = [String]()
+            var dirs = [".", "../"]
             for file in files {
                 var isDir: ObjCBool = false
                 if FileManager.default.fileExists(atPath: file, isDirectory: &isDir) && isDir.boolValue {
