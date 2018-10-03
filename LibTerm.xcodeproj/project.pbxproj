@@ -37,7 +37,40 @@
 		C9DE222B2162E4E5007ED7A0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222A2162E4E5007ED7A0 /* Parser.swift */; };
 		C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222C2162E621007ED7A0 /* ANSITextState.swift */; };
 		C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
+		C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
+		C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C9F0F00A216437BB00CAC2A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3C2E4347201E7E6C00E4254A;
+			remoteInfo = InputAssistant;
+		};
+		C9F0F00C216437BB00CAC2A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3C2E4379201EFACD00E4254A;
+			remoteInfo = libInputAssistant;
+		};
+		C9F0F00E216437BB00CAC2A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3C2E435B201E883E00E4254A;
+			remoteInfo = "InputAssistant Sample";
+		};
+		C9F0F012216437C500CAC2A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C2E4346201E7E6C00E4254A;
+			remoteInfo = InputAssistant;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C91C481A2161491B0003BD90 /* Copy Python Home */ = {
@@ -59,6 +92,7 @@
 			files = (
 				C9806CF821604A1400F870B5 /* awk.framework in Embed Frameworks */,
 				C9806CF621604A1400F870B5 /* tar.framework in Embed Frameworks */,
+				C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */,
 				C9806CFC21604A1400F870B5 /* ssh_cmd.framework in Embed Frameworks */,
 				C9806CFA21604A1400F870B5 /* files.framework in Embed Frameworks */,
 				C9806CF221604A1400F870B5 /* libssh2.framework in Embed Frameworks */,
@@ -117,6 +151,7 @@
 		C9DE222A2162E4E5007ED7A0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		C9DE222C2162E621007ED7A0 /* ANSITextState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSITextState.swift; sourceTree = "<group>"; };
 		C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTextView.swift; sourceTree = "<group>"; };
+		C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = InputAssistant.xcodeproj; path = InputAssistant/InputAssistant.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +178,7 @@
 		C9806BB82160467E00F870B5 = {
 			isa = PBXGroup;
 			children = (
+				C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */,
 				C9806CC0216049DD00F870B5 /* ios_system */,
 				C9806BC32160467E00F870B5 /* LibTerm */,
 				C9806BC22160467E00F870B5 /* Products */,
@@ -248,6 +285,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C9F0F005216437BB00CAC2A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */,
+				C9F0F00D216437BB00CAC2A0 /* liblibInputAssistant.a */,
+				C9F0F00F216437BB00CAC2A0 /* InputAssistant Sample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +311,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C9F0F013216437C500CAC2A0 /* PBXTargetDependency */,
 			);
 			name = LibTerm;
 			productName = LibTerm;
@@ -296,12 +344,42 @@
 			mainGroup = C9806BB82160467E00F870B5;
 			productRefGroup = C9806BC22160467E00F870B5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C9F0F005216437BB00CAC2A0 /* Products */;
+					ProjectRef = C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C9806BC02160467E00F870B5 /* LibTerm */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = InputAssistant.framework;
+			remoteRef = C9F0F00A216437BB00CAC2A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F0F00D216437BB00CAC2A0 /* liblibInputAssistant.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibInputAssistant.a;
+			remoteRef = C9F0F00C216437BB00CAC2A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F0F00F216437BB00CAC2A0 /* InputAssistant Sample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "InputAssistant Sample.app";
+			remoteRef = C9F0F00E216437BB00CAC2A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C9806BBF2160467E00F870B5 /* Resources */ = {
@@ -338,6 +416,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C9F0F013216437C500CAC2A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = InputAssistant;
+			targetProxy = C9F0F012216437C500CAC2A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C9806BC82160467E00F870B5 /* Main.storyboard */ = {

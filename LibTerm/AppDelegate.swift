@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Colors
         putenv("TERM=xterm".cValue)
         putenv("CLICOLOR=1".cValue)
-        putenv("LSCOLORS=ExFxBxDxCxegedabagacad".cValue)        
+        putenv("LSCOLORS=ExFxBxDxCxegedabagacad".cValue)
         
         window?.accessibilityIgnoresInvertColors = true
         

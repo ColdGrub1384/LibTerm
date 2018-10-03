@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import InputAssistant
 
 /// The terminal interacting with the shell.
-class TerminalViewController: UIViewController, UITextViewDelegate {
+class TerminalViewController: UIViewController, UITextViewDelegate, InputAssistantViewDelegate, InputAssistantViewDataSource {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -22,7 +23,11 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
     var console = ""
     
     /// The actual user input.
-    var prompt = ""
+    var prompt = "" {
+        didSet {
+            assistant.reloadData()
+        }
+    }
     
     /// `true` if the shell is asking for input.
     var isAskingForInput = false
@@ -35,6 +40,9 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
     
     /// The thrad running the shell.
     let thread = DispatchQueue.global(qos: .userInteractive)
+    
+    /// The view for autocompletion.
+    let assistant = InputAssistantView()
     
     /// Asks the user for a command.
     ///
@@ -76,6 +84,10 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
         
         shell.io = IO(terminal: self)
         shell.input()
+        
+        assistant.delegate = self
+        assistant.dataSource = self
+        assistant.attach(to: terminalTextView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -169,6 +181,44 @@ class TerminalViewController: UIViewController, UITextViewDelegate {
         }
         
         return false
+    }
+    
+    // MARK: - Input assistant
+    
+    private var commands: [String] {
+        if prompt.isEmpty {
+            return Commands
+        } else {
+            var commands_ = [String]()
+            for command in Commands {
+                if command.contains(prompt.components(separatedBy: " ")[0].lowercased()) {
+                    commands_.append(command)
+                }
+            }
+            return commands_
+        }
+    }
+    
+    // MARK: - Input assistant view delegate
+    
+    func inputAssistantView(_ inputAssistantView: InputAssistantView, didSelectSuggestionAtIndex index: Int) {
+        prompt = commands[index]+" "
+        terminalTextView.text = console+prompt
+    }
+    
+    // MARK: - Input assistant view data source
+    
+    func textForEmptySuggestionsInInputAssistantView() -> String? {
+        return nil
+    }
+    
+    func inputAssistantView(_ inputAssistantView: InputAssistantView, nameForSuggestionAtIndex index: Int) -> String {
+        
+        return commands[index]
+    }
+    
+    func numberOfSuggestionsInInputAssistantView() -> Int {
+        return commands.count
     }
 }
 

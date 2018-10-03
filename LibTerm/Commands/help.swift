@@ -9,17 +9,30 @@
 import Foundation
 import ios_system
 
+/// All available commands.
+var Commands: [String] {
+    var commands = [String]()
+    for command in (commandsAsArray() as? [String]) ?? [] {
+        if !command.hasSuffix("tex") && command != "textluac" {
+            commands.append(command)
+        }
+    }
+    commands.append("clear")
+    commands.append("help")
+    return commands
+}
+
 /// The `help` command.
 func helpMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     
     var helpText = ""
-    for command in commandsAsArray() {
-        if let commandName = command as? String {
+    for commandName in Commands {
+        if commandName != Commands.last {
             helpText += "\(commandName), "
+        } else {
+            helpText += "\(commandName)\n"
         }
     }
-    helpText += "clear, help\n"
-    
     guard let data = helpText.data(using: .utf8) else {
         return 1
     }
