@@ -9,10 +9,10 @@
 import UIKit
 
 /// Terminal's foreground color.
-let ForegroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+let ForegroundColor = UIColor(named: "Foreground Color")!
 
 /// Terminal's background color.
-let BackgroundColor = #colorLiteral(red: 0.124133032, green: 0.1253620719, blue: 0.1253620719, alpha: 1)
+let BackgroundColor = UIColor(named: "Background Color")!
 
 // 0-  7:  standard colors (as in ESC [ 30–37 m)
 // 8- 15:  high intensity colors (as in ESC [ 90–97 m)

@@ -11,7 +11,7 @@ import InputAssistant
 import ios_system
 
 /// The terminal interacting with the shell.
-class TerminalViewController: UIViewController, UITextViewDelegate, InputAssistantViewDelegate, InputAssistantViewDataSource {
+class TerminalViewController: UIViewController, UITextViewDelegate, InputAssistantViewDelegate, InputAssistantViewDataSource, UIDocumentPickerDelegate {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -67,6 +67,14 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         terminalTextView.attributedText = newAttrs
     }
     
+    /// Select a new working directory.
+    @IBAction func cd(_ sender: Any) {
+        let vc = UIDocumentPickerViewController(documentTypes: ["public.folder"], in: .open)
+        vc.delegate = self
+        vc.allowsMultipleSelection = true
+        present(vc, animated: true, completion: nil)
+    }
+    
     // MARK: - View controller
     
     override func viewDidLoad() {
@@ -77,12 +85,16 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         
         edgesForExtendedLayout = []
         
+        terminalTextView.textColor = ForegroundColor
         terminalTextView.keyboardAppearance = .dark
         terminalTextView.autocorrectionType = .no
         terminalTextView.smartQuotesType = .no
         terminalTextView.smartDashesType = .no
         terminalTextView.autocapitalizationType = .none
         terminalTextView.delegate = self
+        
+        view.tintColor = ForegroundColor
+        view.backgroundColor = BackgroundColor
         
         shell.io = IO(terminal: self)
         shell.input()
@@ -294,6 +306,26 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     
     func numberOfSuggestionsInInputAssistantView() -> Int {
         return commands.count
+    }
+    
+    // MARK: - Document picker delegate
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        
+        if urls.count != 1 {
+            let alert = UIAlertController(title: "Select a directory", message: "Please select 1 new working directory. \(urls.count) directories were picked.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                self.present(controller, animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
+        if urls[0].startAccessingSecurityScopedResource() && FileManager.default.changeCurrentDirectoryPath(urls[0].path) {
+            title = urls[0].lastPathComponent
+        }
     }
 }
 
