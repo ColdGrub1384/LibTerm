@@ -1,3 +1,6 @@
 [submodule "InputAssistant"]
 	path = InputAssistant
 	url = https://github.com/IMcD23/InputAssistant.git
+[submodule "TabView"]
+	path = TabView
+	url = https://github.com/IMcD23/TabView.git

@@ -18,7 +18,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     }
     
     /// The Text view displaying content.
-    @IBOutlet weak var terminalTextView: UITextView!
+   @IBOutlet weak var terminalTextView: UITextView!
     
     /// The permanent console without the actual user input.
     var console = ""
@@ -82,17 +82,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
-        
-        edgesForExtendedLayout = []
-        
-        terminalTextView.textColor = ForegroundColor
-        terminalTextView.keyboardAppearance = .dark
-        terminalTextView.autocorrectionType = .no
-        terminalTextView.smartQuotesType = .no
-        terminalTextView.smartDashesType = .no
-        terminalTextView.autocapitalizationType = .none
-        terminalTextView.delegate = self
-        
+                
         view.tintColor = ForegroundColor
         view.backgroundColor = BackgroundColor
         
@@ -103,6 +93,16 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         assistant.dataSource = self
         assistant.trailingActions = [InputAssistantAction(image: TerminalViewController.downArrow, target: terminalTextView, action: #selector(terminalTextView.resignFirstResponder))]
         assistant.attach(to: terminalTextView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let io = shell.io {
+            ios_switchSession(io.ios_stdout)
+            ios_setStreams(io.ios_stdin, io.ios_stdout, io.ios_stderr)
+            title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

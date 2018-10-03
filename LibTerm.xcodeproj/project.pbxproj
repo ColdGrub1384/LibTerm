@@ -10,8 +10,8 @@
 		C91C345921612DBA0003BD90 /* clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345821612DBA0003BD90 /* clear.swift */; };
 		C91C345B21613A720003BD90 /* help.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345A21613A720003BD90 /* help.swift */; };
 		C91C481E21614CA00003BD90 /* python27.zip in Copy Python Home */ = {isa = PBXBuildFile; fileRef = C91C481C21614C920003BD90 /* python27.zip */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C9580E8C2165553500A43CEC /* Terminal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9580E8B2165553500A43CEC /* Terminal.storyboard */; };
 		C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC42160467E00F870B5 /* AppDelegate.swift */; };
-		C9806BCA2160467E00F870B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9806BC82160467E00F870B5 /* Main.storyboard */; };
 		C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
 		C9806BCF2160468200F870B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCD2160468200F870B5 /* LaunchScreen.storyboard */; };
 		C9806CE821604A1400F870B5 /* shell.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC2216049DD00F870B5 /* shell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -39,6 +39,9 @@
 		C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
 		C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
 		C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9F0F02521654DC700CAC2A0 /* TabView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F02021654DBD00CAC2A0 /* TabView.framework */; };
+		C9F0F02621654DC700CAC2A0 /* TabView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F02021654DBD00CAC2A0 /* TabView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9F0F02A21654F2B00CAC2A0 /* TerminalTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F02921654F2B00CAC2A0 /* TerminalTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,34 @@
 			remoteGlobalIDString = 3C2E4346201E7E6C00E4254A;
 			remoteInfo = InputAssistant;
 		};
+		C9F0F01F21654DBD00CAC2A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3C17680920257F630031FEA9;
+			remoteInfo = TabView;
+		};
+		C9F0F02121654DBD00CAC2A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3C905FB12025BEAF0084BA63;
+			remoteInfo = libTabView;
+		};
+		C9F0F02321654DBD00CAC2A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3C17681920257F910031FEA9;
+			remoteInfo = "TabView Sample";
+		};
+		C9F0F02721654DC700CAC2A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C17680820257F630031FEA9;
+			remoteInfo = TabView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,6 +125,7 @@
 				C9806CF621604A1400F870B5 /* tar.framework in Embed Frameworks */,
 				C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */,
 				C9806CFC21604A1400F870B5 /* ssh_cmd.framework in Embed Frameworks */,
+				C9F0F02621654DC700CAC2A0 /* TabView.framework in Embed Frameworks */,
 				C9806CFA21604A1400F870B5 /* files.framework in Embed Frameworks */,
 				C9806CF221604A1400F870B5 /* libssh2.framework in Embed Frameworks */,
 				C9806D0021604A1400F870B5 /* lua_ios.framework in Embed Frameworks */,
@@ -114,9 +146,9 @@
 		C91C345821612DBA0003BD90 /* clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clear.swift; sourceTree = "<group>"; };
 		C91C345A21613A720003BD90 /* help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = help.swift; sourceTree = "<group>"; };
 		C91C481C21614C920003BD90 /* python27.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python27.zip; sourceTree = "<group>"; };
+		C9580E8B2165553500A43CEC /* Terminal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Terminal.storyboard; sourceTree = "<group>"; };
 		C9806BC12160467E00F870B5 /* LibTerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibTerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9806BC42160467E00F870B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9806BC92160467E00F870B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9806BCB2160468200F870B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9806BCE2160468200F870B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9806BD02160468200F870B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -152,6 +184,8 @@
 		C9DE222C2162E621007ED7A0 /* ANSITextState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSITextState.swift; sourceTree = "<group>"; };
 		C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTextView.swift; sourceTree = "<group>"; };
 		C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = InputAssistant.xcodeproj; path = InputAssistant/InputAssistant.xcodeproj; sourceTree = "<group>"; };
+		C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TabView.xcodeproj; path = TabView/TabView.xcodeproj; sourceTree = "<group>"; };
+		C9F0F02921654F2B00CAC2A0 /* TerminalTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */,
+				C9F0F02521654DC700CAC2A0 /* TabView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +213,7 @@
 		C9806BB82160467E00F870B5 = {
 			isa = PBXGroup;
 			children = (
+				C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */,
 				C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */,
 				C9806CC0216049DD00F870B5 /* ios_system */,
 				C9806BC32160467E00F870B5 /* LibTerm */,
@@ -246,7 +282,7 @@
 		C9806D1021612B7A00F870B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C9806BC82160467E00F870B5 /* Main.storyboard */,
+				C9580E8B2165553500A43CEC /* Terminal.storyboard */,
 				C9806BCB2160468200F870B5 /* Assets.xcassets */,
 				C9806BCD2160468200F870B5 /* LaunchScreen.storyboard */,
 				C9806BD02160468200F870B5 /* Info.plist */,
@@ -261,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */,
+				C9F0F02921654F2B00CAC2A0 /* TerminalTabViewController.swift */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -295,6 +332,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C9F0F01821654DBD00CAC2A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9F0F02021654DBD00CAC2A0 /* TabView.framework */,
+				C9F0F02221654DBD00CAC2A0 /* liblibTabView.a */,
+				C9F0F02421654DBD00CAC2A0 /* TabView Sample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,6 +359,7 @@
 			);
 			dependencies = (
 				C9F0F013216437C500CAC2A0 /* PBXTargetDependency */,
+				C9F0F02821654DC700CAC2A0 /* PBXTargetDependency */,
 			);
 			name = LibTerm;
 			productName = LibTerm;
@@ -349,6 +397,10 @@
 					ProductGroup = C9F0F005216437BB00CAC2A0 /* Products */;
 					ProjectRef = C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */;
 				},
+				{
+					ProductGroup = C9F0F01821654DBD00CAC2A0 /* Products */;
+					ProjectRef = C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -379,6 +431,27 @@
 			remoteRef = C9F0F00E216437BB00CAC2A0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C9F0F02021654DBD00CAC2A0 /* TabView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TabView.framework;
+			remoteRef = C9F0F01F21654DBD00CAC2A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F0F02221654DBD00CAC2A0 /* liblibTabView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibTabView.a;
+			remoteRef = C9F0F02121654DBD00CAC2A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F0F02421654DBD00CAC2A0 /* TabView Sample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "TabView Sample.app";
+			remoteRef = C9F0F02321654DBD00CAC2A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -390,7 +463,7 @@
 				C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */,
 				C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */,
 				C9806D0D21610B5400F870B5 /* extraCommandsDictionary.plist in Resources */,
-				C9806BCA2160467E00F870B5 /* Main.storyboard in Resources */,
+				C9580E8C2165553500A43CEC /* Terminal.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F0F02A21654F2B00CAC2A0 /* TerminalTabViewController.swift in Sources */,
 				C9806D0F21611EA100F870B5 /* Keys.swift in Sources */,
 				C91C345921612DBA0003BD90 /* clear.swift in Sources */,
 				C9DE220C2162E12A007ED7A0 /* TerminalViewController.swift in Sources */,
@@ -423,17 +497,14 @@
 			name = InputAssistant;
 			targetProxy = C9F0F012216437C500CAC2A0 /* PBXContainerItemProxy */;
 		};
+		C9F0F02821654DC700CAC2A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TabView;
+			targetProxy = C9F0F02721654DC700CAC2A0 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C9806BC82160467E00F870B5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C9806BC92160467E00F870B5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C9806BCD2160468200F870B5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

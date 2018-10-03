@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QYM-aw-lxz">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Terminal View Controller-->
+        <scene sceneID="ryf-LO-Cyo">
+            <objects>
+                <viewController id="QYM-aw-lxz" customClass="TerminalViewController" customModule="LibTerm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xF9-pG-07x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tvG-Wq-6Km" customClass="TerminalTextView" customModule="LibTerm" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="textColor" name="Foreground Color"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="QYM-aw-lxz" id="cDF-lB-PdJ"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" name="Background Color"/>
+                        <constraints>
+                            <constraint firstItem="tvG-Wq-6Km" firstAttribute="height" secondItem="iaK-nD-mdA" secondAttribute="height" id="TJq-uW-1fa"/>
+                            <constraint firstItem="tvG-Wq-6Km" firstAttribute="centerY" secondItem="iaK-nD-mdA" secondAttribute="centerY" id="Zwv-II-dqz"/>
+                            <constraint firstItem="iaK-nD-mdA" firstAttribute="trailing" secondItem="tvG-Wq-6Km" secondAttribute="trailing" id="dAK-Uh-cUa"/>
+                            <constraint firstItem="tvG-Wq-6Km" firstAttribute="centerX" secondItem="iaK-nD-mdA" secondAttribute="centerX" id="ouX-dS-Ltv"/>
+                            <constraint firstItem="tvG-Wq-6Km" firstAttribute="width" secondItem="iaK-nD-mdA" secondAttribute="width" id="vDW-R5-UMk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iaK-nD-mdA"/>
+                    </view>
+                    <connections>
+                        <outlet property="terminalTextView" destination="tvG-Wq-6Km" id="XRY-Su-fiO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBm-PU-FJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="146.40000000000001" y="104.1871921182266"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Background Color">
+            <color red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Foreground Color">
+            <color red="0.0" green="0.9137254901960784" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

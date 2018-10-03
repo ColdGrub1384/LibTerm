@@ -18,6 +18,7 @@ class LibShell {
     /// Initialize the shell.
     init() {
         ios_setDirectoryURL(FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0])
+        initializeEnvironment()
     }
     
     /// The commands history.

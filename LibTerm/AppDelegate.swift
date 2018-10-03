@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import TabView
+import ios_system
 
 /// The app's delegate.
 @UIApplicationMain
@@ -16,22 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = TerminalTabViewController(theme: TabViewThemeDark())
+        window?.makeKeyAndVisible()
+        
+        initializeEnvironment()
+        
         // Python
         putenv("PYTHONHOME=\(Bundle.main.bundlePath)".cValue)
         putenv("PYTHONPATH=\(Bundle.main.bundlePath)/site-packages".cValue)
         putenv("PYTHONOPTIMIZE=".cValue)
         putenv("PYTHONDONTWRITEBYTECODE=1".cValue)
         
-        // Home
-        let docs = ("~/Documents" as NSString).expandingTildeInPath
-        putenv("SSH_HOME=\(docs)".cValue)
-        putenv("DIG_HOME=\(docs)".cValue)
-        putenv("CURL_HOME=\(docs)".cValue)
-        
         // Colors
-        putenv("TERM=xterm".cValue)
-        putenv("CLICOLOR=1".cValue)
-        putenv("LSCOLORS=ExFxBxDxCxegedabagacad".cValue)
+        putenv("TERM=ansi".cValue)
         
         window?.accessibilityIgnoresInvertColors = true
         
