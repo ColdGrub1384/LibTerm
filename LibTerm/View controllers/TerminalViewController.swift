@@ -187,13 +187,26 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     
     private var commands: [String] {
         if prompt.isEmpty {
-            return Commands
-        } else {
-            var commands_ = [String]()
+            var commands_ = shell.history
             for command in Commands {
-                if command.contains(prompt.components(separatedBy: " ")[0].lowercased()) {
+                if !commands_.contains(command) {
                     commands_.append(command)
                 }
+            }
+            return commands_
+        } else {
+            var commands_ = shell.history
+            for command in Commands {
+                if command.contains(prompt.components(separatedBy: " ")[0].lowercased()) && !commands_.contains(command) {
+                    commands_.append(command)
+                }
+            }
+            var i = 0
+            for command in commands_ {
+                if !command.contains(prompt) {
+                    commands_.remove(at: i)
+                }
+                i += 1
             }
             return commands_
         }

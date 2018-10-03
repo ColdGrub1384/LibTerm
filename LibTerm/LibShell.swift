@@ -20,6 +20,18 @@ class LibShell {
         ios_setDirectoryURL(FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0])
     }
     
+    /// The commands history.
+    var history: [String] {
+        get {
+            return UserDefaults.standard.stringArray(forKey: "history") ?? []
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "history")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
     /// The IO object for reading output and writting input.
     var io: IO?
     
@@ -47,6 +59,8 @@ class LibShell {
             ios_switchSession(io.ios_stdout)
             ios_setStreams(io.ios_stdin, io.ios_stdout, io.ios_stderr)
         }
+        
+        history.append(command)
         
         thread_stderr = nil
         thread_stdout = nil
