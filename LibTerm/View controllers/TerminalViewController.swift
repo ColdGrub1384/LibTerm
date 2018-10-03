@@ -196,7 +196,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     }
     
     private var completionType: CompletionType {
-        if prompt.hasSuffix(" "), let completion = operatesOn(prompt.components(separatedBy: " ")[0]), (prompt.hasSuffix(" ") || prompt.components(separatedBy: " ").count == 2), !completion.isEmpty {
+        if let completion = operatesOn(prompt.components(separatedBy: " ")[0]), (prompt.hasSuffix(" ") || prompt.components(separatedBy: " ").count == 2), !completion.isEmpty, prompt.components(separatedBy: " ").count < 3 {
             switch completion {
             case "file":
                 return .file
