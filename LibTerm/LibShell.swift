@@ -40,7 +40,7 @@ class LibShell {
     var isCommandRunning = false
     
     /// Builtin commands per name and functions.
-    let builtins: [String:Command] = ["clear" : clearMain, "help" : helpMain]
+    let builtins: [String:Command] = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain]
     
     /// Writes the prompt to the terminal.
     func input() {
@@ -137,17 +137,14 @@ class LibShell {
                 parsedArgs.append(currentArg)
             }
             
-            returnCode = builtins[program]?(args.count+1, [command]+args, self) ?? 1
+            parsedArgs.insert(command.components(separatedBy: .whitespaces)[0], at: 0)
+            
+            returnCode = builtins[program]?(parsedArgs.count, parsedArgs, self) ?? 1
         } else {
             returnCode = ios_system(command.cValue)
         }
         
         isCommandRunning = false
-        
-        if let io = io {
-            fflush(io.ios_stderr)
-            fflush(io.ios_stdout)
-        }
         
         if returnCode == 0 {
             if !history.contains(command) {

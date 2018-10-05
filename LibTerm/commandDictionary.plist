@@ -275,13 +275,6 @@
 		<string>p</string>
 		<string>directory</string>
 	</array>
-	<key>scp</key>
-	<array>
-		<string>curl_ios.framework/curl_ios</string>
-		<string>curl_main</string>
-		<string>q</string>
-		<string>file</string>
-	</array>
 	<key>sed</key>
 	<array>
 		<string>text.framework/text</string>
@@ -309,13 +302,6 @@
 		<string>ssh_main</string>
 		<string>q</string>
 		<string></string>
-	</array>
-	<key>ssh-keygen</key>
-	<array>
-		<string>ssh_cmd.framework/ssh_cmd</string>
-		<string>sshkeygen_main</string>
-		<string>ABHLQXceghiklopquvxyC:D:E:F:G:I:J:K:M:N:O:P:R:S:T:V:W:Z:a:b:f:g:j:m:n:r:s:t:z:</string>
-		<string>file</string>
 	</array>
 	<key>sort</key>
 	<array>
