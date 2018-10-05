@@ -147,11 +147,20 @@ class LibShell {
         isCommandRunning = false
         
         if returnCode == 0 {
+            func append(command: String) {
+                // Remove useless spaces
+                var command_ = command
+                while command_.hasSuffix(" ") {
+                    command_ = String(command.dropLast())
+                }
+                
+                history.append(command_)
+            }
             if !history.contains(command) {
-                history.append(command)
+                append(command: command)
             } else if let i = history.firstIndex(of: command) {
                 history.remove(at: i)
-                history.append(command)
+                append(command: command)
             }
         }
         
