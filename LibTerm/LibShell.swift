@@ -95,6 +95,9 @@ class LibShell {
         }
     }
     
+    /// Shell's variables.
+    var variables = [String:String]()
+    
     /// Run given command.
     ///
     /// - Parameters:
@@ -112,10 +115,71 @@ class LibShell {
                 
         isCommandRunning = true
         
-        let components = command.components(separatedBy: .whitespaces)
+        var command_ = command
+        for variable in variables {
+            command_ = command_.replacingOccurrences(of: "$\(variable.key)", with: variable.value)
+        }
+        var components = command_.components(separatedBy: .whitespaces)
         guard components.count > 0 else {
             return 0
         }
+        
+        // Separate in to command and arguments
+        
+        let program = components[0]
+        let args = Array(components[1..<components.endIndex])
+        
+        var parsedArgs = [String]()
+        
+        var currentArg = ""
+        
+        for arg in args {
+            
+            if arg.hasPrefix("\"") {
+                
+                if currentArg.isEmpty {
+                    
+                    currentArg = arg
+                    currentArg.removeFirst()
+                    
+                } else {
+                    
+                    currentArg.append(" " + arg)
+                    
+                }
+                
+            } else if arg.hasSuffix("\"") {
+                
+                if currentArg.isEmpty {
+                    
+                    currentArg.append(arg)
+                    
+                } else {
+                    
+                    currentArg.append(" " + arg)
+                    currentArg.removeLast()
+                    parsedArgs.append(currentArg)
+                    currentArg = ""
+                    
+                }
+                
+            } else {
+                
+                if currentArg.isEmpty {
+                    parsedArgs.append(arg)
+                } else {
+                    currentArg.append(" " + arg)
+                }
+                
+            }
+            
+        }
+        
+        if !currentArg.isEmpty {
+            parsedArgs.append(currentArg)
+        }
+        
+        parsedArgs.insert(command.components(separatedBy: .whitespaces)[0], at: 0)
         
         if components.first == "python" { // When Python is called without arguments, it freezes instead of running the REPL
             var arguments = components
@@ -132,69 +196,21 @@ class LibShell {
             }
         }
         
+        let setterComponents = command.components(separatedBy: "=")
+        if setterComponents.count > 1 {
+            if !setterComponents[0].contains(" ") {
+                var value = setterComponents
+                value.removeFirst()
+                variables[setterComponents[0]] = value.joined(separator: "=")
+                return 0
+            }
+        }
+        
         var returnCode: Int32
         if builtins.keys.contains(components[0]) {
-            
-            // Separate in to command and arguments
-            
-            let program = components[0]
-            let args = Array(components[1..<components.endIndex])
-            
-            var parsedArgs = [String]()
-            
-            var currentArg = ""
-            
-            for arg in args {
-                
-                if arg.hasPrefix("\"") {
-                    
-                    if currentArg.isEmpty {
-                        
-                        currentArg = arg
-                        currentArg.removeFirst()
-                        
-                    } else {
-                        
-                        currentArg.append(" " + arg)
-                        
-                    }
-                    
-                } else if arg.hasSuffix("\"") {
-                    
-                    if currentArg.isEmpty {
-                        
-                        currentArg.append(arg)
-                        
-                    } else {
-                        
-                        currentArg.append(" " + arg)
-                        currentArg.removeLast()
-                        parsedArgs.append(currentArg)
-                        currentArg = ""
-                        
-                    }
-                    
-                } else {
-                    
-                    if currentArg.isEmpty {
-                        parsedArgs.append(arg)
-                    } else {
-                        currentArg.append(" " + arg)
-                    }
-                    
-                }
-                
-            }
-            
-            if !currentArg.isEmpty {
-                parsedArgs.append(currentArg)
-            }
-            
-            parsedArgs.insert(command.components(separatedBy: .whitespaces)[0], at: 0)
-            
             returnCode = builtins[program]?(parsedArgs.count, parsedArgs, self) ?? 1
         } else {
-            returnCode = ios_system(command.cValue)
+            returnCode = ios_system(command_.cValue)
         }
         
         isCommandRunning = false
