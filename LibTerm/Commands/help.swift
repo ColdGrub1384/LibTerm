@@ -24,6 +24,17 @@ struct CommandHelp: Equatable {
         }
     }
     
+    /// Returns flags supported by the command.
+    var flags: [String] {
+        var flags_ = [String]()
+        for flag in getoptString(commandName) {
+            if flag != ":" {
+                flags_.append("-\(flag)")
+            }
+        }
+        return flags_
+    }
+    
     /// A structure representing completions type available for a command.
     enum CompletionType {
         
@@ -51,6 +62,7 @@ struct CommandHelp: Equatable {
 /// All available commands.
 var Commands: [CommandHelp] {
     var commands = [CommandHelp]()
+    
     for command in commandsAsArray() as? [String] ?? [] {
         var completionType = CommandHelp.CompletionType.none
         if operatesOn(command) == "file" {

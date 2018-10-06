@@ -237,8 +237,11 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     }
     
     private var commands: [String] {
-        if completionType == .file, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
-            return [".", "../"]+files
+        let flags = currentCommand?.flags ?? []
+        if completionType == .none {
+            return flags
+        } else if completionType == .file, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
+            return flags+[".", "../"]+files
         } else if completionType == .directory, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
             var dirs = [".", "../"]
             for file in files {
@@ -247,7 +250,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
                     dirs.append(file)
                 }
             }
-            return dirs
+            return flags+dirs
         } else if completionType == .history {
             var commands_ = shell.history.reversed() as [String]
             for command in Commands {
