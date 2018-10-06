@@ -117,12 +117,19 @@ class LibShell {
             return 0
         }
         
-        if components == ["python"] {
-            ios_system("python -c 'import code; code.interact()'")
-            return 0
-        } else if components == ["lua"], let data = "lua: Lua REPL is not supported by LibTerm. You can still running scripts.\n".data(using: .utf8) {
-            io?.outputPipe.fileHandleForWriting.write(data)
-            return 1
+        if components.first == "python" { // When Python is called without arguments, it freezes instead of running the REPL
+            var arguments = components
+            arguments.removeFirst()
+            var shouldRunPythonREPL = true
+            for arg in arguments {
+                if !arg.isEmpty {
+                    shouldRunPythonREPL = false
+                }
+            }
+            if shouldRunPythonREPL {
+                ios_system("python -c 'import code; code.interact()'")
+                return 0
+            }
         }
         
         var returnCode: Int32
