@@ -186,6 +186,19 @@ class LibShell {
         
         parsedArgs.insert(command.components(separatedBy: .whitespaces)[0], at: 0)
         
+        func removeEmpty() {
+            var i = 0
+            for arg in parsedArgs {
+                if arg.isEmpty {
+                    parsedArgs.remove(at: i)
+                    removeEmpty()
+                    break
+                }
+                i += 1
+            }
+        }
+        removeEmpty()
+        
         if components.first == "python" { // When Python is called without arguments, it freezes instead of running the REPL
             var arguments = components
             arguments.removeFirst()
