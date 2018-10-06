@@ -27,6 +27,15 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         i += 1
     }
     
+    func exit() {
+        shell.variables.removeValue(forKey: "@")
+        var i = 0
+        for _ in args {
+            shell.variables.removeValue(forKey: "\(i)")
+            i += 1
+        }
+    }
+    
     if argc == 1 {
         DispatchQueue.main.async {
             (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.addTab()
@@ -45,6 +54,16 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         
         for instruction_ in script.components(separatedBy: .newlines) {
             for instruction in instruction_.components(separatedBy: ";") {
+                let components = instruction.components(separatedBy: .whitespaces)
+                if components.count > 0, components[0] == "exit" { // Exit
+                    if components.count > 1 {
+                        exit()
+                        return Int32(components[1]) ?? 0
+                    } else {
+                        exit()
+                        return 0
+                    }
+                }
                 shell.run(command: instruction)
             }
         }
@@ -53,13 +72,7 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         return 1
     }
     
-    shell.variables.removeValue(forKey: "@")
-    i = 0
-    for _ in args {
-        shell.variables.removeValue(forKey: "\(i)")
-        i += 1
-    }
-    
+    exit()
     return 0
 }
 
@@ -91,7 +104,7 @@ class LibShell {
     var isCommandRunning = false
     
     /// Builtin commands per name and functions.
-    let builtins: [String:Command] = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain]
+    let builtins: [String:Command] = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain]
     
     /// Writes the prompt to the terminal.
     func input() {
