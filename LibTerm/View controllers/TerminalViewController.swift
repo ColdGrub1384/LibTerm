@@ -51,7 +51,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     ///     - prompt: The prompt.
     func input(prompt: String) {
         title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
-        tprint(prompt, bold: true)
+        tprint(prompt)
         textViewDidChange(terminalTextView)
         isAskingForInput = true
         assistant.reloadData()
@@ -61,19 +61,10 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     ///
     /// - Parameters:
     ///     - text: Text to print.
-    ///     - bold: If set to `true`, the text will be shown in bold.
-    func tprint(_ text: String, bold: Bool = false) {
-        
-        var fontName = "Menlo"
-        if bold {
-            fontName += "-Bold"
-        }
+    func tprint(_ text: String) {
         
         let newAttrs = NSMutableAttributedString(attributedString: terminalTextView.attributedText ?? NSAttributedString())
-        newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: fontName, size: 14) ?? UIFont.systemFont(ofSize: 14), .foregroundColor: ForegroundColor]))
-        if bold {
-            newAttrs.append(NSAttributedString(string: "\(Keys.esc)", attributes: [.font : UIFont(name: "Menlo", size: 14) ?? UIFont.systemFont(ofSize: 14), .foregroundColor: ForegroundColor]))
-        }
+        newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: 14) ?? UIFont.systemFont(ofSize: 14), .foregroundColor: ForegroundColor]))
         terminalTextView.attributedText = newAttrs
     }
     
