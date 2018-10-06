@@ -12,6 +12,52 @@ import ios_system
 /// Type for a builtin command. A function with argc, argv and the shell running it.
 typealias Command = ((Int, [String], LibShell) -> Int32)
 
+func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+    if argc == 1 {
+        DispatchQueue.main.async {
+            (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.addTab()
+        }
+        return 0
+    }
+    var args = argv
+    args.removeFirst()
+    
+    if args == ["-h"] || args == ["--help"] {
+        shell.io?.outputPipe.fileHandleForWriting.write("usage: \(argv[0]) [script args]\n".data(using: .utf8) ?? Data())
+    }
+    
+    do {
+        let scriptPath = URL(fileURLWithPath: (args[0] as NSString).expandingTildeInPath, relativeTo: URL(fileURLWithPath: FileManager.default.currentDirectoryPath))
+        
+        let script = try String(contentsOf: scriptPath)
+        
+        putenv("@=\(args.joined(separator: ":"))".cValue)
+        var i = 0
+        for arg in args {
+            putenv("\(i)=\(arg)".cValue)
+            i += 1
+        }
+        
+        for instruction_ in script.components(separatedBy: .newlines) {
+            for instruction in instruction_.components(separatedBy: ";") {
+                shell.run(command: instruction)
+            }
+        }
+    } catch {
+        shell.io?.outputPipe.fileHandleForWriting.write("\(argv[0]): \(error.localizedDescription)\n".data(using: .utf8) ?? Data())
+        return 1
+    }
+    
+    putenv("@".cValue)
+    var i = 0
+    for _ in args {
+        putenv("\(i)=".cValue)
+        i += 1
+    }
+    
+    return 0
+}
+
 /// The shell for executing commands.
 class LibShell {
     
@@ -40,7 +86,7 @@ class LibShell {
     var isCommandRunning = false
     
     /// Builtin commands per name and functions.
-    let builtins: [String:Command] = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain]
+    let builtins: [String:Command] = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain]
     
     /// Writes the prompt to the terminal.
     func input() {

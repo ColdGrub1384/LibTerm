@@ -324,7 +324,8 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
             return
         }
         
-        if urls[0].startAccessingSecurityScopedResource() && FileManager.default.changeCurrentDirectoryPath(urls[0].path) {
+        _ = urls[0].startAccessingSecurityScopedResource()
+        if FileManager.default.changeCurrentDirectoryPath(urls[0].path) {
             title = urls[0].lastPathComponent
         }
     }
