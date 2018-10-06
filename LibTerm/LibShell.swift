@@ -124,94 +124,16 @@ class LibShell {
         for variable in variables {
             command_ = command_.replacingOccurrences(of: "$\(variable.key)", with: variable.value)
         }
-        var components = command_.components(separatedBy: .whitespaces)
-        guard components.count > 0 else {
+        
+        let arguments = command_.arguments
+        
+        guard arguments.count > 0 else {
             return 0
         }
         
-        // Separate in to command and arguments
-        
-        let program = components[0]
-        let args = Array(components[1..<components.endIndex])
-        
-        var parsedArgs = [String]()
-        
-        var currentArg = ""
-        
-        for arg in args {
-            
-            if arg.hasPrefix("\"") {
-                
-                if currentArg.isEmpty {
-                    
-                    currentArg = arg
-                    currentArg.removeFirst()
-                    
-                } else {
-                    
-                    currentArg.append(" " + arg)
-                    
-                }
-                
-            } else if arg.hasSuffix("\"") {
-                
-                if currentArg.isEmpty {
-                    
-                    currentArg.append(arg)
-                    
-                } else {
-                    
-                    currentArg.append(" " + arg)
-                    currentArg.removeLast()
-                    parsedArgs.append(currentArg)
-                    currentArg = ""
-                    
-                }
-                
-            } else {
-                
-                if currentArg.isEmpty {
-                    parsedArgs.append(arg)
-                } else {
-                    currentArg.append(" " + arg)
-                }
-                
-            }
-            
-        }
-        
-        if !currentArg.isEmpty {
-            parsedArgs.append(currentArg)
-        }
-        
-        parsedArgs.insert(command.components(separatedBy: .whitespaces)[0], at: 0)
-        
-        func removeEmpty() {
-            var i = 0
-            for arg in parsedArgs {
-                if arg.isEmpty {
-                    parsedArgs.remove(at: i)
-                    removeEmpty()
-                    break
-                }
-                i += 1
-            }
-        }
-        removeEmpty()
-        
-        if components.first == "python" { // When Python is called without arguments, it freezes instead of running the REPL
-            var arguments = components
-            arguments.removeFirst()
-            var shouldRunPythonREPL = true
-            for arg in arguments {
-                if !arg.isEmpty {
-                    shouldRunPythonREPL = false
-                }
-            }
-            if shouldRunPythonREPL {
-                ios_system("python -c 'import code; code.interact()'")
-                return 0
-            }
+        if arguments == ["python"] { // When Python is called without arguments, it freezes instead of running the REPL
+            ios_system("python -c 'import code; code.interact()'")
+            return 0
         }
         
         let setterComponents = command.components(separatedBy: "=")
@@ -225,8 +147,8 @@ class LibShell {
         }
         
         var returnCode: Int32
-        if builtins.keys.contains(components[0]) {
-            returnCode = builtins[program]?(parsedArgs.count, parsedArgs, self) ?? 1
+        if builtins.keys.contains(arguments[0]) {
+            returnCode = builtins[arguments[0]]?(arguments.count, arguments, self) ?? 1
         } else {
             returnCode = ios_system(command_.cValue)
         }
