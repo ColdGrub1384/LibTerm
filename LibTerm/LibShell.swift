@@ -13,14 +13,26 @@ import ios_system
 typealias Command = ((Int, [String], LibShell) -> Int32)
 
 func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+    
+    var args = argv
+    args.removeFirst()
+    if args.count > 0 {
+        args.removeFirst()
+    }
+    
+    shell.variables["@"] = args.joined(separator: " ")
+    var i = 0
+    for arg in args {
+        shell.variables["\(i)"] = arg
+        i += 1
+    }
+    
     if argc == 1 {
         DispatchQueue.main.async {
             (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.addTab()
         }
         return 0
     }
-    var args = argv
-    args.removeFirst()
     
     if args == ["-h"] || args == ["--help"] {
         shell.io?.outputPipe.fileHandleForWriting.write("usage: \(argv[0]) [script args]\n".data(using: .utf8) ?? Data())
@@ -30,13 +42,6 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         let scriptPath = URL(fileURLWithPath: (args[0] as NSString).expandingTildeInPath, relativeTo: URL(fileURLWithPath: FileManager.default.currentDirectoryPath))
         
         let script = try String(contentsOf: scriptPath)
-        
-        putenv("@=\(args.joined(separator: ":"))".cValue)
-        var i = 0
-        for arg in args {
-            putenv("\(i)=\(arg)".cValue)
-            i += 1
-        }
         
         for instruction_ in script.components(separatedBy: .newlines) {
             for instruction in instruction_.components(separatedBy: ";") {
@@ -48,10 +53,10 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         return 1
     }
     
-    putenv("@=".cValue)
-    var i = 0
+    shell.variables.removeValue(forKey: "@")
+    i = 0
     for _ in args {
-        putenv("\(i)=".cValue)
+        shell.variables.removeValue(forKey: "\(i)")
         i += 1
     }
     
