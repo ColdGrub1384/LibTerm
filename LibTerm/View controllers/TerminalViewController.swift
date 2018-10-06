@@ -324,9 +324,13 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
             return
         }
         
-        _ = urls[0].startAccessingSecurityScopedResource()
-        shell.run(command: "cd \(urls[0].path)")
-        title = urls[0].lastPathComponent
+        if urls[0].startAccessingSecurityScopedResource() {
+            FileManager.default.changeCurrentDirectoryPath(urls[0].path)
+            title = urls[0].lastPathComponent
+        } else {
+            tprint("Error opening \(urls[0].lastPathComponent).\n")
+            shell.input()
+        }
     }
 }
 
