@@ -313,7 +313,11 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     }
     
     func numberOfSuggestionsInInputAssistantView() -> Int {
-        return commands.count
+        if isAskingForInput {
+            return commands.count
+        } else {
+            return 0
+        }
     }
     
     // MARK: - Document picker delegate
