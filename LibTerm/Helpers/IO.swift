@@ -82,6 +82,7 @@ class IO: ParserDelegate {
             let attributedString = NSMutableAttributedString(attributedString: term.terminalTextView.attributedText ?? NSAttributedString())
             attributedString.append(string)
             term.terminalTextView.attributedText = attributedString
+            term.terminalTextView.scrollToBottom()
         }
     }
     

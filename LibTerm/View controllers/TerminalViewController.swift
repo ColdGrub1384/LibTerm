@@ -18,7 +18,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     }
     
     /// The Text view displaying content.
-   @IBOutlet weak var terminalTextView: UITextView!
+   @IBOutlet weak var terminalTextView: TerminalTextView!
     
     /// The permanent console without the actual user input.
     var attributedConsole = NSMutableAttributedString()
@@ -66,6 +66,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         let newAttrs = NSMutableAttributedString(attributedString: terminalTextView.attributedText ?? NSAttributedString())
         newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: 14) ?? UIFont.systemFont(ofSize: 14), .foregroundColor: ForegroundColor]))
         terminalTextView.attributedText = newAttrs
+        terminalTextView.scrollToBottom()
     }
     
     /// Select a new working directory.
