@@ -10,6 +10,8 @@
 		C91C345921612DBA0003BD90 /* clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345821612DBA0003BD90 /* clear.swift */; };
 		C91C345B21613A720003BD90 /* help.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345A21613A720003BD90 /* help.swift */; };
 		C91C481E21614CA00003BD90 /* python27.zip in Copy Python Home */ = {isa = PBXBuildFile; fileRef = C91C481C21614C920003BD90 /* python27.zip */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C927793321696C3F0091B038 /* CommandHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793221696C3F0091B038 /* CommandHelp.swift */; };
+		C927793921696CC00091B038 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793821696CC00091B038 /* Commands.swift */; };
 		C92F574D2168001600ABE35F /* ssh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F574C2168001600ABE35F /* ssh.swift */; };
 		C9580E8C2165553500A43CEC /* Terminal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9580E8B2165553500A43CEC /* Terminal.storyboard */; };
 		C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC42160467E00F870B5 /* AppDelegate.swift */; };
@@ -147,6 +149,8 @@
 		C91C345821612DBA0003BD90 /* clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clear.swift; sourceTree = "<group>"; };
 		C91C345A21613A720003BD90 /* help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = help.swift; sourceTree = "<group>"; };
 		C91C481C21614C920003BD90 /* python27.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python27.zip; sourceTree = "<group>"; };
+		C927793221696C3F0091B038 /* CommandHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandHelp.swift; sourceTree = "<group>"; };
+		C927793821696CC00091B038 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		C92F574C2168001600ABE35F /* ssh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ssh.swift; sourceTree = "<group>"; };
 		C9580E8B2165553500A43CEC /* Terminal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Terminal.storyboard; sourceTree = "<group>"; };
 		C9806BC12160467E00F870B5 /* LibTerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibTerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +242,7 @@
 			children = (
 				C9806BC42160467E00F870B5 /* AppDelegate.swift */,
 				C9806D0221604A3900F870B5 /* LibShell.swift */,
+				C927793821696CC00091B038 /* Commands.swift */,
 				C9806D1121612B8D00F870B5 /* View controllers */,
 				C9806D1221612BA800F870B5 /* Helpers */,
 				C91C345721612DA20003BD90 /* Commands */,
@@ -311,6 +316,7 @@
 				C9806D0621604B2400F870B5 /* String.swift */,
 				C9806D0E21611EA100F870B5 /* Keys.swift */,
 				C9806D0421604AE700F870B5 /* IO.swift */,
+				C927793221696C3F0091B038 /* CommandHelp.swift */,
 				C9DE222A2162E4E5007ED7A0 /* Parser.swift */,
 				C9DE222C2162E621007ED7A0 /* ANSITextState.swift */,
 			);
@@ -477,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C927793321696C3F0091B038 /* CommandHelp.swift in Sources */,
 				C9F0F02A21654F2B00CAC2A0 /* TerminalTabViewController.swift in Sources */,
 				C9806D0F21611EA100F870B5 /* Keys.swift in Sources */,
 				C91C345921612DBA0003BD90 /* clear.swift in Sources */,
@@ -489,6 +496,7 @@
 				C92F574D2168001600ABE35F /* ssh.swift in Sources */,
 				C91C345B21613A720003BD90 /* help.swift in Sources */,
 				C9806D0521604AE700F870B5 /* IO.swift in Sources */,
+				C927793921696CC00091B038 /* Commands.swift in Sources */,
 				C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
