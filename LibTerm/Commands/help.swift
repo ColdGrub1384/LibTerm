@@ -29,11 +29,8 @@ func helpMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
             helpText += "\(commandName)\n"
         }
     }
-    guard let data = helpText.data(using: .utf8) else {
-        return 1
-    }
     
-    shell.io?.outputPipe.fileHandleForWriting.write(data)
+    shell.io?.outputPipe.fileHandleForWriting.write(helpText)
     
     return 0
 }

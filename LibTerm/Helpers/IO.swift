@@ -8,6 +8,19 @@
 
 import UIKit
 
+extension FileHandle {
+    
+    /// Writes given string to the file.
+    ///
+    /// - Parameters:
+    ///     - str: Text to print.
+    func write(_ str: String) {
+        if let data = str.data(using: .utf8) {
+            write(data)
+        }
+    }
+}
+
 /// A class for managing input and output.
 class IO: ParserDelegate {
     

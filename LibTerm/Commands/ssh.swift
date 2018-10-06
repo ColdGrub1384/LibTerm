@@ -11,9 +11,7 @@ import StoreKit
 
 func sshMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     
-    guard let helpText = "usage: \(argv[0]) [-p port] user@hostname\n".data(using: .utf8) else {
-        return 1
-    }
+    let helpText = "usage: \(argv[0]) [-p port] user@hostname\n"
     
     if argc == 1 || argc > 4 {
         shell.io?.outputPipe.fileHandleForWriting.write(helpText)
