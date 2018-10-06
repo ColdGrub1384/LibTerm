@@ -217,24 +217,18 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         }).withRenderingMode(.alwaysOriginal)
     }
     
-    private enum CompletionType {
-        case none
-        case history
-        case command
-        case file
-        case directory
+    private var currentCommand: CommandHelp? {
+        for command in Commands {
+            if command.commandName == prompt.components(separatedBy: " ")[0] {
+                return command
+            }
+        }
+        return nil
     }
     
-    private var completionType: CompletionType {
-        if let completion = operatesOn(prompt.components(separatedBy: " ")[0]), (prompt.hasSuffix(" ") || prompt.components(separatedBy: " ").count == 2), !completion.isEmpty, prompt.components(separatedBy: " ").count < 3 {
-            switch completion {
-            case "file":
-                return .file
-            case "directory":
-                return .directory
-            default:
-                return .none
-            }
+    private var completionType: CommandHelp.CompletionType {
+        if let command = currentCommand, prompt.hasSuffix(" ") {
+            return command.commandInput
         } else if prompt.isEmpty {
             return .history
         } else {
@@ -257,16 +251,16 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         } else if completionType == .history {
             var commands_ = shell.history.reversed() as [String]
             for command in Commands {
-                if !commands_.contains(command) {
-                    commands_.append(command)
+                if !commands_.contains(command.commandName) {
+                    commands_.append(command.commandName)
                 }
             }
             return commands_
         } else {
             var commands_ = shell.history.reversed() as [String]
             for command in Commands {
-                if command.contains(prompt.components(separatedBy: " ")[0].lowercased()) && !commands_.contains(command) {
-                    commands_.append(command)
+                if command.commandName.contains(prompt.components(separatedBy: " ")[0].lowercased()) && !commands_.contains(command.commandName) {
+                    commands_.append(command.commandName)
                 }
             }
             var i = 0
@@ -286,7 +280,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     
     func inputAssistantView(_ inputAssistantView: InputAssistantView, didSelectSuggestionAtIndex index: Int) {
         if completionType != .command && completionType != .history {
-            prompt = prompt.components(separatedBy: " ")[0]+" "+commands[index]
+            prompt += commands[index]+" "
         } else {
             prompt = commands[index]+" "
         }
