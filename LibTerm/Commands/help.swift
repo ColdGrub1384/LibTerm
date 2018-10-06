@@ -13,6 +13,7 @@ import ios_system
 var Commands: [String] {
     var commands = commandsAsArray() as? [String] ?? []
     commands.append("clear")
+    commands.append("sh")
     commands.append("help")
     return commands
 }

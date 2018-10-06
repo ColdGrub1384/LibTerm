@@ -48,7 +48,7 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         return 1
     }
     
-    putenv("@".cValue)
+    putenv("@=".cValue)
     var i = 0
     for _ in args {
         putenv("\(i)=".cValue)
