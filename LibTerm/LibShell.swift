@@ -16,9 +16,6 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     
     var args = argv
     args.removeFirst()
-    if args.count > 0 {
-        args.removeFirst()
-    }
     
     shell.variables["@"] = args.joined(separator: " ")
     var i = 0
