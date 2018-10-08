@@ -8,13 +8,13 @@
 
 import UIKit
 
-extension FileHandle {
+public extension FileHandle {
     
     /// Writes given string to the file.
     ///
     /// - Parameters:
     ///     - str: Text to print.
-    func write(_ str: String) {
+    public func write(_ str: String) {
         if let data = str.data(using: .utf8) {
             write(data)
         }
@@ -22,13 +22,13 @@ extension FileHandle {
 }
 
 /// A class for managing input and output.
-class IO: ParserDelegate {
+public class IO: ParserDelegate {
     
     /// Initialize for writting to the given terminal.
     ///
     /// - Parameters:
     ///     - terminal: The terminal that receives output.
-    init(terminal: TerminalViewController) {
+    public init(terminal: TerminalViewController) {
         self.terminal = terminal
         ios_stdout = fdopen(outputPipe.fileHandleForWriting.fileDescriptor, "w")
         ios_stderr = ios_stdout
@@ -44,28 +44,28 @@ class IO: ParserDelegate {
     private let parser = Parser()
     
     /// The stdin file.
-    var ios_stdin: UnsafeMutablePointer<FILE>?
+    public var ios_stdin: UnsafeMutablePointer<FILE>?
     
     /// The stdout file.
-    var ios_stdout: UnsafeMutablePointer<FILE>?
+    public var ios_stdout: UnsafeMutablePointer<FILE>?
     
     /// The stderr file.
-    var ios_stderr: UnsafeMutablePointer<FILE>?
+    public var ios_stderr: UnsafeMutablePointer<FILE>?
     
     /// The output pipe.
-    var outputPipe = Pipe()
+    public var outputPipe = Pipe()
     
     /// The input pipe.
-    var inputPipe = Pipe()
+    public var inputPipe = Pipe()
     
     /// The terminal that receives output.
-    var terminal: TerminalViewController?
+    public var terminal: TerminalViewController?
     
     /// Sends given input for current running `ios_system` command.
     ///
     /// - Parameters:
     ///     - input: Input to send.
-    func send(input: String) {
+    public func send(input: String) {
         if let data = input.data(using: .utf8) {
             inputPipe.fileHandleForWriting.write(data)
         }

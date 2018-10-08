@@ -11,7 +11,7 @@ import InputAssistant
 import ios_system
 
 /// The terminal interacting with the shell.
-class TerminalViewController: UIViewController, UITextViewDelegate, InputAssistantViewDelegate, InputAssistantViewDataSource, UIDocumentPickerDelegate {
+public class TerminalViewController: UIViewController, UITextViewDelegate, InputAssistantViewDelegate, InputAssistantViewDataSource, UIDocumentPickerDelegate {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -37,7 +37,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     var isWrittingToStdin = false
     
     /// The shell for running command.
-    let shell = LibShell()
+    public let shell = LibShell()
     
     /// The thrad running the shell.
     let thread = DispatchQueue.global(qos: .userInteractive)
@@ -79,7 +79,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     
     // MARK: - View controller
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -97,7 +97,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         assistant.attach(to: terminalTextView)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if let io = shell.io {
@@ -107,13 +107,13 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         terminalTextView.becomeFirstResponder()
     }
     
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         putenv("COLUMNS=\(Int(terminalTextView.frame.width/14))".cValue)
         putenv("ROWS=\(Int(terminalTextView.frame.height/14))".cValue)
     }
@@ -136,14 +136,14 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     
     // MARK: - Text view delegate
     
-    func textViewDidChange(_ textView: UITextView) {
+    public func textViewDidChange(_ textView: UITextView) {
         if !isAskingForInput && !isWrittingToStdin, let attrs = textView.attributedText {
             attributedConsole = NSMutableAttributedString(attributedString: attrs)
         }
         isWrittingToStdin = false
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
         let location:Int = textView.offset(from: textView.beginningOfDocument, to: textView.endOfDocument)
         let length:Int = textView.offset(from: textView.endOfDocument, to: textView.endOfDocument)
@@ -283,7 +283,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     
     // MARK: - Input assistant view delegate
     
-    func inputAssistantView(_ inputAssistantView: InputAssistantView, didSelectSuggestionAtIndex index: Int) {
+    public func inputAssistantView(_ inputAssistantView: InputAssistantView, didSelectSuggestionAtIndex index: Int) {
         if completionType != .command && completionType != .history {
             prompt += commands[index]+" "
         } else {
@@ -295,16 +295,16 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     
     // MARK: - Input assistant view data source
     
-    func textForEmptySuggestionsInInputAssistantView() -> String? {
+    public func textForEmptySuggestionsInInputAssistantView() -> String? {
         return nil
     }
     
-    func inputAssistantView(_ inputAssistantView: InputAssistantView, nameForSuggestionAtIndex index: Int) -> String {
+    public func inputAssistantView(_ inputAssistantView: InputAssistantView, nameForSuggestionAtIndex index: Int) -> String {
         
         return commands[index]
     }
     
-    func numberOfSuggestionsInInputAssistantView() -> Int {
+    public func numberOfSuggestionsInInputAssistantView() -> Int {
         if isAskingForInput {
             return commands.count
         } else {
@@ -314,7 +314,7 @@ class TerminalViewController: UIViewController, UITextViewDelegate, InputAssista
     
     // MARK: - Document picker delegate
     
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+    public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         
         if urls.count != 1 {
             let alert = UIAlertController(title: "Select a directory", message: "Please select 1 new working directory. \(urls.count) directories were picked.", preferredStyle: .alert)

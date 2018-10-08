@@ -9,13 +9,13 @@
 import ios_system
 
 /// A structure representing a command for helping the user.
-struct CommandHelp: Equatable {
+public struct CommandHelp: Equatable {
     
     /// The command name.
-    var commandName: String
+    public var commandName: String
     
     /// The argument type the commands supports. `.none`, `.file` or `.directory`.
-    var commandInput: CompletionType {
+    public var commandInput: CompletionType {
         didSet {
             if commandInput == .history || commandInput == .command {
                 fatalError("History and command aren't supported for a command input yet.")
@@ -24,7 +24,7 @@ struct CommandHelp: Equatable {
     }
     
     /// Returns flags supported by the command.
-    var flags: [String] {
+    public var flags: [String] {
         var flags_ = [String]()
         for flag in getoptString(commandName) {
             if flag != ":" {
@@ -35,7 +35,7 @@ struct CommandHelp: Equatable {
     }
     
     /// A structure representing completions type available for a command.
-    enum CompletionType {
+    public enum CompletionType {
         
         /// No completion
         case none
@@ -53,7 +53,7 @@ struct CommandHelp: Equatable {
         case directory
     }
     
-    static func == (lhs: CommandHelp, rhs: CommandHelp) -> Bool {
+    public static func == (lhs: CommandHelp, rhs: CommandHelp) -> Bool {
         return (lhs.commandName == rhs.commandName)
     }
 }

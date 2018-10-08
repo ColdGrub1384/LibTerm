@@ -36,6 +36,7 @@
 		C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0A21610B5300F870B5 /* commandDictionary.plist */; };
 		C9806D0D21610B5400F870B5 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0B21610B5300F870B5 /* extraCommandsDictionary.plist */; };
 		C9806D0F21611EA100F870B5 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0E21611EA100F870B5 /* Keys.swift */; };
+		C9BBD2BC216C03D3001C665D /* TabView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F02021654DBD00CAC2A0 /* TabView.framework */; };
 		C9CB2CDD216971EE004D9FFB /* exit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB2CDC216971EE004D9FFB /* exit.swift */; };
 		C9DE220C2162E12A007ED7A0 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */; };
 		C9DE222B2162E4E5007ED7A0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222A2162E4E5007ED7A0 /* Parser.swift */; };
@@ -46,6 +47,26 @@
 		C9F0F02521654DC700CAC2A0 /* TabView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F02021654DBD00CAC2A0 /* TabView.framework */; };
 		C9F0F02621654DC700CAC2A0 /* TabView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F02021654DBD00CAC2A0 /* TabView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9F0F02A21654F2B00CAC2A0 /* TerminalTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F02921654F2B00CAC2A0 /* TerminalTabViewController.swift */; };
+		C9FAD8FD216AD24B005939AC /* LibTermCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C9FAD8FB216AD24B005939AC /* LibTermCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9FAD909216AD262005939AC /* LibShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0221604A3900F870B5 /* LibShell.swift */; };
+		C9FAD90A216AD267005939AC /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */; };
+		C9FAD90B216AD26E005939AC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0621604B2400F870B5 /* String.swift */; };
+		C9FAD90C216AD26E005939AC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0E21611EA100F870B5 /* Keys.swift */; };
+		C9FAD90D216AD26E005939AC /* IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0421604AE700F870B5 /* IO.swift */; };
+		C9FAD90E216AD26E005939AC /* CommandHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793221696C3F0091B038 /* CommandHelp.swift */; };
+		C9FAD90F216AD26E005939AC /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222A2162E4E5007ED7A0 /* Parser.swift */; };
+		C9FAD910216AD26E005939AC /* ANSITextState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222C2162E621007ED7A0 /* ANSITextState.swift */; };
+		C9FAD911216AD273005939AC /* clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345821612DBA0003BD90 /* clear.swift */; };
+		C9FAD912216AD273005939AC /* help.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345A21613A720003BD90 /* help.swift */; };
+		C9FAD913216AD273005939AC /* ssh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F574C2168001600ABE35F /* ssh.swift */; };
+		C9FAD914216AD273005939AC /* exit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB2CDC216971EE004D9FFB /* exit.swift */; };
+		C9FAD915216AD27B005939AC /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
+		C9FAD916216AD28C005939AC /* Terminal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9580E8B2165553500A43CEC /* Terminal.storyboard */; };
+		C9FAD917216AD29B005939AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
+		C9FAD919216AD3E6005939AC /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793821696CC00091B038 /* Commands.swift */; };
+		C9FAD91A216AD426005939AC /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCB216049DD00F870B5 /* ios_system.framework */; };
+		C9FAD91B216AD488005939AC /* TerminalTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F02921654F2B00CAC2A0 /* TerminalTabViewController.swift */; };
+		C9FAD920216AD54B005939AC /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +215,9 @@
 		C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = InputAssistant.xcodeproj; path = InputAssistant/InputAssistant.xcodeproj; sourceTree = "<group>"; };
 		C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TabView.xcodeproj; path = TabView/TabView.xcodeproj; sourceTree = "<group>"; };
 		C9F0F02921654F2B00CAC2A0 /* TerminalTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTabViewController.swift; sourceTree = "<group>"; };
+		C9FAD8F9216AD24A005939AC /* LibTermCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LibTermCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9FAD8FB216AD24B005939AC /* LibTermCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibTermCore.h; sourceTree = "<group>"; };
+		C9FAD8FC216AD24B005939AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +227,16 @@
 			files = (
 				C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */,
 				C9F0F02521654DC700CAC2A0 /* TabView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9FAD8F6216AD24A005939AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9BBD2BC216C03D3001C665D /* TabView.framework in Frameworks */,
+				C9FAD920216AD54B005939AC /* InputAssistant.framework in Frameworks */,
+				C9FAD91A216AD426005939AC /* ios_system.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +261,7 @@
 				C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */,
 				C9806CC0216049DD00F870B5 /* ios_system */,
 				C9806BC32160467E00F870B5 /* LibTerm */,
+				C9FAD8FA216AD24B005939AC /* LibTermCore */,
 				C9806BC22160467E00F870B5 /* Products */,
 				C9806CB9216048FC00F870B5 /* Frameworks */,
 			);
@@ -236,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				C9806BC12160467E00F870B5 /* LibTerm.app */,
+				C9FAD8F9216AD24A005939AC /* LibTermCore.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,7 +390,27 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C9FAD8FA216AD24B005939AC /* LibTermCore */ = {
+			isa = PBXGroup;
+			children = (
+				C9FAD8FB216AD24B005939AC /* LibTermCore.h */,
+				C9FAD8FC216AD24B005939AC /* Info.plist */,
+			);
+			path = LibTermCore;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C9FAD8F4216AD24A005939AC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9FAD8FD216AD24B005939AC /* LibTermCore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		C9806BC02160467E00F870B5 /* LibTerm */ = {
@@ -378,6 +434,24 @@
 			productReference = C9806BC12160467E00F870B5 /* LibTerm.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C9FAD8F8216AD24A005939AC /* LibTermCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9FAD908216AD24B005939AC /* Build configuration list for PBXNativeTarget "LibTermCore" */;
+			buildPhases = (
+				C9FAD8F4216AD24A005939AC /* Headers */,
+				C9FAD8F5216AD24A005939AC /* Sources */,
+				C9FAD8F6216AD24A005939AC /* Frameworks */,
+				C9FAD8F7216AD24A005939AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LibTermCore;
+			productName = LibTermCore;
+			productReference = C9FAD8F9216AD24A005939AC /* LibTermCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -389,6 +463,9 @@
 				ORGANIZATIONNAME = "Adrian Labbe";
 				TargetAttributes = {
 					C9806BC02160467E00F870B5 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					C9FAD8F8216AD24A005939AC = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
@@ -417,6 +494,7 @@
 			projectRoot = "";
 			targets = (
 				C9806BC02160467E00F870B5 /* LibTerm */,
+				C9FAD8F8216AD24A005939AC /* LibTermCore */,
 			);
 		};
 /* End PBXProject section */
@@ -479,6 +557,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9FAD8F7216AD24A005939AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9FAD917216AD29B005939AC /* Assets.xcassets in Resources */,
+				C9FAD916216AD28C005939AC /* Terminal.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -502,6 +589,28 @@
 				C927793921696CC00091B038 /* Commands.swift in Sources */,
 				C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */,
 				C9CB2CDD216971EE004D9FFB /* exit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9FAD8F5216AD24A005939AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9FAD90E216AD26E005939AC /* CommandHelp.swift in Sources */,
+				C9FAD911216AD273005939AC /* clear.swift in Sources */,
+				C9FAD912216AD273005939AC /* help.swift in Sources */,
+				C9FAD90B216AD26E005939AC /* String.swift in Sources */,
+				C9FAD90C216AD26E005939AC /* Keys.swift in Sources */,
+				C9FAD90A216AD267005939AC /* TerminalViewController.swift in Sources */,
+				C9FAD90D216AD26E005939AC /* IO.swift in Sources */,
+				C9FAD914216AD273005939AC /* exit.swift in Sources */,
+				C9FAD913216AD273005939AC /* ssh.swift in Sources */,
+				C9FAD919216AD3E6005939AC /* Commands.swift in Sources */,
+				C9FAD909216AD262005939AC /* LibShell.swift in Sources */,
+				C9FAD915216AD27B005939AC /* TerminalTextView.swift in Sources */,
+				C9FAD91B216AD488005939AC /* TerminalTabViewController.swift in Sources */,
+				C9FAD90F216AD26E005939AC /* Parser.swift in Sources */,
+				C9FAD910216AD26E005939AC /* ANSITextState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +811,70 @@
 			};
 			name = Release;
 		};
+		C9FAD902216AD24B005939AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y96PL6G497;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ios_system",
+				);
+				INFOPLIST_FILE = LibTermCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ada.LibTermCore;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C9FAD903216AD24B005939AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y96PL6G497;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ios_system",
+				);
+				INFOPLIST_FILE = LibTermCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ada.LibTermCore;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -719,6 +892,15 @@
 			buildConfigurations = (
 				C9806BD42160468200F870B5 /* Debug */,
 				C9806BD52160468200F870B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9FAD908216AD24B005939AC /* Build configuration list for PBXNativeTarget "LibTermCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9FAD902216AD24B005939AC /* Debug */,
+				C9FAD903216AD24B005939AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

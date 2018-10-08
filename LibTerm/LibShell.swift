@@ -10,7 +10,7 @@ import UIKit
 import ios_system
 
 /// Type for a builtin command. A function with argc, argv and the shell running it.
-typealias Command = ((Int, [String], LibShell) -> Int32)
+public typealias Command = ((Int, [String], LibShell) -> Int32)
 
 func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     
@@ -74,16 +74,16 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
 }
 
 /// The shell for executing commands.
-class LibShell {
+public class LibShell {
     
     /// Initialize the shell.
-    init() {
+    public init() {
         ios_setDirectoryURL(FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0])
         initializeEnvironment()
     }
     
     /// The commands history.
-    var history: [String] {
+    public var history: [String] {
         get {
             return UserDefaults.standard.stringArray(forKey: "history") ?? []
         }
@@ -95,23 +95,23 @@ class LibShell {
     }
     
     /// The IO object for reading output and writting input.
-    var io: IO?
+    public var io: IO?
     
     /// `true` if a command is actually running on this shell.
-    var isCommandRunning = false
+    public var isCommandRunning = false
     
     /// Builtin commands per name and functions.
-    let builtins: [String:Command] = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain]
+    public let builtins: [String:Command] = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain]
     
     /// Writes the prompt to the terminal.
-    func input() {
+    public func input() {
         DispatchQueue.main.async {
             self.io?.terminal?.input(prompt: "\(UIDevice.current.name) $ ")
         }
     }
     
     /// Shell's variables.
-    var variables = [String:String]()
+    public var variables = [String:String]()
     
     /// Run given command.
     ///
@@ -119,7 +119,7 @@ class LibShell {
     ///     - command: The command to run.
     ///
     /// - Returns: The exit code.
-    @discardableResult func run(command: String) -> Int32 {
+    @discardableResult public func run(command: String) -> Int32 {
         if let io = io {
             ios_switchSession(io.ios_stdout)
             ios_setStreams(io.ios_stdin, io.ios_stdout, io.ios_stderr)
