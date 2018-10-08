@@ -23,7 +23,7 @@ class TerminalTabViewController: TabViewController {
     
     /// Change current working directory.
     @objc func cd(_ sender: Any) {
-        (visibleViewController as? TerminalViewController)?.cd(sender)
+        (visibleViewController as? TerminalViewController)?.cd()
     }
     
     // MARK: - Tab view controller

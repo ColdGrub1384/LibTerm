@@ -24,15 +24,7 @@ public struct CommandHelp: Equatable {
     }
     
     /// Returns flags supported by the command.
-    public var flags: [String] {
-        var flags_ = [String]()
-        for flag in getoptString(commandName) {
-            if flag != ":" {
-                flags_.append("-\(flag)")
-            }
-        }
-        return flags_
-    }
+    public var flags = [String]()
     
     /// A structure representing completions type available for a command.
     public enum CompletionType {
@@ -51,6 +43,24 @@ public struct CommandHelp: Equatable {
         
         /// Show directories in the current directory.
         case directory
+    }
+    
+    /// Initialize the command help.
+    ///
+    /// - Parameters:
+    ///     - commandName: The command name.
+    ///     - commandInput: The argument type the commands supports.
+    init(commandName: String, commandInput: CompletionType) {
+        self.commandName = commandName
+        self.commandInput = commandInput
+        
+        var flags_ = [String]()
+        for flag in getoptString(commandName) {
+            if flag != ":" {
+                flags_.append("-\(flag)")
+            }
+        }
+        flags = flags_
     }
     
     public static func == (lhs: CommandHelp, rhs: CommandHelp) -> Bool {

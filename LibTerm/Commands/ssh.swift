@@ -9,6 +9,7 @@
 import UIKit
 import StoreKit
 
+/// The `ssh` command.
 func sshMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     
     let helpText = "usage: \(argv[0]) [-p port] user@hostname\n"

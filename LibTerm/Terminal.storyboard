@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,14 +12,14 @@
         <!--Terminal View Controller-->
         <scene sceneID="ryf-LO-Cyo">
             <objects>
-                <viewController id="QYM-aw-lxz" customClass="TerminalViewController" customModule="LibTerm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QYM-aw-lxz" customClass="LTTerminalViewController" customModule="LibTerm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xF9-pG-07x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tvG-Wq-6Km" customClass="TerminalTextView" customModule="LibTerm" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                                <color key="textColor" name="Foreground Color"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 <connections>
@@ -28,7 +27,7 @@
                                 </connections>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" name="Background Color"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tvG-Wq-6Km" firstAttribute="height" secondItem="iaK-nD-mdA" secondAttribute="height" id="TJq-uW-1fa"/>
                             <constraint firstItem="tvG-Wq-6Km" firstAttribute="centerY" secondItem="iaK-nD-mdA" secondAttribute="centerY" id="Zwv-II-dqz"/>
@@ -47,12 +46,4 @@
             <point key="canvasLocation" x="146.40000000000001" y="104.1871921182266"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="Background Color">
-            <color red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Foreground Color">
-            <color red="0.0" green="0.9137254901960784" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-    </resources>
 </document>

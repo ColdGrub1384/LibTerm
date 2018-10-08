@@ -33,12 +33,14 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         }
     }
     
+    #if FRAMEWORK
     if argc == 1 {
         DispatchQueue.main.async {
             (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.addTab()
         }
         return 0
     }
+    #endif
     
     if args == ["-h"] || args == ["--help"] {
         shell.io?.outputPipe.fileHandleForWriting.write("usage: \(argv[0]) [script args]\n".data(using: .utf8) ?? Data())
@@ -95,7 +97,7 @@ public class LibShell {
     }
     
     /// The IO object for reading output and writting input.
-    public var io: IO?
+    public var io: LTIO?
     
     /// `true` if a command is actually running on this shell.
     public var isCommandRunning = false

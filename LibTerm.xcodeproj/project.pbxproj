@@ -36,7 +36,6 @@
 		C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0A21610B5300F870B5 /* commandDictionary.plist */; };
 		C9806D0D21610B5400F870B5 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0B21610B5300F870B5 /* extraCommandsDictionary.plist */; };
 		C9806D0F21611EA100F870B5 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0E21611EA100F870B5 /* Keys.swift */; };
-		C9BBD2BC216C03D3001C665D /* TabView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F02021654DBD00CAC2A0 /* TabView.framework */; };
 		C9CB2CDD216971EE004D9FFB /* exit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB2CDC216971EE004D9FFB /* exit.swift */; };
 		C9DE220C2162E12A007ED7A0 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */; };
 		C9DE222B2162E4E5007ED7A0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222A2162E4E5007ED7A0 /* Parser.swift */; };
@@ -65,7 +64,6 @@
 		C9FAD917216AD29B005939AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
 		C9FAD919216AD3E6005939AC /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793821696CC00091B038 /* Commands.swift */; };
 		C9FAD91A216AD426005939AC /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCB216049DD00F870B5 /* ios_system.framework */; };
-		C9FAD91B216AD488005939AC /* TerminalTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F02921654F2B00CAC2A0 /* TerminalTabViewController.swift */; };
 		C9FAD920216AD54B005939AC /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
 /* End PBXBuildFile section */
 
@@ -234,7 +232,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9BBD2BC216C03D3001C665D /* TabView.framework in Frameworks */,
 				C9FAD920216AD54B005939AC /* InputAssistant.framework in Frameworks */,
 				C9FAD91A216AD426005939AC /* ios_system.framework in Frameworks */,
 			);
@@ -608,7 +605,6 @@
 				C9FAD919216AD3E6005939AC /* Commands.swift in Sources */,
 				C9FAD909216AD262005939AC /* LibShell.swift in Sources */,
 				C9FAD915216AD27B005939AC /* TerminalTextView.swift in Sources */,
-				C9FAD91B216AD488005939AC /* TerminalTabViewController.swift in Sources */,
 				C9FAD90F216AD26E005939AC /* Parser.swift in Sources */,
 				C9FAD910216AD26E005939AC /* ANSITextState.swift in Sources */,
 			);
@@ -769,6 +765,7 @@
 					"$(PROJECT_DIR)/ios_system",
 				);
 				INFOPLIST_FILE = LibTerm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -796,6 +793,7 @@
 					"$(PROJECT_DIR)/ios_system",
 				);
 				INFOPLIST_FILE = LibTerm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -826,8 +824,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios_system",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"FRAMEWORK=1",
+				);
 				INFOPLIST_FILE = LibTermCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -858,8 +862,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios_system",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = "FRAMEWORK=1";
 				INFOPLIST_FILE = LibTermCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

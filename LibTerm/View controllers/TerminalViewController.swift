@@ -11,14 +11,14 @@ import InputAssistant
 import ios_system
 
 /// The terminal interacting with the shell.
-public class TerminalViewController: UIViewController, UITextViewDelegate, InputAssistantViewDelegate, InputAssistantViewDataSource, UIDocumentPickerDelegate {
+public class LTTerminalViewController: UIViewController, UITextViewDelegate, InputAssistantViewDelegate, InputAssistantViewDataSource, UIDocumentPickerDelegate {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
     /// The Text view displaying content.
-   @IBOutlet weak var terminalTextView: TerminalTextView!
+   @IBOutlet weak public var terminalTextView: TerminalTextView!
     
     /// The permanent console without the actual user input.
     var attributedConsole = NSMutableAttributedString()
@@ -61,19 +61,21 @@ public class TerminalViewController: UIViewController, UITextViewDelegate, Input
     ///
     /// - Parameters:
     ///     - text: Text to print.
-    func tprint(_ text: String) {
+    public func tprint(_ text: String) {
         
         let newAttrs = NSMutableAttributedString(attributedString: terminalTextView.attributedText ?? NSAttributedString())
-        newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: 14) ?? UIFont.systemFont(ofSize: 14), .foregroundColor: ForegroundColor]))
+        newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: 14) ?? UIFont.systemFont(ofSize: 14), .foregroundColor: LTForegroundColor]))
         terminalTextView.attributedText = newAttrs
         terminalTextView.scrollToBottom()
     }
     
     /// Select a new working directory.
-    @IBAction func cd(_ sender: Any) {
+    public func cd() {
         let vc = UIDocumentPickerViewController(documentTypes: ["public.folder"], in: .open)
         vc.delegate = self
-        vc.allowsMultipleSelection = true
+        if #available(iOS 11.0, *) {
+            vc.allowsMultipleSelection = true
+        }
         present(vc, animated: true, completion: nil)
     }
     
@@ -85,16 +87,18 @@ public class TerminalViewController: UIViewController, UITextViewDelegate, Input
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
                 
-        view.tintColor = ForegroundColor
-        view.backgroundColor = BackgroundColor
+        view.tintColor = LTForegroundColor
+        view.backgroundColor = LTBackgroundColor
         
-        shell.io = IO(terminal: self)
+        shell.io = LTIO(terminal: self)
         shell.input()
         
         assistant.delegate = self
         assistant.dataSource = self
-        assistant.trailingActions = [InputAssistantAction(image: TerminalViewController.downArrow, target: terminalTextView, action: #selector(terminalTextView.resignFirstResponder))]
+        assistant.trailingActions = [InputAssistantAction(image: LTTerminalViewController.downArrow, target: terminalTextView, action: #selector(terminalTextView.resignFirstResponder))]
         assistant.attach(to: terminalTextView)
+        
+        terminalTextView.keyboardAppearance = LTKeyboardAppearance
     }
     
     override public func viewDidAppear(_ animated: Bool) {

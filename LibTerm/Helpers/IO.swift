@@ -22,13 +22,13 @@ public extension FileHandle {
 }
 
 /// A class for managing input and output.
-public class IO: ParserDelegate {
+public class LTIO: ParserDelegate {
     
     /// Initialize for writting to the given terminal.
     ///
     /// - Parameters:
     ///     - terminal: The terminal that receives output.
-    public init(terminal: TerminalViewController) {
+    public init(terminal: LTTerminalViewController) {
         self.terminal = terminal
         ios_stdout = fdopen(outputPipe.fileHandleForWriting.fileDescriptor, "w")
         ios_stderr = ios_stdout
@@ -59,7 +59,7 @@ public class IO: ParserDelegate {
     public var inputPipe = Pipe()
     
     /// The terminal that receives output.
-    public var terminal: TerminalViewController?
+    public var terminal: LTTerminalViewController?
     
     /// Sends given input for current running `ios_system` command.
     ///

@@ -8,11 +8,39 @@
 
 import UIKit
 
+fileprivate var foregroundColor: UIColor?
+fileprivate var backgroundColor: UIColor?
+
+/// Terminal's keyboard appearance.
+public var LTKeyboardAppearance = UIKeyboardAppearance.dark
+
 /// Terminal's foreground color.
-let ForegroundColor = UIColor(named: "Foreground Color")!
+public var LTForegroundColor: UIColor {
+    set {
+        foregroundColor = newValue
+    }
+    get {
+        if #available(iOS 11.0, *) {
+            return foregroundColor ?? UIColor(named: "Foreground Color")!
+        } else {
+            return foregroundColor ?? .green
+        }
+    }
+}
 
 /// Terminal's background color.
-let BackgroundColor = UIColor(named: "Background Color")!
+public var LTBackgroundColor: UIColor {
+    set {
+        backgroundColor = newValue
+    }
+    get {
+        if #available(iOS 11.0, *) {
+            return backgroundColor ?? UIColor(named: "Background Color")!
+        } else {
+            return backgroundColor ?? .black
+        }
+    }
+}
 
 // 0-  7:  standard colors (as in ESC [ 30–37 m)
 // 8- 15:  high intensity colors (as in ESC [ 90–97 m)
@@ -114,7 +142,7 @@ enum ANSIForegroundColor: Int {
     var color: UIColor {
         switch self.rawValue {
         case ANSIForegroundColor.default.rawValue:
-            return ForegroundColor
+            return LTForegroundColor
         case 30...37:
             return indexedColor(atIndex: self.rawValue - 30)
         case 90...97:
@@ -180,8 +208,8 @@ enum ANSIFontState: Int {
 }
 
 struct ANSITextState {
-    var foregroundColor: UIColor = ForegroundColor
-    var backgroundColor: UIColor = BackgroundColor
+    var foregroundColor: UIColor = LTForegroundColor
+    var backgroundColor: UIColor = LTBackgroundColor
     var isUnderlined: Bool = false
     var isStrikethrough: Bool = false
     var font: UIFont = ANSITextState.font(fromTraits: [])
@@ -210,8 +238,8 @@ struct ANSITextState {
     }
     
     mutating func reset() {
-        foregroundColor = ForegroundColor
-        backgroundColor = BackgroundColor
+        foregroundColor = LTForegroundColor
+        backgroundColor = LTBackgroundColor
         isUnderlined = false
         isStrikethrough = false
         fontTraits = []

@@ -9,7 +9,7 @@
 import UIKit
 
 /// The Text view containing the terminal.
-class TerminalTextView: UITextView {
+public class TerminalTextView: UITextView {
     
     /// Scrolls to the bottom of the text view.
     func scrollToBottom() {
@@ -19,7 +19,7 @@ class TerminalTextView: UITextView {
     
     // MARK: - Text view
     
-    override func caretRect(for position: UITextPosition) -> CGRect {
+    override public func caretRect(for position: UITextPosition) -> CGRect {
         let superRect = super.caretRect(for: position)
         if position == endOfDocument {
             return CGRect(x: superRect.origin.x, y: superRect.origin.y, width: 10, height: superRect.height)
