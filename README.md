@@ -23,15 +23,18 @@ LibTerm is embeddable so you can use it in your own  app. To do it, download rel
 
 ### Instantiating the terminal
 
-`UIStoryboard(name: "Terminal", bundle: Bundle(for: LTTerminalViewController.self)).instantiateInitialViewController() as? LTTerminalViewController`
+```swift
+UIStoryboard(name: "Terminal", bundle: Bundle(for: LTTerminalViewController.self)).instantiateInitialViewController() as? LTTerminalViewController
+```
 
 ### Accessing the Text view
 
-`LTTerminalViewController.textView`
+```swift
+LTTerminalViewController.textView```
 
 ### Theming
 
-```
+```swift
 LTForegroundColor = <#UIColor#>
 LTBackgroundColor = <#UIColor#>
 ```
