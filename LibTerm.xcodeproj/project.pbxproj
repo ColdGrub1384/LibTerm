@@ -764,6 +764,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios_system",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"APP=1",
+				);
 				INFOPLIST_FILE = LibTerm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -792,6 +797,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios_system",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = "APP=1";
 				INFOPLIST_FILE = LibTerm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -827,7 +833,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
-					"FRAMEWORK=1",
 				);
 				INFOPLIST_FILE = LibTermCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -862,7 +867,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios_system",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = "FRAMEWORK=1";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = LibTermCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

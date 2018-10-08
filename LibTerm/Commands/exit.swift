@@ -17,7 +17,7 @@ func exitMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     }
     
     DispatchQueue.main.async {
-        #if FRAMEWORK
+        #if APP
         let tabVC = UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController
         if tabVC?.viewControllers.count == 1 {
             exit(exitCode)

@@ -33,7 +33,7 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         }
     }
     
-    #if FRAMEWORK
+    #if APP
     if argc == 1 {
         DispatchQueue.main.async {
             (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.addTab()
