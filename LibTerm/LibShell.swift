@@ -33,18 +33,20 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         }
     }
     
-    #if FRAMEWORK
-    #else
     if argc == 1 {
+        #if FRAMEWORK
+        return libshellMain(argc: 1, argv: ["-h"], shell: shell)
+        #else
         DispatchQueue.main.async {
             (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.addTab()
         }
         return 0
+        #endif
     }
-    #endif
     
     if args == ["-h"] || args == ["--help"] {
         shell.io?.outputPipe.fileHandleForWriting.write("usage: \(argv[0]) [script args]\n".data(using: .utf8) ?? Data())
+        return 0
     }
     
     do {
