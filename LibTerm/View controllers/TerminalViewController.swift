@@ -79,6 +79,11 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         present(vc, animated: true, completion: nil)
     }
     
+    // MARK: - Private values for theming inside Pisth or other apps
+    
+    private var navigationController_: UINavigationController?
+    private var defaultBarStyle = UIBarStyle.default
+    
     // MARK: - View controller
     
     override public func viewDidLoad() {
@@ -109,6 +114,16 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             ios_setStreams(io.ios_stdin, io.ios_stdout, io.ios_stderr)
             title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
         }
+        
+        navigationController_ = navigationController
+        defaultBarStyle = navigationController?.navigationBar.barStyle ?? .default
+        navigationController?.navigationBar.barStyle = LTBarStyle
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController_?.navigationBar.barStyle = defaultBarStyle
     }
     
     override public func viewWillAppear(_ animated: Bool) {

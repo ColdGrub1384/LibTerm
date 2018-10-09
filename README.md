@@ -38,6 +38,8 @@ LTTerminalViewController.textView
 ```swift
 LTForegroundColor = <#UIColor#>
 LTBackgroundColor = <#UIColor#>
+LTKeyboardAppearance = <#UIKeyboardAppearance#>
+LTBarSytle = <#UIBarStyle#>
 ```
 
 # Acknowledgments

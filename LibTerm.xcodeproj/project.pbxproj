@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9147BB5216D58D200E959DD /* Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147BB4216D58D200E959DD /* Theming.swift */; };
+		C9147BBA216D5A1700E959DD /* Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147BB4216D58D200E959DD /* Theming.swift */; };
 		C91C345921612DBA0003BD90 /* clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345821612DBA0003BD90 /* clear.swift */; };
 		C91C345B21613A720003BD90 /* help.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345A21613A720003BD90 /* help.swift */; };
 		C91C481E21614CA00003BD90 /* python27.zip in Copy Python Home */ = {isa = PBXBuildFile; fileRef = C91C481C21614C920003BD90 /* python27.zip */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -166,6 +168,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C9147BB4216D58D200E959DD /* Theming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theming.swift; sourceTree = "<group>"; };
 		C91C345821612DBA0003BD90 /* clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clear.swift; sourceTree = "<group>"; };
 		C91C345A21613A720003BD90 /* help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = help.swift; sourceTree = "<group>"; };
 		C91C481C21614C920003BD90 /* python27.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python27.zip; sourceTree = "<group>"; };
@@ -355,6 +358,7 @@
 				C927793221696C3F0091B038 /* CommandHelp.swift */,
 				C9DE222A2162E4E5007ED7A0 /* Parser.swift */,
 				C9DE222C2162E621007ED7A0 /* ANSITextState.swift */,
+				C9147BB4216D58D200E959DD /* Theming.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -586,6 +590,7 @@
 				C927793921696CC00091B038 /* Commands.swift in Sources */,
 				C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */,
 				C9CB2CDD216971EE004D9FFB /* exit.swift in Sources */,
+				C9147BB5216D58D200E959DD /* Theming.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +600,7 @@
 			files = (
 				C9FAD90E216AD26E005939AC /* CommandHelp.swift in Sources */,
 				C9FAD911216AD273005939AC /* clear.swift in Sources */,
+				C9147BBA216D5A1700E959DD /* Theming.swift in Sources */,
 				C9FAD912216AD273005939AC /* help.swift in Sources */,
 				C9FAD90B216AD26E005939AC /* String.swift in Sources */,
 				C9FAD90C216AD26E005939AC /* Keys.swift in Sources */,
