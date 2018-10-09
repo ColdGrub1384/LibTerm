@@ -104,6 +104,10 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         assistant.attach(to: terminalTextView)
         
         terminalTextView.keyboardAppearance = LTKeyboardAppearance
+        
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .never
+        }
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -118,12 +122,14 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         navigationController_ = navigationController
         defaultBarStyle = navigationController?.navigationBar.barStyle ?? .default
         navigationController?.navigationBar.barStyle = LTBarStyle
+        navigationController?.setNeedsStatusBarAppearanceUpdate()
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         navigationController_?.navigationBar.barStyle = defaultBarStyle
+        navigationController_?.setNeedsStatusBarAppearanceUpdate()
     }
     
     override public func viewWillAppear(_ animated: Bool) {
