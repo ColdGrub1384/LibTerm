@@ -20,12 +20,12 @@ var Commands: [CommandHelp] {
             completionType = .directory
         }
         var commandHelp = CommandHelp(commandName: command, commandInput: completionType)
-        commands.append(commandHelp)
         if command == "chmod" {
             commandHelp.flags.insert("+r", at: 0)
             commandHelp.flags.insert("+w", at: 0)
             commandHelp.flags.insert("+x", at: 0)
         }
+        commands.append(commandHelp)
     }
     commands.append(CommandHelp(commandName: "clear", commandInput: .none))
     commands.append(CommandHelp(commandName: "sh", commandInput: .file))
