@@ -30,7 +30,7 @@ UIStoryboard(name: "Terminal", bundle: Bundle(for: LTTerminalViewController.self
 ### Accessing the Text view
 
 ```swift
-LTTerminalViewController.textView
+LTTerminalViewController.terminalTextView
 ```
 
 ### Theming
