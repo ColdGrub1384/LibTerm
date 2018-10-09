@@ -9,7 +9,7 @@
 import UIKit
 
 /// The Text view containing the terminal.
-public class TerminalTextView: UITextView {
+public class LTTerminalTextView: UITextView {
     
     /// Scrolls to the bottom of the text view.
     func scrollToBottom() {

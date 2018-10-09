@@ -18,7 +18,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     }
     
     /// The Text view displaying content.
-   @IBOutlet weak public var terminalTextView: TerminalTextView!
+   @IBOutlet weak public var terminalTextView: LTTerminalTextView!
     
     /// The permanent console without the actual user input.
     var attributedConsole = NSMutableAttributedString()
