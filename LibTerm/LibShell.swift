@@ -178,11 +178,15 @@ public class LibShell {
                 
                 history.append(command_)
             }
-            if !history.contains(command) {
-                append(command: command)
-            } else if let i = history.firstIndex(of: command) {
+            var historyCommand = command
+            while historyCommand.hasSuffix(" ") {
+                historyCommand = String(historyCommand.dropLast())
+            }
+            if !history.contains(historyCommand) {
+                append(command: historyCommand)
+            } else if let i = history.firstIndex(of: historyCommand) {
                 history.remove(at: i)
-                append(command: command)
+                append(command: historyCommand)
             }
         }
         

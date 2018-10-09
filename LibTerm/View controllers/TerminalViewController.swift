@@ -243,46 +243,56 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     }
     
     private var commands: [String] {
-        let flags = currentCommand?.flags ?? []
-        if completionType == .none {
-            return flags
-        } else if completionType == .file, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
-            return flags+[".", "../"]+files
-        } else if completionType == .directory, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
-            var dirs = [".", "../"]
-            for file in files {
-                var isDir: ObjCBool = false
-                if FileManager.default.fileExists(atPath: file, isDirectory: &isDir) && isDir.boolValue {
-                    dirs.append(file)
+        var suggestions: [String] {
+            let flags = currentCommand?.flags ?? []
+            if completionType == .none {
+                return flags
+            } else if completionType == .file, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
+                return flags+[".", "../"]+files
+            } else if completionType == .directory, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
+                var dirs = [".", "../"]
+                for file in files {
+                    var isDir: ObjCBool = false
+                    if FileManager.default.fileExists(atPath: file, isDirectory: &isDir) && isDir.boolValue {
+                        dirs.append(file)
+                    }
                 }
-            }
-            return flags+dirs
-        } else if completionType == .history {
-            var commands_ = shell.history.reversed() as [String]
-            for command in Commands {
-                if !commands_.contains(command.commandName) {
-                    commands_.append(command.commandName)
+                return flags+dirs
+            } else if completionType == .history {
+                var commands_ = shell.history.reversed() as [String]
+                for command in Commands {
+                    if !commands_.contains(command.commandName) {
+                        commands_.append(command.commandName)
+                    }
                 }
-            }
-            return commands_
-        } else {
-            var commands_ = shell.history.reversed() as [String]
-            for command in Commands {
-                if command.commandName.contains(prompt.components(separatedBy: " ")[0].lowercased()) && !commands_.contains(command.commandName) {
-                    commands_.append(command.commandName)
+                return commands_
+            } else {
+                var commands_ = shell.history.reversed() as [String]
+                for command in Commands {
+                    if command.commandName.contains(prompt.components(separatedBy: " ")[0].lowercased()) && !commands_.contains(command.commandName) {
+                        commands_.append(command.commandName)
+                    }
                 }
-            }
-            var i = 0
-            var newCommands = commands_
-            for command in commands_ {
-                if !command.contains(prompt) {
-                    newCommands.remove(at: i)
-                } else {
-                    i += 1
+                var i = 0
+                var newCommands = commands_
+                for command in commands_ {
+                    if !command.contains(prompt) {
+                        newCommands.remove(at: i)
+                    } else {
+                        i += 1
+                    }
                 }
+                return newCommands
             }
-            return newCommands
         }
+        var suggestions_ = suggestions
+        for suggestion in suggestions {
+            if !suggestions_.contains(suggestion) {
+                suggestions_.append(suggestion)
+            }
+        }
+        
+        return suggestions_
     }
     
     // MARK: - Input assistant view delegate
