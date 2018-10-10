@@ -17,7 +17,7 @@ I like a lot [OpenTerm](https://github.com/louisdh/openterm) but I wanted to mak
 
 # Embedding
 
-LibTerm is embeddable so you can use it in your own  app. To do it, download releases and embed all frameworks in your app. Then, you can present a `TerminalViewController`. You can also compile the `LibTermCore` framework and embed it in your app. You will need to embed `InputAssistant` also. You also have to include [commandDictionary.plist](https://github.com/ColdGrub1384/LibTerm/blob/master/LibTerm/commandDictionary.plist) and [extraCommandsDictionary.plist](https://github.com/ColdGrub1384/LibTerm/blob/master/LibTerm/extraCommandsDictionary.plist) to your app's bundle.
+LibTerm is embeddable so you can use it in your own  app. To do it, download releases and embed all frameworks in your app. Then, you can present a `TerminalViewController`. You can also compile the `LibTermCore` framework and embed it in your app. You will need to embed `InputAssistant` and `ios_system` also. You also have to include [commandDictionary.plist](https://github.com/ColdGrub1384/LibTerm/blob/master/LibTerm/commandDictionary.plist) and [extraCommandsDictionary.plist](https://github.com/ColdGrub1384/LibTerm/blob/master/LibTerm/extraCommandsDictionary.plist) to your app's bundle.
 
 ## Usage
 
