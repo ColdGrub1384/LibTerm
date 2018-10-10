@@ -139,8 +139,43 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     }
     
     override public func viewDidLayoutSubviews() {
-        putenv("COLUMNS=\(Int(terminalTextView.frame.width/14))".cValue)
-        putenv("ROWS=\(Int(terminalTextView.frame.height/14))".cValue)
+        
+        var columns: Int {
+            
+            guard let font = terminalTextView.font else {
+                assertionFailure("Expected font")
+                return 0
+            }
+            
+            // TODO: check if the bounds includes the safe area (on iPhone X)
+            let viewWidth = terminalTextView.bounds.width
+            
+            let dummyAtributedString = NSAttributedString(string: "X", attributes: [.font: font])
+            let charWidth = dummyAtributedString.size().width
+            
+            // Assumes the font is monospaced
+            return Int(viewWidth / charWidth)
+        }
+        
+        var rows: Int {
+            
+            guard let font = terminalTextView.font else {
+                assertionFailure("Expected font")
+                return 0
+            }
+            
+            // TODO: check if the bounds includes the safe area (on iPhone X)
+            let viewHeight = terminalTextView.bounds.height
+            
+            let dummyAtributedString = NSAttributedString(string: "X", attributes: [.font: font])
+            let charHeight = dummyAtributedString.size().height
+            
+            // Assumes the font is monospaced
+            return Int(viewHeight / charHeight)
+        }
+        
+        putenv("COLUMNS=\(columns)".cValue)
+        putenv("ROWS=\(rows)".cValue)
     }
     
     // MARK: - Keyboard
