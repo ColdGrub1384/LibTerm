@@ -13,7 +13,7 @@ I like a lot [OpenTerm](https://github.com/louisdh/openterm) but I wanted to mak
 1. Clone all submodules
 2. Download `release.tar.gz` from [ios_system latest release](https://github.com/holzschu/ios_system/releases/latest).
 3. Unarchive the file.
-4. Move ios_system to the repo.
+4. Move ios_system to the `ios_system_build`.
 
 # Embedding
 
