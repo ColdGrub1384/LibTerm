@@ -9,7 +9,7 @@
 import ios_system
 
 /// All available commands.
-var Commands: [CommandHelp] {
+var Commands: [CommandHelp] = {
     var commands = [CommandHelp]()
     
     for command in commandsAsArray() as? [String] ?? [] {
@@ -33,4 +33,4 @@ var Commands: [CommandHelp] {
     commands.append(CommandHelp(commandName: "exit", commandInput: .none))
     
     return commands
-}
+}()
