@@ -56,9 +56,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         isWrittingToStdin = false
         isAskingForInput = false
         textViewDidChange(terminalTextView)
-        assistant.reloadData()
         commands = commands_ // Calling `commands_` getter only once improves a lot the performance
         isAskingForInput = true
+        assistant.reloadData()
     }
     
     /// Prints the given text.
@@ -345,7 +345,8 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 return newCommands
             }
         }
-        var suggestions_ = suggestions
+
+        var suggestions_ = [String]()
         for suggestion in suggestions {
             if !suggestions_.contains(suggestion) {
                 suggestions_.append(suggestion)
