@@ -6,7 +6,7 @@ This app is like @louisdh - [OpenTerm](https://github.com/louisdh/openterm) but 
 
 ## Motivation
 
-I like a lot [OpenTerm](https://github.com/louisdh/openterm) but I wanted to make the code better. Also, I wanted to integrate a local shell into [Pisth](https://github.com/ColdGrub1384/Pisth) so I made the project embeddable. I will not publish the app to the App Store until the app haven't changed more from [OpenTerm](https://github.com/louisdh/openterm) since it would be a disrespect for the @louisdh awesome work. This is not a fork from  [OpenTerm](https://github.com/louisdh/openterm), I rewritten the code.
+I like a lot [OpenTerm](https://github.com/louisdh/openterm) but I wanted to make the code better. Also, I wanted to integrate a local shell into [Pisth](https://github.com/ColdGrub1384/Pisth) so I made the project embeddable. I will upload to app to the App Store soon since [OpenTerm](https://github.com/louisdh/openterm) is no more available. This is not a fork from  [OpenTerm](https://github.com/louisdh/openterm), I rewrote the code.
 
 # Building
 
