@@ -52,9 +52,11 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     func input(prompt: String) {
         title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
         tprint(prompt)
+        isWrittingToStdin = false
+        isAskingForInput = false
         textViewDidChange(terminalTextView)
-        isAskingForInput = true
         assistant.reloadData()
+        isAskingForInput = true
     }
     
     /// Prints the given text.
