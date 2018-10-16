@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectUserDefaults
 
 // 0-  7:  standard colors (as in ESC [ 30–37 m)
 // 8- 15:  high intensity colors (as in ESC [ 90–97 m)
@@ -195,7 +196,7 @@ struct ANSITextState {
     }
     
     private static func font(fromTraits traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
-        let textSize = CGFloat(14)
+        let textSize = CGFloat(SettingsTableViewController.fontSize.doubleValue)
         var descriptor = UIFontDescriptor(name: "Menlo", size: textSize)
         if let traitDescriptor = descriptor.withSymbolicTraits(traits) {
             descriptor = traitDescriptor

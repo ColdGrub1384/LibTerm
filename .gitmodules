@@ -4,3 +4,6 @@
 [submodule "TabView"]
 	path = TabView
 	url = https://github.com/IMcD23/TabView.git
+[submodule "ObjectUserDefaults"]
+	path = ObjectUserDefaults
+	url = https://github.com/ColdGrub1384/ObjectUserDefaults.git

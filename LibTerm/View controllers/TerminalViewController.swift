@@ -9,6 +9,7 @@
 import UIKit
 import InputAssistant
 import ios_system
+import ObjectUserDefaults
 
 /// The terminal interacting with the shell.
 public class LTTerminalViewController: UIViewController, UITextViewDelegate, InputAssistantViewDelegate, InputAssistantViewDataSource, UIDocumentPickerDelegate {
@@ -67,8 +68,10 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     ///     - text: Text to print.
     public func tprint(_ text: String) {
         
+        let fontSize = SettingsTableViewController.fontSize.doubleValue
+        
         let newAttrs = NSMutableAttributedString(attributedString: terminalTextView.attributedText ?? NSAttributedString())
-        newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: 14) ?? UIFont.systemFont(ofSize: 14), .foregroundColor: LTForegroundColor]))
+        newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: CGFloat(fontSize)) ?? UIFont.systemFont(ofSize: CGFloat(fontSize)), .foregroundColor: LTForegroundColor]))
         terminalTextView.attributedText = newAttrs
         terminalTextView.scrollToBottom()
     }

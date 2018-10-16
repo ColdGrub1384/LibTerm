@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectUserDefaults
 
 /// The Text view containing the terminal.
 public class LTTerminalTextView: UITextView {
@@ -20,11 +21,35 @@ public class LTTerminalTextView: UITextView {
     // MARK: - Text view
     
     override public func caretRect(for position: UITextPosition) -> CGRect {
-        let superRect = super.caretRect(for: position)
-        if position == endOfDocument {
-            return CGRect(x: superRect.origin.x, y: superRect.origin.y, width: 10, height: superRect.height)
-        } else {
-            return superRect
+        var rect = super.caretRect(for: position)
+        
+        guard let font = self.font else {
+            assertionFailure("Could not get font")
+            return rect
         }
+        
+        switch SettingsTableViewController.caretStyle.integerValue {
+        case 0:
+            return rect
+            
+        case 1:
+            let dummyAtributedString = NSAttributedString(string: "X", attributes: [.font: font])
+            let charWidth = dummyAtributedString.size().width
+            
+            rect.size.width = charWidth
+            
+        case 2:
+            let dummyAtributedString = NSAttributedString(string: "X", attributes: [.font: font])
+            let charWidth = dummyAtributedString.size().width
+            
+            rect.origin.y += font.pointSize
+            
+            rect.size.height = rect.width
+            rect.size.width = charWidth
+        default:
+            break
+        }
+        
+        return rect
     }
 }

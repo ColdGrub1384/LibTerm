@@ -9,6 +9,7 @@
 import UIKit
 import TabView
 import ios_system
+import ObjectUserDefaults
 
 /// The app's delegate.
 @UIApplicationMain
@@ -35,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         putenv("TERM=ansi".cValue)
         
         window?.accessibilityIgnoresInvertColors = true
+        
+        if SettingsTableViewController.fontSize.integerValue == 0 {
+            SettingsTableViewController.fontSize.integerValue = 14
+        }
         
         return true
     }
