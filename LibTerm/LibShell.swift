@@ -147,8 +147,7 @@ public class LibShell {
         }
         
         if arguments == ["python"] { // When Python is called without arguments, it freezes instead of running the REPL
-            ios_system("python -c 'import code; code.interact()'")
-            return 0
+            return ios_system("python -c 'import code; code.interact()'")
         }
         
         let setterComponents = command.components(separatedBy: "=")
