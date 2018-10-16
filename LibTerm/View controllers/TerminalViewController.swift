@@ -308,7 +308,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             if completionType == .none {
                 return flags
             } else if completionType == .file, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
-                return flags+[".", "../"]+files
+                return [".", "../"]+files+flags
             } else if completionType == .directory, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
                 var dirs = [".", "../"]
                 for file in files {
@@ -317,7 +317,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                         dirs.append(file)
                     }
                 }
-                return flags+dirs
+                return dirs+flags
             } else if completionType == .history {
                 var commands_ = shell.history.reversed() as [String]
                 for command in Commands {
