@@ -26,6 +26,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     /// The actual user input.
     var prompt = "" {
         didSet {
+            commands = commands_ // Calling `commands_` getter only once improves a lot the performance
             assistant.reloadData()
         }
     }
@@ -56,6 +57,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         isAskingForInput = false
         textViewDidChange(terminalTextView)
         assistant.reloadData()
+        commands = commands_ // Calling `commands_` getter only once improves a lot the performance
         isAskingForInput = true
     }
     
@@ -300,7 +302,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         }
     }
     
-    private var commands: [String] {
+    private var commands_: [String] {
         var suggestions: [String] {
             let flags = currentCommand?.flags ?? []
             if completionType == .none {
@@ -352,6 +354,8 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         
         return suggestions_
     }
+    
+    private var commands = [String]()
     
     // MARK: - Input assistant view delegate
     
