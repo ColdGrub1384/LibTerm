@@ -219,6 +219,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         view.tintColor = preferences.foregroundColor
         view.backgroundColor = preferences.backgroundColor
         
+        LTTerminalViewController.visible_ = self
         shell.io = LTIO(terminal: self)
         shell.input()
         
