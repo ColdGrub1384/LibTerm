@@ -79,7 +79,7 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
 }
 
 /// The shell for executing commands.
-public class LibShell {
+open class LibShell {
     
     /// Initialize the shell.
     public init() {
@@ -88,7 +88,7 @@ public class LibShell {
     }
     
     /// The commands history.
-    public var history: [String] {
+    open var history: [String] {
         get {
             return UserDefaults.standard.stringArray(forKey: "history") ?? []
         }
@@ -100,13 +100,15 @@ public class LibShell {
     }
     
     /// The IO object for reading output and writting input.
-    public var io: LTIO?
+    open var io: LTIO?
     
     /// `true` if a command is actually running on this shell.
     public var isCommandRunning = false
     
     /// Builtin commands per name and functions.
-    public let builtins: [String:Command] = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain]
+    open var builtins: [String:Command] {
+        return ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain]
+    }
     
     /// Writes the prompt to the terminal.
     public func input() {
@@ -116,7 +118,7 @@ public class LibShell {
     }
     
     /// Shell's variables.
-    public var variables = [String:String]()
+    open var variables = [String:String]()
     
     /// Run given command.
     ///
@@ -124,7 +126,7 @@ public class LibShell {
     ///     - command: The command to run.
     ///
     /// - Returns: The exit code.
-    @discardableResult public func run(command: String) -> Int32 {
+    @discardableResult open func run(command: String) -> Int32 {
         if let io = io {
             ios_switchSession(io.ios_stdout)
             ios_setStreams(io.ios_stdin, io.ios_stdout, io.ios_stderr)
