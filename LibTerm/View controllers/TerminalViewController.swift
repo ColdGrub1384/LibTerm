@@ -47,7 +47,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             }
             get {
                 if #available(iOS 11.0, *) {
-                    return foregroundColor_ ?? UIColor(named: "Foreground Color")!
+                    return foregroundColor_ ?? UIColor(named: "Foreground Color", in: Bundle(for: LTTerminalViewController.self), compatibleWith: nil)!
                 } else {
                     return foregroundColor_ ?? .green
                 }
@@ -61,7 +61,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             }
             get {
                 if #available(iOS 11.0, *) {
-                    return backgroundColor_ ?? UIColor(named: "Background Color")!
+                    return backgroundColor_ ?? UIColor(named: "Background Color", in: Bundle(for: LTTerminalViewController.self), compatibleWith: nil)!
                 } else {
                     return backgroundColor_ ?? .black
                 }
