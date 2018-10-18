@@ -13,8 +13,8 @@ import ios_system
 func helpMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     
     var helpText = ""
-    for command in Commands {
-        if command != Commands.last {
+    for command in LTHelp {
+        if command != LTHelp.last {
             helpText += "\(command.commandName), "
         } else {
             helpText += "\(command.commandName)\n"

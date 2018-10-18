@@ -406,7 +406,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     }
     
     private var currentCommand: CommandHelp? {
-        for command in Commands {
+        for command in LTHelp {
             if command.commandName == prompt.components(separatedBy: " ")[0] {
                 return command
             }
@@ -442,7 +442,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 return dirs+flags
             } else if completionType == .history {
                 var commands_ = shell.history.reversed() as [String]
-                for command in Commands {
+                for command in LTHelp {
                     if !commands_.contains(command.commandName) {
                         commands_.append(command.commandName)
                     }
@@ -450,7 +450,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 return commands_
             } else {
                 var commands_ = shell.history.reversed() as [String]
-                for command in Commands {
+                for command in LTHelp {
                     if command.commandName.contains(prompt.components(separatedBy: " ")[0].lowercased()) && !commands_.contains(command.commandName) {
                         commands_.append(command.commandName)
                     }
