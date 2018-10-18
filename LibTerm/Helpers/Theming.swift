@@ -11,6 +11,20 @@ import UIKit
 fileprivate var foregroundColor: UIColor?
 fileprivate var backgroundColor: UIColor?
 fileprivate var fontSize: Double?
+fileprivate var caretStyle = 0
+
+/// Caret styles used in the terminal.
+public enum LTCaretStyle: Int {
+    
+    /// The default text view's caret style.
+    case verticalBar = 0
+    
+    /// A block.
+    case block = 1
+    
+    /// An horizontal bar.
+    case underline = 2
+}
 
 /// Terminal's keyboard appearance.
 public var LTKeyboardAppearance = UIKeyboardAppearance.dark
@@ -62,6 +76,24 @@ public var LTFontSize: Double {
             fontSize = newValue
         #else
             SettingsTableViewController.fontSize.doubleValue = newValue
+        #endif
+    }
+}
+
+/// The terminal's caret style.
+public var LTCaretStyle_: LTCaretStyle {
+    get {
+        #if FRAMEWORK
+            return LTCaretStyle(rawValue: caretStyle)
+        #else
+           return SettingsTableViewController.caretStyle.integerValue
+        #endif
+    }
+    set {
+        #if FRAMEWORK
+            caretStyle = newValue
+        #else
+            SettingsTableViewController.caretStyle.integerValue = newValue
         #endif
     }
 }
