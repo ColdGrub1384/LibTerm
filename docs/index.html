@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LibTermCore  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="LibTermCore  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">LibTermCore Docs</a> (91% documented)</p>
+        <p class="header-right"><a href="https://github.com/ColdGrub1384/LibTerm"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">LibTermCore Reference</a>
+        <img id="carat" src="img/carat.png" />
+        LibTermCore  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Keys.html">Keys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LTIO.html">LTIO</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LTTerminalTextView.html">LTTerminalTextView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LTTerminalViewController.html">LTTerminalViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LTTerminalViewController/Preferences.html">– Preferences</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LibShell.html">LibShell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Global Variables.html#/s:11LibTermCore6LTHelpSayAA13LTCommandHelpVGvp">LTHelp</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/FileHandle.html">FileHandle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/LTCommandHelp.html">LTCommandHelp</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LTCommandHelp/CompletionType.html">– CompletionType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:11LibTermCore9LTCommanda">LTCommand</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='libterm' class='heading'>LibTerm</h1>
+
+<p>LibTerm is a terminal for iOS.</p>
+
+<p>This app is like @louisdh - <a href="https://github.com/louisdh/openterm">OpenTerm</a> but this terminal is embeddable in your own app and it supports Lua and Python 2.7.</p>
+<h2 id='motivation' class='heading'>Motivation</h2>
+
+<p>I like a lot <a href="https://github.com/louisdh/openterm">OpenTerm</a> but I wanted to make the code better. Also, I wanted to integrate a local shell into <a href="https://github.com/ColdGrub1384/Pisth">Pisth</a> so I made the project embeddable. I will upload to app to the App Store soon since <a href="https://github.com/louisdh/openterm">OpenTerm</a> is no more available. This is not a fork from  <a href="https://github.com/louisdh/openterm">OpenTerm</a>, I rewrote the code.</p>
+<h1 id='building' class='heading'>Building</h1>
+
+<ol>
+<li>Clone all submodules</li>
+<li>Download <code>release.tar.gz</code> from <a href="https://github.com/holzschu/ios_system/releases/latest">ios_system latest release</a>.</li>
+<li>Unarchive the file.</li>
+<li>Move ios_system to the <code>ios_system</code>.</li>
+</ol>
+<h1 id='embedding' class='heading'>Embedding</h1>
+
+<p>LibTerm is embeddable so you can use it in your own  app. To do it, download releases and embed all frameworks in your app. Then, you can present a <code><a href="Classes/LTTerminalViewController.html">LTTerminalViewController</a></code>. You can also compile the <code>LibTermCore</code> framework and embed it in your app. You will need to embed <code>InputAssistant</code> and <code>ios_system</code> also. You also have to include <a href="https://github.com/ColdGrub1384/LibTerm/blob/master/LibTerm/commandDictionary.plist">commandDictionary.plist</a> and <a href="https://github.com/ColdGrub1384/LibTerm/blob/master/LibTerm/extraCommandsDictionary.plist">extraCommandsDictionary.plist</a> to your app&rsquo;s bundle.</p>
+<h2 id='usage' class='heading'>Usage</h2>
+<h3 id='instantiating-the-terminal' class='heading'>Instantiating the terminal</h3>
+<pre class="highlight swift"><code><span class="kt">LTTerminalViewController</span><span class="o">.</span><span class="nf">makeTerminal</span><span class="p">(</span><span class="nv">preferences</span><span class="p">:</span> <span class="o">&lt;</span><span class="err">#</span><span class="kt">LTTerminalViewController</span><span class="o">.</span><span class="kt">Preferences</span><span class="err">#</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">shell</span><span class="p">:</span> <span class="o">&lt;</span><span class="err">#</span><span class="kt">LibShell</span><span class="err">#</span><span class="o">&gt;</span><span class="p">)</span>
+</code></pre>
+<h3 id='accessing-the-text-view' class='heading'>Accessing the Text view</h3>
+<pre class="highlight swift"><code><span class="kt">LTTerminalViewController</span><span class="o">.</span><span class="n">terminalTextView</span>
+</code></pre>
+<h3 id='extending' class='heading'>Extending</h3>
+
+<p>You can add a command by subclassing <code><a href="Classes/LibShell.html">LibShell</a></code>:</p>
+<pre class="highlight swift"><code>
+<span class="kd">func</span> <span class="nf">python3_main</span><span class="p">(</span><span class="nv">argc</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">argv</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">shell</span><span class="p">:</span> <span class="kt">LibShell</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span> <span class="p">{</span>
+    <span class="c1">// Code here...</span>
+
+    <span class="k">return</span> <span class="mi">0</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">Shell</span><span class="p">:</span> <span class="kt">LibShell</span> <span class="p">{</span>
+
+    <span class="k">var</span> <span class="nv">commands</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">LTCommand</span><span class="p">]</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">super</span><span class="o">.</span><span class="n">commands</span><span class="o">+</span><span class="p">[</span><span class="s">"python3"</span><span class="p">,</span> <span class="n">python3_main</span><span class="p">]</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="nv">terminal</span> <span class="o">=</span> <span class="kt">LTTerminalViewController</span><span class="p">(</span><span class="nv">shell</span><span class="p">:</span> <span class="kt">Shell</span><span class="p">())</span>
+</code></pre>
+
+<p>You can also add it to the suggestion bar:</p>
+<pre class="highlight swift"><code><span class="kt">LTHelp</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="kt">LTCommandHelp</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"python3"</span><span class="p">,</span> <span class="nv">commandInput</span><span class="p">:</span> <span class="o">.</span><span class="n">file</span><span class="p">))</span>
+</code></pre>
+<h1 id='acknowledgments' class='heading'>Acknowledgments</h1>
+
+<ul>
+<li><a href="https://github.com/IMcD23/InputAssistant">InputAssistant</a></li>
+<li><a href="https://github.com/holzschu/ios_system">ios_system</a></li>
+<li><a href="https://github.com/louisdh/openterm">OpenTerm</a> (This is not a fork of OpenTerm but I used some code like the ANSI parser and I learned from it.)</li>
+<li><a href="https://github.com/IMcD23/TabView">TabView</a></li>
+</ul>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-10-18)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

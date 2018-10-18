@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LTCommandHelp Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/LTCommandHelp" class="dashAnchor"></a>
+    <a title="LTCommandHelp Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">LibTermCore Docs</a> (91% documented)</p>
+        <p class="header-right"><a href="https://github.com/ColdGrub1384/LibTerm"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">LibTermCore Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        LTCommandHelp Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Keys.html">Keys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LTIO.html">LTIO</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LTTerminalTextView.html">LTTerminalTextView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LTTerminalViewController.html">LTTerminalViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LTTerminalViewController/Preferences.html">– Preferences</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibShell.html">LibShell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:11LibTermCore6LTHelpSayAA13LTCommandHelpVGvp">LTHelp</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/FileHandle.html">FileHandle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/LTCommandHelp.html">LTCommandHelp</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LTCommandHelp/CompletionType.html">– CompletionType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11LibTermCore9LTCommanda">LTCommand</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>LTCommandHelp</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LTCommandHelp</span> <span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+
+                </div>
+              </div>
+            <p>A structure representing a command for helping the user.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore13LTCommandHelpV11commandNameSSvp"></a>
+                    <a name="//apple_ref/swift/Property/commandName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore13LTCommandHelpV11commandNameSSvp">commandName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The command name.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">commandName</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore13LTCommandHelpV12commandInputAC14CompletionTypeOvp"></a>
+                    <a name="//apple_ref/swift/Property/commandInput" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore13LTCommandHelpV12commandInputAC14CompletionTypeOvp">commandInput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The argument type the commands supports. <code>.none</code>, <code>.file</code> or <code>.directory</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">commandInput</span><span class="p">:</span> <span class="kt"><a href="../Structs/LTCommandHelp/CompletionType.html">CompletionType</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore13LTCommandHelpV5flagsSaySSGvp"></a>
+                    <a name="//apple_ref/swift/Property/flags" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore13LTCommandHelpV5flagsSaySSGvp">flags</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns flags supported by the command.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">flags</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore13LTCommandHelpV14CompletionTypeO"></a>
+                    <a name="//apple_ref/swift/Enum/CompletionType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore13LTCommandHelpV14CompletionTypeO">CompletionType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A structure representing completions type available for a command.</p>
+
+                        <a href="../Structs/LTCommandHelp/CompletionType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CompletionType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore13LTCommandHelpV11commandName0F5InputACSS_AC14CompletionTypeOtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(commandName:commandInput:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore13LTCommandHelpV11commandName0F5InputACSS_AC14CompletionTypeOtcfc">init(commandName:commandInput:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize the command help.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">commandName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">commandInput</span><span class="p">:</span> <span class="kt"><a href="../Structs/LTCommandHelp/CompletionType.html">CompletionType</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>commandName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The command name.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>commandInput</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The argument type the commands supports.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:SQ2eeoiySbx_xtFZ"></a>
+                    <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:SQ2eeoiySbx_xtFZ">==(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">LTCommandHelp</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">LTCommandHelp</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-10-18)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

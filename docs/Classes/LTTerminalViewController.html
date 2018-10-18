@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LTTerminalViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/LTTerminalViewController" class="dashAnchor"></a>
+    <a title="LTTerminalViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">LibTermCore Docs</a> (91% documented)</p>
+        <p class="header-right"><a href="https://github.com/ColdGrub1384/LibTerm"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">LibTermCore Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        LTTerminalViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Keys.html">Keys</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LTIO.html">LTIO</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LTTerminalTextView.html">LTTerminalTextView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LTTerminalViewController.html">LTTerminalViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LTTerminalViewController/Preferences.html">– Preferences</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LibShell.html">LibShell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:11LibTermCore6LTHelpSayAA13LTCommandHelpVGvp">LTHelp</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/FileHandle.html">FileHandle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/LTCommandHelp.html">LTCommandHelp</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LTCommandHelp/CompletionType.html">– CompletionType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11LibTermCore9LTCommanda">LTCommand</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>LTTerminalViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LTTerminalViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="kt">UITextViewDelegate</span><span class="p">,</span> <span class="kt">InputAssistantViewDelegate</span><span class="p">,</span> <span class="kt">InputAssistantViewDataSource</span><span class="p">,</span> <span class="kt">UIDocumentPickerDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>The terminal interacting with the shell. Only one terminal should be visible at a time.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore24LTTerminalViewControllerC11PreferencesV"></a>
+                    <a name="//apple_ref/swift/Struct/Preferences" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore24LTTerminalViewControllerC11PreferencesV">Preferences</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A structure containing terminal&rsquo;s UI preferences.</p>
+
+                        <a href="../Classes/LTTerminalViewController/Preferences.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Preferences</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore24LTTerminalViewControllerC7visibleACSgvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/visible" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore24LTTerminalViewControllerC7visibleACSgvpZ">visible</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The currently visible terminal.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">visible</span><span class="p">:</span> <span class="kt">LTTerminalViewController</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore24LTTerminalViewControllerC12makeTerminal11preferences5shellA2C11PreferencesV_AA0A5ShellCtFZ"></a>
+                    <a name="//apple_ref/swift/Method/makeTerminal(preferences:shell:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore24LTTerminalViewControllerC12makeTerminal11preferences5shellA2C11PreferencesV_AA0A5ShellCtFZ">makeTerminal(preferences:shell:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize with given preferences.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">makeTerminal</span><span class="p">(</span><span class="nv">preferences</span><span class="p">:</span> <span class="kt"><a href="../Classes/LTTerminalViewController/Preferences.html">Preferences</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/LTTerminalViewController/Preferences.html">Preferences</a></span><span class="p">(),</span> <span class="nv">shell</span><span class="p">:</span> <span class="kt"><a href="../Classes/LibShell.html">LibShell</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/LibShell.html">LibShell</a></span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kt">LTTerminalViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore24LTTerminalViewControllerC11preferencesAC11PreferencesVvp"></a>
+                    <a name="//apple_ref/swift/Property/preferences" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore24LTTerminalViewControllerC11preferencesAC11PreferencesVvp">preferences</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Terminal&rsquo;s preferences.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">preferences</span><span class="p">:</span> <span class="kt">LTTerminalViewController</span><span class="o">.</span><span class="kt"><a href="../Classes/LTTerminalViewController/Preferences.html">Preferences</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@LibTermCore@objc(cs)LTTerminalViewController(py)terminalTextView"></a>
+                    <a name="//apple_ref/swift/Property/terminalTextView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@LibTermCore@objc(cs)LTTerminalViewController(py)terminalTextView">terminalTextView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Text view displaying content.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span>
+<span class="k">weak</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">terminalTextView</span><span class="p">:</span> <span class="kt"><a href="../Classes/LTTerminalTextView.html">LTTerminalTextView</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore24LTTerminalViewControllerC5shellAA0A5ShellCvp"></a>
+                    <a name="//apple_ref/swift/Property/shell" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore24LTTerminalViewControllerC5shellAA0A5ShellCvp">shell</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The shell for running command.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">shell</span><span class="p">:</span> <span class="kt"><a href="../Classes/LibShell.html">LibShell</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore24LTTerminalViewControllerC6tprintyySSF"></a>
+                    <a name="//apple_ref/swift/Method/tprint(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore24LTTerminalViewControllerC6tprintyySSF">tprint(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Prints the given text.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">tprint</span><span class="p">(</span><span class="n">_</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>text</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Text to print.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11LibTermCore24LTTerminalViewControllerC2cdyyF"></a>
+                    <a name="//apple_ref/swift/Method/cd()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11LibTermCore24LTTerminalViewControllerC2cdyyF">cd()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Select a new working directory.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cd</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/View%20controller"></a>
+                <a name="//apple_ref/swift/Section/View controller" class="dashAnchor"></a>
+                <a href="#/View%20controller">
+                  <h3 class="section-name">View controller</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)viewDidLoad"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)viewDidLoad">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)viewDidAppear:"></a>
+                    <a name="//apple_ref/swift/Method/viewDidAppear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)viewDidAppear:">viewDidAppear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">viewDidAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)viewDidDisappear:"></a>
+                    <a name="//apple_ref/swift/Method/viewDidDisappear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)viewDidDisappear:">viewDidDisappear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)viewWillAppear:"></a>
+                    <a name="//apple_ref/swift/Method/viewWillAppear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)viewWillAppear:">viewWillAppear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)viewDidLayoutSubviews"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLayoutSubviews()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)viewDidLayoutSubviews">viewDidLayoutSubviews()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">viewDidLayoutSubviews</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Text%20view%20delegate"></a>
+                <a name="//apple_ref/swift/Section/Text view delegate" class="dashAnchor"></a>
+                <a href="#/Text%20view%20delegate">
+                  <h3 class="section-name">Text view delegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)textViewDidChange:"></a>
+                    <a name="//apple_ref/swift/Method/textViewDidChange(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)textViewDidChange:">textViewDidChange(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">textViewDidChange</span><span class="p">(</span><span class="n">_</span> <span class="nv">textView</span><span class="p">:</span> <span class="kt">UITextView</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)textView:shouldChangeTextInRange:replacementText:"></a>
+                    <a name="//apple_ref/swift/Method/textView(_:shouldChangeTextIn:replacementText:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)textView:shouldChangeTextInRange:replacementText:">textView(_:shouldChangeTextIn:replacementText:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">textView</span><span class="p">(</span><span class="n">_</span> <span class="nv">textView</span><span class="p">:</span> <span class="kt">UITextView</span><span class="p">,</span> <span class="n">shouldChangeTextIn</span> <span class="nv">range</span><span class="p">:</span> <span class="kt">NSRange</span><span class="p">,</span> <span class="n">replacementText</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Input%20assistant%20view%20delegate"></a>
+                <a name="//apple_ref/swift/Section/Input assistant view delegate" class="dashAnchor"></a>
+                <a href="#/Input%20assistant%20view%20delegate">
+                  <h3 class="section-name">Input assistant view delegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14InputAssistant0aB12ViewDelegateP05inputbC0_26didSelectSuggestionAtIndexyAA0abC0C_SitF"></a>
+                    <a name="//apple_ref/swift/Method/inputAssistantView(_:didSelectSuggestionAtIndex:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14InputAssistant0aB12ViewDelegateP05inputbC0_26didSelectSuggestionAtIndexyAA0abC0C_SitF">inputAssistantView(_:didSelectSuggestionAtIndex:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">inputAssistantView</span><span class="p">(</span><span class="n">_</span> <span class="nv">inputAssistantView</span><span class="p">:</span> <span class="kt">InputAssistantView</span><span class="p">,</span> <span class="n">didSelectSuggestionAtIndex</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Input%20assistant%20view%20data%20source"></a>
+                <a name="//apple_ref/swift/Section/Input assistant view data source" class="dashAnchor"></a>
+                <a href="#/Input%20assistant%20view%20data%20source">
+                  <h3 class="section-name">Input assistant view data source</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14InputAssistant0aB14ViewDataSourceP025textForEmptySuggestionsInabC0SSSgyF"></a>
+                    <a name="//apple_ref/swift/Method/textForEmptySuggestionsInInputAssistantView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14InputAssistant0aB14ViewDataSourceP025textForEmptySuggestionsInabC0SSSgyF">textForEmptySuggestionsInInputAssistantView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">textForEmptySuggestionsInInputAssistantView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14InputAssistant0aB14ViewDataSourceP05inputbC0_24nameForSuggestionAtIndexSSAA0abC0C_SitF"></a>
+                    <a name="//apple_ref/swift/Method/inputAssistantView(_:nameForSuggestionAtIndex:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14InputAssistant0aB14ViewDataSourceP05inputbC0_24nameForSuggestionAtIndexSSAA0abC0C_SitF">inputAssistantView(_:nameForSuggestionAtIndex:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">inputAssistantView</span><span class="p">(</span><span class="n">_</span> <span class="nv">inputAssistantView</span><span class="p">:</span> <span class="kt">InputAssistantView</span><span class="p">,</span> <span class="n">nameForSuggestionAtIndex</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:14InputAssistant0aB14ViewDataSourceP021numberOfSuggestionsInabC0SiyF"></a>
+                    <a name="//apple_ref/swift/Method/numberOfSuggestionsInInputAssistantView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:14InputAssistant0aB14ViewDataSourceP021numberOfSuggestionsInabC0SiyF">numberOfSuggestionsInInputAssistantView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">numberOfSuggestionsInInputAssistantView</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Document%20picker%20delegate"></a>
+                <a name="//apple_ref/swift/Section/Document picker delegate" class="dashAnchor"></a>
+                <a href="#/Document%20picker%20delegate">
+                  <h3 class="section-name">Document picker delegate</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)documentPicker:didPickDocumentsAtURLs:"></a>
+                    <a name="//apple_ref/swift/Method/documentPicker(_:didPickDocumentsAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@LibTermCore@objc(cs)LTTerminalViewController(im)documentPicker:didPickDocumentsAtURLs:">documentPicker(_:didPickDocumentsAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">documentPicker</span><span class="p">(</span><span class="n">_</span> <span class="nv">controller</span><span class="p">:</span> <span class="kt">UIDocumentPickerViewController</span><span class="p">,</span> <span class="n">didPickDocumentsAt</span> <span class="nv">urls</span><span class="p">:</span> <span class="p">[</span><span class="kt">URL</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-10-18)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

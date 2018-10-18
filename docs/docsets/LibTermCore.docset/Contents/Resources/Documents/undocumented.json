@@ -1,0 +1,75 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
+      "line": 115,
+      "symbol": "LTTerminalViewController.Preferences.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
+      "line": 213,
+      "symbol": "LTTerminalViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
+      "line": 237,
+      "symbol": "LTTerminalViewController.viewDidAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
+      "line": 253,
+      "symbol": "LTTerminalViewController.viewDidDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
+      "line": 261,
+      "symbol": "LTTerminalViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
+      "line": 267,
+      "symbol": "LTTerminalViewController.viewDidLayoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
+      "line": 325,
+      "symbol": "LTTerminalViewController.textViewDidChange(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
+      "line": 332,
+      "symbol": "LTTerminalViewController.textView(_:shouldChangeTextIn:replacementText:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
+      "line": 516,
+      "symbol": "LTTerminalViewController.documentPicker(_:didPickDocumentsAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/Views/TerminalTextView.swift",
+      "line": 22,
+      "symbol": "LTTerminalTextView.caretRect(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/adrianlabbe/Desktop/LibTerm"
+}

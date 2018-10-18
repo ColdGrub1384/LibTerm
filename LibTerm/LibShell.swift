@@ -10,6 +10,36 @@ import UIKit
 import ios_system
 
 /// Type for a builtin command. A function with argc, argv and the shell running it.
+///
+/// # Building a command
+///
+/// First, create a function that conforms to `LTCommand`:
+///
+///     func myCommand(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+///         return 0
+///     }
+/// The stdout will not be read by the terminal, so you have to write to the custom output file:
+///
+///     func myCommand(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+///
+///         shell.io?.outputPipe.fileHandleForWriting.write("Hello World!")
+///
+///         return 0
+///     }
+/// For reading input:
+///
+///     func myCommand(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+///
+///         shell.io?.inputPipe.fileHandleForReading.readabilityHandler = { handle in
+///             do {
+///                 let input = String(data: handle.availableData, encoding: .utf8)
+///             } catch {
+///                 // Handle error
+///             }
+///         }
+///
+///         return 0
+///     }
 public typealias LTCommand = ((Int, [String], LibShell) -> Int32)
 
 func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {

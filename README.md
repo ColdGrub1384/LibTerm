@@ -47,16 +47,18 @@ func python3_main(argc: Int, argv: [String], shell: LibShell) -> Int32 {
 
 class Shell: LibShell {
 
-var commands: [String : LTCommand] {
-    return super.commands+["python3", python3_main]
-}
+    var commands: [String : LTCommand] {
+        return super.commands+["python3", python3_main]
+    }
 
 }
+
+let terminal = LTTerminalViewController(shell: Shell())
 ```
 
 You can also add it to the suggestion bar:
 
-```
+```swift
 LTHelp.append(LTCommandHelp(name: "python3", commandInput: .file))
 ```
 
@@ -66,3 +68,4 @@ LTHelp.append(LTCommandHelp(name: "python3", commandInput: .file))
 - [ios_system](https://github.com/holzschu/ios_system)
 - [OpenTerm](https://github.com/louisdh/openterm) (This is not a fork of OpenTerm but I used some code like the ANSI parser and I learned from it.)
 - [TabView](https://github.com/IMcD23/TabView)
+
