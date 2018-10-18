@@ -50,7 +50,7 @@ public struct LTCommandHelp: Equatable {
     /// - Parameters:
     ///     - commandName: The command name.
     ///     - commandInput: The argument type the commands supports.
-    init(commandName: String, commandInput: CompletionType) {
+    public init(commandName: String, commandInput: CompletionType) {
         self.commandName = commandName
         self.commandInput = commandInput
         
