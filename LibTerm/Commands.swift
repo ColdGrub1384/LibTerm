@@ -9,17 +9,17 @@
 import ios_system
 
 /// All available commands.
-var LTHelp: [CommandHelp] = {
-    var commands = [CommandHelp]()
+public var LTHelp: [LTCommandHelp] = {
+    var commands = [LTCommandHelp]()
     
     for command in commandsAsArray() as? [String] ?? [] {
-        var completionType = CommandHelp.CompletionType.none
+        var completionType = LTCommandHelp.CompletionType.none
         if operatesOn(command) == "file" {
             completionType = .file
         } else if operatesOn(command) == "directory" {
             completionType = .directory
         }
-        var commandHelp = CommandHelp(commandName: command, commandInput: completionType)
+        var commandHelp = LTCommandHelp(commandName: command, commandInput: completionType)
         if command == "chmod" {
             commandHelp.flags.insert("+r", at: 0)
             commandHelp.flags.insert("+w", at: 0)
@@ -27,10 +27,10 @@ var LTHelp: [CommandHelp] = {
         }
         commands.append(commandHelp)
     }
-    commands.append(CommandHelp(commandName: "clear", commandInput: .none))
-    commands.append(CommandHelp(commandName: "sh", commandInput: .file))
-    commands.append(CommandHelp(commandName: "help", commandInput: .none))
-    commands.append(CommandHelp(commandName: "exit", commandInput: .none))
+    commands.append(LTCommandHelp(commandName: "clear", commandInput: .none))
+    commands.append(LTCommandHelp(commandName: "sh", commandInput: .file))
+    commands.append(LTCommandHelp(commandName: "help", commandInput: .none))
+    commands.append(LTCommandHelp(commandName: "exit", commandInput: .none))
         
     return commands
 }()

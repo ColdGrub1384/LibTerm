@@ -9,7 +9,7 @@
 import ios_system
 
 /// A structure representing a command for helping the user.
-public struct CommandHelp: Equatable {
+public struct LTCommandHelp: Equatable {
     
     /// The command name.
     public var commandName: String
@@ -63,7 +63,7 @@ public struct CommandHelp: Equatable {
         flags = flags_
     }
     
-    public static func == (lhs: CommandHelp, rhs: CommandHelp) -> Bool {
+    public static func == (lhs: LTCommandHelp, rhs: LTCommandHelp) -> Bool {
         return (lhs.commandName == rhs.commandName)
     }
 }

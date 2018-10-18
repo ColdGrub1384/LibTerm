@@ -405,7 +405,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         }).withRenderingMode(.alwaysOriginal)
     }
     
-    private var currentCommand: CommandHelp? {
+    private var currentCommand: LTCommandHelp? {
         for command in LTHelp {
             if command.commandName == prompt.components(separatedBy: " ")[0] {
                 return command
@@ -414,7 +414,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         return nil
     }
     
-    private var completionType: CommandHelp.CompletionType {
+    private var completionType: LTCommandHelp.CompletionType {
         if let command = currentCommand, prompt.hasSuffix(" ") {
             return command.commandInput
         } else if prompt.isEmpty {
