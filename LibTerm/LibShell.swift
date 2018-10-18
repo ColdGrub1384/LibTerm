@@ -10,7 +10,7 @@ import UIKit
 import ios_system
 
 /// Type for a builtin command. A function with argc, argv and the shell running it.
-public typealias Command = ((Int, [String], LibShell) -> Int32)
+public typealias LTCommand = ((Int, [String], LibShell) -> Int32)
 
 func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     
@@ -106,7 +106,7 @@ open class LibShell {
     public var isCommandRunning = false
     
     /// Builtin commands per name and functions.
-    open var builtins: [String:Command] {
+    open var builtins: [String:LTCommand] {
         return ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain]
     }
     
