@@ -42,7 +42,7 @@ class TerminalTabViewController: TabViewController {
     required init(theme: TabViewTheme) {
         super.init(theme: theme)
         
-        view.tintColor = LTForegroundColor
+        view.tintColor = LTTerminalViewController.Preferences().foregroundColor
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(showSettings(_:)))
         navigationItem.rightBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Organize"), style: .plain, target: self, action: #selector(cd(_:))), UIBarButtonItem(image: #imageLiteral(resourceName: "Add"), style: .plain, target: self, action: #selector(addTab))]

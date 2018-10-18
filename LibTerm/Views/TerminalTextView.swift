@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ObjectUserDefaults
 
 /// The Text view containing the terminal.
 public class LTTerminalTextView: UITextView {
@@ -28,7 +27,7 @@ public class LTTerminalTextView: UITextView {
             return rect
         }
         
-        switch LTCaretStyle_.rawValue {
+        switch LTTerminalViewController.visible?.preferences.caretStyle.rawValue ?? 0 {
         case 0:
             return rect
             

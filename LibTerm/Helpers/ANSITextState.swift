@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ObjectUserDefaults
 
 // 0-  7:  standard colors (as in ESC [ 30–37 m)
 // 8- 15:  high intensity colors (as in ESC [ 90–97 m)
@@ -109,7 +108,7 @@ enum ANSIForegroundColor: Int {
     var color: UIColor {
         switch self.rawValue {
         case ANSIForegroundColor.default.rawValue:
-            return LTForegroundColor
+            return LTTerminalViewController.visible?.preferences.foregroundColor ?? LTTerminalViewController.Preferences().foregroundColor
         case 30...37:
             return indexedColor(atIndex: self.rawValue - 30)
         case 90...97:
@@ -175,8 +174,8 @@ enum ANSIFontState: Int {
 }
 
 struct ANSITextState {
-    var foregroundColor: UIColor = LTForegroundColor
-    var backgroundColor: UIColor = LTBackgroundColor
+    var foregroundColor: UIColor = LTTerminalViewController.visible?.preferences.foregroundColor ?? LTTerminalViewController.Preferences().foregroundColor
+    var backgroundColor: UIColor = LTTerminalViewController.visible?.preferences.backgroundColor ?? LTTerminalViewController.Preferences().backgroundColor
     var isUnderlined: Bool = false
     var isStrikethrough: Bool = false
     var font: UIFont = ANSITextState.font(fromTraits: [])
@@ -196,7 +195,7 @@ struct ANSITextState {
     }
     
     private static func font(fromTraits traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
-        let textSize = CGFloat(LTFontSize)
+        let textSize = CGFloat(LTTerminalViewController.visible?.preferences.fontSize ?? LTTerminalViewController.Preferences().fontSize)
         var descriptor = UIFontDescriptor(name: "Menlo", size: textSize)
         if let traitDescriptor = descriptor.withSymbolicTraits(traits) {
             descriptor = traitDescriptor
@@ -205,8 +204,8 @@ struct ANSITextState {
     }
     
     mutating func reset() {
-        foregroundColor = LTForegroundColor
-        backgroundColor = LTBackgroundColor
+        foregroundColor = LTTerminalViewController.visible?.preferences.foregroundColor ?? LTTerminalViewController.Preferences().foregroundColor
+        backgroundColor = LTTerminalViewController.visible?.preferences.backgroundColor ?? LTTerminalViewController.Preferences().backgroundColor
         isUnderlined = false
         isStrikethrough = false
         fontTraits = []

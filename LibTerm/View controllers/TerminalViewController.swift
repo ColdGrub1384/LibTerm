@@ -9,17 +9,128 @@
 import UIKit
 import InputAssistant
 import ios_system
+#if !FRAMEWORK
 import ObjectUserDefaults
+#endif
 
-/// The terminal interacting with the shell.
+/// The terminal interacting with the shell. Only one terminal should be visible at a time.
 public class LTTerminalViewController: UIViewController, UITextViewDelegate, InputAssistantViewDelegate, InputAssistantViewDataSource, UIDocumentPickerDelegate {
+    
+    /// A structure containing terminal's UI preferences.
+    public struct Preferences {
+        
+        fileprivate var foregroundColor_: UIColor?
+        fileprivate var backgroundColor_: UIColor?
+        fileprivate var fontSize_: Double?
+        fileprivate var caretStyle_ = 0
+        
+        /// Caret styles used in the terminal.
+        public enum CaretStyle: Int {
+            
+            /// The default text view's caret style.
+            case verticalBar = 0
+            
+            /// A block.
+            case block = 1
+            
+            /// An horizontal bar.
+            case underline = 2
+        }
+        
+        /// Terminal's keyboard appearance.
+        public var keyboardAppearance = UIKeyboardAppearance.dark
+        
+        /// Terminal's foreground color.
+        public var foregroundColor: UIColor {
+            set {
+                foregroundColor_ = newValue
+            }
+            get {
+                if #available(iOS 11.0, *) {
+                    return foregroundColor_ ?? UIColor(named: "Foreground Color")!
+                } else {
+                    return foregroundColor_ ?? .green
+                }
+            }
+        }
+        
+        /// Terminal's background color.
+        public var backgroundColor: UIColor {
+            set {
+                backgroundColor_ = newValue
+            }
+            get {
+                if #available(iOS 11.0, *) {
+                    return backgroundColor_ ?? UIColor(named: "Background Color")!
+                } else {
+                    return backgroundColor_ ?? .black
+                }
+            }
+        }
+        
+        /// The terminal's font size.
+        public var fontSize: Double {
+            get {
+                #if FRAMEWORK
+                return fontSize_ ?? 14
+                #else
+                let fontSize__ = SettingsTableViewController.fontSize.doubleValue
+                if fontSize__ == 0 {
+                    return fontSize_ ?? 14
+                } else {
+                    return fontSize__
+                }
+                #endif
+            }
+            set {
+                #if FRAMEWORK
+                fontSize_ = newValue
+                #else
+                SettingsTableViewController.fontSize.doubleValue = newValue
+                #endif
+            }
+        }
+        
+        /// The terminal's caret style.
+        public var caretStyle: CaretStyle {
+            get {
+                #if FRAMEWORK
+                return CaretStyle(rawValue: caretStyle_) ?? CaretStyle.verticalBar
+                #else
+                return CaretStyle(rawValue: SettingsTableViewController.caretStyle.integerValue) ?? LTTerminalViewController.Preferences.CaretStyle(rawValue: 0)!
+                #endif
+            }
+            set {
+                #if FRAMEWORK
+                caretStyle_ = newValue.rawValue
+                #else
+                SettingsTableViewController.caretStyle.integerValue = newValue.rawValue
+                #endif
+            }
+        }
+        
+        /// The nav bar's style.
+        public var barStyle = UIBarStyle.black
+        
+        init() { }
+    }
+    
+    static private var visible_: LTTerminalViewController?
+    
+    /// The currently visible terminal.
+    static public var visible: LTTerminalViewController? {
+        return visible_
+    }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
+    /// Terminal's preferences.
+    let preferences = Preferences()
+    
     /// The Text view displaying content.
-   @IBOutlet weak public var terminalTextView: LTTerminalTextView!
+    @IBOutlet weak public var terminalTextView: LTTerminalTextView!
     
     /// The permanent console without the actual user input.
     var attributedConsole = NSMutableAttributedString()
@@ -67,9 +178,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     /// - Parameters:
     ///     - text: Text to print.
     public func tprint(_ text: String) {
-        
+                
         let newAttrs = NSMutableAttributedString(attributedString: terminalTextView.attributedText ?? NSAttributedString())
-        newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: CGFloat(LTFontSize)) ?? UIFont.systemFont(ofSize: CGFloat(LTFontSize)), .foregroundColor: LTForegroundColor]))
+        newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: CGFloat(preferences.fontSize)) ?? UIFont.systemFont(ofSize: CGFloat(preferences.fontSize)), .foregroundColor: preferences.foregroundColor]))
         terminalTextView.attributedText = newAttrs
         terminalTextView.scrollToBottom()
     }
@@ -96,9 +207,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
-                
-        view.tintColor = LTForegroundColor
-        view.backgroundColor = LTBackgroundColor
+        
+        view.tintColor = preferences.foregroundColor
+        view.backgroundColor = preferences.backgroundColor
         
         shell.io = LTIO(terminal: self)
         shell.input()
@@ -108,7 +219,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         assistant.trailingActions = [InputAssistantAction(image: LTTerminalViewController.downArrow, target: terminalTextView, action: #selector(terminalTextView.resignFirstResponder))]
         assistant.attach(to: terminalTextView)
         
-        terminalTextView.keyboardAppearance = LTKeyboardAppearance
+        terminalTextView.keyboardAppearance = preferences.keyboardAppearance
         
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .never
@@ -124,15 +235,17 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
         }
         
+        LTTerminalViewController.visible_ = self
         navigationController_ = navigationController
         defaultBarStyle = navigationController?.navigationBar.barStyle ?? .default
-        navigationController?.navigationBar.barStyle = LTBarStyle
+        navigationController?.navigationBar.barStyle = preferences.barStyle
         navigationController?.setNeedsStatusBarAppearanceUpdate()
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
+        LTTerminalViewController.visible_ = nil
         navigationController_?.navigationBar.barStyle = defaultBarStyle
         navigationController_?.setNeedsStatusBarAppearanceUpdate()
     }
