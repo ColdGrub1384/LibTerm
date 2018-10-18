@@ -68,10 +68,8 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     ///     - text: Text to print.
     public func tprint(_ text: String) {
         
-        let fontSize = SettingsTableViewController.fontSize.doubleValue
-        
         let newAttrs = NSMutableAttributedString(attributedString: terminalTextView.attributedText ?? NSAttributedString())
-        newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: CGFloat(fontSize)) ?? UIFont.systemFont(ofSize: CGFloat(fontSize)), .foregroundColor: LTForegroundColor]))
+        newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: CGFloat(LTFontSize)) ?? UIFont.systemFont(ofSize: CGFloat(LTFontSize)), .foregroundColor: LTForegroundColor]))
         terminalTextView.attributedText = newAttrs
         terminalTextView.scrollToBottom()
     }

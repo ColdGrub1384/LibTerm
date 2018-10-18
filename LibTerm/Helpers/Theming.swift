@@ -10,6 +10,7 @@ import UIKit
 
 fileprivate var foregroundColor: UIColor?
 fileprivate var backgroundColor: UIColor?
+fileprivate var fontSize: Double?
 
 /// Terminal's keyboard appearance.
 public var LTKeyboardAppearance = UIKeyboardAppearance.dark
@@ -39,6 +40,29 @@ public var LTBackgroundColor: UIColor {
         } else {
             return backgroundColor ?? .black
         }
+    }
+}
+
+/// The terminal's font size.
+public var LTFontSize: Double {
+    get {
+        #if FRAMEWORK
+            return fontSize ?? 14
+        #else
+            let fontSize_ = SettingsTableViewController.fontSize.doubleValue
+            if fontSize_ == 0 {
+                return fontSize ?? 14
+            } else {
+                return fontSize_
+            }
+        #endif
+    }
+    set {
+        #if FRAMEWORK
+            fontSize = newValue
+        #else
+            SettingsTableViewController.fontSize.doubleValue = newValue
+        #endif
     }
 }
 

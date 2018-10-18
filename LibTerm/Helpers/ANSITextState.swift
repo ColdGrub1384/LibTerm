@@ -196,7 +196,7 @@ struct ANSITextState {
     }
     
     private static func font(fromTraits traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
-        let textSize = CGFloat(SettingsTableViewController.fontSize.doubleValue)
+        let textSize = CGFloat(LTFontSize)
         var descriptor = UIFontDescriptor(name: "Menlo", size: textSize)
         if let traitDescriptor = descriptor.withSymbolicTraits(traits) {
             descriptor = traitDescriptor
