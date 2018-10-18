@@ -126,8 +126,16 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         NotificationCenter.default.removeObserver(self)
     }
     
+    /// Initialize with given preferences.
+    public class func makeTerminal(preferences: Preferences, shell: LibShell) -> LTTerminalViewController {
+        let term = UIStoryboard(name: "Terminal", bundle: Bundle(for: LTTerminalViewController.self)).instantiateInitialViewController() as! LTTerminalViewController
+        term.preferences = preferences
+        term.shell = shell
+        return term
+    }
+    
     /// Terminal's preferences.
-    let preferences = Preferences()
+    public private(set) var preferences = Preferences()
     
     /// The Text view displaying content.
     @IBOutlet weak public var terminalTextView: LTTerminalTextView!
@@ -150,7 +158,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     var isWrittingToStdin = false
     
     /// The shell for running command.
-    public let shell = LibShell()
+    public private(set) var shell = LibShell()
     
     /// The thrad running the shell.
     let thread = DispatchQueue.global(qos: .userInteractive)
