@@ -62,6 +62,8 @@ You can also add it to the suggestion bar:
 LTHelp.append(LTCommandHelp(name: "python3", commandInput: .file))
 ```
 
+[See documentation](https://coldgrub1384.github.io/LibTerm)
+
 # Acknowledgments
 
 - [InputAssistant](https://github.com/IMcD23/InputAssistant)
