@@ -2,4 +2,7 @@
 xcschememanagement.plist
 .DS_Store
 
+InputAssistant/build
+ObjectUserDefaults/build
+
 ios_system
