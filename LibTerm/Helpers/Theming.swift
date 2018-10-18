@@ -86,14 +86,14 @@ public var LTCaretStyle_: LTCaretStyle {
         #if FRAMEWORK
             return LTCaretStyle(rawValue: caretStyle)
         #else
-           return SettingsTableViewController.caretStyle.integerValue
+            return LTCaretStyle(rawValue: SettingsTableViewController.caretStyle.integerValue) ?? 0
         #endif
     }
     set {
         #if FRAMEWORK
             caretStyle = newValue
         #else
-            SettingsTableViewController.caretStyle.integerValue = newValue
+        SettingsTableViewController.caretStyle.integerValue = newValue.rawValue
         #endif
     }
 }

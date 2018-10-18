@@ -28,7 +28,7 @@ public class LTTerminalTextView: UITextView {
             return rect
         }
         
-        switch SettingsTableViewController.caretStyle.integerValue {
+        switch LTCaretStyle_.rawValue {
         case 0:
             return rect
             
