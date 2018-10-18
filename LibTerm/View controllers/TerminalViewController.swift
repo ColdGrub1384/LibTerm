@@ -112,7 +112,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         /// The nav bar's style.
         public var barStyle = UIBarStyle.black
         
-        init() { }
+        public init() { }
     }
     
     static private var visible_: LTTerminalViewController?
@@ -127,7 +127,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     }
     
     /// Initialize with given preferences.
-    public class func makeTerminal(preferences: Preferences, shell: LibShell) -> LTTerminalViewController {
+    public class func makeTerminal(preferences: Preferences = Preferences(), shell: LibShell = LibShell()) -> LTTerminalViewController {
         let term = UIStoryboard(name: "Terminal", bundle: Bundle(for: LTTerminalViewController.self)).instantiateInitialViewController() as! LTTerminalViewController
         term.preferences = preferences
         term.shell = shell
