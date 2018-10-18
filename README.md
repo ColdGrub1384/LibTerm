@@ -17,14 +17,14 @@ I like a lot [OpenTerm](https://github.com/louisdh/openterm) but I wanted to mak
 
 # Embedding
 
-LibTerm is embeddable so you can use it in your own  app. To do it, download releases and embed all frameworks in your app. Then, you can present a `TerminalViewController`. You can also compile the `LibTermCore` framework and embed it in your app. You will need to embed `InputAssistant` and `ios_system` also. You also have to include [commandDictionary.plist](https://github.com/ColdGrub1384/LibTerm/blob/master/LibTerm/commandDictionary.plist) and [extraCommandsDictionary.plist](https://github.com/ColdGrub1384/LibTerm/blob/master/LibTerm/extraCommandsDictionary.plist) to your app's bundle.
+LibTerm is embeddable so you can use it in your own  app. To do it, download releases and embed all frameworks in your app. Then, you can present a `LTTerminalViewController`. You can also compile the `LibTermCore` framework and embed it in your app. You will need to embed `InputAssistant` and `ios_system` also. You also have to include [commandDictionary.plist](https://github.com/ColdGrub1384/LibTerm/blob/master/LibTerm/commandDictionary.plist) and [extraCommandsDictionary.plist](https://github.com/ColdGrub1384/LibTerm/blob/master/LibTerm/extraCommandsDictionary.plist) to your app's bundle.
 
 ## Usage
 
 ### Instantiating the terminal
 
 ```swift
-UIStoryboard(name: "Terminal", bundle: Bundle(for: LTTerminalViewController.self)).instantiateInitialViewController() as? LTTerminalViewController
+LTTerminalViewController.makeTerminal(preferences: <#LTTerminalViewController.Preferences#>, shell: <#LibShell#>)
 ```
 
 ### Accessing the Text view
@@ -33,13 +33,31 @@ UIStoryboard(name: "Terminal", bundle: Bundle(for: LTTerminalViewController.self
 LTTerminalViewController.terminalTextView
 ```
 
-### Theming
+### Extending
+
+You can add a command by subclassing `LibShell`:
 
 ```swift
-LTForegroundColor = <#UIColor#>
-LTBackgroundColor = <#UIColor#>
-LTKeyboardAppearance = <#UIKeyboardAppearance#>
-LTBarSytle = <#UIBarStyle#>
+
+func python3_main(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+    // Code here...
+    
+    return 0
+}
+
+class Shell: LibShell {
+
+var commands: [String : LTCommand] {
+    return super.commands+["python3", python3_main]
+}
+
+}
+```
+
+You can also add it to the suggestion bar:
+
+```
+LTHelp.append(LTCommandHelp(name: "python3", commandInput: .file))
 ```
 
 # Acknowledgments
