@@ -137,7 +137,7 @@ open class LibShell {
     
     /// Builtin commands per name and functions.
     open var builtins: [String:LTCommand] {
-        return ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain]
+        return ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain, "open" : openMain]
     }
     
     /// Writes the prompt to the terminal.

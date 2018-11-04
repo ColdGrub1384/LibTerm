@@ -31,6 +31,7 @@ public var LTHelp: [LTCommandHelp] = {
     commands.append(LTCommandHelp(commandName: "sh", commandInput: .file))
     commands.append(LTCommandHelp(commandName: "help", commandInput: .none))
     commands.append(LTCommandHelp(commandName: "exit", commandInput: .none))
+    commands.append(LTCommandHelp(commandName: "open", commandInput: .file))
         
     return commands
 }()
