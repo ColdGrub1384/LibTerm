@@ -10,6 +10,13 @@
 		C91C345921612DBA0003BD90 /* clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345821612DBA0003BD90 /* clear.swift */; };
 		C91C345B21613A720003BD90 /* help.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345A21613A720003BD90 /* help.swift */; };
 		C91C481E21614CA00003BD90 /* python27.zip in Copy Python Home */ = {isa = PBXBuildFile; fileRef = C91C481C21614C920003BD90 /* python27.zip */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C91D4CF4218F9D99003F73FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4CF3218F9D99003F73FF /* AppDelegate.swift */; };
+		C91D4CF9218F9D99003F73FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91D4CF7218F9D99003F73FF /* Main.storyboard */; };
+		C91D4D07218F9DD8003F73FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
+		C91D4D09218FA304003F73FF /* open.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D08218FA304003F73FF /* open.swift */; };
+		C91D4D0A218FA54D003F73FF /* open.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D08218FA304003F73FF /* open.swift */; };
+		C91D4D0B218FAD05003F73FF /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
+		C91D4D0C218FAD05003F73FF /* InputAssistant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C927793321696C3F0091B038 /* CommandHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793221696C3F0091B038 /* CommandHelp.swift */; };
 		C927793921696CC00091B038 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793821696CC00091B038 /* Commands.swift */; };
 		C92F574D2168001600ABE35F /* ssh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F574C2168001600ABE35F /* ssh.swift */; };
@@ -73,6 +80,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C91D4D0D218FAD05003F73FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C2E4346201E7E6C00E4254A;
+			remoteInfo = InputAssistant;
+		};
 		C9C552D7217672EA00F43B34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C9C552D3217672EA00F43B34 /* ObjectUserDefaults.xcodeproj */;
@@ -157,6 +171,17 @@
 			name = "Copy Python Home";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C91D4D0F218FAD06003F73FF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C91D4D0C218FAD05003F73FF /* InputAssistant.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9806D0121604A1500F870B5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,6 +215,11 @@
 		C91C345821612DBA0003BD90 /* clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clear.swift; sourceTree = "<group>"; };
 		C91C345A21613A720003BD90 /* help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = help.swift; sourceTree = "<group>"; };
 		C91C481C21614C920003BD90 /* python27.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python27.zip; sourceTree = "<group>"; };
+		C91D4CF1218F9D98003F73FF /* LibTerm Simulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LibTerm Simulator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C91D4CF3218F9D99003F73FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C91D4CF8218F9D99003F73FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C91D4CFF218F9D9D003F73FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C91D4D08218FA304003F73FF /* open.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = open.swift; sourceTree = "<group>"; };
 		C927793221696C3F0091B038 /* CommandHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandHelp.swift; sourceTree = "<group>"; };
 		C927793821696CC00091B038 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		C92F574C2168001600ABE35F /* ssh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ssh.swift; sourceTree = "<group>"; };
@@ -243,6 +273,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C91D4CEE218F9D98003F73FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C91D4D0B218FAD05003F73FF /* InputAssistant.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9806BBE2160467E00F870B5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,8 +310,19 @@
 				C91C345A21613A720003BD90 /* help.swift */,
 				C92F574C2168001600ABE35F /* ssh.swift */,
 				C9CB2CDC216971EE004D9FFB /* exit.swift */,
+				C91D4D08218FA304003F73FF /* open.swift */,
 			);
 			path = Commands;
+			sourceTree = "<group>";
+		};
+		C91D4CF2218F9D99003F73FF /* LibTerm Simulator */ = {
+			isa = PBXGroup;
+			children = (
+				C91D4CF3218F9D99003F73FF /* AppDelegate.swift */,
+				C91D4CF7218F9D99003F73FF /* Main.storyboard */,
+				C91D4CFF218F9D9D003F73FF /* Info.plist */,
+			);
+			path = "LibTerm Simulator";
 			sourceTree = "<group>";
 		};
 		C9806BB82160467E00F870B5 = {
@@ -285,6 +334,7 @@
 				C9806CC0216049DD00F870B5 /* ios_system */,
 				C9806BC32160467E00F870B5 /* LibTerm */,
 				C9FAD8FA216AD24B005939AC /* LibTermCore */,
+				C91D4CF2218F9D99003F73FF /* LibTerm Simulator */,
 				C9806BC22160467E00F870B5 /* Products */,
 				C9806CB9216048FC00F870B5 /* Frameworks */,
 			);
@@ -295,6 +345,7 @@
 			children = (
 				C9806BC12160467E00F870B5 /* LibTerm.app */,
 				C9FAD8F9216AD24A005939AC /* LibTermCore.framework */,
+				C91D4CF1218F9D98003F73FF /* LibTerm Simulator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -446,6 +497,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		C91D4CF0218F9D98003F73FF /* LibTerm Simulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C91D4D06218F9D9D003F73FF /* Build configuration list for PBXNativeTarget "LibTerm Simulator" */;
+			buildPhases = (
+				C91D4CED218F9D98003F73FF /* Sources */,
+				C91D4CEE218F9D98003F73FF /* Frameworks */,
+				C91D4CEF218F9D98003F73FF /* Resources */,
+				C91D4D0F218FAD06003F73FF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C91D4D0E218FAD05003F73FF /* PBXTargetDependency */,
+			);
+			name = "LibTerm Simulator";
+			productName = "LibTerm Simulator";
+			productReference = C91D4CF1218F9D98003F73FF /* LibTerm Simulator.app */;
+			productType = "com.apple.product-type.application";
+		};
 		C9806BC02160467E00F870B5 /* LibTerm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9806BD32160468200F870B5 /* Build configuration list for PBXNativeTarget "LibTerm" */;
@@ -492,10 +562,13 @@
 		C9806BB92160467E00F870B5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Adrian Labbe";
 				TargetAttributes = {
+					C91D4CF0218F9D98003F73FF = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					C9806BC02160467E00F870B5 = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -533,6 +606,7 @@
 			targets = (
 				C9806BC02160467E00F870B5 /* LibTerm */,
 				C9FAD8F8216AD24A005939AC /* LibTermCore */,
+				C91D4CF0218F9D98003F73FF /* LibTerm Simulator */,
 			);
 		};
 /* End PBXProject section */
@@ -590,6 +664,15 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C91D4CEF218F9D98003F73FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C91D4D07218F9DD8003F73FF /* Assets.xcassets in Resources */,
+				C91D4CF9218F9D99003F73FF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9806BBF2160467E00F870B5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -615,6 +698,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C91D4CED218F9D98003F73FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C91D4CF4218F9D99003F73FF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9806BBD2160467E00F870B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -626,6 +717,7 @@
 				C9DE220C2162E12A007ED7A0 /* TerminalViewController.swift in Sources */,
 				C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */,
 				C9806D0721604B2500F870B5 /* String.swift in Sources */,
+				C91D4D09218FA304003F73FF /* open.swift in Sources */,
 				C9DE222B2162E4E5007ED7A0 /* Parser.swift in Sources */,
 				C9C552D22176716C00F43B34 /* SettingsTableViewController.swift in Sources */,
 				C9806D0321604A3900F870B5 /* LibShell.swift in Sources */,
@@ -653,6 +745,7 @@
 				C9FAD914216AD273005939AC /* exit.swift in Sources */,
 				C9FAD913216AD273005939AC /* ssh.swift in Sources */,
 				C9FAD919216AD3E6005939AC /* Commands.swift in Sources */,
+				C91D4D0A218FA54D003F73FF /* open.swift in Sources */,
 				C9FAD909216AD262005939AC /* LibShell.swift in Sources */,
 				C9FAD915216AD27B005939AC /* TerminalTextView.swift in Sources */,
 				C9FAD90F216AD26E005939AC /* Parser.swift in Sources */,
@@ -663,6 +756,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C91D4D0E218FAD05003F73FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = InputAssistant;
+			targetProxy = C91D4D0D218FAD05003F73FF /* PBXContainerItemProxy */;
+		};
 		C9C552DC217672F300F43B34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ObjectUserDefaults;
@@ -681,6 +779,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C91D4CF7218F9D99003F73FF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C91D4CF8218F9D99003F73FF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		C9806BCD2160468200F870B5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -692,6 +798,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C91D4D00218F9D9D003F73FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "LibTerm Simulator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ada.LibTerm-Simulator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C91D4D01218F9D9D003F73FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "LibTerm Simulator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ada.LibTerm-Simulator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		C9806BD12160468200F870B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -951,6 +1095,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C91D4D06218F9D9D003F73FF /* Build configuration list for PBXNativeTarget "LibTerm Simulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C91D4D00218F9D9D003F73FF /* Debug */,
+				C91D4D01218F9D9D003F73FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C9806BBC2160467E00F870B5 /* Build configuration list for PBXProject "LibTerm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
