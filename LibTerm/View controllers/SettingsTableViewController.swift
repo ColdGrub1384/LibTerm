@@ -52,7 +52,7 @@ class SettingsTableViewController: UITableViewController {
     
     /// Called for changing the font size.
     @IBAction func fontSizeChanged(_ sender: UIStepper) {
-        SettingsTableViewController.fontSize.doubleValue += 1
+        SettingsTableViewController.fontSize.doubleValue = sender.value
         fontSizeLabel.text = "\(sender.value)"
     }
     
