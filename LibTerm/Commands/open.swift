@@ -21,14 +21,16 @@ func openMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
     for argument in argv.dropFirst() {
         if FileManager.default.fileExists(atPath: argument) {
-            items.append(URL(fileURLWithPath: argument))
-        } else if let url = URL(string: argument), !url.isFileURL {
+            items.append(URL(fileURLWithPath: argument, relativeTo: URL(fileURLWithPath: FileManager.default.currentDirectoryPath)))
+        } else if let url = URL(string: argument), !url.isFileURL, url.scheme?.isEmpty == false {
             let semaphore = DispatchSemaphore(value: 0)
             var returnValue = 0
-            UIApplication.shared.open(url, options: [:]) { (success) in
-                semaphore.signal()
-                if !success {
-                    returnValue = 1
+            DispatchQueue.main.async {
+                UIApplication.shared.open(url, options: [:]) { (success) in
+                    semaphore.signal()
+                    if !success {
+                        returnValue = 1
+                    }
                 }
             }
             semaphore.wait()
