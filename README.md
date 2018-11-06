@@ -39,7 +39,7 @@ You can add a command by subclassing `LibShell`:
 
 ```swift
 
-func python3_main(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+func python3_main(argc: Int, argv: [String], io: LTIO) -> Int32 {
     // Code here...
     
     return 0
