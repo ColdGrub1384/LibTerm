@@ -19,11 +19,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="czG-WT-OaD">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czG-WT-OaD">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <mutableString key="text">Bob's iPhone $ ls script.py document.txt Bob's iPhone $ python script.py What's your name? Bob Hello Bob! Bob's iPhone $ open document.txt Bob's iPhone $ package install helloworld Downloading helloworld... Installing helloworld... helloworld installed! Bob's iPhone $ </mutableString>
-                                <color key="textColor" name="Foreground Color"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Bob's iPhone $ ls script.py document.txt Bob's iPhone $ python script.py What's your name? Bob Hello Bob! Bob's iPhone $ open document.txt Bob's iPhone $ package install helloworld </string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.46786785125732422" green="0.9390224814414978" blue="0.37018370628356934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="Menlo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Downloading helloworld... Installing helloworld...">
+                                        <attributes>
+                                            <color key="NSColor" red="0.33174890279769897" green="0.25348806381225586" blue="0.88240665197372437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="Menlo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.46786785125732422" green="0.9390224814414978" blue="0.37018370628356934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="Menlo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Header id 0x5855, length 12">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="Menlo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" helloworld installed! Bob's iPhone $ ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.46786785125732422" green="0.9390224814414978" blue="0.37018370628356934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="Menlo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textView>
                         </subviews>
@@ -73,9 +108,6 @@
         <image name="Settings" width="32" height="32"/>
         <namedColor name="Background Color">
             <color red="0.12156862745098039" green="0.12941176470588237" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Foreground Color">
-            <color red="0.0" green="0.9137254901960784" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
     <color key="tintColor" name="Foreground Color"/>
