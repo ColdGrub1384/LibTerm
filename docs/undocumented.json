@@ -16,49 +16,49 @@
     },
     {
       "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
-      "line": 237,
+      "line": 238,
       "symbol": "LTTerminalViewController.viewDidAppear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
-      "line": 253,
+      "line": 254,
       "symbol": "LTTerminalViewController.viewDidDisappear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
-      "line": 261,
+      "line": 262,
       "symbol": "LTTerminalViewController.viewWillAppear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
-      "line": 267,
+      "line": 268,
       "symbol": "LTTerminalViewController.viewDidLayoutSubviews()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
-      "line": 325,
+      "line": 326,
       "symbol": "LTTerminalViewController.textViewDidChange(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
-      "line": 332,
+      "line": 333,
       "symbol": "LTTerminalViewController.textView(_:shouldChangeTextIn:replacementText:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/adrianlabbe/Desktop/LibTerm/LibTerm/View controllers/TerminalViewController.swift",
-      "line": 516,
+      "line": 523,
       "symbol": "LTTerminalViewController.documentPicker(_:didPickDocumentsAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
