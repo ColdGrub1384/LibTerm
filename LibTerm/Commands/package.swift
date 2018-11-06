@@ -21,7 +21,7 @@ fileprivate let packagesKey = ObjectUserDefaults.standard.item(forKey: "packages
 fileprivate let scriptsURL = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("scripts")
 
 /// The `package` command.
-func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+func packageMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
     var helpText = "Use this command for installing packages.\n\n"
     helpText += "\(underline)Commands\(reset)\n"
@@ -30,7 +30,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     helpText += "  \(blue)remove\(reset) \(green)package_name ...\(reset): Remove package(s)\n"
     
     if argc == 1 {
-        fputs(helpText, shell.io?.ios_stdout)
+        fputs(helpText, io.stdout)
         return 0
     } else if argv[1] == "source" {
         UIApplication.shared.open(URL(string: "https://github.com/ColdGrub1384/LibTerm-Packages")!, options: [:], completionHandler: nil)
@@ -47,7 +47,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         
         for package in arguments {
             guard let url = URL(string: "https://github.com/ColdGrub1384/LibTerm-Packages/raw/master/\(argv[2]).zip") else {
-                fputs("\(argv[0]): \(package): Invalid package name\n", shell.io?.ios_stderr)
+                fputs("\(argv[0]): \(package): Invalid package name\n", io.stderr)
                 return 1
             }
             
@@ -58,11 +58,11 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                 }
             }
             
-            fputs("\(blue)Downloading \(package)...\(reset)\n", shell.io?.ios_stdout)
+            fputs("\(blue)Downloading \(package)...\(reset)\n", io.stdout)
             
             URLSession.shared.downloadTask(with: url) { (url, response, error) in
                 if let error = error {
-                    fputs("\(argv[0]): \(package): \(error.localizedDescription)\n", shell.io?.ios_stderr)
+                    fputs("\(argv[0]): \(package): \(error.localizedDescription)\n", io.stderr)
                     returnValue = 1
                 }
                 
@@ -72,7 +72,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                     do {
                         try FileManager.default.createDirectory(at: tmpURL, withIntermediateDirectories: false, attributes: nil)
                     } catch {
-                        fputs("\(argv[0]): \(package): \(error.localizedDescription)\n", shell.io?.ios_stderr)
+                        fputs("\(argv[0]): \(package): \(error.localizedDescription)\n", io.stderr)
                         returnValue = 1
                     }
                 }
@@ -89,7 +89,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                             fileURL = newURL
                         } catch {}
                     }
-                    fputs("\(blue)Installing \(package)...\(reset)\n", shell.io?.ios_stdout)
+                    fputs("\(blue)Installing \(package)...\(reset)\n", io.stdout)
                     
                     let cwd = FileManager.default.currentDirectoryPath
                     
@@ -99,7 +99,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                     ios_system("rm '\(fileURL.path)'")
                     
                     guard unzip == 0 else {
-                        fputs("\(package) not installed!\n", shell.io?.ios_stderr)
+                        fputs("\(package) not installed!\n", io.stderr)
                         returnValue = 1
                         return
                     }
@@ -117,11 +117,11 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                             try FileManager.default.moveItem(atPath: file, toPath: scriptsURL.appendingPathComponent(file).path)
                         }
                         
-                        fputs("\(green)\(package) installed!\(reset)\n", shell.io?.ios_stdout)
+                        fputs("\(green)\(package) installed!\(reset)\n", io.stdout)
                         
                         chdir(cwd)
                     } catch {
-                        fputs("\(argv[0]): \(package): \(error.localizedDescription)", shell.io?.ios_stderr)
+                        fputs("\(argv[0]): \(package): \(error.localizedDescription)", io.stderr)
                         returnValue = 1
                         return
                     }
@@ -139,7 +139,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         return 0
     } else if argv[1] == "remove" {
         guard let packages = packagesKey.dictionaryValue as? [String:[String]] else {
-            fputs("\(argv[0]): no package is installed\n", shell.io?.ios_stderr)
+            fputs("\(argv[0]): no package is installed\n", io.stderr)
             return 1
         }
         
@@ -153,21 +153,21 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                     do {
                         try FileManager.default.removeItem(at: scriptsURL.appendingPathComponent(path))
                     } catch {
-                        fputs("\(argv[0]): \(package): \(error.localizedDescription)\n", shell.io?.ios_stderr)
+                        fputs("\(argv[0]): \(package): \(error.localizedDescription)\n", io.stderr)
                         return 1
                     }
                 }
             } else {
-                fputs("\(argv[0]): \(package): package is not installed\n", shell.io?.ios_stderr)
+                fputs("\(argv[0]): \(package): package is not installed\n", io.stderr)
                 return 1
             }
             
-            fputs("\(red)\(package) was removed!\(reset)\n", shell.io?.ios_stdout)
+            fputs("\(red)\(package) was removed!\(reset)\n", io.stdout)
         }
         
         return 0
     } else {
-        fputs("\(argv[0]): \(argv[1]): command not found\n", shell.io?.ios_stderr)
+        fputs("\(argv[0]): \(argv[1]): command not found\n", io.stderr)
         return 1
     }
 }

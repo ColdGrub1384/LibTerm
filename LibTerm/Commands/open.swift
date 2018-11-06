@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 /// The `open` command.
-func openMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+func openMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
     if argc == 1 {
-        fputs("Usage:\n\(argv[0]) [Items to share ...]", shell.io?.ios_stdout)
+        fputs("Usage:\n\(argv[0]) [Items to share ...]", io.stdout)
         return 1
     }
     

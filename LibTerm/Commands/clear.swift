@@ -9,9 +9,9 @@
 import Foundation
 
 /// The `clear` command.
-func clearMain(_ argc: Int, argv: [String], shell: LibShell) -> Int32 {
+func clearMain(_ argc: Int, argv: [String], io: LTIO) -> Int32 {
     DispatchQueue.main.sync {
-        shell.io?.terminal?.terminalTextView.text = ""
+        io.terminal?.terminalTextView.text = ""
     }
     return 0
 }

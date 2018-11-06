@@ -10,12 +10,12 @@ import UIKit
 import StoreKit
 
 /// The `ssh` command.
-func sshMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+func sshMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
     let helpText = "usage: \(argv[0]) [-p port] user@hostname\n"
     
     if argc == 1 || argc > 4 {
-        fputs(helpText, shell.io?.ios_stdout)
+        fputs(helpText, io.stdout)
         return 1
     }
     
@@ -28,7 +28,7 @@ func sshMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
             if argv.indices.contains(i+1), let port_ = Int(argv[i+1]) {
                 port = port_
             } else {
-                fputs(helpText, shell.io?.ios_stdout)
+                fputs(helpText, io.stdout)
                 return 1
             }
         } else if arg.components(separatedBy: "@").count == 2 {
@@ -38,7 +38,7 @@ func sshMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     }
     
     guard address != nil, let url = URL(string: "\(argv[0])://\(address!):\(port)") else {
-        fputs(helpText, shell.io?.ios_stdout)
+        fputs(helpText, io.stdout)
         return 1
     }
     

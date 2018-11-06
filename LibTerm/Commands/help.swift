@@ -10,7 +10,7 @@ import Foundation
 import ios_system
 
 /// The `help` command.
-func helpMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
     var helpText = ""
     for command in LTHelp {
@@ -22,7 +22,7 @@ func helpMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     }
     
     helpText += "\nInstall more commands by typing `package install <Package name>`\n"
-    fputs(helpText, shell.io?.ios_stdout)
+    fputs(helpText, io.stdout)
     
     return 0
 }

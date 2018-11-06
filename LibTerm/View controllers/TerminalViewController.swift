@@ -239,8 +239,8 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         super.viewDidAppear(animated)
         
         if let io = shell.io {
-            ios_switchSession(io.ios_stdout)
-            ios_setStreams(io.ios_stdin, io.ios_stdout, io.ios_stderr)
+            ios_switchSession(io.stdout)
+            ios_setStreams(io.stdin, io.stdout, io.stderr)
             title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
         }
         

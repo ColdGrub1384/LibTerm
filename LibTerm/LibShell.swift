@@ -9,28 +9,28 @@
 import UIKit
 import ios_system
 
-/// Type for a builtin command. A function with argc, argv and the shell running it.
+/// Type for a builtin command. A function with argc, argv and the Input/Output object.
 ///
 /// # Building a command
 ///
 /// First, create a function that conforms to `LTCommand`:
 ///
-///     func myCommand(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+///     func myCommand(argc: Int, argv: [String], IO: LTIO) -> Int32 {
 ///         return 0
 ///     }
 /// The stdout will not be read by the terminal, so you have to write to the custom output file:
 ///
-///     func myCommand(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+///     func myCommand(argc: Int, argv: [String], io: LTIO) -> Int32 {
 ///
-///         fputs("Hello World!", shell.io?.ios_stdout)
+///         fputs("Hello World!", io.stdout)
 ///
 ///         return 0
 ///     }
 /// For reading input:
 ///
-///     func myCommand(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+///     func myCommand(argc: Int, argv: [String], IO: LTIO) -> Int32 {
 ///
-///         shell.io?.inputPipe.fileHandleForReading.readabilityHandler = { handle in
+///         io.inputPipe.fileHandleForReading.readabilityHandler = { handle in
 ///             do {
 ///                 let input = String(data: handle.availableData, encoding: .utf8)
 ///             } catch {
@@ -40,9 +40,9 @@ import ios_system
 ///
 ///         return 0
 ///     }
-public typealias LTCommand = ((Int, [String], LibShell) -> Int32)
+public typealias LTCommand = ((Int, [String], LTIO) -> Int32)
 
-func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+func libshellMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
     var args = argv
     args.removeFirst()
@@ -75,7 +75,7 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     }
     
     if args == ["-h"] || args == ["--help"] {
-        fputs("usage: \(argv[0]) [script args]\n", shell.io?.ios_stdout)
+        fputs("usage: \(argv[0]) [script args]\n", io.stdout)
         return 0
     }
     
@@ -100,7 +100,7 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
             }
         }
     } catch {
-        fputs("\(argv[0]): \(error.localizedDescription)\n", shell.io?.ios_stdout)
+        fputs("\(argv[0]): \(error.localizedDescription)\n", io.stdout)
         return 1
     }
     
@@ -161,10 +161,11 @@ open class LibShell {
     ///
     /// - Returns: The exit code.
     @discardableResult open func run(command: String) -> Int32 {
-        if let io = io {
-            ios_switchSession(io.ios_stdout)
-            ios_setStreams(io.ios_stdin, io.ios_stdout, io.ios_stderr)
+        guard let io = self.io else {
+            return 1
         }
+        ios_switchSession(io.stdout)
+        ios_setStreams(io.stdin, io.stdout, io.stderr)
         
         thread_stderr = nil
         thread_stdout = nil
@@ -207,7 +208,7 @@ open class LibShell {
             arguments.insert(scriptURL.path, at: 1)
             returnCode = ios_system(arguments.joined(separator: " ").cValue)
         } else if builtins.keys.contains(arguments[0]) {
-            returnCode = builtins[arguments[0]]?(arguments.count, arguments, self) ?? 1
+            returnCode = builtins[arguments[0]]?(arguments.count, arguments, io) ?? 1
         } else {
             returnCode = ios_system(command_.cValue)
         }

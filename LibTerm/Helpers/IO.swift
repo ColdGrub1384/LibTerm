@@ -30,9 +30,9 @@ public class LTIO: ParserDelegate {
     ///     - terminal: The terminal that receives output.
     public init(terminal: LTTerminalViewController) {
         self.terminal = terminal
-        ios_stdout = fdopen(outputPipe.fileHandleForWriting.fileDescriptor, "w")
-        ios_stderr = fdopen(errorPipe.fileHandleForWriting.fileDescriptor, "w")
-        ios_stdin = fdopen(inputPipe.fileHandleForReading.fileDescriptor, "r")
+        stdout = fdopen(outputPipe.fileHandleForWriting.fileDescriptor, "w")
+        stderr = fdopen(errorPipe.fileHandleForWriting.fileDescriptor, "w")
+        stdin = fdopen(inputPipe.fileHandleForReading.fileDescriptor, "r")
         outputPipe.fileHandleForReading.readabilityHandler = { handle in
             self.parser.delegate = self
             self.parser.parse(handle.availableData)
@@ -44,20 +44,20 @@ public class LTIO: ParserDelegate {
             self.parser.delegate = self
             self.parser.parse(data)
         }
-        setbuf(ios_stdout!, nil)
-        setbuf(ios_stderr!, nil)
+        setbuf(stdout!, nil)
+        setbuf(stderr!, nil)
     }
     
     private let parser = Parser()
     
     /// The stdin file.
-    public var ios_stdin: UnsafeMutablePointer<FILE>?
+    public var stdin: UnsafeMutablePointer<FILE>?
     
     /// The stdout file.
-    public var ios_stdout: UnsafeMutablePointer<FILE>?
+    public var stdout: UnsafeMutablePointer<FILE>?
     
     /// The stderr file.
-    public var ios_stderr: UnsafeMutablePointer<FILE>?
+    public var stderr: UnsafeMutablePointer<FILE>?
     
     /// The output pipe.
     public var outputPipe = Pipe()

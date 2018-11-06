@@ -9,7 +9,7 @@
 import UIKit
 
 /// The `exit` command.
-func exitMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
+func exitMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
     var exitCode: Int32 = 0
     if argc > 1, let code = Int32(argv[1]) {
