@@ -17,6 +17,7 @@
 		C91D4D0A218FA54D003F73FF /* open.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D08218FA304003F73FF /* open.swift */; };
 		C91D4D0B218FAD05003F73FF /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
 		C91D4D0C218FAD05003F73FF /* InputAssistant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C91D4D13218FBF90003F73FF /* package.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D12218FBF90003F73FF /* package.swift */; };
 		C927793321696C3F0091B038 /* CommandHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793221696C3F0091B038 /* CommandHelp.swift */; };
 		C927793921696CC00091B038 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793821696CC00091B038 /* Commands.swift */; };
 		C92F574D2168001600ABE35F /* ssh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F574C2168001600ABE35F /* ssh.swift */; };
@@ -220,6 +221,7 @@
 		C91D4CF8218F9D99003F73FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C91D4CFF218F9D9D003F73FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C91D4D08218FA304003F73FF /* open.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = open.swift; sourceTree = "<group>"; };
+		C91D4D12218FBF90003F73FF /* package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = package.swift; sourceTree = "<group>"; };
 		C927793221696C3F0091B038 /* CommandHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandHelp.swift; sourceTree = "<group>"; };
 		C927793821696CC00091B038 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		C92F574C2168001600ABE35F /* ssh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ssh.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				C92F574C2168001600ABE35F /* ssh.swift */,
 				C9CB2CDC216971EE004D9FFB /* exit.swift */,
 				C91D4D08218FA304003F73FF /* open.swift */,
+				C91D4D12218FBF90003F73FF /* package.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -724,6 +727,7 @@
 				C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */,
 				C92F574D2168001600ABE35F /* ssh.swift in Sources */,
 				C91C345B21613A720003BD90 /* help.swift in Sources */,
+				C91D4D13218FBF90003F73FF /* package.swift in Sources */,
 				C9806D0521604AE700F870B5 /* IO.swift in Sources */,
 				C927793921696CC00091B038 /* Commands.swift in Sources */,
 				C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */,

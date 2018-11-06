@@ -32,6 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         putenv("PYTHONOPTIMIZE=".cValue)
         putenv("PYTHONDONTWRITEBYTECODE=1".cValue)
         
+        // The directory where scripts goes
+        if let scriptsDirectory = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask).first?.appendingPathComponent("scripts"), !FileManager.default.fileExists(atPath: scriptsDirectory.path) {
+            try? FileManager.default.createDirectory(at: scriptsDirectory, withIntermediateDirectories: false, attributes: nil)
+        }
+        
         // Colors
         putenv("TERM=ansi".cValue)
         

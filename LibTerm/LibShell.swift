@@ -137,7 +137,11 @@ open class LibShell {
     
     /// Builtin commands per name and functions.
     open var builtins: [String:LTCommand] {
-        return ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain, "open" : openMain]
+        var commands = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain, "open" : openMain]
+        #if !FRAMEWORK
+            commands["package"] = packageMain
+        #endif
+        return commands
     }
     
     /// Writes the prompt to the terminal.
@@ -172,7 +176,7 @@ open class LibShell {
             command_ = command_.replacingOccurrences(of: "$\(variable.key)", with: variable.value)
         }
         
-        let arguments = command_.arguments
+        var arguments = command_.arguments
         
         guard arguments.count > 0 else {
             return 0
@@ -193,7 +197,16 @@ open class LibShell {
         }
         
         var returnCode: Int32
-        if builtins.keys.contains(arguments[0]) {
+        
+        // Run Python scripts located in ~/Library/scripts
+        let scriptsDirectory = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("scripts")
+        let scriptURL = scriptsDirectory.appendingPathComponent(arguments[0]+".py")
+        if FileManager.default.fileExists(atPath: scriptURL.path) {
+            arguments.insert("python", at: 0)
+            arguments.remove(at: 1)
+            arguments.insert(scriptURL.path, at: 1)
+            returnCode = ios_system(arguments.joined(separator: " ").cValue)
+        } else if builtins.keys.contains(arguments[0]) {
             returnCode = builtins[arguments[0]]?(arguments.count, arguments, self) ?? 1
         } else {
             returnCode = ios_system(command_.cValue)

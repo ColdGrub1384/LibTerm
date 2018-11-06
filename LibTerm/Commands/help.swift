@@ -21,6 +21,8 @@ func helpMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         }
     }
     
+    helpText += "\nInstall more commands by typing `package install <Package name>`\n"
+    
     shell.io?.outputPipe.fileHandleForWriting.write(helpText)
     
     return 0
