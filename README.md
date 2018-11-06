@@ -8,6 +8,14 @@ This app is like @louisdh - [OpenTerm](https://github.com/louisdh/openterm) but 
 
 I like a lot [OpenTerm](https://github.com/louisdh/openterm) but I wanted to make the code better. Also, I wanted to integrate a local shell into [Pisth](https://github.com/ColdGrub1384/Pisth) so I made the project embeddable. I will upload to app to the App Store soon since [OpenTerm](https://github.com/louisdh/openterm) is no more available. This is not a fork from  [OpenTerm](https://github.com/louisdh/openterm), I rewrote the code.
 
+# Features
+
+The app supports most of OpenTerm features, but LibTerm has Python 2.7 instead of Cub. It supports opening directories outside the sandbox with `UIDocumentPickerViewController`, multi tabbing and suggestions. All errors are shown in red!
+
+## `package`
+
+LibTerm contains a `package` command. With `package`, you can download and install third party commands. You can publish your own commands by submitting a Pull Request to https://github.com/ColdGrub1384/LibTerm-Packages.
+
 # Building
 
 1. Clone all submodules
