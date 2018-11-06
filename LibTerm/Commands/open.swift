@@ -13,7 +13,7 @@ import UIKit
 func openMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     
     if argc == 1 {
-        shell.io?.outputPipe.fileHandleForWriting.write("Usage:\n\(argv[0]) [Items to share ...]")
+        fputs("Usage:\n\(argv[0]) [Items to share ...]", shell.io?.ios_stdout)
         return 1
     }
     

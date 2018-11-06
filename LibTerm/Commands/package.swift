@@ -30,7 +30,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     helpText += "  \(blue)remove\(reset) \(green)package_name ...\(reset): Remove package(s)\n"
     
     if argc == 1 {
-        shell.io?.outputPipe.fileHandleForWriting.write(helpText)
+        fputs(helpText, shell.io?.ios_stdout)
         return 0
     } else if argv[1] == "source" {
         UIApplication.shared.open(URL(string: "https://github.com/ColdGrub1384/LibTerm-Packages")!, options: [:], completionHandler: nil)
@@ -47,7 +47,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         
         for package in arguments {
             guard let url = URL(string: "https://github.com/ColdGrub1384/LibTerm-Packages/raw/master/\(argv[2]).zip") else {
-                shell.io?.outputPipe.fileHandleForWriting.write("\(argv[0]): \(package): Invalid package name\n")
+                fputs("\(argv[0]): \(package): Invalid package name\n", shell.io?.ios_stderr)
                 return 1
             }
             
@@ -58,11 +58,11 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                 }
             }
             
-            shell.io?.outputPipe.fileHandleForWriting.write("\(blue)Downloading \(package)...\(reset)\n")
+            fputs("\(blue)Downloading \(package)...\(reset)\n", shell.io?.ios_stdout)
             
             URLSession.shared.downloadTask(with: url) { (url, response, error) in
                 if let error = error {
-                    shell.io?.outputPipe.fileHandleForWriting.write("\(argv[0]): \(package): \(error.localizedDescription)\n")
+                    fputs("\(argv[0]): \(package): \(error.localizedDescription)\n", shell.io?.ios_stderr)
                     returnValue = 1
                 }
                 
@@ -72,7 +72,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                     do {
                         try FileManager.default.createDirectory(at: tmpURL, withIntermediateDirectories: false, attributes: nil)
                     } catch {
-                        shell.io?.outputPipe.fileHandleForWriting.write("\(argv[0]): \(package): \(error.localizedDescription)\n")
+                        fputs("\(argv[0]): \(package): \(error.localizedDescription)\n", shell.io?.ios_stderr)
                         returnValue = 1
                     }
                 }
@@ -89,7 +89,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                             fileURL = newURL
                         } catch {}
                     }
-                    shell.io?.outputPipe.fileHandleForWriting.write("\(blue)Installing \(package)...\(reset)\n")
+                    fputs("\(blue)Installing \(package)...\(reset)\n", shell.io?.ios_stdout)
                     
                     let cwd = FileManager.default.currentDirectoryPath
                     
@@ -99,7 +99,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                     ios_system("rm '\(fileURL.path)'")
                     
                     guard unzip == 0 else {
-                        shell.io?.outputPipe.fileHandleForWriting.write("\(red)\(package) not installed!\(reset)\n")
+                        fputs("\(package) not installed!\n", shell.io?.ios_stderr)
                         returnValue = 1
                         return
                     }
@@ -117,11 +117,11 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                             try FileManager.default.moveItem(atPath: file, toPath: scriptsURL.appendingPathComponent(file).path)
                         }
                         
-                        shell.io?.outputPipe.fileHandleForWriting.write("\(green)\(package) installed!\(reset)\n")
+                        fputs("\(green)\(package) installed!\(reset)\n", shell.io?.ios_stdout)
                         
                         chdir(cwd)
                     } catch {
-                        shell.io?.outputPipe.fileHandleForWriting.write("\(argv[0]): \(package): \(error.localizedDescription)")
+                        fputs("\(argv[0]): \(package): \(error.localizedDescription)", shell.io?.ios_stderr)
                         returnValue = 1
                         return
                     }
@@ -139,7 +139,7 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
         return 0
     } else if argv[1] == "remove" {
         guard let packages = packagesKey.dictionaryValue as? [String:[String]] else {
-            shell.io?.outputPipe.fileHandleForWriting.write("\(argv[0]): no package is installed\n")
+            fputs("\(argv[0]): no package is installed\n", shell.io?.ios_stderr)
             return 1
         }
         
@@ -153,21 +153,21 @@ func packageMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
                     do {
                         try FileManager.default.removeItem(at: scriptsURL.appendingPathComponent(path))
                     } catch {
-                        shell.io?.outputPipe.fileHandleForWriting.write("\(argv[0]): \(package): \(error.localizedDescription)\n")
+                        fputs("\(argv[0]): \(package): \(error.localizedDescription)\n", shell.io?.ios_stderr)
                         return 1
                     }
                 }
             } else {
-                shell.io?.outputPipe.fileHandleForWriting.write("\(argv[0]): \(package): package is not installed\n")
+                fputs("\(argv[0]): \(package): package is not installed\n", shell.io?.ios_stderr)
                 return 1
             }
             
-            shell.io?.outputPipe.fileHandleForWriting.write("\(red)\(package) was removed!\(reset)\n")
+            fputs("\(red)\(package) was removed!\(reset)\n", shell.io?.ios_stdout)
         }
         
         return 0
     } else {
-        shell.io?.outputPipe.fileHandleForWriting.write("\(argv[0]): \(argv[1]): command not found\n")
+        fputs("\(argv[0]): \(argv[1]): command not found\n", shell.io?.ios_stderr)
         return 1
     }
 }

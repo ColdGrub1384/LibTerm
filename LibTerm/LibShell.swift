@@ -22,7 +22,7 @@ import ios_system
 ///
 ///     func myCommand(argc: Int, argv: [String], shell: LibShell) -> Int32 {
 ///
-///         shell.io?.outputPipe.fileHandleForWriting.write("Hello World!")
+///         fputs("Hello World!", shell.io?.ios_stdout)
 ///
 ///         return 0
 ///     }
@@ -75,7 +75,7 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
     }
     
     if args == ["-h"] || args == ["--help"] {
-        shell.io?.outputPipe.fileHandleForWriting.write("usage: \(argv[0]) [script args]\n".data(using: .utf8) ?? Data())
+        fputs("usage: \(argv[0]) [script args]\n", shell.io?.ios_stdout)
         return 0
     }
     
@@ -100,7 +100,7 @@ func libshellMain(argc: Int, argv: [String], shell: LibShell) -> Int32 {
             }
         }
     } catch {
-        shell.io?.outputPipe.fileHandleForWriting.write("\(argv[0]): \(error.localizedDescription)\n".data(using: .utf8) ?? Data())
+        fputs("\(argv[0]): \(error.localizedDescription)\n", shell.io?.ios_stdout)
         return 1
     }
     
