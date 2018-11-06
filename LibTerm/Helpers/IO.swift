@@ -92,7 +92,9 @@ public class LTIO: ParserDelegate {
             let attributedString = NSMutableAttributedString(attributedString: term.terminalTextView.attributedText ?? NSAttributedString())
             attributedString.append(string)
             term.terminalTextView.attributedText = attributedString
-            term.terminalTextView.scrollToBottom()
+            _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+                term.terminalTextView.scrollToBottom()
+            })
         }
     }
     
