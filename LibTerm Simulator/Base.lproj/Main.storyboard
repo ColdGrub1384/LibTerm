@@ -22,8 +22,28 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czG-WT-OaD">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Bob's iPhone $ ls script.py document.txt Bob's iPhone $ python script.py What's your name? Bob Hello Bob! Bob's iPhone $ open document.txt Bob's iPhone $ package install helloworld </string>
+                                    <fragment content="Bob's iPhone $ ls script.py document.txt Bob's iPhone $ python script.py What's your name? Bob Hello Bob! ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.46786785125732422" green="0.9390224814414978" blue="0.37018370628356934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="Menlo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Bob's iPhone $ ls Downloads ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.46787000000000001" green="0.93901999999999997" blue="0.37018000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="Menlo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="ls: Downloads: No such file or directory">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.14913000000000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="Menlo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" Bob's iPhone $ open document.txt Bob's iPhone $ package install helloworld ">
                                         <attributes>
                                             <color key="NSColor" red="0.46786785125732422" green="0.9390224814414978" blue="0.37018370628356934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="16" name="Menlo-Regular"/>
@@ -51,9 +71,16 @@
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content=" helloworld installed! Bob's iPhone $ ">
+                                    <fragment content=" helloworld installed! ">
                                         <attributes>
                                             <color key="NSColor" red="0.46786785125732422" green="0.9390224814414978" blue="0.37018370628356934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="Menlo-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Bob's iPhone $">
+                                        <attributes>
+                                            <color key="NSColor" red="0.46787000000000001" green="0.93901999999999997" blue="0.37018000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="16" name="Menlo-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
