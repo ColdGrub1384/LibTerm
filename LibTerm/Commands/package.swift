@@ -114,14 +114,18 @@ func packageMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
                         }
                         
                         for file in packageIndex {
-                            try FileManager.default.moveItem(atPath: file, toPath: scriptsURL.appendingPathComponent(file).path)
+                            let newPath = scriptsURL.appendingPathComponent(file).path
+                            if FileManager.default.fileExists(atPath: newPath) {
+                                try FileManager.default.removeItem(atPath: newPath)
+                            }
+                            try FileManager.default.moveItem(atPath: file, toPath: newPath)
                         }
                         
                         fputs("\(green)\(package) installed!\(reset)\n", io.stdout)
                         
                         chdir(cwd)
                     } catch {
-                        fputs("\(argv[0]): \(package): \(error.localizedDescription)", io.stderr)
+                        fputs("\(argv[0]): \(package): \(error.localizedDescription)\n", io.stderr)
                         returnValue = 1
                         return
                     }
