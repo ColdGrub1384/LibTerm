@@ -54,7 +54,7 @@ func sshMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
                 let store = SKStoreProductViewController()
                 store.delegate = StoreDelegate.shared
                 store.loadProduct(withParameters: [SKStoreProductParameterITunesItemIdentifier: "1331070425"], completionBlock: nil)
-                shell.io?.terminal?.present(store, animated: true, completion: nil)
+                io.terminal?.present(store, animated: true, completion: nil)
             }
         }
     }

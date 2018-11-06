@@ -38,7 +38,7 @@ func packageMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     } else if argv[1] == "install" {
         
         guard argv.indices.contains(2) else {
-            return packageMain(argc: 1, argv: [argv[0]], shell: shell)
+            return packageMain(argc: 1, argv: [argv[0]], io: io)
         }
         
         var arguments = argv

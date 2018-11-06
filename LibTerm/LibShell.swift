@@ -44,6 +44,10 @@ public typealias LTCommand = ((Int, [String], LTIO) -> Int32)
 
 func libshellMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
+    guard let shell = io.terminal?.shell else {
+        return 1
+    }
+    
     var args = argv
     args.removeFirst()
     
