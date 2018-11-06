@@ -59,6 +59,7 @@
 		C9F0F02521654DC700CAC2A0 /* TabView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F02021654DBD00CAC2A0 /* TabView.framework */; };
 		C9F0F02621654DC700CAC2A0 /* TabView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F02021654DBD00CAC2A0 /* TabView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9F0F02A21654F2B00CAC2A0 /* TerminalTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F02921654F2B00CAC2A0 /* TerminalTabViewController.swift */; };
+		C9F15D1021925B55003AC553 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793821696CC00091B038 /* Commands.swift */; };
 		C9FAD8FD216AD24B005939AC /* LibTermCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C9FAD8FB216AD24B005939AC /* LibTermCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9FAD909216AD262005939AC /* LibShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0221604A3900F870B5 /* LibShell.swift */; };
 		C9FAD90A216AD267005939AC /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */; };
@@ -75,7 +76,6 @@
 		C9FAD915216AD27B005939AC /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
 		C9FAD916216AD28C005939AC /* Terminal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9580E8B2165553500A43CEC /* Terminal.storyboard */; };
 		C9FAD917216AD29B005939AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
-		C9FAD919216AD3E6005939AC /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793821696CC00091B038 /* Commands.swift */; };
 		C9FAD91A216AD426005939AC /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCB216049DD00F870B5 /* ios_system.framework */; };
 		C9FAD920216AD54B005939AC /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
 /* End PBXBuildFile section */
@@ -748,11 +748,11 @@
 				C9FAD90D216AD26E005939AC /* IO.swift in Sources */,
 				C9FAD914216AD273005939AC /* exit.swift in Sources */,
 				C9FAD913216AD273005939AC /* ssh.swift in Sources */,
-				C9FAD919216AD3E6005939AC /* Commands.swift in Sources */,
 				C91D4D0A218FA54D003F73FF /* open.swift in Sources */,
 				C9FAD909216AD262005939AC /* LibShell.swift in Sources */,
 				C9FAD915216AD27B005939AC /* TerminalTextView.swift in Sources */,
 				C9FAD90F216AD26E005939AC /* Parser.swift in Sources */,
+				C9F15D1021925B55003AC553 /* Commands.swift in Sources */,
 				C9FAD910216AD26E005939AC /* ANSITextState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
