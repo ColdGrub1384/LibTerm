@@ -31,11 +31,18 @@ public class LTIO: ParserDelegate {
     public init(terminal: LTTerminalViewController) {
         self.terminal = terminal
         ios_stdout = fdopen(outputPipe.fileHandleForWriting.fileDescriptor, "w")
-        ios_stderr = ios_stdout
+        ios_stderr = fdopen(errorPipe.fileHandleForWriting.fileDescriptor, "w")
         ios_stdin = fdopen(inputPipe.fileHandleForReading.fileDescriptor, "r")
         outputPipe.fileHandleForReading.readabilityHandler = { handle in
             self.parser.delegate = self
             self.parser.parse(handle.availableData)
+        }
+        errorPipe.fileHandleForReading.readabilityHandler = { handle in
+            guard let str = String(data: handle.availableData, encoding: .utf8), let data = "\u{001b}[31m\(str)\u{001b}[0m".data(using: .utf8) else {
+                return
+            }
+            self.parser.delegate = self
+            self.parser.parse(data)
         }
         setbuf(ios_stdout!, nil)
         setbuf(ios_stderr!, nil)
@@ -54,6 +61,9 @@ public class LTIO: ParserDelegate {
     
     /// The output pipe.
     public var outputPipe = Pipe()
+    
+    /// The error pipe.
+    public var errorPipe = Pipe()
     
     /// The input pipe.
     public var inputPipe = Pipe()
