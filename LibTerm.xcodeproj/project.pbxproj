@@ -58,7 +58,7 @@
 		C9F0F02521654DC700CAC2A0 /* TabView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F02021654DBD00CAC2A0 /* TabView.framework */; };
 		C9F0F02621654DC700CAC2A0 /* TabView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F02021654DBD00CAC2A0 /* TabView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9F0F02A21654F2B00CAC2A0 /* TerminalTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F02921654F2B00CAC2A0 /* TerminalTabViewController.swift */; };
-		C9F15D1021925B55003AC553 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793821696CC00091B038 /* Commands.swift */; };
+		C9F15D272193889C003AC553 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793821696CC00091B038 /* Commands.swift */; };
 		C9FAD8FD216AD24B005939AC /* LibTermCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C9FAD8FB216AD24B005939AC /* LibTermCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9FAD909216AD262005939AC /* LibShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0221604A3900F870B5 /* LibShell.swift */; };
 		C9FAD90A216AD267005939AC /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */; };
@@ -750,7 +750,7 @@
 				C9FAD909216AD262005939AC /* LibShell.swift in Sources */,
 				C9FAD915216AD27B005939AC /* TerminalTextView.swift in Sources */,
 				C9FAD90F216AD26E005939AC /* Parser.swift in Sources */,
-				C9F15D1021925B55003AC553 /* Commands.swift in Sources */,
+				C9F15D272193889C003AC553 /* Commands.swift in Sources */,
 				C9FAD910216AD26E005939AC /* ANSITextState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

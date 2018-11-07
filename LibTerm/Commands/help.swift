@@ -7,7 +7,9 @@
 //
 
 import Foundation
+#if !targetEnvironment(simulator)
 import ios_system
+#endif
 
 /// The `help` command.
 func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {

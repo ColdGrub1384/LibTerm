@@ -8,7 +8,9 @@
 
 import UIKit
 import InputAssistant
+#if !targetEnvironment(simulator)
 import ios_system
+#endif
 #if !FRAMEWORK
 import ObjectUserDefaults
 #endif
@@ -239,9 +241,11 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         super.viewDidAppear(animated)
         
         if let io = shell.io {
+            #if !targetEnvironment(simulator)
             ios_switchSession(io.stdout)
             ios_setStreams(io.stdin, io.stdout, io.stderr)
             title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
+            #endif
         }
         
         LTTerminalViewController.visible_ = self
@@ -534,7 +538,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         }
         
         if urls[0].startAccessingSecurityScopedResource() {
+            #if !targetEnvironment(simulator)
             ios_system("cd '\(urls[0].path)'")
+            #endif
             title = urls[0].lastPathComponent
         } else {
             tprint("Error opening \(urls[0].lastPathComponent).\n")

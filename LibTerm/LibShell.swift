@@ -7,7 +7,9 @@
 //
 
 import UIKit
+#if !targetEnvironment(simulator)
 import ios_system
+#endif
 
 /// Type for a builtin command. A function with argc, argv and the Input/Output object.
 ///
@@ -117,8 +119,10 @@ open class LibShell {
     
     /// Initialize the shell.
     public init() {
+        #if !targetEnvironment(simulator)
         ios_setDirectoryURL(FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0])
         initializeEnvironment()
+        #endif
     }
     
     /// The commands history.
@@ -168,11 +172,13 @@ open class LibShell {
         guard let io = self.io else {
             return 1
         }
+        #if !targetEnvironment(simulator)
         ios_switchSession(io.stdout)
         ios_setStreams(io.stdin, io.stdout, io.stderr)
         
         thread_stderr = nil
         thread_stdout = nil
+        #endif
                 
         isCommandRunning = true
         
@@ -188,7 +194,11 @@ open class LibShell {
         }
         
         if arguments == ["python"] { // When Python is called without arguments, it freezes instead of running the REPL
+            #if !targetEnvironment(simulator)
             return ios_system("python -c 'import code; code.interact()'")
+            #else
+            fatalError("Cannot run a command on the simulator!")
+            #endif
         }
         
         let setterComponents = command.components(separatedBy: "=")
@@ -210,11 +220,19 @@ open class LibShell {
             arguments.insert("python", at: 0)
             arguments.remove(at: 1)
             arguments.insert(scriptURL.path, at: 1)
+            #if !targetEnvironment(simulator)
             returnCode = ios_system(arguments.joined(separator: " ").cValue)
+            #else
+            returnCode = 1
+            #endif
         } else if builtins.keys.contains(arguments[0]) {
             returnCode = builtins[arguments[0]]?(arguments.count, arguments, io) ?? 1
         } else {
+            #if !targetEnvironment(simulator)
             returnCode = ios_system(command_.cValue)
+            #else
+            returnCode = 1
+            #endif
         }
         
         isCommandRunning = false

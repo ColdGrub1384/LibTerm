@@ -7,7 +7,9 @@
 //
 
 import UIKit
+#if !targetEnvironment(simulator)
 import ios_system
+#endif
 import ObjectUserDefaults
 
 fileprivate let reset = "\u{001b}[0m"
@@ -95,8 +97,12 @@ func packageMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
                     
                     chdir(tmpURL.path)
                     
+                    #if !targetEnvironment(simulator)
                     let unzip = ios_system("tar -xf '\(fileURL.path)'")
                     ios_system("rm '\(fileURL.path)'")
+                    #else
+                    let unzip = 1
+                    #endif
                     
                     guard unzip == 0 else {
                         fputs("\(package) not installed!\n", io.stderr)
