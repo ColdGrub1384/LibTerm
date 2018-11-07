@@ -44,7 +44,6 @@
 		C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0A21610B5300F870B5 /* commandDictionary.plist */; };
 		C9806D0D21610B5400F870B5 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0B21610B5300F870B5 /* extraCommandsDictionary.plist */; };
 		C9806D0F21611EA100F870B5 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0E21611EA100F870B5 /* Keys.swift */; };
-		C9C552CE21766B1400F43B34 /* libpdftex.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCC216049DD00F870B5 /* libpdftex.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C9C552D021766E8F00F43B34 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C552CF21766E8F00F43B34 /* Settings.storyboard */; };
 		C9C552D22176716C00F43B34 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C552D12176716C00F43B34 /* SettingsTableViewController.swift */; };
 		C9C552D9217672F300F43B34 /* ObjectUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */; };
@@ -189,7 +188,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C9C552CE21766B1400F43B34 /* libpdftex.dylib in Embed Frameworks */,
 				C9C552DA217672F300F43B34 /* ObjectUserDefaults.framework in Embed Frameworks */,
 				C9806CF821604A1400F870B5 /* awk.framework in Embed Frameworks */,
 				C9806CF621604A1400F870B5 /* tar.framework in Embed Frameworks */,
@@ -875,6 +873,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -936,6 +935,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
