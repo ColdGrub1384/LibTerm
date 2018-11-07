@@ -69,7 +69,7 @@ func libshellMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
     if argc == 1 {
         #if FRAMEWORK
-        return libshellMain(argc: 1, argv: ["-h"], shell: shell)
+        return libshellMain(argc: 1, argv: ["-h"], io: io)
         #else
         DispatchQueue.main.async {
             (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.addTab()
