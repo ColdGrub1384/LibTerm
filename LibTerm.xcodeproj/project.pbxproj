@@ -44,6 +44,7 @@
 		C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0A21610B5300F870B5 /* commandDictionary.plist */; };
 		C9806D0D21610B5400F870B5 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0B21610B5300F870B5 /* extraCommandsDictionary.plist */; };
 		C9806D0F21611EA100F870B5 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0E21611EA100F870B5 /* Keys.swift */; };
+		C9AAAB332194E5610042E733 /* BuildDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAAB322194E5600042E733 /* BuildDate.swift */; };
 		C9C552D021766E8F00F43B34 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C552CF21766E8F00F43B34 /* Settings.storyboard */; };
 		C9C552D22176716C00F43B34 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C552D12176716C00F43B34 /* SettingsTableViewController.swift */; };
 		C9C552D9217672F300F43B34 /* ObjectUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */; };
@@ -256,6 +257,7 @@
 		C9806D0A21610B5300F870B5 /* commandDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = commandDictionary.plist; sourceTree = "<group>"; };
 		C9806D0B21610B5300F870B5 /* extraCommandsDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = extraCommandsDictionary.plist; sourceTree = "<group>"; };
 		C9806D0E21611EA100F870B5 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		C9AAAB322194E5600042E733 /* BuildDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildDate.swift; sourceTree = "<group>"; };
 		C9C552CF21766E8F00F43B34 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C9C552D12176716C00F43B34 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		C9C552D3217672EA00F43B34 /* ObjectUserDefaults.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectUserDefaults.xcodeproj; path = ObjectUserDefaults/ObjectUserDefaults.xcodeproj; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 				C927793221696C3F0091B038 /* CommandHelp.swift */,
 				C9DE222A2162E4E5007ED7A0 /* Parser.swift */,
 				C9DE222C2162E621007ED7A0 /* ANSITextState.swift */,
+				C9AAAB322194E5600042E733 /* BuildDate.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 					};
 					C9806BC02160467E00F870B5 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 					};
 					C9FAD8F8216AD24A005939AC = {
 						CreatedOnToolsVersion = 10.0;
@@ -728,6 +732,7 @@
 				C91D4D13218FBF90003F73FF /* package.swift in Sources */,
 				C9806D0521604AE700F870B5 /* IO.swift in Sources */,
 				C927793921696CC00091B038 /* Commands.swift in Sources */,
+				C9AAAB332194E5610042E733 /* BuildDate.swift in Sources */,
 				C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */,
 				C9CB2CDD216971EE004D9FFB /* exit.swift in Sources */,
 			);
@@ -961,6 +966,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
@@ -984,6 +990,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -994,6 +1002,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
@@ -1014,6 +1023,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
