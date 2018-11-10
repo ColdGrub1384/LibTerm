@@ -44,6 +44,7 @@
 		C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0A21610B5300F870B5 /* commandDictionary.plist */; };
 		C9806D0D21610B5400F870B5 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0B21610B5300F870B5 /* extraCommandsDictionary.plist */; };
 		C9806D0F21611EA100F870B5 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0E21611EA100F870B5 /* Keys.swift */; };
+		C983B66B21976BA4009EBF4F /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B66621976BA4009EBF4F /* ReviewHelper.swift */; };
 		C9AAAB332194E5610042E733 /* BuildDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAAB322194E5600042E733 /* BuildDate.swift */; };
 		C9C552D021766E8F00F43B34 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C552CF21766E8F00F43B34 /* Settings.storyboard */; };
 		C9C552D22176716C00F43B34 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C552D12176716C00F43B34 /* SettingsTableViewController.swift */; };
@@ -257,6 +258,7 @@
 		C9806D0A21610B5300F870B5 /* commandDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = commandDictionary.plist; sourceTree = "<group>"; };
 		C9806D0B21610B5300F870B5 /* extraCommandsDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = extraCommandsDictionary.plist; sourceTree = "<group>"; };
 		C9806D0E21611EA100F870B5 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		C983B66621976BA4009EBF4F /* ReviewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewHelper.swift; sourceTree = "<group>"; };
 		C9AAAB322194E5600042E733 /* BuildDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildDate.swift; sourceTree = "<group>"; };
 		C9C552CF21766E8F00F43B34 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C9C552D12176716C00F43B34 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				C9806BC42160467E00F870B5 /* AppDelegate.swift */,
 				C9806D0221604A3900F870B5 /* LibShell.swift */,
 				C927793821696CC00091B038 /* Commands.swift */,
+				C983B66621976BA4009EBF4F /* ReviewHelper.swift */,
 				C9806D1121612B8D00F870B5 /* View controllers */,
 				C9806D1221612BA800F870B5 /* Helpers */,
 				C91C345721612DA20003BD90 /* Commands */,
@@ -730,6 +733,7 @@
 				C92F574D2168001600ABE35F /* ssh.swift in Sources */,
 				C91C345B21613A720003BD90 /* help.swift in Sources */,
 				C91D4D13218FBF90003F73FF /* package.swift in Sources */,
+				C983B66B21976BA4009EBF4F /* ReviewHelper.swift in Sources */,
 				C9806D0521604AE700F870B5 /* IO.swift in Sources */,
 				C927793921696CC00091B038 /* Commands.swift in Sources */,
 				C9AAAB332194E5610042E733 /* BuildDate.swift in Sources */,
