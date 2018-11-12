@@ -300,8 +300,8 @@
 	<array>
 		<string>ssh_cmd.framework/ssh_cmd</string>
 		<string>ssh_main</string>
-		<string>q</string>
-		<string></string>
+		<string>p</string>
+		<string>no</string>
 	</array>
 	<key>sort</key>
 	<array>
