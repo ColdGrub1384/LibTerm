@@ -34,21 +34,19 @@ public class LTIO: ParserDelegate {
         stderr = fdopen(errorPipe.fileHandleForWriting.fileDescriptor, "w")
         stdin = fdopen(inputPipe.fileHandleForReading.fileDescriptor, "r")
         outputPipe.fileHandleForReading.readabilityHandler = { handle in
-            self.parser.delegate = self
-            self.parser.parse(handle.availableData)
+            self.outputParser.delegate = self
+            self.outputParser.parse(handle.availableData)
         }
         errorPipe.fileHandleForReading.readabilityHandler = { handle in
-            guard let str = String(data: handle.availableData, encoding: .utf8), let data = "\u{001b}[31m\(str)\u{001b}[0m".data(using: .utf8) else {
-                return
-            }
-            self.parser.delegate = self
-            self.parser.parse(data)
+            self.errorParser.delegate = self
+            self.errorParser.parse(handle.availableData)
         }
         setbuf(stdout!, nil)
         setbuf(stderr!, nil)
     }
     
-    private let parser = Parser()
+    private let outputParser = Parser()
+    private let errorParser = Parser()
     
     /// The stdin file.
     public var stdin: UnsafeMutablePointer<FILE>?
@@ -90,7 +88,15 @@ public class LTIO: ParserDelegate {
             }
             
             let attributedString = NSMutableAttributedString(attributedString: term.terminalTextView.attributedText ?? NSAttributedString())
-            attributedString.append(string)
+            
+            if parser === self.errorParser {
+                var attributes = attributedString.attributes(at: 0, longestEffectiveRange: nil, in: NSRange(location: 0, length: attributedString.length))
+                attributes[.foregroundColor] = ANSIForegroundColor.red.color
+                attributedString.append(NSAttributedString(string: string.string, attributes: attributes))
+            } else {
+                attributedString.append(string)
+            }
+            
             term.terminalTextView.attributedText = attributedString
         }
     }
