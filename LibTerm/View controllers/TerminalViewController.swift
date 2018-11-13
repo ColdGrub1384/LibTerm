@@ -162,7 +162,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     /// The shell for running command.
     public private(set) var shell = LibShell()
     
-    /// The thrad running the shell.
+    /// The thread running the shell.
     let thread = DispatchQueue.global(qos: .userInteractive)
     
     /// The view for autocompletion.
@@ -192,7 +192,6 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         let newAttrs = NSMutableAttributedString(attributedString: terminalTextView.attributedText ?? NSAttributedString())
         newAttrs.append(NSAttributedString(string: text, attributes: [.font : UIFont(name: "Menlo", size: CGFloat(preferences.fontSize)) ?? UIFont.systemFont(ofSize: CGFloat(preferences.fontSize)), .foregroundColor: preferences.foregroundColor]))
         terminalTextView.attributedText = newAttrs
-        terminalTextView.scrollToBottom()
     }
     
     /// Select a new working directory.

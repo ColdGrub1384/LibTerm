@@ -11,12 +11,6 @@ import UIKit
 /// The Text view containing the terminal.
 public class LTTerminalTextView: UITextView {
     
-    /// Scrolls to the bottom of the text view.
-    func scrollToBottom() {
-        let range = NSMakeRange((text as NSString).length - 1, 1)
-        scrollRangeToVisible(range)
-    }
-    
     // MARK: - Text view
     
     override public func caretRect(for position: UITextPosition) -> CGRect {
