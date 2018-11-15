@@ -170,6 +170,7 @@ open class LibShell {
     
     /// Kills the current running command.
     func killCommand() {
+        #if !targetEnvironment(simulator)
         guard isCommandRunning else {
             return print("No command is running")
         }
@@ -183,6 +184,7 @@ open class LibShell {
         }
         isCommandRunning = false
         input()
+        #endif
     }
     
     /// Run given command.
