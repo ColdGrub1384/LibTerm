@@ -521,6 +521,16 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     public func inputAssistantView(_ inputAssistantView: InputAssistantView, didSelectSuggestionAtIndex index: Int) {
         
         if completionType == .running {
+            if let tabVC = UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController { // Close all tabs that will not be working after closing a program
+                for tab in tabVC.viewControllers {
+                    if tab !== self {
+                        tabVC.closeTab(tab)
+                    }
+                }
+                if tabVC.navigationItem.rightBarButtonItems?.count == 2 {
+                    tabVC.navigationItem.rightBarButtonItems?.remove(at: 1)
+                }
+            }
             return shell.killCommand()
         } else if completionType != .command && completionType != .history {
             prompt += commands_[index]+" "
