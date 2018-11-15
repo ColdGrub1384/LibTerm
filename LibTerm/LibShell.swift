@@ -221,12 +221,7 @@ open class LibShell {
         
         io.inputPipe = Pipe()
         io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
-        
-        if command == "ls /" {
-            ios_setStreams(stdin, stdout, stderr)
-        } else {
-            ios_setStreams(io.stdin, io.stdout, io.stderr)
-        }
+        ios_setStreams(io.stdin, io.stdout, io.stderr)
         #endif
                 
         isCommandRunning = true
