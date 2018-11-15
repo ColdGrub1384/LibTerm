@@ -250,6 +250,11 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         defaultBarStyle = navigationController?.navigationBar.barStyle ?? .default
         navigationController?.navigationBar.barStyle = preferences.barStyle
         navigationController?.setNeedsStatusBarAppearanceUpdate()
+        
+        terminalTextView.resignFirstResponder()
+        _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.terminalTextView.becomeFirstResponder()
+        })
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
