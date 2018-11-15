@@ -232,6 +232,8 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .never
         }
+        
+        terminalTextView.isEditable = false
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -251,8 +253,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         navigationController?.navigationBar.barStyle = preferences.barStyle
         navigationController?.setNeedsStatusBarAppearanceUpdate()
         
+        terminalTextView.isEditable = true
         terminalTextView.resignFirstResponder()
-        _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+        _ = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: { (_) in
             self.terminalTextView.becomeFirstResponder()
         })
     }
