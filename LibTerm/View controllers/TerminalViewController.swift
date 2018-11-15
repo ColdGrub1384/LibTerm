@@ -501,12 +501,15 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     /// Updates suggestions
     public func updateSuggestions() {
         commands = commands_
-        DispatchQueue.main.async {
-            self.assistant.reloadData()
-        }
     }
     
-    private var commands = [String]()
+    private var commands = [String]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.assistant.reloadData()
+            }
+        }
+    }
     
     // MARK: - Input assistant view delegate
     
@@ -515,9 +518,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         if completionType == .running {
             return shell.killCommand()
         } else if completionType != .command && completionType != .history {
-            prompt += commands[index]+" "
+            prompt += commands_[index]+" "
         } else {
-            prompt = commands[index]+" "
+            prompt = commands_[index]+" "
         }
         terminalTextView.attributedText = attributedConsole
         tprint(prompt)
@@ -531,12 +534,12 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     
     public func inputAssistantView(_ inputAssistantView: InputAssistantView, nameForSuggestionAtIndex index: Int) -> String {
         
-        return commands[index]
+        return commands_[index]
     }
     
     public func numberOfSuggestionsInInputAssistantView() -> Int {
         if isAskingForInput || shell.isCommandRunning {
-            return commands.count
+            return commands_.count
         } else {
             return 0
         }
