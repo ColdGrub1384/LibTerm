@@ -1,9 +1,11 @@
+// Taken from OpenTerm: https://github.com/louisdh/openterm
+
 //
 //  Clipboard.swift
-//  LibTerm
+//  OpenTerm
 //
-//  Created by Adrian Labbe on 11/15/18.
-//  Copyright © 2018 Adrian Labbe. All rights reserved.
+//  Created by Majid Jabrayilov on 2/1/18.
+//  Copyright © 2018 Silver Fox. All rights reserved.
 //
 
 import UIKit
