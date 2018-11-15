@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sideLoading = true
         initializeEnvironment()
         
+        replaceCommand("pbcopy", "pbcopy", true)
+        replaceCommand("pbpaste", "pbpaste", true)
+        
         // Python
         putenv("PYTHONHOME=\(Bundle.main.bundlePath)".cValue)
         putenv("PYTHONPATH=\(Bundle.main.bundlePath)/site-packages".cValue)

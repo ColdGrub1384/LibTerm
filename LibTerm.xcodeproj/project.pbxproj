@@ -52,6 +52,7 @@
 		C9C552DA217672F300F43B34 /* ObjectUserDefaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9CB2CDD216971EE004D9FFB /* exit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB2CDC216971EE004D9FFB /* exit.swift */; };
 		C9D69D40219E123D004CF5BB /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCB216049DD00F870B5 /* ios_system.framework */; };
+		C9DABABC219E1E42001BF620 /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DABABB219E1E42001BF620 /* Clipboard.swift */; };
 		C9DE220C2162E12A007ED7A0 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */; };
 		C9DE222B2162E4E5007ED7A0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222A2162E4E5007ED7A0 /* Parser.swift */; };
 		C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222C2162E621007ED7A0 /* ANSITextState.swift */; };
@@ -265,6 +266,7 @@
 		C9C552D12176716C00F43B34 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		C9C552D3217672EA00F43B34 /* ObjectUserDefaults.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectUserDefaults.xcodeproj; path = ObjectUserDefaults/ObjectUserDefaults.xcodeproj; sourceTree = "<group>"; };
 		C9CB2CDC216971EE004D9FFB /* exit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exit.swift; sourceTree = "<group>"; };
+		C9DABABB219E1E42001BF620 /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
 		C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 		C9DE222A2162E4E5007ED7A0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		C9DE222C2162E621007ED7A0 /* ANSITextState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSITextState.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				C9CB2CDC216971EE004D9FFB /* exit.swift */,
 				C91D4D08218FA304003F73FF /* open.swift */,
 				C91D4D12218FBF90003F73FF /* package.swift */,
+				C9DABABB219E1E42001BF620 /* Clipboard.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 				C91C345B21613A720003BD90 /* help.swift in Sources */,
 				C91D4D13218FBF90003F73FF /* package.swift in Sources */,
 				C983B66B21976BA4009EBF4F /* ReviewHelper.swift in Sources */,
+				C9DABABC219E1E42001BF620 /* Clipboard.swift in Sources */,
 				C9806D0521604AE700F870B5 /* IO.swift in Sources */,
 				C927793921696CC00091B038 /* Commands.swift in Sources */,
 				C9AAAB332194E5610042E733 /* BuildDate.swift in Sources */,
