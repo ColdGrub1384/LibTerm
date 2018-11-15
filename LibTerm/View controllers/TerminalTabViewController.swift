@@ -8,6 +8,7 @@
 
 import UIKit
 import TabView
+import ios_system
 
 /// The tab view controller containing terminals.
 class TerminalTabViewController: TabViewController {
@@ -52,6 +53,13 @@ class TerminalTabViewController: TabViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    override func closeTab(_ tab: UIViewController) {
+        
+        (tab as? LTTerminalViewController)?.shell.killCommand()
+        
+        super.closeTab(tab)
     }
 }
 

@@ -141,7 +141,13 @@ open class LibShell {
     open var io: LTIO?
     
     /// `true` if a command is actually running on this shell.
-    public var isCommandRunning = false
+    public var isCommandRunning = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.io?.terminal?.updateSuggestions()
+            }
+        }
+    }
     
     /// Builtin commands per name and functions.
     open var builtins: [String:LTCommand] {
@@ -162,6 +168,23 @@ open class LibShell {
     /// Shell's variables.
     open var variables = [String:String]()
     
+    /// Kills the current running command.
+    func killCommand() {
+        guard isCommandRunning else {
+            return print("No command is running")
+        }
+        if let queue = io?.terminal?.thread {
+            queue.async {
+                Thread.current.cancel()
+                print(ios_kill())
+            }
+        } else {
+            print(ios_kill())
+        }
+        isCommandRunning = false
+        input()
+    }
+    
     /// Run given command.
     ///
     /// - Parameters:
@@ -172,15 +195,45 @@ open class LibShell {
         guard let io = self.io else {
             return 1
         }
+        
+        func append(command: String) {
+            // Remove useless spaces
+            var command_ = command
+            while command_.hasSuffix(" ") {
+                command_ = String(command.dropLast())
+            }
+            
+            history.append(command_)
+        }
+        var historyCommand = command
+        while historyCommand.hasSuffix(" ") {
+            historyCommand = String(historyCommand.dropLast())
+        }
+        if !history.contains(historyCommand) {
+            append(command: historyCommand)
+        } else if let i = history.firstIndex(of: historyCommand) {
+            history.remove(at: i)
+            append(command: historyCommand)
+        }
+        
         #if !targetEnvironment(simulator)
         ios_switchSession(io.stdout)
-        ios_setStreams(io.stdin, io.stdout, io.stderr)
         
-        thread_stderr = nil
-        thread_stdout = nil
+        io.inputPipe = Pipe()
+        io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
+        
+        if command == "ls /" {
+            ios_setStreams(stdin, stdout, stderr)
+        } else {
+            ios_setStreams(io.stdin, io.stdout, io.stderr)
+        }
         #endif
                 
         isCommandRunning = true
+        
+        defer {
+            isCommandRunning = false
+        }
         
         var command_ = command
         for variable in variables {
@@ -233,30 +286,6 @@ open class LibShell {
             #else
             returnCode = 1
             #endif
-        }
-        
-        isCommandRunning = false
-        
-        if returnCode == 0 {
-            func append(command: String) {
-                // Remove useless spaces
-                var command_ = command
-                while command_.hasSuffix(" ") {
-                    command_ = String(command.dropLast())
-                }
-                
-                history.append(command_)
-            }
-            var historyCommand = command
-            while historyCommand.hasSuffix(" ") {
-                historyCommand = String(historyCommand.dropLast())
-            }
-            if !history.contains(historyCommand) {
-                append(command: historyCommand)
-            } else if let i = history.firstIndex(of: historyCommand) {
-                history.remove(at: i)
-                append(command: historyCommand)
-            }
         }
         
         return returnCode

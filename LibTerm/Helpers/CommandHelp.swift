@@ -45,6 +45,9 @@ public struct LTCommandHelp: Equatable {
         
         /// Show directories in the current directory.
         case directory
+        
+        /// A command is running.
+        case running
     }
     
     /// Initialize the command help.

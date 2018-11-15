@@ -148,8 +148,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     /// The actual user input.
     var prompt = "" {
         didSet {
-            commands = commands_ // Calling `commands_` getter only once improves a lot the performance
-            assistant.reloadData()
+            updateSuggestions()
         }
     }
     
@@ -163,7 +162,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     public private(set) var shell = LibShell()
     
     /// The thread running the shell.
-    let thread = DispatchQueue.global(qos: .userInteractive)
+    var thread = DispatchQueue.global(qos: .userInteractive)
     
     /// The view for autocompletion.
     let assistant = InputAssistantView()
@@ -174,13 +173,12 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     ///     - prompt: The prompt.
     func input(prompt: String) {
         title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
-        tprint(prompt)
         isWrittingToStdin = false
         isAskingForInput = false
+        tprint(prompt)
         textViewDidChange(terminalTextView)
-        commands = commands_ // Calling `commands_` getter only once improves a lot the performance
         isAskingForInput = true
-        assistant.reloadData()
+        updateSuggestions()
     }
     
     /// Prints the given text.
@@ -241,9 +239,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         
         if let io = shell.io {
             #if !targetEnvironment(simulator)
+            title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
             ios_switchSession(io.stdout)
             ios_setStreams(io.stdin, io.stdout, io.stderr)
-            title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
             #endif
         }
         
@@ -369,6 +367,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 self.prompt = ""
                 
                 defer {
+                    thread = DispatchQueue.global(qos: .utility)
                     thread.async {
                         self.shell.run(command: prompt)
                         DispatchQueue.main.async {
@@ -376,6 +375,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                                 self.shell.input()
                             })
                         }
+                        Thread.current.cancel()
                     }
                 }
                 
@@ -419,6 +419,11 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     }
     
     private var completionType: LTCommandHelp.CompletionType {
+        
+        guard !shell.isCommandRunning else {
+            return .running
+        }
+        
         if let command = currentCommand, prompt.hasSuffix(" ") {
             return command.commandInput
         } else if prompt.isEmpty {
@@ -429,6 +434,11 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     }
     
     private var commands_: [String] {
+        
+        guard completionType != .running else {
+            return ["Stop"]
+        }
+        
         var suggestions: [String] {
             let flags = currentCommand?.flags ?? []
             if completionType == .none {
@@ -488,12 +498,23 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         return suggestions_
     }
     
+    /// Updates suggestions
+    public func updateSuggestions() {
+        commands = commands_
+        DispatchQueue.main.async {
+            self.assistant.reloadData()
+        }
+    }
+    
     private var commands = [String]()
     
     // MARK: - Input assistant view delegate
     
     public func inputAssistantView(_ inputAssistantView: InputAssistantView, didSelectSuggestionAtIndex index: Int) {
-        if completionType != .command && completionType != .history {
+        
+        if completionType == .running {
+            return shell.killCommand()
+        } else if completionType != .command && completionType != .history {
             prompt += commands[index]+" "
         } else {
             prompt = commands[index]+" "
@@ -514,7 +535,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     }
     
     public func numberOfSuggestionsInInputAssistantView() -> Int {
-        if isAskingForInput {
+        if isAskingForInput || shell.isCommandRunning {
             return commands.count
         } else {
             return 0
