@@ -16,6 +16,7 @@ class ReviewHelper {
         if launches >= minLaunches {
             launches = 0
             SKStoreReviewController.requestReview()
+            ((UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.visibleViewController as? LTTerminalViewController)?.terminalTextView.resignFirstResponder()
         }
     }
     
