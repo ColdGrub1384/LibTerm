@@ -22,6 +22,7 @@
 		C927793921696CC00091B038 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793821696CC00091B038 /* Commands.swift */; };
 		C92F574D2168001600ABE35F /* ssh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F574C2168001600ABE35F /* ssh.swift */; };
 		C9580E8C2165553500A43CEC /* Terminal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9580E8B2165553500A43CEC /* Terminal.storyboard */; };
+		C95BE11921A3715D00FB135B /* cacert.pem in Resources */ = {isa = PBXBuildFile; fileRef = C95BE11421A3715D00FB135B /* cacert.pem */; };
 		C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC42160467E00F870B5 /* AppDelegate.swift */; };
 		C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
 		C9806BCF2160468200F870B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCD2160468200F870B5 /* LaunchScreen.storyboard */; };
@@ -228,6 +229,7 @@
 		C927793821696CC00091B038 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		C92F574C2168001600ABE35F /* ssh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ssh.swift; sourceTree = "<group>"; };
 		C9580E8B2165553500A43CEC /* Terminal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Terminal.storyboard; sourceTree = "<group>"; };
+		C95BE11421A3715D00FB135B /* cacert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cacert.pem; sourceTree = "<group>"; };
 		C9806BC12160467E00F870B5 /* LibTerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibTerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9806BC42160467E00F870B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9806BCB2160468200F870B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 		C9806D1021612B7A00F870B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C95BE11421A3715D00FB135B /* cacert.pem */,
 				C9580E8B2165553500A43CEC /* Terminal.storyboard */,
 				C9C552CF21766E8F00F43B34 /* Settings.storyboard */,
 				C9806BCB2160468200F870B5 /* Assets.xcassets */,
@@ -691,6 +694,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9806BCF2160468200F870B5 /* LaunchScreen.storyboard in Resources */,
+				C95BE11921A3715D00FB135B /* cacert.pem in Resources */,
 				C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */,
 				C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */,
 				C9C552D021766E8F00F43B34 /* Settings.storyboard in Resources */,
