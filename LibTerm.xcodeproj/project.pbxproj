@@ -23,6 +23,9 @@
 		C92F574D2168001600ABE35F /* ssh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F574C2168001600ABE35F /* ssh.swift */; };
 		C9580E8C2165553500A43CEC /* Terminal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9580E8B2165553500A43CEC /* Terminal.storyboard */; };
 		C95BE11921A3715D00FB135B /* cacert.pem in Resources */ = {isa = PBXBuildFile; fileRef = C95BE11421A3715D00FB135B /* cacert.pem */; };
+		C95BE12521A37A2900FB135B /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
+		C95BE12621A37A6000FB135B /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
+		C95BE12721A37A6000FB135B /* ios_system.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC42160467E00F870B5 /* AppDelegate.swift */; };
 		C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
 		C9806BCF2160468200F870B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCD2160468200F870B5 /* LaunchScreen.storyboard */; };
@@ -32,7 +35,6 @@
 		C9806CEE21604A1400F870B5 /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806CF021604A1400F870B5 /* Python_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC8216049DD00F870B5 /* Python_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806CF221604A1400F870B5 /* libssh2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC9216049DD00F870B5 /* libssh2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9806CF421604A1400F870B5 /* ios_system.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCB216049DD00F870B5 /* ios_system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806CF621604A1400F870B5 /* tar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCE216049DD00F870B5 /* tar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806CF821604A1400F870B5 /* awk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCF216049DD00F870B5 /* awk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806CFA21604A1400F870B5 /* files.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CD0216049DD00F870B5 /* files.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -52,7 +54,6 @@
 		C9C552D9217672F300F43B34 /* ObjectUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */; };
 		C9C552DA217672F300F43B34 /* ObjectUserDefaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9CB2CDD216971EE004D9FFB /* exit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB2CDC216971EE004D9FFB /* exit.swift */; };
-		C9D69D40219E123D004CF5BB /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCB216049DD00F870B5 /* ios_system.framework */; };
 		C9DABABC219E1E42001BF620 /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DABABB219E1E42001BF620 /* Clipboard.swift */; };
 		C9DE220C2162E12A007ED7A0 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */; };
 		C9DE222B2162E4E5007ED7A0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222A2162E4E5007ED7A0 /* Parser.swift */; };
@@ -80,7 +81,6 @@
 		C9FAD915216AD27B005939AC /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
 		C9FAD916216AD28C005939AC /* Terminal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9580E8B2165553500A43CEC /* Terminal.storyboard */; };
 		C9FAD917216AD29B005939AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
-		C9FAD91A216AD426005939AC /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCB216049DD00F870B5 /* ios_system.framework */; };
 		C9FAD920216AD54B005939AC /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +91,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3C2E4346201E7E6C00E4254A;
 			remoteInfo = InputAssistant;
+		};
+		C95BE11E21A379FA00FB135B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95BE11A21A379F900FB135B /* ios_system.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 223496AB1FD5FC71007ED1A9;
+			remoteInfo = ios_system;
+		};
+		C95BE12821A37A6000FB135B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95BE11A21A379F900FB135B /* ios_system.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 223496AA1FD5FC71007ED1A9;
+			remoteInfo = ios_system;
 		};
 		C9C552D7217672EA00F43B34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -207,8 +221,8 @@
 				C9806CFE21604A1400F870B5 /* text.framework in Embed Frameworks */,
 				C9806CEE21604A1400F870B5 /* openssl.framework in Embed Frameworks */,
 				C9806CE821604A1400F870B5 /* shell.framework in Embed Frameworks */,
-				C9806CF421604A1400F870B5 /* ios_system.framework in Embed Frameworks */,
 				C9806CEA21604A1400F870B5 /* network_ios.framework in Embed Frameworks */,
+				C95BE12721A37A6000FB135B /* ios_system.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +244,7 @@
 		C92F574C2168001600ABE35F /* ssh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ssh.swift; sourceTree = "<group>"; };
 		C9580E8B2165553500A43CEC /* Terminal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Terminal.storyboard; sourceTree = "<group>"; };
 		C95BE11421A3715D00FB135B /* cacert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cacert.pem; sourceTree = "<group>"; };
+		C95BE11A21A379F900FB135B /* ios_system.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ios_system.xcodeproj; path = ios_system_core/ios_system.xcodeproj; sourceTree = "<group>"; };
 		C9806BC12160467E00F870B5 /* LibTerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibTerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9806BC42160467E00F870B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9806BCB2160468200F870B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,7 +312,7 @@
 				C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */,
 				C9C552D9217672F300F43B34 /* ObjectUserDefaults.framework in Frameworks */,
 				C9F0F02521654DC700CAC2A0 /* TabView.framework in Frameworks */,
-				C9D69D40219E123D004CF5BB /* ios_system.framework in Frameworks */,
+				C95BE12621A37A6000FB135B /* ios_system.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,8 +320,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95BE12521A37A2900FB135B /* ios_system.framework in Frameworks */,
 				C9FAD920216AD54B005939AC /* InputAssistant.framework in Frameworks */,
-				C9FAD91A216AD426005939AC /* ios_system.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,9 +352,18 @@
 			path = "LibTerm Simulator";
 			sourceTree = "<group>";
 		};
+		C95BE11B21A379F900FB135B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C95BE11F21A379FA00FB135B /* ios_system.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C9806BB82160467E00F870B5 = {
 			isa = PBXGroup;
 			children = (
+				C95BE11A21A379F900FB135B /* ios_system.xcodeproj */,
 				C9C552D3217672EA00F43B34 /* ObjectUserDefaults.xcodeproj */,
 				C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */,
 				C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */,
@@ -547,6 +571,7 @@
 				C9F0F013216437C500CAC2A0 /* PBXTargetDependency */,
 				C9F0F02821654DC700CAC2A0 /* PBXTargetDependency */,
 				C9C552DC217672F300F43B34 /* PBXTargetDependency */,
+				C95BE12921A37A6000FB135B /* PBXTargetDependency */,
 			);
 			name = LibTerm;
 			productName = LibTerm;
@@ -610,6 +635,10 @@
 					ProjectRef = C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */;
 				},
 				{
+					ProductGroup = C95BE11B21A379F900FB135B /* Products */;
+					ProjectRef = C95BE11A21A379F900FB135B /* ios_system.xcodeproj */;
+				},
+				{
 					ProductGroup = C9C552D4217672EA00F43B34 /* Products */;
 					ProjectRef = C9C552D3217672EA00F43B34 /* ObjectUserDefaults.xcodeproj */;
 				},
@@ -628,6 +657,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		C95BE11F21A379FA00FB135B /* ios_system.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ios_system.framework;
+			remoteRef = C95BE11E21A379FA00FB135B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -781,6 +817,11 @@
 			isa = PBXTargetDependency;
 			name = InputAssistant;
 			targetProxy = C91D4D0D218FAD05003F73FF /* PBXContainerItemProxy */;
+		};
+		C95BE12921A37A6000FB135B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ios_system;
+			targetProxy = C95BE12821A37A6000FB135B /* PBXContainerItemProxy */;
 		};
 		C9C552DC217672F300F43B34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
