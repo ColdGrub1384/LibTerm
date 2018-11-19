@@ -16,7 +16,12 @@ class ReviewHelper {
         if launches >= minLaunches {
             launches = 0
             SKStoreReviewController.requestReview()
-            ((UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.visibleViewController as? LTTerminalViewController)?.terminalTextView.resignFirstResponder()
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(1 * Double(NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: {
+                if UIApplication.shared.windows.count > 1 {
+                    ((UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.visibleViewController as? LTTerminalViewController)?.terminalTextView.resignFirstResponder()
+                }
+            })
         }
     }
     
