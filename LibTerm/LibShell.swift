@@ -211,7 +211,7 @@ open class LibShell {
         while historyCommand.hasSuffix(" ") {
             historyCommand = String(historyCommand.dropLast())
         }
-        if !history.contains(historyCommand) {
+        if !history.contains(historyCommand), !historyCommand.isEmpty {
             append(command: historyCommand)
         } else if let i = history.firstIndex(of: historyCommand) {
             history.remove(at: i)

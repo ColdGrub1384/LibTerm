@@ -234,6 +234,13 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         }
         
         terminalTextView.isEditable = false
+        
+        for command in shell.history.enumerated() {
+            if command.element.isEmpty {
+                shell.history.remove(at: command.offset)
+                break
+            }
+        }
     }
     
     override public func viewDidAppear(_ animated: Bool) {
