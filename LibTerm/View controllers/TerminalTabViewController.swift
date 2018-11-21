@@ -38,6 +38,22 @@ class TerminalTabViewController: TabViewController {
         present(navVC, animated: true, completion: nil)
     }
     
+    /// Set to `false` to disable opening tabs.
+    var canOpenTabs = true {
+        didSet {
+            if !canOpenTabs && navigationItem.rightBarButtonItems?.count == 2 {
+                navigationItem.rightBarButtonItems?.remove(at: 1)
+            } else {
+                setupBarItems()
+            }
+        }
+    }
+    
+    private func setupBarItems() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(showSettings(_:)))
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Organize"), style: .plain, target: self, action: #selector(cd(_:))), UIBarButtonItem(image: #imageLiteral(resourceName: "Add"), style: .plain, target: self, action: #selector(addTab))]
+    }
+    
     // MARK: - Tab view controller
     
     required init(theme: TabViewTheme) {
@@ -45,8 +61,7 @@ class TerminalTabViewController: TabViewController {
         
         view.tintColor = LTTerminalViewController.Preferences().foregroundColor
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(showSettings(_:)))
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Organize"), style: .plain, target: self, action: #selector(cd(_:))), UIBarButtonItem(image: #imageLiteral(resourceName: "Add"), style: .plain, target: self, action: #selector(addTab))]
+        setupBarItems()
         
         viewControllers = [newTerminal]
     }

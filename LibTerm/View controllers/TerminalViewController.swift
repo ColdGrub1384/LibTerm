@@ -531,9 +531,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                         tabVC.closeTab(tab)
                     }
                 }
-                if tabVC.navigationItem.rightBarButtonItems?.count == 2 {
-                    tabVC.navigationItem.rightBarButtonItems?.remove(at: 1)
-                }
+                tabVC.canOpenTabs = false
             }
             #endif
             return shell.killCommand()
