@@ -101,7 +101,7 @@ func packageMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
                     let unzip = ios_system("tar -xf '\(fileURL.path)'")
                     ios_system("rm '\(fileURL.path)'")
                     #else
-                    let unzip = 1
+                    let unzip: Int32 = 1
                     #endif
                     
                     guard unzip == 0 else {
