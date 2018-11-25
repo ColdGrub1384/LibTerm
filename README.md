@@ -20,10 +20,8 @@ LibTerm contains a `package` command. With `package`, you can download and insta
 
 # Building
 
-1. Clone all submodules
-2. Download `release.tar.gz` from [ios_system latest release](https://github.com/holzschu/ios_system/releases/latest).
-3. Unarchive the file.
-4. Move ios_system to the `ios_system`.
+1. `./setup.sh`
+2. Build `LibTerm` or `LibTermCore` target from `LibTerm.xcodeproj`
 
 # Embedding
 
