@@ -20,7 +20,7 @@ LibTerm contains a `package` command. With `package`, you can download and insta
 
 # Building
 
-1. `./setup.sh`
+1. `$ ./setup.sh`
 2. Build `LibTerm` or `LibTermCore` target from `LibTerm.xcodeproj`
 
 # Embedding
