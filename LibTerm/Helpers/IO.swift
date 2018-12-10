@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ios_system
 
 public extension FileHandle {
     
@@ -38,8 +39,13 @@ public class LTIO: ParserDelegate {
             self.outputParser.parse(handle.availableData)
         }
         errorPipe.fileHandleForReading.readabilityHandler = { handle in
-            self.errorParser.delegate = self
-            self.errorParser.parse(handle.availableData)
+            let runningProgram = String(cString: ios_progname())
+            if runningProgram != "python" {
+                self.errorParser.delegate = self
+                self.errorParser.parse(handle.availableData)
+            } else {
+                self.outputPipe.fileHandleForReading.readabilityHandler?(handle)
+            }
         }
         setbuf(stdout!, nil)
         setbuf(stderr!, nil)
