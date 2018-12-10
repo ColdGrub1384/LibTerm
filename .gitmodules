@@ -10,3 +10,6 @@
 [submodule "ObjectUserDefaults"]
 	path = ObjectUserDefaults
 	url = https://github.com/ColdGrub1384/ObjectUserDefaults.git
+[submodule "bc"]
+	path = bc
+	url = https://github.com/holzschu/bc.git
