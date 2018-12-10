@@ -58,6 +58,7 @@
 		C9DE220C2162E12A007ED7A0 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */; };
 		C9DE222B2162E4E5007ED7A0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222A2162E4E5007ED7A0 /* Parser.swift */; };
 		C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222C2162E621007ED7A0 /* ANSITextState.swift */; };
+		C9E3916721BDE31600F16622 /* bc_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E3916021BDE2D800F16622 /* bc_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
 		C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
 		C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -212,6 +213,7 @@
 				C9806CF621604A1400F870B5 /* tar.framework in Embed Frameworks */,
 				C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */,
 				C9806CFC21604A1400F870B5 /* ssh_cmd.framework in Embed Frameworks */,
+				C9E3916721BDE31600F16622 /* bc_ios.framework in Embed Frameworks */,
 				C9F0F02621654DC700CAC2A0 /* TabView.framework in Embed Frameworks */,
 				C9806CFA21604A1400F870B5 /* files.framework in Embed Frameworks */,
 				C9806CF221604A1400F870B5 /* libssh2.framework in Embed Frameworks */,
@@ -287,6 +289,7 @@
 		C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 		C9DE222A2162E4E5007ED7A0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		C9DE222C2162E621007ED7A0 /* ANSITextState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSITextState.swift; sourceTree = "<group>"; };
+		C9E3916021BDE2D800F16622 /* bc_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bc_ios.framework; sourceTree = "<group>"; };
 		C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTextView.swift; sourceTree = "<group>"; };
 		C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = InputAssistant.xcodeproj; path = InputAssistant/InputAssistant.xcodeproj; sourceTree = "<group>"; };
 		C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TabView.xcodeproj; path = TabView/TabView.xcodeproj; sourceTree = "<group>"; };
@@ -415,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				C9806CC1216049DD00F870B5 /* libtexlua52.5.dylib */,
+				C9E3916021BDE2D800F16622 /* bc_ios.framework */,
 				C9806CC2216049DD00F870B5 /* shell.framework */,
 				C9806CC3216049DD00F870B5 /* network_ios.framework */,
 				C9806CC4216049DD00F870B5 /* libkpathsea.6.dylib */,

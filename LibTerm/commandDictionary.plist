@@ -9,6 +9,13 @@
 		<string>dhiflM:N:nsuw</string>
 		<string>file</string>
 	</array>
+	<key>bc</key>
+	<array>
+		<string>bc_ios.framework/bc_ios</string>
+		<string>bcdc_main</string>
+		<string>e:f:hilqsvVwx</string>
+		<string>no</string>
+	</array>
 	<key>cat</key>
 	<array>
 		<string>text.framework/text</string>
@@ -63,6 +70,13 @@
 		<string>shell.framework/shell</string>
 		<string>date_main</string>
 		<string>d:f:jnRr:t:uv:</string>
+		<string>no</string>
+	</array>
+	<key>dc</key>
+	<array>
+		<string>bc_ios.framework/bc_ios</string>
+		<string>bcdc_main</string>
+		<string>e:f:hilqsvVwx</string>
 		<string>no</string>
 	</array>
 	<key>diff</key>
@@ -275,6 +289,13 @@
 		<string>p</string>
 		<string>directory</string>
 	</array>
+	<key>say</key>
+	<array>
+		<string>text.framework/text</string>
+		<string>say_main</string>
+		<string>v:f:r:</string>
+		<string>no</string>
+	</array>
 	<key>sed</key>
 	<array>
 		<string>text.framework/text</string>
@@ -300,8 +321,15 @@
 	<array>
 		<string>ssh_cmd.framework/ssh_cmd</string>
 		<string>ssh_main</string>
-		<string>p</string>
+		<string>q</string>
 		<string>no</string>
+	</array>
+	<key>ssh-keygen</key>
+	<array>
+		<string>ssh_cmd.framework/ssh_cmd</string>
+		<string>sshkeygen_main</string>
+		<string>ABHLQXceghiklopquvxyC:D:E:F:G:I:J:K:M:N:O:P:R:S:T:V:W:Z:a:b:f:g:j:m:n:r:s:t:z:</string>
+		<string>file</string>
 	</array>
 	<key>sort</key>
 	<array>
@@ -427,6 +455,13 @@
 		<string>network_ios.framework/network_ios</string>
 		<string>whois_main</string>
 		<string>aAbc:fgh:iIklmp:PQrRS</string>
+		<string>no</string>
+	</array>
+	<key>xargs</key>
+	<array>
+		<string>shell.framework/shell</string>
+		<string>xargs_main</string>
+		<string>0E:I:J:L:n:oP:pR:s:tx</string>
 		<string>no</string>
 	</array>
 </dict>

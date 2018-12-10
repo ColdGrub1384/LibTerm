@@ -221,6 +221,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         LTTerminalViewController.visible_ = self
         shell.io = LTIO(terminal: self)
         shell.input()
+        stdin = shell.io?.stdin ?? stdin
         
         assistant.delegate = self
         assistant.dataSource = self
