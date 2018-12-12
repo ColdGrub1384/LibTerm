@@ -204,12 +204,22 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         present(vc, animated: true, completion: nil)
     }
     
+    /// The current directory bookmark data for this terminal session for being restored at launch.
+    var bookmarkData: Data?
+    
     // MARK: - Private values for theming inside Pisth or other apps
     
     private var navigationController_: UINavigationController?
     private var defaultBarStyle = UIBarStyle.default
     
     // MARK: - View controller
+    
+    override public var title: String? {
+        didSet {
+            bookmarkData = try? URL(fileURLWithPath: FileManager.default.currentDirectoryPath).bookmarkData()
+            (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.saveTabs()
+        }
+    }
     
     override public func viewDidLoad() {
         super.viewDidLoad()

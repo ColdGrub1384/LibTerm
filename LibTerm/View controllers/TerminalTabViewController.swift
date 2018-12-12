@@ -9,6 +9,7 @@
 import UIKit
 import TabView
 import ios_system
+import ObjectUserDefaults
 
 /// The tab view controller containing terminals.
 class TerminalTabViewController: TabViewController {
@@ -16,6 +17,9 @@ class TerminalTabViewController: TabViewController {
     private var newTerminal: LTTerminalViewController {
         return LTTerminalViewController.makeTerminal()
     }
+
+    /// Saved tabs.
+    static let tabs = ObjectUserDefaults.standard.item(forKey: "tabs")
     
     /// Open a new terminal.
     @objc func addTab() {
@@ -54,6 +58,17 @@ class TerminalTabViewController: TabViewController {
         navigationItem.rightBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Organize"), style: .plain, target: self, action: #selector(cd(_:))), UIBarButtonItem(image: #imageLiteral(resourceName: "Add"), style: .plain, target: self, action: #selector(addTab))]
     }
     
+    /// Saves tabs on the disk.
+    func saveTabs() {
+        var bookmarks = [Data]()
+        for vc in viewControllers {
+            if let term = vc as? LTTerminalViewController, let bookmarkData = term.bookmarkData {
+                bookmarks.append(bookmarkData)
+            }
+        }
+        TerminalTabViewController.tabs.arrayValue = bookmarks
+    }
+    
     // MARK: - Tab view controller
     
     required init(theme: TabViewTheme) {
@@ -63,7 +78,34 @@ class TerminalTabViewController: TabViewController {
         
         setupBarItems()
         
-        viewControllers = [newTerminal]
+        if let bookmarks = TerminalTabViewController.tabs.arrayValue as? [Data], !bookmarks.isEmpty {
+            var terminals = [LTTerminalViewController]()
+            
+            for bookmark in bookmarks {
+                var isStale = false
+                guard let url = try? URL(resolvingBookmarkData: bookmark, bookmarkDataIsStale: &isStale) else {
+                    viewControllers = [newTerminal]
+                    return
+                }
+                
+                _ = url.startAccessingSecurityScopedResource()
+                
+                let term = newTerminal
+                term.loadViewIfNeeded()
+                term.thread.sync {
+                    ios_switchSession(term.shell.io?.stdout)
+                    ios_setDirectoryURL(url)
+                    DispatchQueue.main.async {
+                        term.title = url.lastPathComponent
+                    }
+                }
+                terminals.append(term)
+            }
+            
+            viewControllers = terminals
+        } else {
+            viewControllers = [newTerminal]
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,6 +117,14 @@ class TerminalTabViewController: TabViewController {
         (tab as? LTTerminalViewController)?.shell.killCommand()
         
         super.closeTab(tab)
+        
+        saveTabs()
+    }
+    
+    override func activateTab(_ tab: UIViewController) {
+        super.activateTab(tab)
+        
+        saveTabs()
     }
 }
 
