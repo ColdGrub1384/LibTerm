@@ -159,9 +159,16 @@ fileprivate func parseArgs(_ args: inout [String]) {
             }
             
         }
-        
-        args = parsedArgs
     }
+    
+    if !currentArg.isEmpty {
+        if currentArg.hasSuffix("'") {
+            currentArg.removeLast()
+        }
+        parsedArgs.append(currentArg)
+    }
+    
+    args = parsedArgs
 }
 
 /// The shell for executing commands.
