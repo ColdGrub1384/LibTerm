@@ -8,6 +8,7 @@
 
 import UIKit
 import InputAssistant
+import Highlightr
 
 fileprivate class EditTextViewController: UIViewController, InputAssistantViewDelegate, InputAssistantViewDataSource {
     
@@ -29,7 +30,25 @@ fileprivate class EditTextViewController: UIViewController, InputAssistantViewDe
     }
     
     override func loadView() {
-        let textView = UITextView()
+        
+        let storage = CodeAttributedString()
+        storage.highlightr.setTheme(to: "ir-black")
+        
+        let languages = NSDictionary(contentsOf: Bundle.main.bundleURL.appendingPathComponent("langs.plist"))! as! [String:[String]] // List of languages associated by file extensions
+        
+        if let languagesForFile = languages[file.pathExtension.lowercased()] {
+            if languagesForFile.count > 0 {
+                storage.language = languagesForFile[0]
+            }
+        }
+        
+        let layoutManager = NSLayoutManager()
+        storage.addLayoutManager(layoutManager)
+        
+        let textContainer = NSTextContainer()
+        layoutManager.addTextContainer(textContainer)
+        
+        let textView = UITextView(frame: .zero, textContainer: textContainer)
         
         textView.font = UIFont(name: "Courier", size: UIFont.systemFontSize)
         textView.backgroundColor = UIColor(named: "Background Color")
@@ -104,7 +123,7 @@ fileprivate class EditTextViewController: UIViewController, InputAssistantViewDe
             if index == 0 { // Save
                 do {
                     try (view as? UITextView)?.text.write(to: file, atomically: true, encoding: .utf8)
-                    dismiss(animated: true) {
+                    dismiss(animated: false) {
                         self.semaphore?.signal()
                     }
                 } catch {

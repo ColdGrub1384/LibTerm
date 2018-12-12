@@ -59,6 +59,9 @@
 		C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222C2162E621007ED7A0 /* ANSITextState.swift */; };
 		C9E30A4621C16E1E00789346 /* GithubFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E30A4521C16E1E00789346 /* GithubFile.swift */; };
 		C9E30A4C21C187C900789346 /* edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E30A4B21C187C900789346 /* edit.swift */; };
+		C9E30A5621C1958A00789346 /* Highlightr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E30A5321C1955F00789346 /* Highlightr.framework */; };
+		C9E30A5721C1958A00789346 /* Highlightr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E30A5321C1955F00789346 /* Highlightr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9E30A5E21C1983F00789346 /* langs.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9E30A5D21C1983F00789346 /* langs.plist */; };
 		C9E3916E21BF237C00F16622 /* bc_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E3916D21BF237400F16622 /* bc_ios.framework */; };
 		C9E3916F21BF237C00F16622 /* bc_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E3916D21BF237400F16622 /* bc_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
@@ -122,6 +125,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = C9C11A7B214075F3005EB9C2;
 			remoteInfo = ObjectUserDefaults;
+		};
+		C9E30A5221C1955F00789346 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8C2FB1C21F39118F00469D0D;
+			remoteInfo = "Highlightr-iOS";
+		};
+		C9E30A5421C1955F00789346 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8CD1AE161F391713000FDA02;
+			remoteInfo = "Highlightr-macOS";
+		};
+		C9E30A5821C1958A00789346 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C2FB1C11F39118F00469D0D;
+			remoteInfo = "Highlightr-iOS";
 		};
 		C9E3916C21BF237400F16622 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -230,6 +254,7 @@
 				C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */,
 				C9806CFC21604A1400F870B5 /* ssh_cmd.framework in Embed Frameworks */,
 				C9E3916F21BF237C00F16622 /* bc_ios.framework in Embed Frameworks */,
+				C9E30A5721C1958A00789346 /* Highlightr.framework in Embed Frameworks */,
 				C9F0F02621654DC700CAC2A0 /* TabView.framework in Embed Frameworks */,
 				C9806CFA21604A1400F870B5 /* files.framework in Embed Frameworks */,
 				C9806CF221604A1400F870B5 /* libssh2.framework in Embed Frameworks */,
@@ -306,6 +331,8 @@
 		C9DE222C2162E621007ED7A0 /* ANSITextState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSITextState.swift; sourceTree = "<group>"; };
 		C9E30A4521C16E1E00789346 /* GithubFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFile.swift; sourceTree = "<group>"; };
 		C9E30A4B21C187C900789346 /* edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edit.swift; sourceTree = "<group>"; };
+		C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Highlightr.xcodeproj; path = Highlightr/Highlightr.xcodeproj; sourceTree = "<group>"; };
+		C9E30A5D21C1983F00789346 /* langs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = langs.plist; sourceTree = "<group>"; };
 		C9E3916021BDE2D800F16622 /* bc_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bc_ios.framework; sourceTree = "<group>"; };
 		C9E3916821BF237400F16622 /* bc_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = bc_ios.xcodeproj; path = bc/bc_ios/bc_ios.xcodeproj; sourceTree = "<group>"; };
 		C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTextView.swift; sourceTree = "<group>"; };
@@ -330,6 +357,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E30A5621C1958A00789346 /* Highlightr.framework in Frameworks */,
 				C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */,
 				C9C552D9217672F300F43B34 /* ObjectUserDefaults.framework in Frameworks */,
 				C9E3916E21BF237C00F16622 /* bc_ios.framework in Frameworks */,
@@ -391,6 +419,7 @@
 				C9C552D3217672EA00F43B34 /* ObjectUserDefaults.xcodeproj */,
 				C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */,
 				C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */,
+				C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */,
 				C9806CC0216049DD00F870B5 /* ios_system */,
 				C9806BC32160467E00F870B5 /* LibTerm */,
 				C9FAD8FA216AD24B005939AC /* LibTermCore */,
@@ -465,6 +494,7 @@
 		C9806D1021612B7A00F870B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C9E30A5D21C1983F00789346 /* langs.plist */,
 				C95BE11421A3715D00FB135B /* cacert.pem */,
 				C9580E8B2165553500A43CEC /* Terminal.storyboard */,
 				C9C552CF21766E8F00F43B34 /* Settings.storyboard */,
@@ -506,6 +536,15 @@
 			isa = PBXGroup;
 			children = (
 				C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9E30A4E21C1955F00789346 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9E30A5321C1955F00789346 /* Highlightr.framework */,
+				C9E30A5521C1955F00789346 /* Highlightr.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -606,6 +645,7 @@
 				C9C552DC217672F300F43B34 /* PBXTargetDependency */,
 				C95BE12921A37A6000FB135B /* PBXTargetDependency */,
 				C9E3917121BF237C00F16622 /* PBXTargetDependency */,
+				C9E30A5921C1958A00789346 /* PBXTargetDependency */,
 			);
 			name = LibTerm;
 			productName = LibTerm;
@@ -669,6 +709,10 @@
 					ProjectRef = C9E3916821BF237400F16622 /* bc_ios.xcodeproj */;
 				},
 				{
+					ProductGroup = C9E30A4E21C1955F00789346 /* Products */;
+					ProjectRef = C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */;
+				},
+				{
 					ProductGroup = C9F0F005216437BB00CAC2A0 /* Products */;
 					ProjectRef = C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */;
 				},
@@ -707,6 +751,20 @@
 			fileType = wrapper.framework;
 			path = ObjectUserDefaults.framework;
 			remoteRef = C9C552D7217672EA00F43B34 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9E30A5321C1955F00789346 /* Highlightr.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Highlightr.framework;
+			remoteRef = C9E30A5221C1955F00789346 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9E30A5521C1955F00789346 /* Highlightr.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Highlightr.framework;
+			remoteRef = C9E30A5421C1955F00789346 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C9E3916D21BF237400F16622 /* bc_ios.framework */ = {
@@ -779,6 +837,7 @@
 				C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */,
 				C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */,
 				C9C552D021766E8F00F43B34 /* Settings.storyboard in Resources */,
+				C9E30A5E21C1983F00789346 /* langs.plist in Resources */,
 				C9580E8C2165553500A43CEC /* Terminal.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -873,6 +932,11 @@
 			isa = PBXTargetDependency;
 			name = ObjectUserDefaults;
 			targetProxy = C9C552DB217672F300F43B34 /* PBXContainerItemProxy */;
+		};
+		C9E30A5921C1958A00789346 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Highlightr-iOS";
+			targetProxy = C9E30A5821C1958A00789346 /* PBXContainerItemProxy */;
 		};
 		C9E3917121BF237C00F16622 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -13,3 +13,6 @@
 [submodule "bc"]
 	path = bc
 	url = https://github.com/holzschu/bc.git
+[submodule "Highlightr"]
+	path = Highlightr
+	url = https://github.com/raspu/Highlightr.git
