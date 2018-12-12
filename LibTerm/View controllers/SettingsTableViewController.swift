@@ -26,7 +26,8 @@ class SettingsTableViewController: UITableViewController {
         static let openTerm = IndexPath(row: 1, section: 1)
         static let inputAssistant = IndexPath(row: 2, section: 1)
         static let tabView = IndexPath(row: 3, section: 1)
-        static let objectUserDefaults = IndexPath(row: 4, section: 1)
+        static let highlightr = IndexPath(row: 4, section: 1)
+        static let objectUserDefaults = IndexPath(row: 5, section: 1)
         
         static let libTerm = IndexPath(row: 0, section: 2)
     }
@@ -82,6 +83,8 @@ class SettingsTableViewController: UITableViewController {
             projectPath = "IMcD23/InputAssistant"
         case ProjectsIndexPaths.tabView:
             projectPath = "IMcD23/TabView"
+        case ProjectsIndexPaths.highlightr:
+            projectPath = "raspu/Highlightr"
         case ProjectsIndexPaths.objectUserDefaults:
             projectPath = "ColdGrub1384/ObjectUserDefaults"
         case ProjectsIndexPaths.libTerm:
