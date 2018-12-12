@@ -175,6 +175,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
         isWrittingToStdin = false
         isAskingForInput = false
+        self.prompt = ""
         tprint(prompt)
         textViewDidChange(terminalTextView)
         isAskingForInput = true

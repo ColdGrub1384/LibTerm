@@ -171,19 +171,25 @@ open class LibShell {
     /// Kills the current running command.
     func killCommand() {
         #if !targetEnvironment(simulator)
-        guard isCommandRunning else {
+        guard isCommandRunning, let io = self.io else {
             return print("No command is running")
         }
-        if let queue = io?.terminal?.thread {
+        
+        if let queue = io.terminal?.thread {
             queue.async {
-                Thread.current.cancel()
+                fputs("\n", io.stdin)
+                fflush(io.stdin)
                 print(ios_kill())
+                Thread.current.cancel()
             }
         } else {
+            fputs("\n", io.stdin)
+            fflush(io.stdin)
             print(ios_kill())
         }
+        io.inputPipe = Pipe()
+        io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
         isCommandRunning = false
-        input()
         #endif
     }
     
