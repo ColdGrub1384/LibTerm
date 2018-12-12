@@ -54,7 +54,7 @@ func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
         }
     }
     
-    helpText += "\nInstall more commands by typing `package install <Package name>`\n"
+    helpText += "\nUse the 'package' command to install third party commands.\n"
     fputs(helpText, io.stdout)
     
     return 0

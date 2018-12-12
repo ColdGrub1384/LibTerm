@@ -28,6 +28,7 @@ func packageMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     var helpText = "Use this command for installing packages.\n\n"
     helpText += "\(underline)Commands\(reset)\n"
     helpText += "  \(blue)source\(reset): Show the GitHub repo containing all the packages\n"
+    helpText += "  \(blue)list\(reset): Show available packages\n"
     helpText += "  \(blue)install\(reset) \(green)package_name ...\(reset): Download and install or update package(s)\n"
     helpText += "  \(blue)remove\(reset) \(green)package_name ...\(reset): Remove package(s)\n"
     
@@ -176,6 +177,39 @@ func packageMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
         }
         
         return 0
+    } else if argv[1] == "list" {
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        var retValue: Int32? {
+            didSet {
+                semaphore.signal()
+            }
+        }
+        
+        URLSession.shared.dataTask(with: URL(string: "https://api.github.com/repos/ColdGrub1384/LibTerm-Packages/contents")!) { (data, _, error) in
+            if let error = error {
+                fputs(error.localizedDescription+"\n", io.stderr)
+                retValue = 1
+            } else if let data = data {
+                do {
+                    let files = try JSONDecoder().decode([GithubFile].self, from: data)
+                    
+                    for file in files {
+                        guard (file.name as NSString).pathExtension == "zip" else {
+                            continue
+                        }
+                        fputs((file.name as NSString).deletingPathExtension+"\n", io.stdout)
+                    }
+                    retValue = 0
+                } catch {
+                    fputs(error.localizedDescription+"\n", io.stderr)
+                    retValue = 1
+                }
+            }
+        }.resume()
+        
+        semaphore.wait()
+        return retValue ?? 0
     } else {
         fputs("\(argv[0]): \(argv[1]): command not found\n", io.stderr)
         return 1
