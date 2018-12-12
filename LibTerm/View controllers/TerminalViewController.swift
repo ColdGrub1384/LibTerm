@@ -471,14 +471,18 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             let flags = currentCommand?.flags ?? []
             if completionType == .none {
                 return flags
-            } else if completionType == .file, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
+            } else if completionType == .file, var files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
+                for item in files.enumerated() {
+                    files.remove(at: item.offset)
+                    files.insert("'\(item.element)'", at: item.offset)
+                }
                 return [".", "../"]+files+flags
             } else if completionType == .directory, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
                 var dirs = [".", "../"]
                 for file in files {
                     var isDir: ObjCBool = false
                     if FileManager.default.fileExists(atPath: file, isDirectory: &isDir) && isDir.boolValue {
-                        dirs.append(file)
+                        dirs.append("'\(file)'")
                     }
                 }
                 return dirs+flags
