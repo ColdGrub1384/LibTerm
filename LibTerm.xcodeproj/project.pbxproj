@@ -58,6 +58,7 @@
 		C9DE222B2162E4E5007ED7A0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222A2162E4E5007ED7A0 /* Parser.swift */; };
 		C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222C2162E621007ED7A0 /* ANSITextState.swift */; };
 		C9E30A4621C16E1E00789346 /* GithubFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E30A4521C16E1E00789346 /* GithubFile.swift */; };
+		C9E30A4C21C187C900789346 /* edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E30A4B21C187C900789346 /* edit.swift */; };
 		C9E3916E21BF237C00F16622 /* bc_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E3916D21BF237400F16622 /* bc_ios.framework */; };
 		C9E3916F21BF237C00F16622 /* bc_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E3916D21BF237400F16622 /* bc_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
@@ -304,6 +305,7 @@
 		C9DE222A2162E4E5007ED7A0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		C9DE222C2162E621007ED7A0 /* ANSITextState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSITextState.swift; sourceTree = "<group>"; };
 		C9E30A4521C16E1E00789346 /* GithubFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFile.swift; sourceTree = "<group>"; };
+		C9E30A4B21C187C900789346 /* edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edit.swift; sourceTree = "<group>"; };
 		C9E3916021BDE2D800F16622 /* bc_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bc_ios.framework; sourceTree = "<group>"; };
 		C9E3916821BF237400F16622 /* bc_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = bc_ios.xcodeproj; path = bc/bc_ios/bc_ios.xcodeproj; sourceTree = "<group>"; };
 		C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTextView.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				C9CB2CDC216971EE004D9FFB /* exit.swift */,
 				C91D4D08218FA304003F73FF /* open.swift */,
 				C91D4D12218FBF90003F73FF /* package.swift */,
+				C9E30A4B21C187C900789346 /* edit.swift */,
 				C9DABABB219E1E42001BF620 /* Clipboard.swift */,
 			);
 			path = Commands;
@@ -823,6 +826,7 @@
 				C983B66B21976BA4009EBF4F /* ReviewHelper.swift in Sources */,
 				C9DABABC219E1E42001BF620 /* Clipboard.swift in Sources */,
 				C9806D0521604AE700F870B5 /* IO.swift in Sources */,
+				C9E30A4C21C187C900789346 /* edit.swift in Sources */,
 				C927793921696CC00091B038 /* Commands.swift in Sources */,
 				C9AAAB332194E5610042E733 /* BuildDate.swift in Sources */,
 				C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */,

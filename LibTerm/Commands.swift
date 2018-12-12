@@ -41,8 +41,10 @@ public var LTHelp: [LTCommandHelp] = {
     
     #if !FRAMEWORK
         var package = LTCommandHelp(commandName: "package", commandInput: .none)
-        package.flags = ["install", "remove", "source"]
+        package.flags = ["install", "remove", "list", "source"]
         commands.append(package)
+    
+        commands.append(LTCommandHelp(commandName: "edit", commandInput: .file))
     #endif
     
     return commands

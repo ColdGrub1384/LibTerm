@@ -114,6 +114,56 @@ func libshellMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     return 0
 }
 
+fileprivate func parseArgs(_ args: inout [String]) {
+    
+    var parsedArgs = [String]()
+    
+    var currentArg = ""
+    
+    for arg in args {
+        
+        if arg.hasPrefix("'") {
+            
+            if currentArg.isEmpty {
+                
+                currentArg = arg
+                currentArg.removeFirst()
+                
+            } else {
+                
+                currentArg.append(" " + arg)
+                
+            }
+            
+        } else if arg.hasSuffix("'") {
+            
+            if currentArg.isEmpty {
+                
+                currentArg.append(arg)
+                
+            } else {
+                
+                currentArg.append(" " + arg)
+                currentArg.removeLast()
+                parsedArgs.append(currentArg)
+                currentArg = ""
+                
+            }
+            
+        } else {
+            
+            if currentArg.isEmpty {
+                parsedArgs.append(arg)
+            } else {
+                currentArg.append(" " + arg)
+            }
+            
+        }
+        
+        args = parsedArgs
+    }
+}
+
 /// The shell for executing commands.
 open class LibShell {
     
@@ -154,6 +204,7 @@ open class LibShell {
         var commands = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain, "open" : openMain]
         #if !FRAMEWORK
             commands["package"] = packageMain
+            commands["edit"] = editMain
         #endif
         return commands
     }
@@ -248,6 +299,8 @@ open class LibShell {
         }
         
         var arguments = command_.arguments
+        
+        parseArgs(&arguments)
         
         guard arguments.count > 0 else {
             return 0
