@@ -180,7 +180,7 @@ func editMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     args.removeFirst()
     
     if args.count == 0 {
-        fputs("Usage:\n\n  \(argv[0]) [FILE]...", io.stderr)
+        fputs("Usage:\n\n  \(argv[0]) [FILE]...\n", io.stderr)
         return 1
     }
     
