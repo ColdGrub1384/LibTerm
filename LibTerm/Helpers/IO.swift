@@ -40,7 +40,7 @@ public class LTIO: ParserDelegate {
             self.outputParser.parse(handle.availableData)
         }
         errorPipe.fileHandleForReading.readabilityHandler = { handle in
-            if let progname = ios_progname(), String(cString: progname) == "python" && String(cString: progname) == "bc" {
+            if let progname = ios_progname(), String(cString: progname) == "python" || String(cString: progname) == "bc" {
                 self.outputPipe.fileHandleForReading.readabilityHandler?(handle)
             } else {
                 self.errorParser.delegate = self
