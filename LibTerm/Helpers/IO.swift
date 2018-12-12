@@ -24,12 +24,13 @@ public extension FileHandle {
 
 /// A class for managing input and output.
 public class LTIO: ParserDelegate {
-    
+        
     /// Initialize for writting to the given terminal.
     ///
     /// - Parameters:
     ///     - terminal: The terminal that receives output.
     public init(terminal: LTTerminalViewController) {
+                
         self.terminal = terminal
         stdout = fdopen(outputPipe.fileHandleForWriting.fileDescriptor, "w")
         stderr = fdopen(errorPipe.fileHandleForWriting.fileDescriptor, "w")

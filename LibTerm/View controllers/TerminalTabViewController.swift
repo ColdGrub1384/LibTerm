@@ -14,7 +14,7 @@ import ios_system
 class TerminalTabViewController: TabViewController {
     
     private var newTerminal: LTTerminalViewController {
-        return UIStoryboard(name: "Terminal", bundle: Bundle.main).instantiateInitialViewController() as! LTTerminalViewController
+        return LTTerminalViewController.makeTerminal()
     }
     
     /// Open a new terminal.

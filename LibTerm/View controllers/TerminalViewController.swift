@@ -131,6 +131,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     /// Initialize with given preferences.
     public class func makeTerminal(preferences: Preferences = Preferences(), shell: LibShell = LibShell()) -> LTTerminalViewController {
         let term = UIStoryboard(name: "Terminal", bundle: Bundle(for: LTTerminalViewController.self)).instantiateInitialViewController() as! LTTerminalViewController
+        shell.io = term.shell.io
         term.preferences = preferences
         term.shell = shell
         return term
@@ -221,7 +222,6 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         
         LTTerminalViewController.visible_ = self
         shell.io = LTIO(terminal: self)
-        shell.input()
         stdin = shell.io?.stdin ?? stdin
         
         assistant.delegate = self
@@ -243,6 +243,11 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 break
             }
         }
+        
+        shell.run(command: "help")
+        _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.shell.input()
+        })
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -250,9 +255,12 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         
         if let io = shell.io {
             #if !targetEnvironment(simulator)
-            title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
-            ios_switchSession(io.stdout)
-            ios_setStreams(io.stdin, io.stdout, io.stderr)
+            thread.async {
+                ios_switchSession(io.stdout)
+                DispatchQueue.main.async {
+                    self.title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
+                }
+            }
             #endif
         }
         
