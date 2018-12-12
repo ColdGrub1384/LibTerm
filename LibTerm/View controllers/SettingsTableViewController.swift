@@ -9,9 +9,10 @@
 import UIKit
 import ObjectUserDefaults
 import SafariServices
+import StoreKit
 
 /// A View controller with info about the app and some settings.
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController, SKStoreProductViewControllerDelegate {
     
     /// The object representing the terminal font size.
     static let fontSize = ObjectUserDefaults.standard.item(forKey: "fontSize")
@@ -30,6 +31,11 @@ class SettingsTableViewController: UITableViewController {
         static let objectUserDefaults = IndexPath(row: 5, section: 1)
         
         static let libTerm = IndexPath(row: 0, section: 2)
+        
+        static let pisth = IndexPath(row: 0, section: 3)
+        static let pyto = IndexPath(row: 1, section: 3)
+        static let luade = IndexPath(row: 2, section: 3)
+        static let edidown = IndexPath(row: 3, section: 3)
     }
     
     /// Closes this View controller.
@@ -73,6 +79,16 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        func present(appWithID id: String) {
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            let appStore = SKStoreProductViewController()
+            appStore.delegate = self
+            appStore.loadProduct(withParameters: [SKStoreProductParameterITunesItemIdentifier:id], completionBlock: nil)
+            self.present(appStore, animated: true, completion: nil)
+        }
+        
         var projectPath: String?
         switch indexPath {
         case ProjectsIndexPaths.ios_system:
@@ -89,11 +105,25 @@ class SettingsTableViewController: UITableViewController {
             projectPath = "ColdGrub1384/ObjectUserDefaults"
         case ProjectsIndexPaths.libTerm:
             projectPath = "ColdGrub1384/LibTerm"
+        case ProjectsIndexPaths.pisth:
+            present(appWithID: "1331070425")
+        case ProjectsIndexPaths.pyto:
+            present(appWithID: "1436650069")
+        case ProjectsIndexPaths.luade:
+            present(appWithID: "1444956026")
+        case ProjectsIndexPaths.edidown:
+            present(appWithID: "1439139639")
         default:
             break
         }
         if let path = projectPath, let url = URL(string: "https://github.com/\(path)") {
-            present(SFSafariViewController(url: url), animated: true, completion: nil)
+            self.present(SFSafariViewController(url: url), animated: true, completion: nil)
         }
+    }
+    
+    // MARK: - Store product view controller delegate
+    
+    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
 }
