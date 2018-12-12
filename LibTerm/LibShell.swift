@@ -243,6 +243,10 @@ open class LibShell {
             command_ = command_.replacingOccurrences(of: "$\(variable.key)", with: variable.value)
         }
         
+        while command_.hasPrefix(" ") {
+            command_.removeFirst()
+        }
+        
         var arguments = command_.arguments
         
         guard arguments.count > 0 else {
