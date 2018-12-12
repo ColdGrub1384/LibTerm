@@ -281,6 +281,8 @@ open class LibShell {
         io.inputPipe = Pipe()
         io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
         ios_setStreams(io.stdin, io.stdout, io.stderr)
+        
+        stdin = io.stdin ?? stdin
         #endif
                 
         isCommandRunning = true
