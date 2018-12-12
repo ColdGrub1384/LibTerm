@@ -25,6 +25,10 @@ fileprivate class EditTextViewController: UIViewController, InputAssistantViewDe
     
     // MARK: - View controller
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -65,6 +69,9 @@ fileprivate class EditTextViewController: UIViewController, InputAssistantViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
         
         inputAssistant.dataSource = self
         inputAssistant.delegate = self
@@ -137,6 +144,32 @@ fileprivate class EditTextViewController: UIViewController, InputAssistantViewDe
                 }
             }
         }
+    }
+    
+    // MARK: - Keyboard
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        
+        guard let textView = view as? UITextView else {
+            return
+        }
+        
+        let d = notification.userInfo!
+        var r = d[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+        
+        r = textView.convert(r, from:nil)
+        textView.contentInset.bottom = r.size.height
+        textView.scrollIndicatorInsets.bottom = r.size.height
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        
+        guard let textView = view as? UITextView else {
+            return
+        }
+        
+        textView.contentInset = .zero
+        textView.scrollIndicatorInsets = .zero
     }
 }
 
