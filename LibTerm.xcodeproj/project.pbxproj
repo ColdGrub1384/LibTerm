@@ -45,7 +45,6 @@
 		C9806D0521604AE700F870B5 /* IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0421604AE700F870B5 /* IO.swift */; };
 		C9806D0721604B2500F870B5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0621604B2400F870B5 /* String.swift */; };
 		C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0A21610B5300F870B5 /* commandDictionary.plist */; };
-		C9806D0D21610B5400F870B5 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0B21610B5300F870B5 /* extraCommandsDictionary.plist */; };
 		C9806D0F21611EA100F870B5 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0E21611EA100F870B5 /* Keys.swift */; };
 		C983B66B21976BA4009EBF4F /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B66621976BA4009EBF4F /* ReviewHelper.swift */; };
 		C9AAAB332194E5610042E733 /* BuildDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAAB322194E5600042E733 /* BuildDate.swift */; };
@@ -292,7 +291,6 @@
 		C9806D0421604AE700F870B5 /* IO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IO.swift; sourceTree = "<group>"; };
 		C9806D0621604B2400F870B5 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C9806D0A21610B5300F870B5 /* commandDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = commandDictionary.plist; sourceTree = "<group>"; };
-		C9806D0B21610B5300F870B5 /* extraCommandsDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = extraCommandsDictionary.plist; sourceTree = "<group>"; };
 		C9806D0E21611EA100F870B5 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		C983B66621976BA4009EBF4F /* ReviewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewHelper.swift; sourceTree = "<group>"; };
 		C9AAAB322194E5600042E733 /* BuildDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildDate.swift; sourceTree = "<group>"; };
@@ -469,7 +467,6 @@
 				C9806BCD2160468200F870B5 /* LaunchScreen.storyboard */,
 				C9806BD02160468200F870B5 /* Info.plist */,
 				C9806D0A21610B5300F870B5 /* commandDictionary.plist */,
-				C9806D0B21610B5300F870B5 /* extraCommandsDictionary.plist */,
 				C91C481C21614C920003BD90 /* python27.zip */,
 			);
 			name = Resources;
@@ -776,7 +773,6 @@
 				C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */,
 				C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */,
 				C9C552D021766E8F00F43B34 /* Settings.storyboard in Resources */,
-				C9806D0D21610B5400F870B5 /* extraCommandsDictionary.plist in Resources */,
 				C9580E8C2165553500A43CEC /* Terminal.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

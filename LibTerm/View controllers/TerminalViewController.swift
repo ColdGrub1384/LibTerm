@@ -244,10 +244,13 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             }
         }
         
-        shell.run(command: "help")
-        _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+        _ = helpMain(argc: 2, argv: ["help", "--startup"], io: shell.io!)
+        
+        _ = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false, block: { (_) in
             self.shell.input()
         })
+        
+        lastLogin.value = Date()
     }
     
     override public func viewDidAppear(_ animated: Bool) {

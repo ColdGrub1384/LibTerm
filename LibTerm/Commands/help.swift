@@ -7,9 +7,13 @@
 //
 
 import Foundation
+import ObjectUserDefaults
 #if !targetEnvironment(simulator)
 import ios_system
 #endif
+
+/// The last login date.
+let lastLogin = ObjectUserDefaults.standard.item(forKey: "lastLogin")
 
 /// The `help` command.
 func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
@@ -28,6 +32,19 @@ func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
         helpText = "Unknown version\n\n"
     }
     #endif
+    
+    if argv.contains("--startup") || argv.contains("-s") {
+        if let lastLogin = lastLogin.value as? Date {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .short
+            
+            helpText = helpText.replacingOccurrences(of: "\n", with: "")
+            helpText += "\nLast login: \(formatter.string(from: lastLogin))\n"
+        }
+        fputs(helpText, io.stdout)
+        return 0
+    }
     
     for command in LTHelp {
         if command != LTHelp.last {

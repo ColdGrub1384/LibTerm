@@ -310,27 +310,6 @@
 		<string></string>
 		<string>no</string>
 	</array>
-	<key>sftp</key>
-	<array>
-		<string>curl_ios.framework/curl_ios</string>
-		<string>curl_main</string>
-		<string>q</string>
-		<string>file</string>
-	</array>
-	<key>ssh</key>
-	<array>
-		<string>ssh_cmd.framework/ssh_cmd</string>
-		<string>ssh_main</string>
-		<string>q</string>
-		<string>no</string>
-	</array>
-	<key>ssh-keygen</key>
-	<array>
-		<string>ssh_cmd.framework/ssh_cmd</string>
-		<string>sshkeygen_main</string>
-		<string>ABHLQXceghiklopquvxyC:D:E:F:G:I:J:K:M:N:O:P:R:S:T:V:W:Z:a:b:f:g:j:m:n:r:s:t:z:</string>
-		<string>file</string>
-	</array>
 	<key>sort</key>
 	<array>
 		<string>text.framework/text</string>
@@ -463,6 +442,62 @@
 		<string>xargs_main</string>
 		<string>0E:I:J:L:n:oP:pR:s:tx</string>
 		<string>no</string>
+	</array>
+	<key>python</key>
+	<array>
+		<string>Python_ios.framework/Python_ios</string>
+		<string>python_main</string>
+		<string>3bBc:dEhiJm:OQ:RsStuUvVW:xX?</string>
+		<string>file</string>
+	</array>
+	<key>chmod</key>
+	<array>
+		<string>files.framework/files</string>
+		<string>chmod_main</string>
+		<string>ACEHILNPRVXafghinorstuvwx</string>
+		<string>file</string>
+	</array>
+	<key>chgrp</key>
+	<array>
+		<string>files.framework/files</string>
+		<string>chown_main</string>
+		<string>HLPRfhv</string>
+		<string>file</string>
+	</array>
+	<key>chown</key>
+	<array>
+		<string>files.framework/files</string>
+		<string>chown_main</string>
+		<string>HLPRfhv</string>
+		<string>file</string>
+	</array>
+	<key>df</key>
+	<array>
+		<string>files.framework/files</string>
+		<string>df_main</string>
+		<string>abgHhiklmnPtT:</string>
+		<string>file</string>
+	</array>
+	<key>id</key>
+	<array>
+		<string>shell.framework/shell</string>
+		<string>id_main</string>
+		<string>AFPGMagnpru</string>
+		<string>no</string>
+	</array>
+	<key>lua</key>
+	<array>
+		<string>lua_ios.framework/lua_ios</string>
+		<string>lua_main</string>
+		<string>e:il:vE</string>
+		<string>file</string>
+	</array>
+	<key>luac</key>
+	<array>
+		<string>lua_ios.framework/lua_ios</string>
+		<string>luac_main</string>
+		<string>lpsvo:</string>
+		<string>file</string>
 	</array>
 </dict>
 </plist>

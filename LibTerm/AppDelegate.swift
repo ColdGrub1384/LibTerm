@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = TerminalTabViewController(theme: TabViewThemeDark())
         window?.makeKeyAndVisible()
         
-        sideLoading = true
         initializeEnvironment()
         
         replaceCommand("pbcopy", "pbcopy", true)
