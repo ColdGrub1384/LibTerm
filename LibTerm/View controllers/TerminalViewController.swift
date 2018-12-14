@@ -212,6 +212,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     private var navigationController_: UINavigationController?
     private var defaultBarStyle = UIBarStyle.default
     
+    /// A custom title for the terminal.
+    public var customTitle: String?
+    
     // MARK: - View controller
     
     override public var title: String? {
@@ -220,6 +223,14 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             #if !FRAMEWORK
             (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.saveTabs()
             #endif
+        }
+        
+        willSet {
+            if customTitle != nil && customTitle != newValue {
+                defer {
+                    title = customTitle
+                }
+            }
         }
     }
     
@@ -241,10 +252,6 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         assistant.attach(to: terminalTextView)
         
         terminalTextView.keyboardAppearance = preferences.keyboardAppearance
-        
-        if #available(iOS 11.0, *) {
-            navigationItem.largeTitleDisplayMode = .never
-        }
         
         terminalTextView.isEditable = false
         
