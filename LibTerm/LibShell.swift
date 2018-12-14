@@ -227,7 +227,7 @@ open class LibShell {
     open var variables = [String:String]()
     
     /// Kills the current running command.
-    func killCommand() {
+    public func killCommand() {
         #if !targetEnvironment(simulator)
         guard isCommandRunning, let io = self.io else {
             return print("No command is running")
