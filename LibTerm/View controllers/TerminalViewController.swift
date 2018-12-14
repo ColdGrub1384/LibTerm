@@ -219,18 +219,15 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     
     override public var title: String? {
         didSet {
+            
+            if customTitle != nil && customTitle != title {
+                title = customTitle
+            }
+            
             bookmarkData = try? URL(fileURLWithPath: FileManager.default.currentDirectoryPath).bookmarkData()
             #if !FRAMEWORK
             (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.saveTabs()
             #endif
-        }
-        
-        willSet {
-            if customTitle != nil && customTitle != newValue {
-                defer {
-                    title = customTitle
-                }
-            }
         }
     }
     
