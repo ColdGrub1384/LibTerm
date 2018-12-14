@@ -7,13 +7,21 @@
 //
 
 import Foundation
-import ObjectUserDefaults
 #if !targetEnvironment(simulator)
 import ios_system
 #endif
 
 /// The last login date.
-let lastLogin = ObjectUserDefaults.standard.item(forKey: "lastLogin")
+var lastLogin: Date? {
+    get {
+        return UserDefaults.standard.object(forKey: "lastLogin") as? Date
+    }
+    
+    set {
+        UserDefaults.standard.set(newValue, forKey: "lastLogin")
+        UserDefaults.standard.synchronize()
+    }
+}
 
 /// The `help` command.
 func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
@@ -34,7 +42,7 @@ func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     #endif
     
     if argv.contains("--startup") || argv.contains("-s") {
-        if let lastLogin = lastLogin.value as? Date {
+        if let lastLogin = lastLogin {
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
             formatter.timeStyle = .short

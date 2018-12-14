@@ -259,7 +259,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             self.shell.input()
         })
         
-        lastLogin.value = Date()
+        lastLogin = Date()
     }
     
     override public func viewDidAppear(_ animated: Bool) {
