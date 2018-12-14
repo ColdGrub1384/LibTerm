@@ -163,7 +163,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     public private(set) var shell = LibShell()
     
     /// The thread running the shell.
-    var thread = DispatchQueue.global(qos: .userInteractive)
+    public var thread = DispatchQueue.global(qos: .userInteractive)
     
     /// The view for autocompletion.
     let assistant = InputAssistantView()
