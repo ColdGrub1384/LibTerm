@@ -217,7 +217,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     override public var title: String? {
         didSet {
             bookmarkData = try? URL(fileURLWithPath: FileManager.default.currentDirectoryPath).bookmarkData()
+            #if !FRAMEWORK
             (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.saveTabs()
+            #endif
         }
     }
     
