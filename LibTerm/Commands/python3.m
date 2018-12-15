@@ -11,9 +11,13 @@
 #import <Foundation/Foundation.h>
 #import <ios_system/ios_system.h>
 
-int python_main(int argc, char **argv) {
+int python3_main(int argc, char **argv) {
     
     const char * pyPath = [[NSString stringWithUTF8String:"PYTHONPATH="] stringByAppendingString:[NSBundle.mainBundle pathForResource:@"python37" ofType:@"zip"]].UTF8String;
+    
+    FILE* oldStdin = stdin;
+    FILE* oldStdout = stdout;
+    FILE* oldStderr = stderr;
     
     stdin = thread_stdin;
     stdout = thread_stdout;
@@ -23,5 +27,11 @@ int python_main(int argc, char **argv) {
         putenv(pyPath);
     }
     
-    return _Py_UnixMain(argc, argv);
+    int py = _Py_UnixMain(argc, argv);
+    
+    stdin = oldStdin;
+    stdout = oldStdout;
+    stderr = oldStderr;
+    
+    return py;
 }

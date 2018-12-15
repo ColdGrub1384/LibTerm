@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         replaceCommand("pbcopy", "pbcopy", true)
         replaceCommand("pbpaste", "pbpaste", true)
-        replaceCommand("python", "python_main", true)
+        replaceCommand("python", "python3_main", true)
         
         // Python
         putenv("PYTHONHOME=\(Bundle.main.bundlePath)".cValue)

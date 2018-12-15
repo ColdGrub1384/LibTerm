@@ -66,7 +66,7 @@
 		C9E5FFBC21C42E4D00ED4C57 /* libxz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E5FEE921C42E4800ED4C57 /* libxz.a */; };
 		C9E5FFBD21C42E4D00ED4C57 /* libOpenSSL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E5FEFC21C42E4900ED4C57 /* libOpenSSL.a */; };
 		C9E5FFBE21C42E4D00ED4C57 /* libPython.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E5FFBA21C42E4C00ED4C57 /* libPython.a */; };
-		C9E5FFC121C42ED200ED4C57 /* python.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E5FFC021C42ED200ED4C57 /* python.m */; };
+		C9E5FFC121C42ED200ED4C57 /* python3.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E5FFC021C42ED200ED4C57 /* python3.m */; };
 		C9E5FFC421C431EE00ED4C57 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CBC2160492000F870B5 /* libsqlite3.tbd */; };
 		C9E5FFC821C4321600ED4C57 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CBA216048FC00F870B5 /* libz.tbd */; };
 		C9E5FFCA21C432AA00ED4C57 /* python37.zip in Resources */ = {isa = PBXBuildFile; fileRef = C9E5FFC921C432AA00ED4C57 /* python37.zip */; };
@@ -540,7 +540,7 @@
 		C9E5FFB921C42E4C00ED4C57 /* dynamic_annotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dynamic_annotations.h; sourceTree = "<group>"; };
 		C9E5FFBA21C42E4C00ED4C57 /* libPython.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPython.a; sourceTree = "<group>"; };
 		C9E5FFBF21C42ED200ED4C57 /* LibTerm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibTerm-Bridging-Header.h"; sourceTree = "<group>"; };
-		C9E5FFC021C42ED200ED4C57 /* python.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = python.m; sourceTree = "<group>"; };
+		C9E5FFC021C42ED200ED4C57 /* python3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = python3.m; sourceTree = "<group>"; };
 		C9E5FFC321C4319000ED4C57 /* Py_UnixMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Py_UnixMain.h; sourceTree = "<group>"; };
 		C9E5FFC921C432AA00ED4C57 /* python37.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python37.zip; sourceTree = "<group>"; };
 		C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTextView.swift; sourceTree = "<group>"; };
@@ -602,7 +602,7 @@
 				C91D4D08218FA304003F73FF /* open.swift */,
 				C91D4D12218FBF90003F73FF /* package.swift */,
 				C9E30A4B21C187C900789346 /* edit.swift */,
-				C9E5FFC021C42ED200ED4C57 /* python.m */,
+				C9E5FFC021C42ED200ED4C57 /* python3.m */,
 				C9E5FFC321C4319000ED4C57 /* Py_UnixMain.h */,
 				C9DABABB219E1E42001BF620 /* Clipboard.swift */,
 			);
@@ -1427,7 +1427,7 @@
 				C9E30A4C21C187C900789346 /* edit.swift in Sources */,
 				C927793921696CC00091B038 /* Commands.swift in Sources */,
 				C9AAAB332194E5610042E733 /* BuildDate.swift in Sources */,
-				C9E5FFC121C42ED200ED4C57 /* python.m in Sources */,
+				C9E5FFC121C42ED200ED4C57 /* python3.m in Sources */,
 				C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */,
 				C9CB2CDD216971EE004D9FFB /* exit.swift in Sources */,
 			);
