@@ -1,6 +1,6 @@
 # LibTerm
 
-LibTerm is a terminal for iOS.
+LibTerm is a terminal for iOS with Python 3.7 and Lua 5.3.
 
 [![Download on the App Store](https://pisth.github.io/appstorebadge.svg)](https://itunes.apple.com/us/app/libterm/id1380911705?ls=1&mt=8)
 
@@ -8,11 +8,11 @@ This app is like @louisdh - [OpenTerm](https://github.com/louisdh/openterm) but 
 
 ## Motivation
 
-I like a lot [OpenTerm](https://github.com/louisdh/openterm) but I wanted to make the code better. Also, I wanted to integrate a local shell into [Pisth](https://github.com/ColdGrub1384/Pisth) so I made the project embeddable. I will upload to app to the App Store soon since [OpenTerm](https://github.com/louisdh/openterm) is no more available. This is not a fork from  [OpenTerm](https://github.com/louisdh/openterm), I rewrote the code.
+I like a lot [OpenTerm](https://github.com/louisdh/openterm) but I wanted to make the code better. Also, I wanted to integrate a local shell into [Pisth](https://github.com/ColdGrub1384/Pisth) so I made the project embeddable. I will upload to app to the App Store soon since [OpenTerm](https://github.com/louisdh/openterm) is no more available. This is not a fork from  [OpenTerm](https://github.com/louisdh/openterm), I rewrote the code. 
 
 # Features
 
-The app supports most of OpenTerm features, but LibTerm has Python 2.7 instead of Cub. It supports opening directories outside the sandbox with `UIDocumentPickerViewController`, multi tabbing and suggestions. All errors are shown in red!
+The app supports most of OpenTerm features, but LibTerm has Python 3.7 instead of Cub. It supports opening directories outside the sandbox with `UIDocumentPickerViewController`, multi tabbing and suggestions. Errors are shown in red!
 
 ## `package`
 
