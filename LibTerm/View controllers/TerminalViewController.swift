@@ -603,6 +603,10 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     
     public func inputAssistantView(_ inputAssistantView: InputAssistantView, nameForSuggestionAtIndex index: Int) -> String {
         
+        guard commands_.indices.contains(index) else {
+            return ""
+        }
+        
         return commands_[index]
     }
     
