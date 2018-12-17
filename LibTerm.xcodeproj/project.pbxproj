@@ -98,6 +98,7 @@
 		C9E771FB21C835DE00C56FEE /* exit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB2CDC216971EE004D9FFB /* exit.swift */; };
 		C9E771FC21C837B700C56FEE /* Terminal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9580E8B2165553500A43CEC /* Terminal.storyboard */; };
 		C9E771FD21C8386600C56FEE /* langs.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9E30A5D21C1983F00789346 /* langs.plist */; };
+		C9E771FE21C83E8000C56FEE /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
 		C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
 		C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
 		C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -627,6 +628,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E771FE21C83E8000C56FEE /* ios_system.framework in Frameworks */,
 				C9E500D321C6B0C000ED4C57 /* libz.tbd in Frameworks */,
 				C9E500D221C6B0B900ED4C57 /* libsqlite3.tbd in Frameworks */,
 				C9E500CE21C6B0AB00ED4C57 /* libbzip2.a in Frameworks */,
