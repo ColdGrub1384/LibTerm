@@ -104,6 +104,9 @@ public class LTIO: ParserDelegate {
             }
             
             term.terminalTextView.attributedText = attributedString
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+                term.terminalTextView.scrollToBottom()
+            })
         }
     }
     

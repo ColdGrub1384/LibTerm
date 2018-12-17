@@ -45,4 +45,11 @@ public class LTTerminalTextView: UITextView {
         
         return rect
     }
+    
+    /// Scrolls to the bottom.
+    func scrollToBottom() {
+        let textCount: Int = text.count
+        guard textCount >= 1 else { return }
+        scrollRangeToVisible(NSMakeRange(textCount - 1, 1))
+    }
 }

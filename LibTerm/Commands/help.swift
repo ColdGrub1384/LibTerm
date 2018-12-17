@@ -41,6 +41,10 @@ func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     }
     #endif
     
+    if argv.contains("--version") {
+        return 0
+    }
+    
     if argv.contains("--startup") || argv.contains("-s") {
         if let lastLogin = lastLogin {
             let formatter = DateFormatter()

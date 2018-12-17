@@ -1,0 +1,25 @@
+
+Made by Adrian Labbé. Main idea by Louis D'hauwe. This is not a fork of OpenTerm, the code is rewritten.
+LibTerm is open source and its source code can be found at https://github.com/ColdGrub1384/LibTerm.
+
+Third party libraries used on this project:
+
+  - BOLDios_systemPLAIN by Nicolas Holzschuch: Licensed under BSD 3-Clause License
+  - BOLDPython Apple SupportPLAIN by BeeWare: Licensed under MIT license
+  - BOLDTabViewPLAIN by Ian McDowell: Licensed under MIT license
+  - BOLDInputAssistantPLAIN by Ian McDowell: Licensed under MIT license
+  - BOLDHighlightrPLAIN by J.P. Illanes: Licensed under MIT license
+  - BOLDObjectUserDefaultsPLAIN by Adrian Labbé: Licensed under MIT license
+
+Commands:
+
+  - BOLDawk:PLAIN OpenSource license.
+  - BOLDlua:PLAIN MIT License.
+  - BOLDpython:PLAIN Python license.
+  - BOLDlibssh2:PLAIN Revised BSD License (a.k.a. 3-clause BSD license).
+
+  - BOLDegrep, fgrep, grep, gzip, gunzip, cat, chflag, compress, cp, date,
+    echo, env, link, ln, printenv, pwd, ed, sed, tar, uncompress, uptime,
+    chgrp, chksum, chmod, chown, df, du, groups, id, ls, mkdir, mv, readlink,
+    rm, rmdir, stat, sum, touch, tr, uname, wc, whoamiPLAIN
+    : Revised BSD License (a.k.a. 3-clause BSD license).

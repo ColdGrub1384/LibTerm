@@ -215,6 +215,46 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     /// A custom title for the terminal.
     public var customTitle: String?
     
+    /// Sets "COLUMNS" and "ROWS" environment variables.
+    func updateSize() {
+        var columns: Int {
+            
+            guard let font = terminalTextView.font else {
+                assertionFailure("Expected font")
+                return 0
+            }
+            
+            // TODO: check if the bounds includes the safe area (on iPhone X)
+            let viewWidth = terminalTextView.bounds.width
+            
+            let dummyAtributedString = NSAttributedString(string: "X", attributes: [.font: font])
+            let charWidth = dummyAtributedString.size().width
+            
+            // Assumes the font is monospaced
+            return Int(viewWidth / charWidth)
+        }
+        
+        var rows: Int {
+            
+            guard let font = terminalTextView.font else {
+                assertionFailure("Expected font")
+                return 0
+            }
+            
+            // TODO: check if the bounds includes the safe area (on iPhone X)
+            let viewHeight = terminalTextView.bounds.height-terminalTextView.contentInset.bottom
+            
+            let dummyAtributedString = NSAttributedString(string: "X", attributes: [.font: font])
+            let charHeight = dummyAtributedString.size().height
+            
+            // Assumes the font is monospaced
+            return Int(viewHeight / charHeight)
+        }
+        
+        putenv("COLUMNS=\(columns)".cValue)
+        putenv("ROWS=\(rows)".cValue)
+    }
+    
     // MARK: - View controller
     
     override public var title: String? {
@@ -310,43 +350,8 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     }
     
     override public func viewDidLayoutSubviews() {
-        
-        var columns: Int {
-            
-            guard let font = terminalTextView.font else {
-                assertionFailure("Expected font")
-                return 0
-            }
-            
-            // TODO: check if the bounds includes the safe area (on iPhone X)
-            let viewWidth = terminalTextView.bounds.width
-            
-            let dummyAtributedString = NSAttributedString(string: "X", attributes: [.font: font])
-            let charWidth = dummyAtributedString.size().width
-            
-            // Assumes the font is monospaced
-            return Int(viewWidth / charWidth)
-        }
-        
-        var rows: Int {
-            
-            guard let font = terminalTextView.font else {
-                assertionFailure("Expected font")
-                return 0
-            }
-            
-            // TODO: check if the bounds includes the safe area (on iPhone X)
-            let viewHeight = terminalTextView.bounds.height
-            
-            let dummyAtributedString = NSAttributedString(string: "X", attributes: [.font: font])
-            let charHeight = dummyAtributedString.size().height
-            
-            // Assumes the font is monospaced
-            return Int(viewHeight / charHeight)
-        }
-        
-        putenv("COLUMNS=\(columns)".cValue)
-        putenv("ROWS=\(rows)".cValue)
+        super.viewDidLayoutSubviews()
+        updateSize()
     }
     
     // MARK: - Keyboard
@@ -358,11 +363,15 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         r = terminalTextView.convert(r, from:nil)
         terminalTextView.contentInset.bottom = r.size.height
         terminalTextView.scrollIndicatorInsets.bottom = r.size.height
+        
+        updateSize()
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
         terminalTextView.contentInset = .zero
         terminalTextView.scrollIndicatorInsets = .zero
+        
+        updateSize()
     }
     
     // MARK: - Text view delegate
