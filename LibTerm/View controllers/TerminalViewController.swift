@@ -234,7 +234,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             let charWidth = dummyAtributedString.size().width
             
             // Assumes the font is monospaced
-            return Int(viewWidth / charWidth)
+            return Int((viewWidth / charWidth).rounded(.down))
         }
         
         var rows: Int {
@@ -251,7 +251,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             let charHeight = dummyAtributedString.size().height
             
             // Assumes the font is monospaced
-            return Int(viewHeight / charHeight)
+            return Int((viewHeight / charHeight).rounded(.down))
         }
         
         putenv("COLUMNS=\(columns)".cValue)

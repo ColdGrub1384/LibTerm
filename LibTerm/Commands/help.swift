@@ -42,6 +42,7 @@ func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     #endif
     
     if argv.contains("--version") {
+        fputs(helpText, io.stdout)
         return 0
     }
     
