@@ -72,6 +72,7 @@
 		C9E500D421C6B0D900ED4C57 /* python3.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E5FFC021C42ED200ED4C57 /* python3.m */; };
 		C9E500D521C6B0DE00ED4C57 /* Py_UnixMain.h in Headers */ = {isa = PBXBuildFile; fileRef = C9E5FFC321C4319000ED4C57 /* Py_UnixMain.h */; };
 		C9E5FFCA21C432AA00ED4C57 /* python37.zip in Resources */ = {isa = PBXBuildFile; fileRef = C9E5FFC921C432AA00ED4C57 /* python37.zip */; };
+		C9E771CD21C7E2E600C56FEE /* id.c in Sources */ = {isa = PBXBuildFile; fileRef = C9E771CC21C7E2E600C56FEE /* id.c */; };
 		C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
 		C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
 		C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -555,6 +556,7 @@
 		C9E5FFC021C42ED200ED4C57 /* python3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = python3.m; sourceTree = "<group>"; };
 		C9E5FFC321C4319000ED4C57 /* Py_UnixMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Py_UnixMain.h; sourceTree = "<group>"; };
 		C9E5FFC921C432AA00ED4C57 /* python37.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python37.zip; sourceTree = "<group>"; };
+		C9E771CC21C7E2E600C56FEE /* id.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = id.c; sourceTree = "<group>"; };
 		C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTextView.swift; sourceTree = "<group>"; };
 		C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = InputAssistant.xcodeproj; path = InputAssistant/InputAssistant.xcodeproj; sourceTree = "<group>"; };
 		C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TabView.xcodeproj; path = TabView/TabView.xcodeproj; sourceTree = "<group>"; };
@@ -623,6 +625,7 @@
 				C9E30A4B21C187C900789346 /* edit.swift */,
 				C9E5FFC021C42ED200ED4C57 /* python3.m */,
 				C9E5FFC321C4319000ED4C57 /* Py_UnixMain.h */,
+				C9E771CC21C7E2E600C56FEE /* id.c */,
 				C9DABABB219E1E42001BF620 /* Clipboard.swift */,
 			);
 			path = Commands;
@@ -1474,6 +1477,7 @@
 			files = (
 				C927793321696C3F0091B038 /* CommandHelp.swift in Sources */,
 				C9F0F02A21654F2B00CAC2A0 /* TerminalTabViewController.swift in Sources */,
+				C9E771CD21C7E2E600C56FEE /* id.c in Sources */,
 				C9806D0F21611EA100F870B5 /* Keys.swift in Sources */,
 				C91C345921612DBA0003BD90 /* clear.swift in Sources */,
 				C9DE220C2162E12A007ED7A0 /* TerminalViewController.swift in Sources */,
