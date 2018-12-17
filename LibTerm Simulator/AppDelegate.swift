@@ -47,6 +47,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InputAssistantViewDataSou
                 assistant.attach(to: textView)
             }
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+            self.window?.rootViewController?.present(self.window!.rootViewController!.storyboard!.instantiateViewController(withIdentifier: "python"), animated: true, completion: {
+                
+                for view in (self.window?.rootViewController?.presentedViewController as? UINavigationController)?.viewControllers.first?.view.subviews ?? [] {
+                    
+                    AppDelegate.suggestions = ["Stop"]
+                    
+                    if let textView = view as? UITextView {
+                        let assistant = InputAssistantView()
+                        assistant.dataSource = self
+                        assistant.trailingActions = [InputAssistantAction(image: AppDelegate.downArrow, target: textView, action: #selector(textView.resignFirstResponder))]
+                        assistant.attach(to: textView)
+                    }
+                }
+            })
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+20) {
+            
+            let io = LTIO(terminal: LTTerminalViewController.makeTerminal())
+            
+            self.window?.rootViewController?.dismiss(animated: true, completion: {
+                DispatchQueue.global().async {
+                    _  = editMain(argc: 2, argv: ["edit", "script.py"], io: io)
+                }
+            })
+        }
     }
     
     // MARK: - Input assistant view data source
