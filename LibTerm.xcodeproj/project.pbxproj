@@ -99,6 +99,8 @@
 		C9E771FC21C837B700C56FEE /* Terminal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9580E8B2165553500A43CEC /* Terminal.storyboard */; };
 		C9E771FD21C8386600C56FEE /* langs.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9E30A5D21C1983F00789346 /* langs.plist */; };
 		C9E771FE21C83E8000C56FEE /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
+		C9E771FF21C8483900C56FEE /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
+		C9E7720021C8483900C56FEE /* ios_system.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
 		C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
 		C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -209,6 +211,13 @@
 			remoteGlobalIDString = 8C2FB1C11F39118F00469D0D;
 			remoteInfo = "Highlightr-iOS";
 		};
+		C9E7720121C8483900C56FEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95BE11A21A379F900FB135B /* ios_system.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 223496AA1FD5FC71007ED1A9;
+			remoteInfo = ios_system;
+		};
 		C9F0F00A216437BB00CAC2A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */;
@@ -286,6 +295,7 @@
 			files = (
 				C9E771E921C8330C00C56FEE /* Highlightr.framework in Embed Frameworks */,
 				C91D4D0C218FAD05003F73FF /* InputAssistant.framework in Embed Frameworks */,
+				C9E7720021C8483900C56FEE /* ios_system.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,6 +618,7 @@
 			files = (
 				C9E771E821C8330C00C56FEE /* Highlightr.framework in Frameworks */,
 				C91D4D0B218FAD05003F73FF /* InputAssistant.framework in Frameworks */,
+				C9E771FF21C8483900C56FEE /* ios_system.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1239,6 +1250,7 @@
 			dependencies = (
 				C91D4D0E218FAD05003F73FF /* PBXTargetDependency */,
 				C9E771EB21C8330C00C56FEE /* PBXTargetDependency */,
+				C9E7720221C8483900C56FEE /* PBXTargetDependency */,
 			);
 			name = "LibTerm Simulator";
 			productName = "LibTerm Simulator";
@@ -1632,6 +1644,11 @@
 			isa = PBXTargetDependency;
 			name = "Highlightr-iOS";
 			targetProxy = C9E771EA21C8330C00C56FEE /* PBXContainerItemProxy */;
+		};
+		C9E7720221C8483900C56FEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ios_system;
+			targetProxy = C9E7720121C8483900C56FEE /* PBXContainerItemProxy */;
 		};
 		C9F0F013216437C500CAC2A0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
