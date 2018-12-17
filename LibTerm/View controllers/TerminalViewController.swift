@@ -497,7 +497,11 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     private var commands_: [String] {
         
         guard completionType != .running else {
-            return ["Stop"]
+            if shell.isBuiltinRunning {
+                return []
+            } else {
+                return ["Stop"]
+            }
         }
         
         var suggestions: [String] {

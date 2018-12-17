@@ -206,6 +206,9 @@ open class LibShell {
         }
     }
     
+    /// `true` if a builtin is running.
+    public var isBuiltinRunning = false
+    
     /// Builtin commands per name and functions.
     open var builtins: [String:LTCommand] {
         var commands = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain, "open" : openMain, "credits" : creditsMain]
@@ -348,7 +351,9 @@ open class LibShell {
             returnCode = 1
             #endif
         } else if builtins.keys.contains(arguments[0]) {
+            isBuiltinRunning = true
             returnCode = builtins[arguments[0]]?(arguments.count, arguments, io) ?? 1
+            isBuiltinRunning = false
         } else {
             #if !targetEnvironment(simulator)
             returnCode = ios_system(command_.cValue)
