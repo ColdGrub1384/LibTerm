@@ -207,6 +207,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     /// The current directory bookmark data for this terminal session for being restored at launch.
     var bookmarkData: Data?
     
+    /// The URL to navigate at View did appear.
+    var url: URL?
+    
     // MARK: - Private values for theming inside Pisth or other apps
     
     private var navigationController_: UINavigationController?
@@ -315,6 +318,12 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             #if !targetEnvironment(simulator)
             thread.async {
                 ios_switchSession(io.stdout)
+                
+                if let url = self.url {
+                    self.url = nil
+                    ios_setDirectoryURL(url)
+                }
+                
                 DispatchQueue.main.async {
                     self.title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
                 }

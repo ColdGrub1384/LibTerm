@@ -92,13 +92,8 @@ class TerminalTabViewController: TabViewController {
                 
                 let term = newTerminal
                 term.loadViewIfNeeded()
-                term.thread.sync {
-                    ios_switchSession(term.shell.io?.stdout)
-                    ios_setDirectoryURL(url)
-                    DispatchQueue.main.async {
-                        term.title = url.lastPathComponent
-                    }
-                }
+                term.url = url
+                term.title = url.lastPathComponent
                 terminals.append(term)
             }
             
