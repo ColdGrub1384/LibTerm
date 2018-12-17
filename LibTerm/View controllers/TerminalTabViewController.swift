@@ -23,6 +23,7 @@ class TerminalTabViewController: TabViewController {
     
     /// Open a new terminal.
     @objc func addTab() {
+        (visibleViewController as? LTTerminalViewController)?.url = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
         activateTab(newTerminal)
     }
     
