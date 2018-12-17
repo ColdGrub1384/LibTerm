@@ -9,7 +9,7 @@
 #include "../../Python/Headers/Python.h"
 #include "Py_UnixMain.h"
 #import <Foundation/Foundation.h>
-#import <ios_system/ios_system.h>
+#import "../../ios_system_core/ios_system/ios_system.h"
 
 int python3_main(int argc, char **argv) {
     
