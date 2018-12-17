@@ -9,6 +9,13 @@
 		<string>dhiflM:N:nsuw</string>
 		<string>file</string>
 	</array>
+	<key>ssh-keygen</key>
+	<array>
+		<string>ssh_cmd.framework/ssh_cmd</string>
+		<string>sshkeygen_main</string>
+		<string>ABHLQXceghiklopquvxyC:D:E:F:G:I:J:K:M:N:O:P:R:S:T:V:W:Z:a:b:f:g:j:m:n:r:s:t:z:</string>
+		<string>file</string>
+	</array>
 	<key>bc</key>
 	<array>
 		<string>bc_ios.framework/bc_ios</string>
