@@ -15,6 +15,11 @@ func creditsMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
         return 1
     }
     
+    var range = NSRange(location: 0, length: 0)
+    DispatchQueue.main.sync {
+        range = io.terminal?.terminalTextView.selectedRange ?? range
+    }
+    
     _ = helpMain(argc: 2, argv: ["help", "--version"], io: io)
     
     do {
@@ -39,31 +44,26 @@ func creditsMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
             }
         }
         
-        while currentLine < lines.count-1 {
-            currentLine += 1
-            
-            var byte: Int8 = 0
-            _ = read(fileno(io.stdin), &byte, 1)
-            
-            guard lines.indices.contains(currentLine) else {
-                break
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.7) {
+            for i in currentLine...lines.count-1 {
+                if lines.indices.contains(i) {
+                    currentLine += 1
+                    fputs(lines[i]+"\n", io.stdout)
+                } else {
+                    break
+                }
             }
             
-            if lines[currentLine].replacingOccurrences(of: " ", with: "").isEmpty {
-                fputs("\n", io.stdout)
-                currentLine += 1
-            }
-            
-            guard lines.indices.contains(currentLine) else {
-                break
-            }
-            
-            fputs(lines[currentLine], io.stdout)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                io.terminal?.terminalTextView.scrollToBottom()
-            }
+            semaphore.signal()
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+1.4, execute: {
+            io.terminal?.terminalTextView.scrollRangeToVisible(range)
+        })
+        
+        semaphore.wait()
     } catch {
         fputs("\(error.localizedDescription)\n", io.stderr)
         return 1
