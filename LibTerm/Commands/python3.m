@@ -24,7 +24,7 @@ int python3_main(int argc, char **argv) {
     stderr = stdout;
     
     if (pyPath) {
-        putenv(pyPath);
+        putenv((char *)pyPath);
     }
     
     int py = _Py_UnixMain(argc, argv);

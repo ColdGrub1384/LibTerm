@@ -288,6 +288,8 @@ open class LibShell {
         #if !targetEnvironment(simulator)
         ios_switchSession(io.stdout)
         
+        ios_setMiniRootURL(FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("scripts"))
+        
         io.inputPipe = Pipe()
         io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
         ios_setStreams(io.stdin, io.stdout, io.stderr)
@@ -329,9 +331,19 @@ open class LibShell {
             }
         }
         
+        if arguments.first == "python", Python3Locker.isLocked(withArguments: arguments) {
+            
+            fputs("python: To unlock Python 3, go to settings and purchase access to Python 3.\n", io.stderr)
+            
+            var py2arguments = arguments
+            py2arguments.removeFirst()
+            
+            return run(command: "python2 \(py2arguments.joined(separator: " "))")
+        }
+        
         if arguments == ["python"] { // When Python is called without arguments, it freezes instead of running the REPL
             #if !targetEnvironment(simulator)
-            return ios_system("python -c 'import code; code.interact()'")
+            return ios_system("python -c 'from code import interact; interact()'")
             #else
             fatalError("Cannot run a command on the simulator!")
             #endif
@@ -342,7 +354,7 @@ open class LibShell {
             
             if arguments == ["python2"] {
                 #if !targetEnvironment(simulator)
-                return ios_system("python2 -c 'import code; code.interact()'")
+                return ios_system("python2 -c 'from code import interact; interact()'")
                 #else
                 fatalError("Cannot run a command on the simulator!")
                 #endif

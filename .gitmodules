@@ -16,3 +16,6 @@
 [submodule "Highlightr"]
 	path = Highlightr
 	url = https://github.com/raspu/Highlightr.git
+[submodule "SwiftyStoreKit"]
+	path = SwiftyStoreKit
+	url = https://github.com/bizz84/SwiftyStoreKit.git

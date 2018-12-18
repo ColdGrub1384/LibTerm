@@ -27,6 +27,11 @@
 		C95BE12721A37A6000FB135B /* ios_system.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C95CEEFF21C96B07003BC599 /* Python_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC8216049DD00F870B5 /* Python_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C95CEF0621C96BC7003BC599 /* python27.zip in Resources */ = {isa = PBXBuildFile; fileRef = C95CEF0521C96BC7003BC599 /* python27.zip */; };
+		C95CEF0821C97909003BC599 /* Python3Locker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95CEF0721C97909003BC599 /* Python3Locker.swift */; };
+		C95CEF0921C97D55003BC599 /* Python3Locker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95CEF0721C97909003BC599 /* Python3Locker.swift */; };
+		C95CEF2321C98491003BC599 /* receiptValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95CEF2221C98491003BC599 /* receiptValidation.swift */; };
+		C95CEF2621C9AB54003BC599 /* SwiftyStoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95CEF1521C98251003BC599 /* SwiftyStoreKit.framework */; };
+		C95CEF2721C9AB54003BC599 /* SwiftyStoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C95CEF1521C98251003BC599 /* SwiftyStoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC42160467E00F870B5 /* AppDelegate.swift */; };
 		C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
 		C9806BCF2160468200F870B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCD2160468200F870B5 /* LaunchScreen.storyboard */; };
@@ -149,6 +154,62 @@
 			proxyType = 1;
 			remoteGlobalIDString = 223496AA1FD5FC71007ED1A9;
 			remoteInfo = ios_system;
+		};
+		C95CEF1421C98251003BC599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6502F62D1B985C40004E342D;
+			remoteInfo = SwiftyStoreKit_iOS;
+		};
+		C95CEF1621C98251003BC599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D74BBB1C24CEC90071AD3E;
+			remoteInfo = SwiftyStoreKit_macOS;
+		};
+		C95CEF1821C98251003BC599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54C0D52C1CF7404500F90BCE;
+			remoteInfo = SwiftyStoreKit_tvOS;
+		};
+		C95CEF1A21C98251003BC599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6502F5FE1B985833004E342D;
+			remoteInfo = SwiftyStoreKit_iOSDemo;
+		};
+		C95CEF1C21C98251003BC599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4FD3A011C2954C10035CFF3;
+			remoteInfo = SwiftyStoreKit_macOSDemo;
+		};
+		C95CEF1E21C98251003BC599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 654287EE1E79F5A000F61800;
+			remoteInfo = SwiftyStoreKit_tvOSDemo;
+		};
+		C95CEF2021C98251003BC599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 658A083E1E2EC5120074A98F;
+			remoteInfo = SwiftyStoreKitTests;
+		};
+		C95CEF2821C9AB54003BC599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6502F62C1B985C40004E342D;
+			remoteInfo = SwiftyStoreKit_iOS;
 		};
 		C9C552D7217672EA00F43B34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -315,6 +376,7 @@
 				C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */,
 				C9806CFC21604A1400F870B5 /* ssh_cmd.framework in Embed Frameworks */,
 				C9E3916F21BF237C00F16622 /* bc_ios.framework in Embed Frameworks */,
+				C95CEF2721C9AB54003BC599 /* SwiftyStoreKit.framework in Embed Frameworks */,
 				C9E500C521C6B07600ED4C57 /* python3.framework in Embed Frameworks */,
 				C9E30A5721C1958A00789346 /* Highlightr.framework in Embed Frameworks */,
 				C9F0F02621654DC700CAC2A0 /* TabView.framework in Embed Frameworks */,
@@ -349,6 +411,9 @@
 		C95BE11421A3715D00FB135B /* cacert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cacert.pem; sourceTree = "<group>"; };
 		C95BE11A21A379F900FB135B /* ios_system.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ios_system.xcodeproj; path = ios_system_core/ios_system.xcodeproj; sourceTree = "<group>"; };
 		C95CEF0521C96BC7003BC599 /* python27.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python27.zip; sourceTree = "<group>"; };
+		C95CEF0721C97909003BC599 /* Python3Locker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python3Locker.swift; sourceTree = "<group>"; };
+		C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyStoreKit.xcodeproj; path = SwiftyStoreKit/SwiftyStoreKit.xcodeproj; sourceTree = "<group>"; };
+		C95CEF2221C98491003BC599 /* receiptValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = receiptValidation.swift; sourceTree = "<group>"; };
 		C9806BC12160467E00F870B5 /* LibTerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibTerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9806BC42160467E00F870B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9806BCB2160468200F870B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -632,6 +697,7 @@
 			files = (
 				C9E30A5621C1958A00789346 /* Highlightr.framework in Frameworks */,
 				C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */,
+				C95CEF2621C9AB54003BC599 /* SwiftyStoreKit.framework in Frameworks */,
 				C9C552D9217672F300F43B34 /* ObjectUserDefaults.framework in Frameworks */,
 				C9E3916E21BF237C00F16622 /* bc_ios.framework in Frameworks */,
 				C9F0F02521654DC700CAC2A0 /* TabView.framework in Frameworks */,
@@ -702,6 +768,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C95CEF0B21C98251003BC599 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C95CEF1521C98251003BC599 /* SwiftyStoreKit.framework */,
+				C95CEF1721C98251003BC599 /* SwiftyStoreKit.framework */,
+				C95CEF1921C98251003BC599 /* SwiftyStoreKit.framework */,
+				C95CEF1B21C98251003BC599 /* SwiftyStoreKit_iOSDemo.app */,
+				C95CEF1D21C98251003BC599 /* SwiftyStoreKit_macOSDemo.app */,
+				C95CEF1F21C98251003BC599 /* SwiftyStoreKit_tvOSDemo.app */,
+				C95CEF2121C98251003BC599 /* SwiftyStoreKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C9806BB82160467E00F870B5 = {
 			isa = PBXGroup;
 			children = (
@@ -712,6 +792,7 @@
 				C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */,
 				C9F0F004216437BB00CAC2A0 /* InputAssistant.xcodeproj */,
 				C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */,
+				C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */,
 				C9806CC0216049DD00F870B5 /* ios_system */,
 				C9806BC32160467E00F870B5 /* LibTerm */,
 				C9FAD8FA216AD24B005939AC /* LibTermCore */,
@@ -825,6 +906,8 @@
 				C9DE222C2162E621007ED7A0 /* ANSITextState.swift */,
 				C9AAAB322194E5600042E733 /* BuildDate.swift */,
 				C9E30A4521C16E1E00789346 /* GithubFile.swift */,
+				C95CEF0721C97909003BC599 /* Python3Locker.swift */,
+				C95CEF2221C98491003BC599 /* receiptValidation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1282,6 +1365,7 @@
 				C9E3917121BF237C00F16622 /* PBXTargetDependency */,
 				C9E30A5921C1958A00789346 /* PBXTargetDependency */,
 				C9E500C321C6B07600ED4C57 /* PBXTargetDependency */,
+				C95CEF2921C9AB54003BC599 /* PBXTargetDependency */,
 			);
 			name = LibTerm;
 			productName = LibTerm;
@@ -1382,6 +1466,10 @@
 					ProjectRef = C9C552D3217672EA00F43B34 /* ObjectUserDefaults.xcodeproj */;
 				},
 				{
+					ProductGroup = C95CEF0B21C98251003BC599 /* Products */;
+					ProjectRef = C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */;
+				},
+				{
 					ProductGroup = C9F0F01821654DBD00CAC2A0 /* Products */;
 					ProjectRef = C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */;
 				},
@@ -1402,6 +1490,55 @@
 			fileType = wrapper.framework;
 			path = ios_system.framework;
 			remoteRef = C95BE11E21A379FA00FB135B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C95CEF1521C98251003BC599 /* SwiftyStoreKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyStoreKit.framework;
+			remoteRef = C95CEF1421C98251003BC599 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C95CEF1721C98251003BC599 /* SwiftyStoreKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyStoreKit.framework;
+			remoteRef = C95CEF1621C98251003BC599 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C95CEF1921C98251003BC599 /* SwiftyStoreKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyStoreKit.framework;
+			remoteRef = C95CEF1821C98251003BC599 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C95CEF1B21C98251003BC599 /* SwiftyStoreKit_iOSDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftyStoreKit_iOSDemo.app;
+			remoteRef = C95CEF1A21C98251003BC599 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C95CEF1D21C98251003BC599 /* SwiftyStoreKit_macOSDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftyStoreKit_macOSDemo.app;
+			remoteRef = C95CEF1C21C98251003BC599 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C95CEF1F21C98251003BC599 /* SwiftyStoreKit_tvOSDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftyStoreKit_tvOSDemo.app;
+			remoteRef = C95CEF1E21C98251003BC599 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C95CEF2121C98251003BC599 /* SwiftyStoreKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftyStoreKitTests.xctest;
+			remoteRef = C95CEF2021C98251003BC599 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */ = {
@@ -1555,6 +1692,7 @@
 			files = (
 				C927793321696C3F0091B038 /* CommandHelp.swift in Sources */,
 				C9F0F02A21654F2B00CAC2A0 /* TerminalTabViewController.swift in Sources */,
+				C95CEF0821C97909003BC599 /* Python3Locker.swift in Sources */,
 				C9E771CD21C7E2E600C56FEE /* id.c in Sources */,
 				C9806D0F21611EA100F870B5 /* Keys.swift in Sources */,
 				C91C345921612DBA0003BD90 /* clear.swift in Sources */,
@@ -1569,6 +1707,7 @@
 				C9806D0321604A3900F870B5 /* LibShell.swift in Sources */,
 				C9F0F003216432B100CAC2A0 /* TerminalTextView.swift in Sources */,
 				C92F574D2168001600ABE35F /* ssh.swift in Sources */,
+				C95CEF2321C98491003BC599 /* receiptValidation.swift in Sources */,
 				C91C345B21613A720003BD90 /* help.swift in Sources */,
 				C91D4D13218FBF90003F73FF /* package.swift in Sources */,
 				C983B66B21976BA4009EBF4F /* ReviewHelper.swift in Sources */,
@@ -1587,6 +1726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9E500D421C6B0D900ED4C57 /* python3.m in Sources */,
+				C95CEF0921C97D55003BC599 /* Python3Locker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1625,6 +1765,11 @@
 			isa = PBXTargetDependency;
 			name = ios_system;
 			targetProxy = C95BE12821A37A6000FB135B /* PBXContainerItemProxy */;
+		};
+		C95CEF2921C9AB54003BC599 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyStoreKit_iOS;
+			targetProxy = C95CEF2821C9AB54003BC599 /* PBXContainerItemProxy */;
 		};
 		C9C552DC217672F300F43B34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

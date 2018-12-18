@@ -10,6 +10,7 @@ import UIKit
 import TabView
 import ios_system
 import ObjectUserDefaults
+import SwiftyStoreKit
 
 /// The app's delegate.
 @UIApplicationMain
@@ -18,10 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-                
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = TerminalTabViewController(theme: TabViewThemeDark())
         window?.makeKeyAndVisible()
+
+        #if DEBUG
+        Python3Locker.originalApplicationVersion.stringValue = "4.0"
+        #else
+        if Python3Locker.originalApplicationVersion.stringValue == nil {
+            receiptValidation()
+        }
+        #endif
         
         initializeEnvironment()
         
@@ -31,7 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Python
         putenv("PYTHONHOME=\(Bundle.main.bundlePath)".cValue)
-        putenv("PYTHONPATH=\(Bundle.main.bundlePath)/site-packages".cValue)
         putenv("PYTHONOPTIMIZE=".cValue)
         putenv("PYTHONDONTWRITEBYTECODE=1".cValue)
         
@@ -53,6 +61,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if SettingsTableViewController.fontSize.integerValue == 0 {
             SettingsTableViewController.fontSize.integerValue = 14
+        }
+        
+        // In app purchases
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+            for purchase in purchases {
+                
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    if purchase.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                    
+                    // Unlock content
+                    
+                    if purchase.productId == SettingsTableViewController.python37ProductID {
+                        Python3Locker.isPython3Purchased.boolValue = true
+                    }
+                    
+                case .failed, .purchasing, .deferred:
+                    break // do nothing
+                }
+            }
         }
         
         // Request app review

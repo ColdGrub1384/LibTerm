@@ -10,6 +10,7 @@ import UIKit
 import ObjectUserDefaults
 import SafariServices
 import StoreKit
+import SwiftyStoreKit
 
 /// A View controller with info about the app and some settings.
 class SettingsTableViewController: UITableViewController, SKStoreProductViewControllerDelegate {
@@ -23,19 +24,19 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
     private struct ProjectsIndexPaths {
         private init() {}
         
-        static let ios_system = IndexPath(row: 0, section: 1)
-        static let openTerm = IndexPath(row: 1, section: 1)
-        static let inputAssistant = IndexPath(row: 2, section: 1)
-        static let tabView = IndexPath(row: 3, section: 1)
-        static let highlightr = IndexPath(row: 4, section: 1)
-        static let objectUserDefaults = IndexPath(row: 5, section: 1)
+        static let ios_system = IndexPath(row: 0, section: 2)
+        static let openTerm = IndexPath(row: 1, section: 2)
+        static let inputAssistant = IndexPath(row: 2, section: 2)
+        static let tabView = IndexPath(row: 3, section: 2)
+        static let highlightr = IndexPath(row: 4, section: 2)
+        static let objectUserDefaults = IndexPath(row: 5, section: 2)
         
-        static let libTerm = IndexPath(row: 0, section: 2)
+        static let libTerm = IndexPath(row: 0, section: 3)
         
-        static let pisth = IndexPath(row: 0, section: 3)
-        static let pyto = IndexPath(row: 1, section: 3)
-        static let luade = IndexPath(row: 2, section: 3)
-        static let edidown = IndexPath(row: 3, section: 3)
+        static let pisth = IndexPath(row: 0, section: 4)
+        static let pyto = IndexPath(row: 1, section: 4)
+        static let luade = IndexPath(row: 2, section: 4)
+        static let edidown = IndexPath(row: 3, section: 4)
     }
     
     /// Closes this View controller.
@@ -68,6 +69,19 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
         SettingsTableViewController.caretStyle.integerValue = sender.selectedSegmentIndex
     }
     
+    // MARK: - In app purchases
+    
+    /// The ID of the Python 3.7 In App Purchase.
+    static let python37ProductID = "ch.marcela.ada.LibTerm.python37"
+    
+    private struct InAppPurchasesIndexPaths {
+        private init() {}
+        
+        static let python37 = IndexPath(row: 0, section: 0)
+        
+        static let restore = IndexPath(row: 1, section: 0)
+    }
+    
     // MARK: - Table view controller
     
     override func viewDidLoad() {
@@ -78,7 +92,115 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
         fontSizeLabel.text = "\(SettingsTableViewController.fontSize.doubleValue)"
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 0, (Python3Locker.originalApplicationVersion.stringValue ?? "1.0" < "4.0") {
+            return 0
+        } else {
+            return super.tableView(tableView, numberOfRowsInSection: section)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        
+        if indexPath == InAppPurchasesIndexPaths.python37 {
+            for view in cell.contentView.subviews {
+                (view as? UIButton)?.isEnabled = !Python3Locker.isPython3Purchased.boolValue
+            }
+        }
+        
+        return cell
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // MARK: - In App Purchases
+        
+        if indexPath == InAppPurchasesIndexPaths.python37 {
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            guard !Python3Locker.isPython3Purchased.boolValue else {
+                return
+            }
+            
+            // Purchase Python 3.7
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            
+            SwiftyStoreKit.purchaseProduct(SettingsTableViewController.python37ProductID) { (result) in
+                
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                
+                var title: String
+                var message: String
+                
+                switch result {
+                case .success(let purchase):
+                    title = "Purchase succeed!"
+                    message = "Thank you!\nYou can now use Python 3.7 by typing 'python' command."
+                    Python3Locker.isPython3Purchased.boolValue = true
+                    tableView.reloadData()
+                case .error(let error):
+                    switch error.code {
+                    case .unknown:
+                        title = "Unknown error"
+                        message = ""
+                    case .clientInvalid:
+                        title = "Purchase failed"
+                        message = "Not allowed to make the payment"
+                    case .paymentCancelled: return
+                    case .paymentInvalid:
+                        title = "Product not found"
+                        message = "This should not happen, please let me know this bug."
+                    case .paymentNotAllowed:
+                        title = "Purchase failed"
+                        message = "The device is not allowed to make the payment"
+                    case .storeProductNotAvailable:
+                        title = "Purchase failed"
+                        message = "The product is not available in the current storefront"
+                    case .cloudServicePermissionDenied:
+                        title = "Purchase failed"
+                        message = "Access to cloud service information is not allowed"
+                    case .cloudServiceNetworkConnectionFailed:
+                        title = "Purchase failed"
+                        message = "Could not connect to the network"
+                    case .cloudServiceRevoked:
+                        title = "Purchase failed"
+                        message = "User has revoked permission to use this cloud service"
+                    default:
+                        title = "Purchase failed"
+                        message = (error as NSError).localizedDescription
+                    }
+                }
+                
+                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+        } else if indexPath == InAppPurchasesIndexPaths.restore {
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            
+            SwiftyStoreKit.restorePurchases { (results) in
+                
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                
+                for purchase in results.restoredPurchases {
+                    if purchase.productId == SettingsTableViewController.python37ProductID {
+                        Python3Locker.isPython3Purchased.boolValue = true
+                    }
+                }
+                
+                tableView.reloadData()
+            }
+        }
+        
+        // MARK: - Projects
         
         func present(appWithID id: String) {
             tableView.deselectRow(at: indexPath, animated: true)
