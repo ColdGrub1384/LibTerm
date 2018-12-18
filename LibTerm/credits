@@ -1,12 +1,14 @@
 Made by Adrian Labbé.
 Main idea by Louis D'hauwe.
-This is not a fork of OpenTerm,
-the code is rewritten.
+This is not a fork of OpenTerm, the code is rewritten.
 LibTerm is open source.
 BOLDgithub.com/ColdGrub1384/LibTermPLAIN
 
+A big thanks to Nicolas Holzschuch (github.com/holzschu) for making this project possible by compiling commands.
+
 Contributors:
-BOLDShock9616PLAIN
+
+BOLDShock9616PLAIN (github.com/Shock9616)
 
 Third party libraries used on this project:
 
@@ -35,10 +37,5 @@ Commands:
   - BOLDpython:PLAIN Python license.
   - BOLDlibssh2:PLAIN Revised BSD License (a.k.a. 3-clause BSD license).
 
-  - BOLDegrep, fgrep, grep, gzip, gunzip, cat, chflag,
-    compress, cp, date, echo, env, link, ln, printenv,
-    pwd, ed, sed, tar, uncompress, uptime, chgrp,
-    chksum, chmod, chown, df, du, groups, id, ls, mkdir,
-    mv, readlink, rm, rmdir, stat, sum, touch, tr, uname,
-    wc, whoamiPLAIN:
+  - BOLDegrep, fgrep, grep, gzip, gunzip, cat, chflag,compress, cp, date, echo, env, link, ln, printenv, pwd, ed, sed, tar, uncompress, uptime, chgrp, chksum, chmod, chown, df, du, groups, id, ls, mkdir, mv, readlink, rm, rmdir, stat, sum, touch, tr, uname, wc, whoamiPLAIN:
     Revised BSD License (a.k.a. 3-clause BSD license).
