@@ -318,12 +318,35 @@ open class LibShell {
             return 0
         }
         
+        if arguments == ["python2"] || arguments == ["lua"] || arguments == ["bc"] { // Redirect stderr to stdout
+            let _stderr = io.stderr
+            io.stderr = io.stdout
+            
+            ios_setStreams(io.stdin, io.stdout, io.stderr)
+            
+            defer {
+                io.stderr = _stderr
+            }
+        }
+        
         if arguments == ["python"] { // When Python is called without arguments, it freezes instead of running the REPL
             #if !targetEnvironment(simulator)
             return ios_system("python -c 'import code; code.interact()'")
             #else
             fatalError("Cannot run a command on the simulator!")
             #endif
+        }
+        
+        if arguments.first == "python2", let pyPath = Bundle.main.path(forResource: "python27", ofType: "zip") {
+            putenv("PYTHONPATH=\(pyPath)".cValue)
+            
+            if arguments == ["python2"] {
+                #if !targetEnvironment(simulator)
+                return ios_system("python2 -c 'import code; code.interact()'")
+                #else
+                fatalError("Cannot run a command on the simulator!")
+                #endif
+            }
         }
         
         let setterComponents = command.components(separatedBy: "=")

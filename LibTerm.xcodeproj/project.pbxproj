@@ -25,6 +25,8 @@
 		C95BE12521A37A2900FB135B /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
 		C95BE12621A37A6000FB135B /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
 		C95BE12721A37A6000FB135B /* ios_system.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C95CEEFF21C96B07003BC599 /* Python_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC8216049DD00F870B5 /* Python_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C95CEF0621C96BC7003BC599 /* python27.zip in Resources */ = {isa = PBXBuildFile; fileRef = C95CEF0521C96BC7003BC599 /* python27.zip */; };
 		C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC42160467E00F870B5 /* AppDelegate.swift */; };
 		C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
 		C9806BCF2160468200F870B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCD2160468200F870B5 /* LaunchScreen.storyboard */; };
@@ -307,6 +309,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C9C552DA217672F300F43B34 /* ObjectUserDefaults.framework in Embed Frameworks */,
+				C95CEEFF21C96B07003BC599 /* Python_ios.framework in Embed Frameworks */,
 				C9806CF821604A1400F870B5 /* awk.framework in Embed Frameworks */,
 				C9806CF621604A1400F870B5 /* tar.framework in Embed Frameworks */,
 				C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */,
@@ -345,6 +348,7 @@
 		C9580E8B2165553500A43CEC /* Terminal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Terminal.storyboard; sourceTree = "<group>"; };
 		C95BE11421A3715D00FB135B /* cacert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cacert.pem; sourceTree = "<group>"; };
 		C95BE11A21A379F900FB135B /* ios_system.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ios_system.xcodeproj; path = ios_system_core/ios_system.xcodeproj; sourceTree = "<group>"; };
+		C95CEF0521C96BC7003BC599 /* python27.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python27.zip; sourceTree = "<group>"; };
 		C9806BC12160467E00F870B5 /* LibTerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibTerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9806BC42160467E00F870B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9806BCB2160468200F870B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -795,6 +799,7 @@
 				C9806D0A21610B5300F870B5 /* commandDictionary.plist */,
 				C9E5FFBF21C42ED200ED4C57 /* LibTerm-Bridging-Header.h */,
 				C9E5FFC921C432AA00ED4C57 /* python37.zip */,
+				C95CEF0521C96BC7003BC599 /* python27.zip */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1493,6 +1498,7 @@
 				C95BE11921A3715D00FB135B /* cacert.pem in Resources */,
 				C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */,
 				C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */,
+				C95CEF0621C96BC7003BC599 /* python27.zip in Resources */,
 				C9C552D021766E8F00F43B34 /* Settings.storyboard in Resources */,
 				C9E30A5E21C1983F00789346 /* langs.plist in Resources */,
 				C9580E8C2165553500A43CEC /* Terminal.storyboard in Resources */,
