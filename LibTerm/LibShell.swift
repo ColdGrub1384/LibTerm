@@ -287,12 +287,6 @@ open class LibShell {
         
         #if !targetEnvironment(simulator)
         ios_switchSession(io.stdout)
-        
-        io.inputPipe = Pipe()
-        io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
-        ios_setStreams(io.stdin, io.stdout, io.stderr)
-        
-        stdin = io.stdin ?? stdin
         #endif
                 
         isCommandRunning = true
@@ -318,15 +312,22 @@ open class LibShell {
             return 0
         }
         
-        if arguments == ["python2"] || arguments == ["lua"] || arguments == ["bc"] { // Redirect stderr to stdout
-            let _stderr = io.stderr
-            io.stderr = io.stdout
+        if arguments.first == "python" || arguments.first == "python2" || arguments.first == "lua" || arguments.first == "bc" { // Redirect stderr to stdout and reset input
             
-            ios_setStreams(io.stdin, io.stdout, io.stderr)
+            io.inputPipe = Pipe()
+            io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
+            
+            let _stdin = io.stdin
+            
+            ios_setStreams(io.stdin, io.stdout, io.stdout)
+            
+            stdin = io.stdin ?? stdin
             
             defer {
-                io.stderr = _stderr
+                stdin = _stdin ?? stdin
             }
+        } else {
+            ios_setStreams(io.stdin, io.stdout, io.stderr)
         }
         
         if arguments.first == "python", Python3Locker.isLocked(withArguments: arguments) {
@@ -336,7 +337,7 @@ open class LibShell {
             var py2arguments = arguments
             py2arguments.removeFirst()
             
-            return run(command: "python2 \(py2arguments.joined(separator: " "))")
+            return ios_system("python2 \(py2arguments.joined(separator: " "))")
         }
         
         if arguments == ["python"] { // When Python is called without arguments, it freezes instead of running the REPL
