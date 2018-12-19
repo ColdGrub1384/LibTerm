@@ -288,8 +288,6 @@ open class LibShell {
         #if !targetEnvironment(simulator)
         ios_switchSession(io.stdout)
         
-        ios_setMiniRootURL(FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("scripts"))
-        
         io.inputPipe = Pipe()
         io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
         ios_setStreams(io.stdin, io.stdout, io.stderr)
