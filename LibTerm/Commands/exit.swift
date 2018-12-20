@@ -25,9 +25,15 @@ func exitMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
         }
         #else
         let tabVC = UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController
+        
+        guard let visible = tabVC?.visibleViewController else {
+            return
+        }
+        
         if tabVC?.viewControllers.count == 1 {
+            tabVC?.closeTab(visible)
             exit(exitCode)
-        } else if let visible = tabVC?.visibleViewController {
+        } else {
             tabVC?.closeTab(visible)
         }
         #endif
