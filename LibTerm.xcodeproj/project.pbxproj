@@ -58,7 +58,7 @@
 		C9C552D9217672F300F43B34 /* ObjectUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */; };
 		C9C552DA217672F300F43B34 /* ObjectUserDefaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9CB2CDD216971EE004D9FFB /* exit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB2CDC216971EE004D9FFB /* exit.swift */; };
-		C9DABABC219E1E42001BF620 /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DABABB219E1E42001BF620 /* Clipboard.swift */; };
+		C9DABABC219E1E42001BF620 /* pbpaste+pbcopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DABABB219E1E42001BF620 /* pbpaste+pbcopy.swift */; };
 		C9DE220C2162E12A007ED7A0 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */; };
 		C9DE222B2162E4E5007ED7A0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222A2162E4E5007ED7A0 /* Parser.swift */; };
 		C9DE222D2162E621007ED7A0 /* ANSITextState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE222C2162E621007ED7A0 /* ANSITextState.swift */; };
@@ -69,7 +69,7 @@
 		C9E30A5E21C1983F00789346 /* langs.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9E30A5D21C1983F00789346 /* langs.plist */; };
 		C9E3916E21BF237C00F16622 /* bc_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E3916D21BF237400F16622 /* bc_ios.framework */; };
 		C9E3916F21BF237C00F16622 /* bc_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E3916D21BF237400F16622 /* bc_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9E500C521C6B07600ED4C57 /* python3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E500BD21C6B07600ED4C57 /* python3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9E500C521C6B07600ED4C57 /* commands.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E500BD21C6B07600ED4C57 /* commands.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9E500CE21C6B0AB00ED4C57 /* libbzip2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E5FEE521C42E4800ED4C57 /* libbzip2.a */; };
 		C9E500CF21C6B0AE00ED4C57 /* libOpenSSL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E5FEFC21C42E4900ED4C57 /* libOpenSSL.a */; };
 		C9E500D021C6B0B100ED4C57 /* libPython.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E5FFBA21C42E4C00ED4C57 /* libPython.a */; };
@@ -78,8 +78,13 @@
 		C9E500D321C6B0C000ED4C57 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CBA216048FC00F870B5 /* libz.tbd */; };
 		C9E500D421C6B0D900ED4C57 /* python3.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E5FFC021C42ED200ED4C57 /* python3.m */; };
 		C9E500D521C6B0DE00ED4C57 /* Py_UnixMain.h in Headers */ = {isa = PBXBuildFile; fileRef = C9E5FFC321C4319000ED4C57 /* Py_UnixMain.h */; };
+		C9E5A86821CBF2D30060B871 /* id.c in Sources */ = {isa = PBXBuildFile; fileRef = C9E771CC21C7E2E600C56FEE /* id.c */; };
+		C9E5A86A21CBF2F40060B871 /* edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E30A4B21C187C900789346 /* edit.swift */; };
+		C9E5A86B21CBF2F40060B871 /* package.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D12218FBF90003F73FF /* package.swift */; };
+		C9E5A86C21CBF2F40060B871 /* package.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D12218FBF90003F73FF /* package.swift */; };
+		C9E5A86D21CBF2F50060B871 /* pbpaste+pbcopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DABABB219E1E42001BF620 /* pbpaste+pbcopy.swift */; };
+		C9E5A86E21CBF2F50060B871 /* pbpaste+pbcopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DABABB219E1E42001BF620 /* pbpaste+pbcopy.swift */; };
 		C9E5FFCA21C432AA00ED4C57 /* python37.zip in Resources */ = {isa = PBXBuildFile; fileRef = C9E5FFC921C432AA00ED4C57 /* python37.zip */; };
-		C9E771CD21C7E2E600C56FEE /* id.c in Sources */ = {isa = PBXBuildFile; fileRef = C9E771CC21C7E2E600C56FEE /* id.c */; };
 		C9E771D421C7E80700C56FEE /* credits in Resources */ = {isa = PBXBuildFile; fileRef = C9E771D321C7E80700C56FEE /* credits */; };
 		C9E771D621C7EB9E00C56FEE /* credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E771D521C7EB9E00C56FEE /* credits.swift */; };
 		C9E771E021C8327400C56FEE /* edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E30A4B21C187C900789346 /* edit.swift */; };
@@ -377,7 +382,7 @@
 				C9806CFC21604A1400F870B5 /* ssh_cmd.framework in Embed Frameworks */,
 				C9E3916F21BF237C00F16622 /* bc_ios.framework in Embed Frameworks */,
 				C95CEF2721C9AB54003BC599 /* SwiftyStoreKit.framework in Embed Frameworks */,
-				C9E500C521C6B07600ED4C57 /* python3.framework in Embed Frameworks */,
+				C9E500C521C6B07600ED4C57 /* commands.framework in Embed Frameworks */,
 				C9E30A5721C1958A00789346 /* Highlightr.framework in Embed Frameworks */,
 				C9F0F02621654DC700CAC2A0 /* TabView.framework in Embed Frameworks */,
 				C9806CFA21604A1400F870B5 /* files.framework in Embed Frameworks */,
@@ -451,7 +456,7 @@
 		C9C552D12176716C00F43B34 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		C9C552D3217672EA00F43B34 /* ObjectUserDefaults.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectUserDefaults.xcodeproj; path = ObjectUserDefaults/ObjectUserDefaults.xcodeproj; sourceTree = "<group>"; };
 		C9CB2CDC216971EE004D9FFB /* exit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exit.swift; sourceTree = "<group>"; };
-		C9DABABB219E1E42001BF620 /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
+		C9DABABB219E1E42001BF620 /* pbpaste+pbcopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "pbpaste+pbcopy.swift"; sourceTree = "<group>"; };
 		C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 		C9DE222A2162E4E5007ED7A0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		C9DE222C2162E621007ED7A0 /* ANSITextState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSITextState.swift; sourceTree = "<group>"; };
@@ -461,7 +466,7 @@
 		C9E30A5D21C1983F00789346 /* langs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = langs.plist; sourceTree = "<group>"; };
 		C9E3916021BDE2D800F16622 /* bc_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bc_ios.framework; sourceTree = "<group>"; };
 		C9E3916821BF237400F16622 /* bc_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = bc_ios.xcodeproj; path = bc/bc_ios/bc_ios.xcodeproj; sourceTree = "<group>"; };
-		C9E500BD21C6B07600ED4C57 /* python3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = python3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9E500BD21C6B07600ED4C57 /* commands.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = commands.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E500C021C6B07600ED4C57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9E5FEE521C42E4800ED4C57 /* libbzip2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbzip2.a; sourceTree = "<group>"; };
 		C9E5FEE721C42E4800ED4C57 /* bzlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bzlib.h; sourceTree = "<group>"; };
@@ -731,25 +736,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C91C345721612DA20003BD90 /* Commands */ = {
-			isa = PBXGroup;
-			children = (
-				C91C345821612DBA0003BD90 /* clear.swift */,
-				C9E771D521C7EB9E00C56FEE /* credits.swift */,
-				C91C345A21613A720003BD90 /* help.swift */,
-				C92F574C2168001600ABE35F /* ssh.swift */,
-				C9CB2CDC216971EE004D9FFB /* exit.swift */,
-				C91D4D08218FA304003F73FF /* open.swift */,
-				C91D4D12218FBF90003F73FF /* package.swift */,
-				C9E30A4B21C187C900789346 /* edit.swift */,
-				C9E5FFC021C42ED200ED4C57 /* python3.m */,
-				C9E5FFC321C4319000ED4C57 /* Py_UnixMain.h */,
-				C9E771CC21C7E2E600C56FEE /* id.c */,
-				C9DABABB219E1E42001BF620 /* Clipboard.swift */,
-			);
-			path = Commands;
-			sourceTree = "<group>";
-		};
 		C91D4CF2218F9D99003F73FF /* LibTerm Simulator */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,7 +783,7 @@
 				C9806BC32160467E00F870B5 /* LibTerm */,
 				C9FAD8FA216AD24B005939AC /* LibTermCore */,
 				C91D4CF2218F9D99003F73FF /* LibTerm Simulator */,
-				C9E500BE21C6B07600ED4C57 /* python3 */,
+				C9E500BE21C6B07600ED4C57 /* commands */,
 				C9806BC22160467E00F870B5 /* Products */,
 				C9806CB9216048FC00F870B5 /* Frameworks */,
 			);
@@ -809,7 +795,7 @@
 				C9806BC12160467E00F870B5 /* LibTerm.app */,
 				C9FAD8F9216AD24A005939AC /* LibTermCore.framework */,
 				C91D4CF1218F9D98003F73FF /* LibTerm Simulator.app */,
-				C9E500BD21C6B07600ED4C57 /* python3.framework */,
+				C9E500BD21C6B07600ED4C57 /* commands.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -823,7 +809,6 @@
 				C983B66621976BA4009EBF4F /* ReviewHelper.swift */,
 				C9806D1121612B8D00F870B5 /* View controllers */,
 				C9806D1221612BA800F870B5 /* Helpers */,
-				C91C345721612DA20003BD90 /* Commands */,
 				C9F0F0012164329E00CAC2A0 /* Views */,
 				C9806D1021612B7A00F870B5 /* Resources */,
 			);
@@ -937,12 +922,48 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C9E500BE21C6B07600ED4C57 /* python3 */ = {
+		C9E500BE21C6B07600ED4C57 /* commands */ = {
 			isa = PBXGroup;
 			children = (
 				C9E500C021C6B07600ED4C57 /* Info.plist */,
+				C9E5A86921CBF2E60060B871 /* Builtins */,
+				C9E5A86F21CBF33F0060B871 /* C */,
 			);
-			path = python3;
+			path = commands;
+			sourceTree = "<group>";
+		};
+		C9E5A86921CBF2E60060B871 /* Builtins */ = {
+			isa = PBXGroup;
+			children = (
+				C91C345821612DBA0003BD90 /* clear.swift */,
+				C9E771D521C7EB9E00C56FEE /* credits.swift */,
+				C91C345A21613A720003BD90 /* help.swift */,
+				C92F574C2168001600ABE35F /* ssh.swift */,
+				C9CB2CDC216971EE004D9FFB /* exit.swift */,
+				C91D4D08218FA304003F73FF /* open.swift */,
+				C91D4D12218FBF90003F73FF /* package.swift */,
+				C9E30A4B21C187C900789346 /* edit.swift */,
+				C9DABABB219E1E42001BF620 /* pbpaste+pbcopy.swift */,
+			);
+			path = Builtins;
+			sourceTree = "<group>";
+		};
+		C9E5A86F21CBF33F0060B871 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				C9E5A87021CBF35A0060B871 /* python */,
+				C9E771CC21C7E2E600C56FEE /* id.c */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		C9E5A87021CBF35A0060B871 /* python */ = {
+			isa = PBXGroup;
+			children = (
+				C9E5FFC021C42ED200ED4C57 /* python3.m */,
+				C9E5FFC321C4319000ED4C57 /* Py_UnixMain.h */,
+			);
+			path = python;
 			sourceTree = "<group>";
 		};
 		C9E5FEE321C42E3900ED4C57 /* Python */ = {
@@ -1372,9 +1393,9 @@
 			productReference = C9806BC12160467E00F870B5 /* LibTerm.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C9E500BC21C6B07600ED4C57 /* python3 */ = {
+		C9E500BC21C6B07600ED4C57 /* commands */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9E500CD21C6B07600ED4C57 /* Build configuration list for PBXNativeTarget "python3" */;
+			buildConfigurationList = C9E500CD21C6B07600ED4C57 /* Build configuration list for PBXNativeTarget "commands" */;
 			buildPhases = (
 				C9E500B821C6B07600ED4C57 /* Headers */,
 				C9E500B921C6B07600ED4C57 /* Sources */,
@@ -1385,9 +1406,9 @@
 			);
 			dependencies = (
 			);
-			name = python3;
+			name = commands;
 			productName = python3;
-			productReference = C9E500BD21C6B07600ED4C57 /* python3.framework */;
+			productReference = C9E500BD21C6B07600ED4C57 /* commands.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C9FAD8F8216AD24A005939AC /* LibTermCore */ = {
@@ -1479,7 +1500,7 @@
 				C9806BC02160467E00F870B5 /* LibTerm */,
 				C9FAD8F8216AD24A005939AC /* LibTermCore */,
 				C91D4CF0218F9D98003F73FF /* LibTerm Simulator */,
-				C9E500BC21C6B07600ED4C57 /* python3 */,
+				C9E500BC21C6B07600ED4C57 /* commands */,
 			);
 		};
 /* End PBXProject section */
@@ -1667,6 +1688,7 @@
 			files = (
 				C9E771F421C8359600C56FEE /* CommandHelp.swift in Sources */,
 				C9E771F221C834A300C56FEE /* LibShell.swift in Sources */,
+				C9E5A86E21CBF2F50060B871 /* pbpaste+pbcopy.swift in Sources */,
 				C91D4CF4218F9D99003F73FF /* AppDelegate.swift in Sources */,
 				C9E771EE21C8340E00C56FEE /* ANSITextState.swift in Sources */,
 				C9E771F621C835AA00C56FEE /* String.swift in Sources */,
@@ -1679,6 +1701,7 @@
 				C9E771F521C8359A00C56FEE /* clear.swift in Sources */,
 				C9E771E721C832A400C56FEE /* TerminalViewController.swift in Sources */,
 				C9E771E621C8329E00C56FEE /* IO.swift in Sources */,
+				C9E5A86C21CBF2F40060B871 /* package.swift in Sources */,
 				C9E771EF21C8343400C56FEE /* help.swift in Sources */,
 				C9E771F721C835BF00C56FEE /* ssh.swift in Sources */,
 				C9E771EC21C8340500C56FEE /* TerminalTextView.swift in Sources */,
@@ -1693,7 +1716,6 @@
 				C927793321696C3F0091B038 /* CommandHelp.swift in Sources */,
 				C9F0F02A21654F2B00CAC2A0 /* TerminalTabViewController.swift in Sources */,
 				C95CEF0821C97909003BC599 /* Python3Locker.swift in Sources */,
-				C9E771CD21C7E2E600C56FEE /* id.c in Sources */,
 				C9806D0F21611EA100F870B5 /* Keys.swift in Sources */,
 				C91C345921612DBA0003BD90 /* clear.swift in Sources */,
 				C9DE220C2162E12A007ED7A0 /* TerminalViewController.swift in Sources */,
@@ -1711,7 +1733,7 @@
 				C91C345B21613A720003BD90 /* help.swift in Sources */,
 				C91D4D13218FBF90003F73FF /* package.swift in Sources */,
 				C983B66B21976BA4009EBF4F /* ReviewHelper.swift in Sources */,
-				C9DABABC219E1E42001BF620 /* Clipboard.swift in Sources */,
+				C9DABABC219E1E42001BF620 /* pbpaste+pbcopy.swift in Sources */,
 				C9806D0521604AE700F870B5 /* IO.swift in Sources */,
 				C9E30A4C21C187C900789346 /* edit.swift in Sources */,
 				C927793921696CC00091B038 /* Commands.swift in Sources */,
@@ -1725,6 +1747,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E5A86821CBF2D30060B871 /* id.c in Sources */,
 				C9E500D421C6B0D900ED4C57 /* python3.m in Sources */,
 				C95CEF0921C97D55003BC599 /* Python3Locker.swift in Sources */,
 			);
@@ -1735,18 +1758,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9FAD90E216AD26E005939AC /* CommandHelp.swift in Sources */,
+				C9E5A86D21CBF2F50060B871 /* pbpaste+pbcopy.swift in Sources */,
 				C9FAD911216AD273005939AC /* clear.swift in Sources */,
 				C9FAD912216AD273005939AC /* help.swift in Sources */,
 				C9FAD90B216AD26E005939AC /* String.swift in Sources */,
 				C9FAD90C216AD26E005939AC /* Keys.swift in Sources */,
 				C9E771F121C834A200C56FEE /* LibShell.swift in Sources */,
 				C9E771FA21C835CB00C56FEE /* credits.swift in Sources */,
+				C9E5A86A21CBF2F40060B871 /* edit.swift in Sources */,
 				C9FAD90A216AD267005939AC /* TerminalViewController.swift in Sources */,
 				C9FAD90D216AD26E005939AC /* IO.swift in Sources */,
 				C9FAD914216AD273005939AC /* exit.swift in Sources */,
 				C9FAD913216AD273005939AC /* ssh.swift in Sources */,
 				C91D4D0A218FA54D003F73FF /* open.swift in Sources */,
 				C9FAD915216AD27B005939AC /* TerminalTextView.swift in Sources */,
+				C9E5A86B21CBF2F40060B871 /* package.swift in Sources */,
 				C9FAD90F216AD26E005939AC /* Parser.swift in Sources */,
 				C9F15D272193889C003AC553 /* Commands.swift in Sources */,
 				C9FAD910216AD26E005939AC /* ANSITextState.swift in Sources */,
@@ -1788,7 +1814,7 @@
 		};
 		C9E500C321C6B07600ED4C57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C9E500BC21C6B07600ED4C57 /* python3 */;
+			target = C9E500BC21C6B07600ED4C57 /* commands */;
 			targetProxy = C9E500C221C6B07600ED4C57 /* PBXContainerItemProxy */;
 		};
 		C9E771EB21C8330C00C56FEE /* PBXTargetDependency */ = {
@@ -2086,7 +2112,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = python3/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/commands/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2122,7 +2148,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = python3/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/commands/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2254,7 +2280,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9E500CD21C6B07600ED4C57 /* Build configuration list for PBXNativeTarget "python3" */ = {
+		C9E500CD21C6B07600ED4C57 /* Build configuration list for PBXNativeTarget "commands" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9E500C621C6B07600ED4C57 /* Debug */,
