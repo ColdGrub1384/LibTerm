@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SwiftyStoreKit.shouldAddStorePaymentHandler = { payment, product in
             if product.productIdentifier == SettingsTableViewController.python37ProductID {
                 
-                if (Python3Locker.originalApplicationVersion.stringValue ?? "1.0") < "4.0" {
+                if (Python3Locker.originalApplicationVersion.stringValue ?? "4.0") < "4.0" {
                     
                     let alert = UIAlertController(title: "Product purchased", message: "As you downloaded LibTerm before 4.0, you have Python 3.7 for free.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))

@@ -94,7 +94,7 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0, (Python3Locker.originalApplicationVersion.stringValue ?? "1.0" < "4.0") {
+        if section == 0, (Python3Locker.originalApplicationVersion.stringValue ?? "4.0" < "4.0") {
             return 0
         } else {
             return super.tableView(tableView, numberOfRowsInSection: section)
