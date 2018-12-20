@@ -329,9 +329,16 @@ open class LibShell {
             ios_setStreams(io.stdin, io.stdout, io.stderr)
         }
         
+        let pyPath = Bundle.main.path(forResource: "python27", ofType: "zip")
+        
         if arguments.first == "python", Python3Locker.isLocked(withArguments: arguments) {
             
             fputs("python: To unlock Python 3, go to settings and purchase access to Python 3.\n", io.stderr)
+            
+            if let pyPath = pyPath {
+                putenv("PYTHONHOME=\(pyPath)".cValue)
+                putenv("PYTHONPATH=\(pyPath)".cValue)
+            }
             
             var py2arguments = arguments
             py2arguments.removeFirst()
@@ -347,7 +354,7 @@ open class LibShell {
             return ios_system("python -c 'from code import interact; interact()'")
         }
         
-        if arguments.first == "python2", let pyPath = Bundle.main.path(forResource: "python27", ofType: "zip") {
+        if arguments.first == "python2", let pyPath = pyPath {
             putenv("PYTHONHOME=\(pyPath)".cValue)
             putenv("PYTHONPATH=\(pyPath)".cValue)
             
