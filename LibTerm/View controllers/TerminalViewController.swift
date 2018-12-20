@@ -171,7 +171,11 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     /// - Parameters:
     ///     - prompt: The prompt.
     func input(prompt: String) {
-        title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
+    
+        if view.window != nil {
+            title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
+        }
+    
         isWrittingToStdin = false
         isAskingForInput = false
         self.prompt = ""
@@ -319,7 +323,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 self.url = nil
                 ios_setDirectoryURL(url)
             }
-                
+            
             title = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).lastPathComponent
         }
         
