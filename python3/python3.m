@@ -12,6 +12,8 @@ int python3_main(int argc, char **argv) {
     
     const char * pyPath = [[NSString stringWithUTF8String:"PYTHONPATH="] stringByAppendingString:[NSBundle.mainBundle pathForResource:@"python37" ofType:@"zip"]].UTF8String;
     
+    const char * pyHome = [[NSString stringWithUTF8String:"PYTHONHOME="] stringByAppendingString:[NSBundle.mainBundle pathForResource:@"python37" ofType:@"zip"]].UTF8String;
+    
     FILE* oldStdin = stdin;
     FILE* oldStdout = stdout;
     FILE* oldStderr = stderr;
@@ -22,6 +24,10 @@ int python3_main(int argc, char **argv) {
     
     if (pyPath) {
         putenv((char *)pyPath);
+    }
+    
+    if (pyHome) {
+        putenv((char *)pyHome);
     }
     
     int py = _Py_UnixMain(argc, argv);

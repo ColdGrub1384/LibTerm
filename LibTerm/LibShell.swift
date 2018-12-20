@@ -336,7 +336,11 @@ open class LibShell {
             var py2arguments = arguments
             py2arguments.removeFirst()
             
-            return ios_system("python2 \(py2arguments.joined(separator: " "))")
+            if py2arguments.count > 0 {
+                return ios_system("python2 \(py2arguments.joined(separator: " "))")
+            } else {
+                return ios_system("python2 -c 'from code import interact; interact()'")
+            }
         }
         
         if arguments == ["python"] { // When Python is called without arguments, it freezes instead of running the REPL
@@ -344,6 +348,7 @@ open class LibShell {
         }
         
         if arguments.first == "python2", let pyPath = Bundle.main.path(forResource: "python27", ofType: "zip") {
+            putenv("PYTHONHOME=\(pyPath)".cValue)
             putenv("PYTHONPATH=\(pyPath)".cValue)
             
             if arguments == ["python2"] {

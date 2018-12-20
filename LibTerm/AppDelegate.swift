@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         replaceCommand("pbpaste", "pbpaste", true)
         
         // Python
-        putenv("PYTHONHOME=\(Bundle.main.bundlePath)".cValue)
         putenv("PYTHONOPTIMIZE=".cValue)
         putenv("PYTHONDONTWRITEBYTECODE=1".cValue)
         
