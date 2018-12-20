@@ -27,6 +27,13 @@ class TerminalTabViewController: TabViewController {
         activateTab(newTerminal)
     }
     
+    /// Closes the current visible tab.
+    @objc func closeCurrentTab() {
+        if let tab = visibleViewController {
+            closeTab(tab)
+        }
+    }
+    
     /// Change current working directory.
     @objc func cd(_ sender: Any) {
         (visibleViewController as? LTTerminalViewController)?.cd()
@@ -70,7 +77,26 @@ class TerminalTabViewController: TabViewController {
         TerminalTabViewController.tabs.arrayValue = bookmarks
     }
     
+    /// Interrupts the currently running command.
+    @objc func interrupt() {
+        (visibleViewController as? LTTerminalViewController)?.shell.killCommand()
+    }
+    
     // MARK: - Tab view controller
+    
+    override var keyCommands: [UIKeyCommand]? {
+        var commands = [
+            UIKeyCommand(input: "T", modifierFlags: .command, action: #selector(addTab), discoverabilityTitle: "Open new tab"),
+            UIKeyCommand(input: "W", modifierFlags: .command, action: #selector(closeCurrentTab), discoverabilityTitle: "Close tab"),
+        ]
+        
+        if let shell = (visibleViewController as? LTTerminalViewController)?.shell, shell.isCommandRunning && !shell.isBuiltinRunning {
+            
+            commands.append(UIKeyCommand(input: "C", modifierFlags: .control, action: #selector(interrupt), discoverabilityTitle: "Interrupt"))            
+        }
+        
+        return commands
+    }
     
     required init(theme: TabViewTheme) {
         super.init(theme: theme)

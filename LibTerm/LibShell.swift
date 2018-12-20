@@ -226,7 +226,7 @@ open class LibShell {
     open var variables = [String:String]()
     
     /// Kills the current running command.
-    public func killCommand() {
+    @objc public func killCommand() {
         guard isCommandRunning, let io = self.io else {
             return
         }
@@ -283,6 +283,9 @@ open class LibShell {
         thread_stderr = nil
         thread_stdin = nil
         
+        
+        io.inputPipe = Pipe()
+        io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
         ios_switchSession(io.stdout)
         
         isCommandRunning = true
