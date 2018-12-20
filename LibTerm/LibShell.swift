@@ -7,9 +7,7 @@
 //
 
 import UIKit
-#if !targetEnvironment(simulator)
 import ios_system
-#endif
 
 /// Type for a builtin command. A function with argc, argv and the Input/Output object.
 ///
@@ -176,10 +174,8 @@ open class LibShell {
     
     /// Initialize the shell.
     public init() {
-        #if !targetEnvironment(simulator)
         ios_setDirectoryURL(FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0])
         initializeEnvironment()
-        #endif
     }
     
     /// The commands history.
@@ -231,7 +227,6 @@ open class LibShell {
     
     /// Kills the current running command.
     public func killCommand() {
-        #if !targetEnvironment(simulator)
         guard isCommandRunning, let io = self.io else {
             return
         }
@@ -251,7 +246,6 @@ open class LibShell {
         io.inputPipe = Pipe()
         io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
         isCommandRunning = false
-        #endif
     }
     
     /// Run given command.
@@ -285,10 +279,12 @@ open class LibShell {
             append(command: historyCommand)
         }
         
-        #if !targetEnvironment(simulator)
+        thread_stdout = nil
+        thread_stderr = nil
+        thread_stdin = nil
+        
         ios_switchSession(io.stdout)
-        #endif
-                
+        
         isCommandRunning = true
         
         defer {
@@ -341,22 +337,14 @@ open class LibShell {
         }
         
         if arguments == ["python"] { // When Python is called without arguments, it freezes instead of running the REPL
-            #if !targetEnvironment(simulator)
             return ios_system("python -c 'from code import interact; interact()'")
-            #else
-            fatalError("Cannot run a command on the simulator!")
-            #endif
         }
         
         if arguments.first == "python2", let pyPath = Bundle.main.path(forResource: "python27", ofType: "zip") {
             putenv("PYTHONPATH=\(pyPath)".cValue)
             
             if arguments == ["python2"] {
-                #if !targetEnvironment(simulator)
                 return ios_system("python2 -c 'from code import interact; interact()'")
-                #else
-                fatalError("Cannot run a command on the simulator!")
-                #endif
             }
         }
         
@@ -379,21 +367,13 @@ open class LibShell {
             arguments.insert("python", at: 0)
             arguments.remove(at: 1)
             arguments.insert(scriptURL.path, at: 1)
-            #if !targetEnvironment(simulator)
             returnCode = ios_system(arguments.joined(separator: " ").cValue)
-            #else
-            returnCode = 1
-            #endif
         } else if builtins.keys.contains(arguments[0]) {
             isBuiltinRunning = true
             returnCode = builtins[arguments[0]]?(arguments.count, arguments, io) ?? 1
             isBuiltinRunning = false
         } else {
-            #if !targetEnvironment(simulator)
             returnCode = ios_system(command_.cValue)
-            #else
-            returnCode = 1
-            #endif
         }
         
         return returnCode

@@ -110,7 +110,12 @@ class TerminalTabViewController: TabViewController {
     
     override func closeTab(_ tab: UIViewController) {
         
-        (tab as? LTTerminalViewController)?.shell.killCommand()
+        let terminal = tab as? LTTerminalViewController
+        terminal?.shell.killCommand()
+        
+        if let session = terminal?.shell.io?.stdout {
+            ios_closeSession(session)
+        }
         
         super.closeTab(tab)
         

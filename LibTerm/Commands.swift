@@ -6,16 +6,11 @@
 //  Copyright © 2018 Adrian Labbe. All rights reserved.
 //
 
-#if !targetEnvironment(simulator)
 import ios_system
-#endif
 
 /// All available commands.
 public var LTHelp: [LTCommandHelp] = {
     
-    #if targetEnvironment(simulator)
-    return []
-    #else
     var commands = [LTCommandHelp]()
     
     for command in commandsAsArray() as? [String] ?? [] {
@@ -48,5 +43,4 @@ public var LTHelp: [LTCommandHelp] = {
     #endif
     
     return commands
-    #endif
 }()

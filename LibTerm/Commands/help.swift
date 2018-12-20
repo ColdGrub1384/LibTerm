@@ -7,9 +7,7 @@
 //
 
 import Foundation
-#if !targetEnvironment(simulator)
 import ios_system
-#endif
 
 /// The last login date.
 var lastLogin: Date? {

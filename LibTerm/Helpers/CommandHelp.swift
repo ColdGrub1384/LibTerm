@@ -6,9 +6,7 @@
 //  Copyright © 2018 Adrian Labbe. All rights reserved.
 //
 
-#if !targetEnvironment(simulator)
 import ios_system
-#endif
 
 /// A structure representing a command for helping the user.
 public struct LTCommandHelp: Equatable {
@@ -59,7 +57,6 @@ public struct LTCommandHelp: Equatable {
         self.commandName = commandName
         self.commandInput = commandInput
         
-        #if !targetEnvironment(simulator)
         var flags_ = [String]()
         for flag in getoptString(commandName) {
             if flag != ":" {
@@ -67,9 +64,6 @@ public struct LTCommandHelp: Equatable {
             }
         }
         flags = flags_
-        #else
-        flags = []
-        #endif
     }
     
     public static func == (lhs: LTCommandHelp, rhs: LTCommandHelp) -> Bool {
