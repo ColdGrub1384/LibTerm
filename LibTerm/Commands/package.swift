@@ -62,9 +62,17 @@ func packageMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
             fputs("\(blue)Downloading \(package)...\(reset)\n", io.stdout)
             
             URLSession.shared.downloadTask(with: url) { (url, response, error) in
+                
+                if (response as? HTTPURLResponse)?.statusCode == 404 {
+                    fputs("\(argv[0]): \(package): Package not found\n", io.stderr)
+                    returnValue = 1
+                    return
+                }
+                
                 if let error = error {
                     fputs("\(argv[0]): \(package): \(error.localizedDescription)\n", io.stderr)
                     returnValue = 1
+                    return
                 }
                 
                 // A temporary directory is created where the package will be installed. After the package is installed in this temporary directory, the command will index all files inside it to remove them with `package remove`. All files are then moved to the permanent directory where all other packages are installed.
