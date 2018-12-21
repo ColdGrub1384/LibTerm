@@ -12,30 +12,6 @@ func receiptValidation() {
         }
     }
     
-    #if DEBUG
-    
-    class Delegate: NSObject, SKRequestDelegate {
-        
-        static let delegate = Delegate()
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        func request(_ request: SKRequest, didFailWithError error: Error) {
-            print(error.localizedDescription)
-        }
-        
-        func requestDidFinish(_ request: SKRequest) {
-            semaphore.signal()
-        }
-    }
-    
-    let request = SKReceiptRefreshRequest(receiptProperties: nil)
-    request.delegate = Delegate.delegate
-    request.start()
-    
-    Delegate.delegate.semaphore.wait()
-    #endif
-    
     let SUBSCRIPTION_SECRET = "2215178a6443418e814339adb05dddfd"
     let receiptPath = Bundle.main.appStoreReceiptURL?.path
     if FileManager.default.fileExists(atPath: receiptPath!){

@@ -11,6 +11,7 @@ import TabView
 import ios_system
 import ObjectUserDefaults
 import SwiftyStoreKit
+import StoreKit
 
 /// The app's delegate.
 @UIApplicationMain
@@ -28,7 +29,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Python3Locker.originalApplicationVersion.stringValue = "4.0"
         #else
         if Python3Locker.originalApplicationVersion.stringValue == nil {
-            receiptValidation()
+            DispatchQueue.global().async {
+                class Delegate: NSObject, SKRequestDelegate {
+                    
+                    static let delegate = Delegate()
+                    
+                    let semaphore = DispatchSemaphore(value: 0)
+                    
+                    func request(_ request: SKRequest, didFailWithError error: Error) {
+                        print(error.localizedDescription)
+                    }
+                    
+                    func requestDidFinish(_ request: SKRequest) {
+                        semaphore.signal()
+                    }
+                }
+                
+                let request = SKReceiptRefreshRequest(receiptProperties: nil)
+                request.delegate = Delegate.delegate
+                request.start()
+                
+                Delegate.delegate.semaphore.wait()
+                
+                receiptValidation()
+            }
         }
         #endif
         
