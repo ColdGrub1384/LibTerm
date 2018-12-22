@@ -24,10 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = TerminalTabViewController(theme: TabViewThemeDark())
         window?.makeKeyAndVisible()
-
-        #if DEBUG
-        Python3Locker.originalApplicationVersion.stringValue = "4.0"
-        #else
+        
         if Python3Locker.originalApplicationVersion.stringValue == nil {
             DispatchQueue.global().async {
                 class Delegate: NSObject, SKRequestDelegate {
@@ -38,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     func request(_ request: SKRequest, didFailWithError error: Error) {
                         print(error.localizedDescription)
+                        semaphore.signal()
                     }
                     
                     func requestDidFinish(_ request: SKRequest) {
@@ -54,7 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 receiptValidation()
             }
         }
-        #endif
         
         initializeEnvironment()
         

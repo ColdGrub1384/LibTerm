@@ -33,7 +33,7 @@ func receiptValidation() {
         guard JSONSerialization.isValidJSONObject(requestDictionary) else {  print("requestDictionary is not valid JSON");  return }
         do {
             let requestData = try JSONSerialization.data(withJSONObject: requestDictionary)
-            let validationURLString = "https://sandbox.itunes.apple.com/verifyReceipt"  // this works but as noted above it's best to use your own trusted server
+            let validationURLString = "https://buy.itunes.apple.com/verifyReceipt"  // this works but as noted above it's best to use your own trusted server
             guard let validationURL = URL(string: validationURLString) else { print("the validation url could not be created, unlikely error"); return }
             let session = URLSession(configuration: URLSessionConfiguration.default)
             var request = URLRequest(url: validationURL)
