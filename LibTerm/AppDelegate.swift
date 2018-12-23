@@ -27,27 +27,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if Python3Locker.originalApplicationVersion.stringValue == nil {
             DispatchQueue.global().async {
-                class Delegate: NSObject, SKRequestDelegate {
+            
+                if Bundle.main.appStoreReceiptURL == nil && !UserDefaults.standard.bool(forKey: "askedForVerifyingReceipt") {
                     
-                    static let delegate = Delegate()
+                    UserDefaults.standard.set(true, forKey: "askedForVerifyingReceipt") // If the user cancelled the receipt validation, the dialog should not appear anymore.
+                    UserDefaults.standard.synchronize()
                     
-                    let semaphore = DispatchSemaphore(value: 0)
-                    
-                    func request(_ request: SKRequest, didFailWithError error: Error) {
-                        print(error.localizedDescription)
-                        semaphore.signal()
+                    class Delegate: NSObject, SKRequestDelegate {
+                        
+                        static let delegate = Delegate()
+                        
+                        let semaphore = DispatchSemaphore(value: 0)
+                        
+                        func request(_ request: SKRequest, didFailWithError error: Error) {
+                            print(error.localizedDescription)
+                            semaphore.signal()
+                        }
+                        
+                        func requestDidFinish(_ request: SKRequest) {
+                            semaphore.signal()
+                        }
                     }
                     
-                    func requestDidFinish(_ request: SKRequest) {
-                        semaphore.signal()
-                    }
+                    let request = SKReceiptRefreshRequest(receiptProperties: nil)
+                    request.delegate = Delegate.delegate
+                    request.start()
+                    
+                    Delegate.delegate.semaphore.wait()
                 }
-                
-                let request = SKReceiptRefreshRequest(receiptProperties: nil)
-                request.delegate = Delegate.delegate
-                request.start()
-                
-                Delegate.delegate.semaphore.wait()
                 
                 receiptValidation()
             }
