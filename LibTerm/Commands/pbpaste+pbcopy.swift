@@ -12,13 +12,13 @@ import UIKit
 import ios_system
 
 /// The `pbpaste` command.
-@_cdecl("pbpaste") public func pbpaste(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+func pbpasteMain(argc: Int, argv: [String]) -> Int32 {
     fputs(UIPasteboard.general.string ?? "", thread_stdout)
     return 0
 }
 
 /// The `pbcopy` command.
-@_cdecl("pbcopy") public func pbcopy(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+func pbcopyMain(argc: Int, argv: [String]) -> Int32 {
     var bytes = [Int8]()
     while true {
         var byte: Int8 = 0
