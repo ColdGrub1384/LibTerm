@@ -12,17 +12,17 @@ import UIKit
 import ios_system
 
 /// The `pbpaste` command.
-func pbpasteMain(argc: Int, argv: [String]) -> Int32 {
-    fputs(UIPasteboard.general.string ?? "", thread_stdout)
+func pbpasteMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
+    fputs(UIPasteboard.general.string ?? "", io.stdout)
     return 0
 }
 
 /// The `pbcopy` command.
-func pbcopyMain(argc: Int, argv: [String]) -> Int32 {
+func pbcopyMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     var bytes = [Int8]()
     while true {
         var byte: Int8 = 0
-        let count = read(fileno(thread_stdin), &byte, 1)
+        let count = read(fileno(io.stdin), &byte, 1)
         guard count == 1 else {
             break
         }
