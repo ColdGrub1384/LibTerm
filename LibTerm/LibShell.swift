@@ -330,6 +330,7 @@ open class LibShell {
         }
         
         let pyPath = Bundle.main.path(forResource: "python27", ofType: "zip")
+        let py2SitePackages = FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0].appendingPathComponent("site-packages2").path
         
         if arguments.first == "python", Python3Locker.isLocked(withArguments: arguments) {
             
@@ -337,7 +338,7 @@ open class LibShell {
             
             if let pyPath = pyPath {
                 putenv("PYTHONHOME=\(pyPath)".cValue)
-                putenv("PYTHONPATH=\(pyPath)".cValue)
+                putenv("PYTHONPATH=\(pyPath):\(py2SitePackages)".cValue)
             }
             
             var py2arguments = arguments
@@ -356,7 +357,7 @@ open class LibShell {
         
         if arguments.first == "python2", let pyPath = pyPath {
             putenv("PYTHONHOME=\(pyPath)".cValue)
-            putenv("PYTHONPATH=\(pyPath)".cValue)
+            putenv("PYTHONPATH=\(pyPath):\(py2SitePackages)".cValue)
             
             if arguments == ["python2"] {
                 return ios_system("python2 -c 'from code import interact; interact()'")

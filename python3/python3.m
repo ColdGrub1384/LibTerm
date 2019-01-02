@@ -10,7 +10,7 @@
 
 int python3_main(int argc, char **argv) {
     
-    const char * pyPath = [[NSString stringWithUTF8String:"PYTHONPATH="] stringByAppendingString:[NSBundle.mainBundle pathForResource:@"python37" ofType:@"zip"]].UTF8String;
+    const char * pyPath = [[[[[[NSString stringWithUTF8String:"PYTHONPATH="] stringByAppendingString:[NSBundle.mainBundle pathForResource:@"python37" ofType:@"zip"]] stringByAppendingString:@":"] stringByAppendingString:[[NSFileManager.defaultManager URLsForDirectory:NSDocumentDirectory inDomains:NSAllDomainsMask][0] URLByAppendingPathComponent:@"site-packages3"].path] stringByAppendingString:@":"] stringByAppendingString:NSBundle.mainBundle.bundlePath].UTF8String;
     
     const char * pyHome = [[NSString stringWithUTF8String:"PYTHONHOME="] stringByAppendingString:[NSBundle.mainBundle pathForResource:@"python37" ofType:@"zip"]].UTF8String;
     

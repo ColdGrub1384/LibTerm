@@ -20,6 +20,7 @@
 		C927793321696C3F0091B038 /* CommandHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793221696C3F0091B038 /* CommandHelp.swift */; };
 		C927793921696CC00091B038 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927793821696CC00091B038 /* Commands.swift */; };
 		C92F574D2168001600ABE35F /* ssh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F574C2168001600ABE35F /* ssh.swift */; };
+		C9477BCF21D5033A000680AE /* python37.zip in Resources */ = {isa = PBXBuildFile; fileRef = C9477BCE21D50339000680AE /* python37.zip */; };
 		C9580E8C2165553500A43CEC /* Terminal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9580E8B2165553500A43CEC /* Terminal.storyboard */; };
 		C95BE11921A3715D00FB135B /* cacert.pem in Resources */ = {isa = PBXBuildFile; fileRef = C95BE11421A3715D00FB135B /* cacert.pem */; };
 		C95BE12521A37A2900FB135B /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
@@ -83,7 +84,6 @@
 		C9E5A86C21CBF2F40060B871 /* package.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D12218FBF90003F73FF /* package.swift */; };
 		C9E5A86D21CBF2F50060B871 /* pbpaste+pbcopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DABABB219E1E42001BF620 /* pbpaste+pbcopy.swift */; };
 		C9E5A86E21CBF2F50060B871 /* pbpaste+pbcopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DABABB219E1E42001BF620 /* pbpaste+pbcopy.swift */; };
-		C9E5FFCA21C432AA00ED4C57 /* python37.zip in Resources */ = {isa = PBXBuildFile; fileRef = C9E5FFC921C432AA00ED4C57 /* python37.zip */; };
 		C9E771D421C7E80700C56FEE /* credits in Resources */ = {isa = PBXBuildFile; fileRef = C9E771D321C7E80700C56FEE /* credits */; };
 		C9E771D621C7EB9E00C56FEE /* credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E771D521C7EB9E00C56FEE /* credits.swift */; };
 		C9E771E021C8327400C56FEE /* edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E30A4B21C187C900789346 /* edit.swift */; };
@@ -411,6 +411,7 @@
 		C927793221696C3F0091B038 /* CommandHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandHelp.swift; sourceTree = "<group>"; };
 		C927793821696CC00091B038 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		C92F574C2168001600ABE35F /* ssh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ssh.swift; sourceTree = "<group>"; };
+		C9477BCE21D50339000680AE /* python37.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python37.zip; sourceTree = "<group>"; };
 		C9580E8B2165553500A43CEC /* Terminal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Terminal.storyboard; sourceTree = "<group>"; };
 		C95BE11421A3715D00FB135B /* cacert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cacert.pem; sourceTree = "<group>"; };
 		C95BE11A21A379F900FB135B /* ios_system.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ios_system.xcodeproj; path = ios_system_core/ios_system.xcodeproj; sourceTree = "<group>"; };
@@ -671,7 +672,6 @@
 		C9E5FFBF21C42ED200ED4C57 /* LibTerm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibTerm-Bridging-Header.h"; sourceTree = "<group>"; };
 		C9E5FFC021C42ED200ED4C57 /* python3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = python3.m; sourceTree = "<group>"; };
 		C9E5FFC321C4319000ED4C57 /* Py_UnixMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Py_UnixMain.h; sourceTree = "<group>"; };
-		C9E5FFC921C432AA00ED4C57 /* python37.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python37.zip; sourceTree = "<group>"; };
 		C9E771D321C7E80700C56FEE /* credits */ = {isa = PBXFileReference; lastKnownFileType = text; path = credits; sourceTree = "<group>"; };
 		C9E771D521C7EB9E00C56FEE /* credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = credits.swift; sourceTree = "<group>"; };
 		C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTextView.swift; sourceTree = "<group>"; };
@@ -863,7 +863,7 @@
 				C9806BD02160468200F870B5 /* Info.plist */,
 				C9806D0A21610B5300F870B5 /* commandDictionary.plist */,
 				C9E5FFBF21C42ED200ED4C57 /* LibTerm-Bridging-Header.h */,
-				C9E5FFC921C432AA00ED4C57 /* python37.zip */,
+				C9477BCE21D50339000680AE /* python37.zip */,
 				C95CEF0521C96BC7003BC599 /* python27.zip */,
 			);
 			name = Resources;
@@ -1632,8 +1632,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9E771D421C7E80700C56FEE /* credits in Resources */,
+				C9477BCF21D5033A000680AE /* python37.zip in Resources */,
 				C9806BCF2160468200F870B5 /* LaunchScreen.storyboard in Resources */,
-				C9E5FFCA21C432AA00ED4C57 /* python37.zip in Resources */,
 				C95BE11921A3715D00FB135B /* cacert.pem in Resources */,
 				C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */,
 				C9806D0C21610B5400F870B5 /* commandDictionary.plist in Resources */,
