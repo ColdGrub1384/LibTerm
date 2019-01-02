@@ -438,8 +438,8 @@
 	</array>
 	<key>python</key>
 	<array>
-		<string>python3.framework/python3</string>
-		<string>python3_main</string>
+		<string>Python3_ios.framework/Python3_ios</string>
+		<string>_Py_UnixMain</string>
 		<string>3bBc:dEhiJm:OQ:RsStuUvVW:xX?</string>
 		<string>file</string>
 	</array>

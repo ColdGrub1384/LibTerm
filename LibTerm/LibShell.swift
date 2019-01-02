@@ -248,6 +248,59 @@ open class LibShell {
         isCommandRunning = false
     }
     
+    // MARK: - Running
+    
+    private func setStreams(arguments: [String], io: LTIO) {
+        if arguments.first == "python" || arguments.first == "python2" || arguments.first == "lua" || arguments.first == "bc" { // Redirect stderr to stdout and reset input
+            
+            io.inputPipe = Pipe()
+            io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
+            
+            let _stdin = io.stdin
+            
+            ios_setStreams(io.stdin, io.stdout, io.stdout)
+            
+            stdin = io.stdin ?? stdin
+            
+            defer {
+                stdin = _stdin ?? stdin
+            }
+        } else {
+            ios_setStreams(io.stdin, io.stdout, io.stderr)
+        }
+    }
+    
+    private enum PythonVersion {
+        
+        case v2_7
+        case v3_7
+    }
+    
+    private func setPythonEnvironment(version: PythonVersion) {
+        
+        guard let py2Path = Bundle.main.path(forResource: "python27", ofType: "zip") else {
+            fatalError()
+        }
+        
+        let py2SitePackages = FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0].appendingPathComponent("site-packages2").path
+        
+        guard let py3Path = Bundle.main.path(forResource: "python37", ofType: "zip") else {
+            fatalError()
+        }
+        
+        let py3SitePackages = FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0].appendingPathComponent("site-packages3").path
+        
+        putenv("PYTHONHOME=\(Bundle.main.bundlePath)".cValue)
+        
+        if version == .v2_7 {
+            putenv("PYTHONPATH=\(py2SitePackages):\(py2Path)".cValue)
+        } else if version == .v3_7 {
+            putenv("PYTHONPATH=\(py3SitePackages):\(py3Path)".cValue)
+        }
+    }
+    
+    private let runREPL = "-c 'from code import interact; interact()'"
+    
     /// Run given command.
     ///
     /// - Parameters:
@@ -311,35 +364,13 @@ open class LibShell {
             return 0
         }
         
-        if arguments.first == "python" || arguments.first == "python2" || arguments.first == "lua" || arguments.first == "bc" { // Redirect stderr to stdout and reset input
-            
-            io.inputPipe = Pipe()
-            io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
-            
-            let _stdin = io.stdin
-            
-            ios_setStreams(io.stdin, io.stdout, io.stdout)
-            
-            stdin = io.stdin ?? stdin
-            
-            defer {
-                stdin = _stdin ?? stdin
-            }
-        } else {
-            ios_setStreams(io.stdin, io.stdout, io.stderr)
-        }
-        
-        let pyPath = Bundle.main.path(forResource: "python27", ofType: "zip")
-        let py2SitePackages = FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0].appendingPathComponent("site-packages2").path
+        setStreams(arguments: arguments, io: io)
         
         if arguments.first == "python", Python3Locker.isLocked(withArguments: arguments) {
             
             fputs("python: To unlock Python 3, go to settings and purchase access to Python 3.\n", io.stderr)
             
-            if let pyPath = pyPath {
-                putenv("PYTHONHOME=\(pyPath)".cValue)
-                putenv("PYTHONPATH=\(pyPath):\(py2SitePackages)".cValue)
-            }
+            setPythonEnvironment(version: .v2_7)
             
             var py2arguments = arguments
             py2arguments.removeFirst()
@@ -347,20 +378,20 @@ open class LibShell {
             if py2arguments.count > 0 {
                 return ios_system("python2 \(py2arguments.joined(separator: " "))")
             } else {
-                return ios_system("python2 -c 'from code import interact; interact()'")
+                return ios_system("python2 \(runREPL)")
             }
         }
         
-        if arguments == ["python"] { // When Python is called without arguments, it freezes instead of running the REPL
-            return ios_system("python -c 'from code import interact; interact()'")
-        }
-        
-        if arguments.first == "python2", let pyPath = pyPath {
-            putenv("PYTHONHOME=\(pyPath)".cValue)
-            putenv("PYTHONPATH=\(pyPath):\(py2SitePackages)".cValue)
-            
+        // When Python is called without arguments, it freezes instead of running the REPL
+        if arguments.first == "python" {
+            setPythonEnvironment(version: .v3_7)
+            if arguments == ["python"] {
+                return ios_system("python \(runREPL)")
+            }
+        } else if arguments.first == "python2" {
+            setPythonEnvironment(version: .v2_7)
             if arguments == ["python2"] {
-                return ios_system("python2 -c 'from code import interact; interact()'")
+                return ios_system("python2 \(runREPL)")
             }
         }
         
