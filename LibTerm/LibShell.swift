@@ -250,6 +250,28 @@ open class LibShell {
     
     // MARK: - Running
     
+    private func addToHistory(_ command: String) {
+        func append(command: String) {
+            // Remove useless spaces
+            var command_ = command
+            while command_.hasSuffix(" ") {
+                command_ = String(command.dropLast())
+            }
+            
+            history.append(command_)
+        }
+        var historyCommand = command
+        while historyCommand.hasSuffix(" ") {
+            historyCommand = String(historyCommand.dropLast())
+        }
+        if !history.contains(historyCommand), !historyCommand.isEmpty {
+            append(command: historyCommand)
+        } else if let i = history.firstIndex(of: historyCommand) {
+            history.remove(at: i)
+            append(command: historyCommand)
+        }
+    }
+    
     private func setStreams(arguments: [String], io: LTIO) {
         if arguments.first == "python" || arguments.first == "python2" || arguments.first == "lua" || arguments.first == "bc" { // Redirect stderr to stdout and reset input
             
@@ -307,31 +329,28 @@ open class LibShell {
     ///
     /// - Parameters:
     ///     - command: The command to run.
+    ///     - appendToHistory: If set to `false`, command will not be added to the history.
     ///
     /// - Returns: The exit code.
-    @discardableResult open func run(command: String) -> Int32 {
+    @discardableResult open func run(command: String, appendToHistory: Bool = true) -> Int32 {
+        
+        let commands = command.components(separatedBy: ";")
+        if commands.count > 1 {
+            addToHistory(command)
+            var lastResult: Int32!
+            for command in commands {
+                lastResult = run(command: command, appendToHistory: false)
+            }
+            
+            return lastResult
+        }
+        
         guard let io = self.io else {
             return 1
         }
         
-        func append(command: String) {
-            // Remove useless spaces
-            var command_ = command
-            while command_.hasSuffix(" ") {
-                command_ = String(command.dropLast())
-            }
-            
-            history.append(command_)
-        }
-        var historyCommand = command
-        while historyCommand.hasSuffix(" ") {
-            historyCommand = String(historyCommand.dropLast())
-        }
-        if !history.contains(historyCommand), !historyCommand.isEmpty {
-            append(command: historyCommand)
-        } else if let i = history.firstIndex(of: historyCommand) {
-            history.remove(at: i)
-            append(command: historyCommand)
+        if appendToHistory {
+            addToHistory(command)
         }
         
         thread_stdout = nil
