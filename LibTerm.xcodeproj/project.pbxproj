@@ -33,6 +33,11 @@
 		C95CEF2321C98491003BC599 /* receiptValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95CEF2221C98491003BC599 /* receiptValidation.swift */; };
 		C95CEF2621C9AB54003BC599 /* SwiftyStoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95CEF1521C98251003BC599 /* SwiftyStoreKit.framework */; };
 		C95CEF2721C9AB54003BC599 /* SwiftyStoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C95CEF1521C98251003BC599 /* SwiftyStoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96CB9EE21DD4241008C508C /* site-packages in Resources */ = {isa = PBXBuildFile; fileRef = C96CB9E221DD4241008C508C /* site-packages */; };
+		C96CB9FC21DD5499008C508C /* libssh2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC9216049DD00F870B5 /* libssh2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96CB9FE21DD54AB008C508C /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96CB9FF21DD54D4008C508C /* libssh2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC9216049DD00F870B5 /* libssh2.framework */; };
+		C96CBA0021DD54EF008C508C /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; };
 		C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC42160467E00F870B5 /* AppDelegate.swift */; };
 		C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
 		C9806BCF2160468200F870B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCD2160468200F870B5 /* LaunchScreen.storyboard */; };
@@ -40,7 +45,6 @@
 		C9806CEA21604A1400F870B5 /* network_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC3216049DD00F870B5 /* network_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806CEC21604A1400F870B5 /* curl_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC5216049DD00F870B5 /* curl_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806CEE21604A1400F870B5 /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9806CF221604A1400F870B5 /* libssh2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC9216049DD00F870B5 /* libssh2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806CF621604A1400F870B5 /* tar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCE216049DD00F870B5 /* tar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806CF821604A1400F870B5 /* awk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CCF216049DD00F870B5 /* awk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806CFA21604A1400F870B5 /* files.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CD0216049DD00F870B5 /* files.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -327,16 +331,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C91C481A2161491B0003BD90 /* Copy Python Home */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = lib;
-			dstSubfolderSpec = 7;
-			files = (
-			);
-			name = "Copy Python Home";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C91D4D0F218FAD06003F73FF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,6 +354,7 @@
 				C95CEEFF21C96B07003BC599 /* Python_ios.framework in Embed Frameworks */,
 				C9806CF821604A1400F870B5 /* awk.framework in Embed Frameworks */,
 				C9806CF621604A1400F870B5 /* tar.framework in Embed Frameworks */,
+				C96CB9FC21DD5499008C508C /* libssh2.framework in Embed Frameworks */,
 				C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */,
 				C9806CFC21604A1400F870B5 /* ssh_cmd.framework in Embed Frameworks */,
 				C9E3916F21BF237C00F16622 /* bc_ios.framework in Embed Frameworks */,
@@ -367,8 +362,8 @@
 				C922E95721DD19370067C51C /* Python3_ios.framework in Embed Frameworks */,
 				C9E30A5721C1958A00789346 /* Highlightr.framework in Embed Frameworks */,
 				C9F0F02621654DC700CAC2A0 /* TabView.framework in Embed Frameworks */,
+				C96CB9FE21DD54AB008C508C /* openssl.framework in Embed Frameworks */,
 				C9806CFA21604A1400F870B5 /* files.framework in Embed Frameworks */,
-				C9806CF221604A1400F870B5 /* libssh2.framework in Embed Frameworks */,
 				C9806D0021604A1400F870B5 /* lua_ios.framework in Embed Frameworks */,
 				C9806CEC21604A1400F870B5 /* curl_ios.framework in Embed Frameworks */,
 				C9806CFE21604A1400F870B5 /* text.framework in Embed Frameworks */,
@@ -403,6 +398,10 @@
 		C95CEF0721C97909003BC599 /* Python3Locker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python3Locker.swift; sourceTree = "<group>"; };
 		C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyStoreKit.xcodeproj; path = SwiftyStoreKit/SwiftyStoreKit.xcodeproj; sourceTree = "<group>"; };
 		C95CEF2221C98491003BC599 /* receiptValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = receiptValidation.swift; sourceTree = "<group>"; };
+		C96CB9E221DD4241008C508C /* site-packages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "site-packages"; sourceTree = "<group>"; };
+		C96CB9F521DD48C5008C508C /* libbzip2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbzip2.a; path = BZip2/libbzip2.a; sourceTree = "<group>"; };
+		C96CB9F721DD48C8008C508C /* libxz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libxz.a; path = XZ/libxz.a; sourceTree = "<group>"; };
+		C96CB9F921DD48CD008C508C /* libOpenSSL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOpenSSL.a; path = OpenSSL/libOpenSSL.a; sourceTree = "<group>"; };
 		C9806BC12160467E00F870B5 /* LibTerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibTerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9806BC42160467E00F870B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9806BCB2160468200F870B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -484,6 +483,8 @@
 				C9E3916E21BF237C00F16622 /* bc_ios.framework in Frameworks */,
 				C9F0F02521654DC700CAC2A0 /* TabView.framework in Frameworks */,
 				C95BE12621A37A6000FB135B /* ios_system.framework in Frameworks */,
+				C96CB9FF21DD54D4008C508C /* libssh2.framework in Frameworks */,
+				C96CBA0021DD54EF008C508C /* openssl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +583,9 @@
 			children = (
 				C9806CBC2160492000F870B5 /* libsqlite3.tbd */,
 				C9806CBA216048FC00F870B5 /* libz.tbd */,
+				C96CB9F521DD48C5008C508C /* libbzip2.a */,
+				C96CB9F721DD48C8008C508C /* libxz.a */,
+				C96CB9F921DD48CD008C508C /* libOpenSSL.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -616,6 +620,7 @@
 		C9806D1021612B7A00F870B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C96CB9E221DD4241008C508C /* site-packages */,
 				C9E771D321C7E80700C56FEE /* credits */,
 				C9E30A5D21C1983F00789346 /* langs.plist */,
 				C95BE11421A3715D00FB135B /* cacert.pem */,
@@ -780,7 +785,6 @@
 				C9806BBE2160467E00F870B5 /* Frameworks */,
 				C9806BBF2160467E00F870B5 /* Resources */,
 				C9806D0121604A1500F870B5 /* Embed Frameworks */,
-				C91C481A2161491B0003BD90 /* Copy Python Home */,
 			);
 			buildRules = (
 			);
@@ -1043,6 +1047,7 @@
 				C9C552D021766E8F00F43B34 /* Settings.storyboard in Resources */,
 				C9E30A5E21C1983F00789346 /* langs.plist in Resources */,
 				C9580E8C2165553500A43CEC /* Terminal.storyboard in Resources */,
+				C96CB9EE21DD4241008C508C /* site-packages in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1409,6 +1414,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ios_system_core/ios_system\"",
+					"$(PROJECT_DIR)/BZip2",
+					"$(PROJECT_DIR)/XZ",
+					"$(PROJECT_DIR)/OpenSSL",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1445,6 +1453,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ios_system_core/ios_system\"",
+					"$(PROJECT_DIR)/BZip2",
+					"$(PROJECT_DIR)/XZ",
+					"$(PROJECT_DIR)/OpenSSL",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";

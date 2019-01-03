@@ -290,12 +290,14 @@ open class LibShell {
         
         let py3SitePackages = FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0].appendingPathComponent("site-packages3").path
         
+        let bundledSitePackages = Bundle.main.bundleURL.appendingPathComponent("site-packages").path
+        
         putenv("PYTHONHOME=\(Bundle.main.bundlePath)".cValue)
         
         if version == .v2_7 {
-            putenv("PYTHONPATH=\(py2SitePackages):\(py2Path)".cValue)
+            putenv("PYTHONPATH=\(py2SitePackages):\(py2Path):\(bundledSitePackages)".cValue)
         } else if version == .v3_7 {
-            putenv("PYTHONPATH=\(py3SitePackages):\(py3Path)".cValue)
+            putenv("PYTHONPATH=\(py3SitePackages):\(py3Path):\(bundledSitePackages)".cValue)
         }
     }
     
