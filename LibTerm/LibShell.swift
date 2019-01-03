@@ -250,6 +250,77 @@ open class LibShell {
     
     // MARK: - Running
     
+    /// Run given command.
+    ///
+    /// - Parameters:
+    ///     - command: The command to run.
+    ///     - appendToHistory: If set to `false`, command will not be added to the history.
+    ///
+    /// - Returns: The exit code.
+    @discardableResult open func run(command: String, appendToHistory: Bool = true) -> Int32 {
+        
+        let commands = command.components(separatedBy: ";")
+        if commands.count > 1 {
+            addToHistory(command)
+            var lastResult: Int32!
+            for command in commands {
+                lastResult = run(command: command, appendToHistory: false)
+            }
+            
+            return lastResult
+        }
+        
+        guard let io = self.io else {
+            return 1
+        }
+        
+        if appendToHistory {
+            addToHistory(command)
+        }
+        
+        thread_stdout = nil
+        thread_stderr = nil
+        thread_stdin = nil
+        
+        io.inputPipe = Pipe()
+        io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
+        ios_switchSession(io.stdout)
+        
+        isCommandRunning = true
+        
+        defer {
+            isCommandRunning = false
+        }
+        
+        let command_ = commandByReplacingVariables(command)
+        
+        var arguments = command_.arguments
+        parseArgs(&arguments)
+        guard arguments.count > 0 else {
+            return 0
+        }
+        
+        setStreams(arguments: arguments, io: io)
+        
+        if let locked = lockPythonIfNeeded(arguments, io) {
+            return locked
+        } else if let repl = setupPython(arguments: arguments) {
+            return repl
+        } else if let variableSet = setVariablesIfNeeded(command: command_) {
+            return variableSet
+        } else if let ranPythonModule = tryToRunPythonModule(arguments: &arguments) {
+            return ranPythonModule
+        } else if builtins.keys.contains(arguments[0]) {
+            isBuiltinRunning = true
+            defer {
+                isBuiltinRunning = false
+            }
+            return builtins[arguments[0]]?(arguments.count, arguments, io) ?? 1
+        }
+        
+        return ios_system(command_.cValue)
+    }
+    
     private func addToHistory(_ command: String) {
         func append(command: String) {
             // Remove useless spaces
@@ -292,6 +363,33 @@ open class LibShell {
         }
     }
     
+    private func setVariablesIfNeeded(command: String) -> Int32? {
+        let setterComponents = command.components(separatedBy: "=")
+        if setterComponents.count > 1 {
+            if !setterComponents[0].contains(" ") {
+                var value = setterComponents
+                value.removeFirst()
+                variables[setterComponents[0]] = value.joined(separator: "=")
+                return 0
+            }
+        }
+        
+        return nil
+    }
+    
+    private func commandByReplacingVariables(_ command: String) -> String {
+        var command_ = command
+        for variable in variables {
+            command_ = command_.replacingOccurrences(of: "$\(variable.key)", with: variable.value)
+        }
+        
+        while command_.hasPrefix(" ") {
+            command_.removeFirst()
+        }
+        
+        return command_
+    }
+    
     private enum PythonVersion {
         
         case v2_7
@@ -323,70 +421,7 @@ open class LibShell {
         }
     }
     
-    private let runREPL = "-c 'from code import interact; interact()'"
-    
-    /// Run given command.
-    ///
-    /// - Parameters:
-    ///     - command: The command to run.
-    ///     - appendToHistory: If set to `false`, command will not be added to the history.
-    ///
-    /// - Returns: The exit code.
-    @discardableResult open func run(command: String, appendToHistory: Bool = true) -> Int32 {
-        
-        let commands = command.components(separatedBy: ";")
-        if commands.count > 1 {
-            addToHistory(command)
-            var lastResult: Int32!
-            for command in commands {
-                lastResult = run(command: command, appendToHistory: false)
-            }
-            
-            return lastResult
-        }
-        
-        guard let io = self.io else {
-            return 1
-        }
-        
-        if appendToHistory {
-            addToHistory(command)
-        }
-        
-        thread_stdout = nil
-        thread_stderr = nil
-        thread_stdin = nil
-        
-        
-        io.inputPipe = Pipe()
-        io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
-        ios_switchSession(io.stdout)
-        
-        isCommandRunning = true
-        
-        defer {
-            isCommandRunning = false
-        }
-        
-        var command_ = command
-        for variable in variables {
-            command_ = command_.replacingOccurrences(of: "$\(variable.key)", with: variable.value)
-        }
-        
-        while command_.hasPrefix(" ") {
-            command_.removeFirst()
-        }
-        
-        var arguments = command_.arguments
-        
-        parseArgs(&arguments)
-        
-        guard arguments.count > 0 else {
-            return 0
-        }
-        
-        setStreams(arguments: arguments, io: io)
-        
+    private func lockPythonIfNeeded(_ arguments: [String], _ io: LTIO) -> Int32? {
         if arguments.first == "python", Python3Locker.isLocked(withArguments: arguments) {
             
             fputs("python: To unlock Python 3, go to settings and purchase access to Python 3.\n", io.stderr)
@@ -403,6 +438,10 @@ open class LibShell {
             }
         }
         
+        return nil
+    }
+    
+    private func setupPython(arguments: [String]) -> Int32? {
         // When Python is called without arguments, it freezes instead of running the REPL
         if arguments.first == "python" {
             setPythonEnvironment(version: .v3_7)
@@ -415,19 +454,10 @@ open class LibShell {
                 return ios_system("python2 \(runREPL)")
             }
         }
-        
-        let setterComponents = command.components(separatedBy: "=")
-        if setterComponents.count > 1 {
-            if !setterComponents[0].contains(" ") {
-                var value = setterComponents
-                value.removeFirst()
-                variables[setterComponents[0]] = value.joined(separator: "=")
-                return 0
-            }
-        }
-        
-        var returnCode: Int32
-        
+        return nil
+    }
+    
+    private func tryToRunPythonModule(arguments: inout [String]) -> Int32? {
         // Run Python scripts located in ~/Library/scripts
         let scriptsDirectory = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("scripts")
         let scriptURL = scriptsDirectory.appendingPathComponent(arguments[0]+".py")
@@ -435,15 +465,14 @@ open class LibShell {
             arguments.insert("python", at: 0)
             arguments.remove(at: 1)
             arguments.insert(scriptURL.path, at: 1)
-            returnCode = ios_system(arguments.joined(separator: " ").cValue)
-        } else if builtins.keys.contains(arguments[0]) {
-            isBuiltinRunning = true
-            returnCode = builtins[arguments[0]]?(arguments.count, arguments, io) ?? 1
-            isBuiltinRunning = false
+            
+            setPythonEnvironment(version: .v3_7)
+            
+            return ios_system(arguments.joined(separator: " ").cValue)
         } else {
-            returnCode = ios_system(command_.cValue)
+            return nil
         }
-        
-        return returnCode
     }
+    
+    private let runREPL = "-c 'from code import interact; interact()'"
 }
