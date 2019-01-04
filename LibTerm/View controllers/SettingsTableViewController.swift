@@ -30,6 +30,8 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
         static let tabView = IndexPath(row: 3, section: 2)
         static let highlightr = IndexPath(row: 4, section: 2)
         static let objectUserDefaults = IndexPath(row: 5, section: 2)
+        static let python3_ios = IndexPath(row: 6, section: 2)
+        static let other = IndexPath(row: 7, section: 2)
         
         static let libTerm = IndexPath(row: 0, section: 3)
         
@@ -225,6 +227,10 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
             projectPath = "raspu/Highlightr"
         case ProjectsIndexPaths.objectUserDefaults:
             projectPath = "ColdGrub1384/ObjectUserDefaults"
+        case ProjectsIndexPaths.python3_ios:
+            projectPath = "holzschu/Python3_ios"
+        case ProjectsIndexPaths.other:
+            projectPath = "ColdGrub1384/LibTerm/blob/master/PYTHON_ACKNOWLEDGMENTS.md"
         case ProjectsIndexPaths.libTerm:
             projectPath = "ColdGrub1384/LibTerm"
         case ProjectsIndexPaths.pisth:

@@ -9,11 +9,15 @@ A big thanks to Nicolas Holzschuch (github.com/holzschu) for making this project
 Contributors:
 
 BOLDShock9616PLAIN (github.com/Shock9616)
+BOLDG3bEPLAIN (github.com/G3bE)
+BOLDDawidPLAIN (github.com/CodeIndexer)
 
 Third party libraries used on this project:
 
   - BOLDios_systemPLAIN by Nicolas Holzschuch:
     Licensed under BSD 3-Clause License
+
+  - BOLDPython3_ios by Nicolas Holzschuch
 
   - BOLDPython Apple SupportPLAIN by BeeWare:
     Licensed under MIT license
@@ -28,7 +32,7 @@ Third party libraries used on this project:
     Licensed under MIT license
 
   - BOLDSwiftyStoreKitPLAIN by Andrea Bizzotto:
-  Licensed under MIT license
+    Licensed under MIT license
 
   - BOLDObjectUserDefaultsPLAIN by Adrian Labbé:
     Licensed under MIT license
