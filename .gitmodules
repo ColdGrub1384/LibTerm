@@ -7,9 +7,6 @@
 [submodule "ios_system_core"]
 	path = ios_system_core
 	url = https://github.com/ColdGrub1384/ios_system
-[submodule "ObjectUserDefaults"]
-	path = ObjectUserDefaults
-	url = https://github.com/ColdGrub1384/ObjectUserDefaults.git
 [submodule "bc"]
 	path = bc
 	url = https://github.com/holzschu/bc.git
