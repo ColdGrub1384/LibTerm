@@ -16,3 +16,6 @@
 [submodule "SwiftyStoreKit"]
 	path = SwiftyStoreKit
 	url = https://github.com/bizz84/SwiftyStoreKit.git
+[submodule "ObjectUserDefaults"]
+	path = ObjectUserDefaults
+	url = https://github.com/ColdGrub1384/ObjectUserDefaults.git
