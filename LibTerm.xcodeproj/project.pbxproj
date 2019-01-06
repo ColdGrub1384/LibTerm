@@ -57,6 +57,11 @@
 		C9806D0F21611EA100F870B5 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0E21611EA100F870B5 /* Keys.swift */; };
 		C983B66B21976BA4009EBF4F /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983B66621976BA4009EBF4F /* ReviewHelper.swift */; };
 		C9AAAB332194E5610042E733 /* BuildDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAAB322194E5600042E733 /* BuildDate.swift */; };
+		C9B5D4B321E1625D008AB9C8 /* Python3_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C91FB75F21DE9BA6001E987A /* Python3_ios.a */; };
+		C9B5D4BF21E16269008AB9C8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CBA216048FC00F870B5 /* libz.tbd */; };
+		C9B5D4C021E1626F008AB9C8 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C95FA4AB21DEA24F0015C95C /* libbz2.tbd */; };
+		C9B5D4C121E16282008AB9C8 /* liblzma.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C91FB77321DEA1E3001E987A /* liblzma.tbd */; };
+		C9B5D4CA21E17C82008AB9C8 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B5D4C921E17C82008AB9C8 /* libffi.a */; };
 		C9C552D021766E8F00F43B34 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C552CF21766E8F00F43B34 /* Settings.storyboard */; };
 		C9C552D22176716C00F43B34 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C552D12176716C00F43B34 /* SettingsTableViewController.swift */; };
 		C9C552D9217672F300F43B34 /* ObjectUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */; };
@@ -436,6 +441,7 @@
 		C9806D0E21611EA100F870B5 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		C983B66621976BA4009EBF4F /* ReviewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewHelper.swift; sourceTree = "<group>"; };
 		C9AAAB322194E5600042E733 /* BuildDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildDate.swift; sourceTree = "<group>"; };
+		C9B5D4C921E17C82008AB9C8 /* libffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffi.a; sourceTree = "<group>"; };
 		C9C552CF21766E8F00F43B34 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C9C552D12176716C00F43B34 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		C9C552D3217672EA00F43B34 /* ObjectUserDefaults.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectUserDefaults.xcodeproj; path = ObjectUserDefaults/ObjectUserDefaults.xcodeproj; sourceTree = "<group>"; };
@@ -478,6 +484,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9B5D4C121E16282008AB9C8 /* liblzma.tbd in Frameworks */,
+				C9B5D4C021E1626F008AB9C8 /* libbz2.tbd in Frameworks */,
+				C9B5D4BF21E16269008AB9C8 /* libz.tbd in Frameworks */,
 				C9E30A5621C1958A00789346 /* Highlightr.framework in Frameworks */,
 				C9F0F010216437C500CAC2A0 /* InputAssistant.framework in Frameworks */,
 				C95CEF2621C9AB54003BC599 /* SwiftyStoreKit.framework in Frameworks */,
@@ -486,7 +495,9 @@
 				C9E3916E21BF237C00F16622 /* bc_ios.framework in Frameworks */,
 				C91FB76C21DE9F04001E987A /* openssl.framework in Frameworks */,
 				C9F0F02521654DC700CAC2A0 /* TabView.framework in Frameworks */,
+				C9B5D4CA21E17C82008AB9C8 /* libffi.a in Frameworks */,
 				C95BE12621A37A6000FB135B /* ios_system.framework in Frameworks */,
+				C9B5D4B321E1625D008AB9C8 /* Python3_ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +556,7 @@
 				C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */,
 				C95CEF0A21C98251003BC599 /* SwiftyStoreKit.xcodeproj */,
 				C91FB75F21DE9BA6001E987A /* Python3_ios.a */,
+				C9B5D4C921E17C82008AB9C8 /* libffi.a */,
 				C9806CC0216049DD00F870B5 /* ios_system */,
 				C9806BC32160467E00F870B5 /* LibTerm */,
 				C9FAD8FA216AD24B005939AC /* LibTermCore */,
