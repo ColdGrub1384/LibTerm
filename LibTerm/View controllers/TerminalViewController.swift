@@ -427,12 +427,10 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                     thread = DispatchQueue.global(qos: .utility)
                     thread.async {
                         self.shell.run(command: prompt)
-                        DispatchQueue.main.async {
-                            _ = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: { (_) in
-                                self.shell.input()
-                            })
-                        }
-                        Thread.current.cancel()
+                        DispatchQueue.main.asyncAfter(deadline: .now()+0.25, execute: {
+                            self.shell.input()
+                            self.thread.async(execute: Thread.current.cancel)
+                        })
                     }
                 }
                 
