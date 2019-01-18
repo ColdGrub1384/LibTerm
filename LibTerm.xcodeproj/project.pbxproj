@@ -38,6 +38,7 @@
 		C95CEF2721C9AB54003BC599 /* SwiftyStoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C95CEF1521C98251003BC599 /* SwiftyStoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C96CB9EE21DD4241008C508C /* site-packages in Resources */ = {isa = PBXBuildFile; fileRef = C96CB9E221DD4241008C508C /* site-packages */; };
 		C96CB9FE21DD54AB008C508C /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C97C79B221F264D80055E116 /* bc_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E3916021BDE2D800F16622 /* bc_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9806BC52160467E00F870B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806BC42160467E00F870B5 /* AppDelegate.swift */; };
 		C9806BCC2160468200F870B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCB2160468200F870B5 /* Assets.xcassets */; };
 		C9806BCF2160468200F870B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9806BCD2160468200F870B5 /* LaunchScreen.storyboard */; };
@@ -76,8 +77,6 @@
 		C9E30A5621C1958A00789346 /* Highlightr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E30A5321C1955F00789346 /* Highlightr.framework */; };
 		C9E30A5721C1958A00789346 /* Highlightr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E30A5321C1955F00789346 /* Highlightr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9E30A5E21C1983F00789346 /* langs.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9E30A5D21C1983F00789346 /* langs.plist */; };
-		C9E3916E21BF237C00F16622 /* bc_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E3916D21BF237400F16622 /* bc_ios.framework */; };
-		C9E3916F21BF237C00F16622 /* bc_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E3916D21BF237400F16622 /* bc_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9E5A86A21CBF2F40060B871 /* edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E30A4B21C187C900789346 /* edit.swift */; };
 		C9E5A86B21CBF2F40060B871 /* package.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D12218FBF90003F73FF /* package.swift */; };
 		C9E5A86C21CBF2F40060B871 /* package.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D12218FBF90003F73FF /* package.swift */; };
@@ -249,20 +248,6 @@
 			remoteGlobalIDString = 8C2FB1C11F39118F00469D0D;
 			remoteInfo = "Highlightr-iOS";
 		};
-		C9E3916C21BF237400F16622 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C9E3916821BF237400F16622 /* bc_ios.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 228ED8B8218F23FD0066CC1E;
-			remoteInfo = bc_ios;
-		};
-		C9E3917021BF237C00F16622 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C9E3916821BF237400F16622 /* bc_ios.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 228ED8B7218F23FD0066CC1E;
-			remoteInfo = bc_ios;
-		};
 		C9E771EA21C8330C00C56FEE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */;
@@ -362,8 +347,8 @@
 				C91FB76F21DE9F0E001E987A /* libssh2.framework in Embed Frameworks */,
 				C91FB76D21DE9F04001E987A /* openssl.framework in Embed Frameworks */,
 				C9F0F011216437C500CAC2A0 /* InputAssistant.framework in Embed Frameworks */,
+				C97C79B221F264D80055E116 /* bc_ios.framework in Embed Frameworks */,
 				C9806CFC21604A1400F870B5 /* ssh_cmd.framework in Embed Frameworks */,
-				C9E3916F21BF237C00F16622 /* bc_ios.framework in Embed Frameworks */,
 				C95CEF2721C9AB54003BC599 /* SwiftyStoreKit.framework in Embed Frameworks */,
 				C9E30A5721C1958A00789346 /* Highlightr.framework in Embed Frameworks */,
 				C9F0F02621654DC700CAC2A0 /* TabView.framework in Embed Frameworks */,
@@ -455,7 +440,6 @@
 		C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Highlightr.xcodeproj; path = Highlightr/Highlightr.xcodeproj; sourceTree = "<group>"; };
 		C9E30A5D21C1983F00789346 /* langs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = langs.plist; sourceTree = "<group>"; };
 		C9E3916021BDE2D800F16622 /* bc_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = bc_ios.framework; sourceTree = "<group>"; };
-		C9E3916821BF237400F16622 /* bc_ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = bc_ios.xcodeproj; path = bc/bc_ios/bc_ios.xcodeproj; sourceTree = "<group>"; };
 		C9E5FFBF21C42ED200ED4C57 /* LibTerm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LibTerm-Bridging-Header.h"; sourceTree = "<group>"; };
 		C9E771D321C7E80700C56FEE /* credits */ = {isa = PBXFileReference; lastKnownFileType = text; path = credits; sourceTree = "<group>"; };
 		C9E771D521C7EB9E00C56FEE /* credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = credits.swift; sourceTree = "<group>"; };
@@ -492,7 +476,6 @@
 				C95CEF2621C9AB54003BC599 /* SwiftyStoreKit.framework in Frameworks */,
 				C9C552D9217672F300F43B34 /* ObjectUserDefaults.framework in Frameworks */,
 				C91FB76E21DE9F0E001E987A /* libssh2.framework in Frameworks */,
-				C9E3916E21BF237C00F16622 /* bc_ios.framework in Frameworks */,
 				C91FB76C21DE9F04001E987A /* openssl.framework in Frameworks */,
 				C9F0F02521654DC700CAC2A0 /* TabView.framework in Frameworks */,
 				C9B5D4CA21E17C82008AB9C8 /* libffi.a in Frameworks */,
@@ -548,7 +531,6 @@
 		C9806BB82160467E00F870B5 = {
 			isa = PBXGroup;
 			children = (
-				C9E3916821BF237400F16622 /* bc_ios.xcodeproj */,
 				C95BE11A21A379F900FB135B /* ios_system.xcodeproj */,
 				C9C552D3217672EA00F43B34 /* ObjectUserDefaults.xcodeproj */,
 				C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */,
@@ -697,14 +679,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C9E3916921BF237400F16622 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C9E3916D21BF237400F16622 /* bc_ios.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C9E5A86921CBF2E60060B871 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,7 +784,6 @@
 				C9F0F02821654DC700CAC2A0 /* PBXTargetDependency */,
 				C9C552DC217672F300F43B34 /* PBXTargetDependency */,
 				C95BE12921A37A6000FB135B /* PBXTargetDependency */,
-				C9E3917121BF237C00F16622 /* PBXTargetDependency */,
 				C9E30A5921C1958A00789346 /* PBXTargetDependency */,
 				C95CEF2921C9AB54003BC599 /* PBXTargetDependency */,
 			);
@@ -871,10 +844,6 @@
 			productRefGroup = C9806BC22160467E00F870B5 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
-				{
-					ProductGroup = C9E3916921BF237400F16622 /* Products */;
-					ProjectRef = C9E3916821BF237400F16622 /* bc_ios.xcodeproj */;
-				},
 				{
 					ProductGroup = C9E30A4E21C1955F00789346 /* Products */;
 					ProjectRef = C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */;
@@ -985,13 +954,6 @@
 			fileType = wrapper.framework;
 			path = Highlightr.framework;
 			remoteRef = C9E30A5421C1955F00789346 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C9E3916D21BF237400F16622 /* bc_ios.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = bc_ios.framework;
-			remoteRef = C9E3916C21BF237400F16622 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */ = {
@@ -1195,11 +1157,6 @@
 			isa = PBXTargetDependency;
 			name = "Highlightr-iOS";
 			targetProxy = C9E30A5821C1958A00789346 /* PBXContainerItemProxy */;
-		};
-		C9E3917121BF237C00F16622 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = bc_ios;
-			targetProxy = C9E3917021BF237C00F16622 /* PBXContainerItemProxy */;
 		};
 		C9E771EB21C8330C00C56FEE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1411,6 +1368,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
@@ -1436,6 +1395,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_STYLE = "non-global";
 				STRIP_SWIFT_SYMBOLS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "LibTerm/LibTerm-Bridging-Header.h";
@@ -1451,6 +1411,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
@@ -1473,6 +1435,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_STYLE = "non-global";
 				STRIP_SWIFT_SYMBOLS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "LibTerm/LibTerm-Bridging-Header.h";
@@ -1484,7 +1447,7 @@
 		C9FAD902216AD24B005939AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

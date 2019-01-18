@@ -30,10 +30,3 @@ tar -xzf ios_system.tar.gz -Cios_system/
 mv ios_system/release/* ios_system/
 rm -rf ios_system/release
 rm ios_system.tar.gz
-
-# bc
-
-cd bc
-sh ./get_frameworks.sh
-make
-cd ../
