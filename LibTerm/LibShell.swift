@@ -302,9 +302,7 @@ open class LibShell {
         
         setStreams(arguments: arguments, io: io)
         
-        if let locked = lockPythonIfNeeded(arguments, io) {
-            return locked
-        } else if let repl = setupPython(arguments: arguments) {
+        if let repl = setupPython(arguments: arguments) {
             return repl
         } else if let variableSet = setVariablesIfNeeded(command: command_) {
             return variableSet
@@ -344,7 +342,7 @@ open class LibShell {
     }
     
     private func setStreams(arguments: [String], io: LTIO) {
-        if arguments.first == "python" || arguments.first == "python2" || arguments.first == "lua" || arguments.first == "bc" { // Redirect stderr to stdout and reset input
+        if arguments.first == "python" || arguments.first == "python2" || arguments.first == "lua" || arguments.first == "bc" || arguments.first == "dc" { // Redirect stderr to stdout and reset input
             
             io.inputPipe = Pipe()
             io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
@@ -419,26 +417,6 @@ open class LibShell {
         } else if version == .v3_7 {
             putenv("PYTHONPATH=\(py3SitePackages):\(py3Path):\(bundledSitePackages)".cValue)
         }
-    }
-    
-    private func lockPythonIfNeeded(_ arguments: [String], _ io: LTIO) -> Int32? {
-        if arguments.first == "python", Python3Locker.isLocked(withArguments: arguments) {
-            
-            fputs("python: To unlock Python 3, go to settings and purchase access to Python 3.\n", io.stderr)
-            
-            setPythonEnvironment(version: .v2_7)
-            
-            var py2arguments = arguments
-            py2arguments.removeFirst()
-            
-            if py2arguments.count > 0 {
-                return ios_system("python2 \(py2arguments.joined(separator: " "))")
-            } else {
-                return ios_system("python2 \(runREPL)")
-            }
-        }
-        
-        return nil
     }
     
     private func setupPython(arguments: [String]) -> Int32? {

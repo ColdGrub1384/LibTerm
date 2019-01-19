@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C9806BC02160467E00F870B5"
+               BlueprintIdentifier = "C99505F621F3A12200C0D1BB"
                BuildableName = "LibTerm.app"
                BlueprintName = "LibTerm"
                ReferencedContainer = "container:LibTerm.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C9806BC02160467E00F870B5"
+            BlueprintIdentifier = "C99505F621F3A12200C0D1BB"
             BuildableName = "LibTerm.app"
             BlueprintName = "LibTerm"
             ReferencedContainer = "container:LibTerm.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C9806BC02160467E00F870B5"
+            BlueprintIdentifier = "C99505F621F3A12200C0D1BB"
             BuildableName = "LibTerm.app"
             BlueprintName = "LibTerm"
             ReferencedContainer = "container:LibTerm.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C9806BC02160467E00F870B5"
+            BlueprintIdentifier = "C99505F621F3A12200C0D1BB"
             BuildableName = "LibTerm.app"
             BlueprintName = "LibTerm"
             ReferencedContainer = "container:LibTerm.xcodeproj">

@@ -10,7 +10,6 @@ import UIKit
 import TabView
 import ios_system
 import ObjectUserDefaults
-import SwiftyStoreKit
 import StoreKit
 
 /// The app's delegate.
@@ -24,41 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = TerminalTabViewController(theme: TabViewThemeDark())
         window?.makeKeyAndVisible()
-        
-        if Python3Locker.originalApplicationVersion.stringValue == nil {
-            DispatchQueue.global().async {
-            
-                if Bundle.main.appStoreReceiptURL == nil && !UserDefaults.standard.bool(forKey: "askedForVerifyingReceipt") {
-                    
-                    UserDefaults.standard.set(true, forKey: "askedForVerifyingReceipt") // If the user cancelled the receipt validation, the dialog should not appear anymore.
-                    UserDefaults.standard.synchronize()
-                    
-                    class Delegate: NSObject, SKRequestDelegate {
-                        
-                        static let delegate = Delegate()
-                        
-                        let semaphore = DispatchSemaphore(value: 0)
-                        
-                        func request(_ request: SKRequest, didFailWithError error: Error) {
-                            print(error.localizedDescription)
-                            semaphore.signal()
-                        }
-                        
-                        func requestDidFinish(_ request: SKRequest) {
-                            semaphore.signal()
-                        }
-                    }
-                    
-                    let request = SKReceiptRefreshRequest(receiptProperties: nil)
-                    request.delegate = Delegate.delegate
-                    request.start()
-                    
-                    Delegate.delegate.semaphore.wait()
-                }
-                
-                receiptValidation()
-            }
-        }
         
         initializeEnvironment()
                 
@@ -88,48 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if SettingsTableViewController.fontSize.integerValue == 0 {
             SettingsTableViewController.fontSize.integerValue = 14
-        }
-        
-        // In app purchases
-        
-        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
-            for purchase in purchases {
-                
-                switch purchase.transaction.transactionState {
-                case .purchased, .restored:
-                    if purchase.needsFinishTransaction {
-                        // Deliver content from server, then:
-                        SwiftyStoreKit.finishTransaction(purchase.transaction)
-                    }
-                    
-                    // Unlock content
-                    
-                    if purchase.productId == SettingsTableViewController.python37ProductID {
-                        Python3Locker.isPython3Purchased.boolValue = true
-                    }
-                    
-                case .failed, .purchasing, .deferred:
-                    break // do nothing
-                }
-            }
-        }
-        
-        SwiftyStoreKit.shouldAddStorePaymentHandler = { payment, product in
-            if product.productIdentifier == SettingsTableViewController.python37ProductID {
-                
-                if (Python3Locker.originalApplicationVersion.stringValue ?? "4.0") < "4.0" {
-                    
-                    let alert = UIAlertController(title: "Product purchased", message: "As you downloaded LibTerm before 4.0, you have Python 3.7 for free.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                    self.window?.rootViewController?.present(alert, animated: true, completion: nil)
-                    
-                    return false
-                }
-                
-                return true
-            } else {
-                return false
-            }
         }
         
         // Request app review
