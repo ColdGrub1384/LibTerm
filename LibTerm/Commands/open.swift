@@ -40,10 +40,15 @@ func openMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
         }
     }
     
-    let controller = UIActivityViewController(activityItems: items, applicationActivities: nil)
-    controller.popoverPresentationController?.sourceView = UIApplication.shared.keyWindow
-    controller.popoverPresentationController?.sourceRect = UIApplication.shared.keyWindow?.bounds ?? .zero
-    UIApplication.shared.keyWindow?.rootViewController?.present(controller, animated: true, completion: nil)
+    DispatchQueue.main.async {
+        
+        let vc = UIApplication.shared.keyWindow?.rootViewController
+        
+        let controller = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        controller.popoverPresentationController?.sourceView = UIApplication.shared.keyWindow
+        controller.popoverPresentationController?.sourceRect = .zero
+        vc?.present(controller, animated: true, completion: nil)
+    }
     
     return 0
 }
