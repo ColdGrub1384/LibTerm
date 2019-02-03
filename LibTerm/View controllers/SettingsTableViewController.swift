@@ -10,7 +10,6 @@ import UIKit
 import ObjectUserDefaults
 import SafariServices
 import StoreKit
-import SwiftyStoreKit
 
 /// A View controller with info about the app and some settings.
 class SettingsTableViewController: UITableViewController, SKStoreProductViewControllerDelegate {
@@ -37,8 +36,7 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
         
         static let pisth = IndexPath(row: 0, section: 3)
         static let pyto = IndexPath(row: 1, section: 3)
-        static let luade = IndexPath(row: 2, section: 3)
-        static let edidown = IndexPath(row: 3, section: 3)
+        static let edidown = IndexPath(row: 2, section: 3)
     }
     
     /// Closes this View controller.
@@ -117,8 +115,6 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
             present(appWithID: "1331070425")
         case ProjectsIndexPaths.pyto:
             present(appWithID: "1436650069")
-        case ProjectsIndexPaths.luade:
-            present(appWithID: "1444956026")
         case ProjectsIndexPaths.edidown:
             present(appWithID: "1439139639")
         default:
