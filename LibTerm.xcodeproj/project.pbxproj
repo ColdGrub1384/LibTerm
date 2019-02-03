@@ -21,6 +21,7 @@
 		C9425A3621F3B48400E7CC35 /* Python3_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C91FB75F21DE9BA6001E987A /* Python3_ios.a */; };
 		C9425A4C21F3B72700E7CC35 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CBA216048FC00F870B5 /* libz.tbd */; };
 		C9425A5F21F3B73D00E7CC35 /* liblzma.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C91FB77321DEA1E3001E987A /* liblzma.tbd */; };
+		C946A5A322072EBC00F78C5C /* site-packages3 in Resources */ = {isa = PBXBuildFile; fileRef = C946A59D22072EBC00F78C5C /* site-packages3 */; };
 		C95BE12521A37A2900FB135B /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
 		C995060921F3A17B00C0D1BB /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
 		C995060E21F3A17E00C0D1BB /* ObjectUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */; };
@@ -332,6 +333,7 @@
 		C927793221696C3F0091B038 /* CommandHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandHelp.swift; sourceTree = "<group>"; };
 		C927793821696CC00091B038 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		C92F574C2168001600ABE35F /* ssh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ssh.swift; sourceTree = "<group>"; };
+		C946A59D22072EBC00F78C5C /* site-packages3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "site-packages3"; sourceTree = "<group>"; };
 		C9477BCE21D50339000680AE /* python37.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python37.zip; sourceTree = "<group>"; };
 		C9580E8B2165553500A43CEC /* Terminal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Terminal.storyboard; sourceTree = "<group>"; };
 		C95BE11421A3715D00FB135B /* cacert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cacert.pem; sourceTree = "<group>"; };
@@ -556,6 +558,7 @@
 		C9806D1021612B7A00F870B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C946A59D22072EBC00F78C5C /* site-packages3 */,
 				C96CB9E221DD4241008C508C /* site-packages */,
 				C9E771D321C7E80700C56FEE /* credits */,
 				C9E30A5D21C1983F00789346 /* langs.plist */,
@@ -927,6 +930,7 @@
 				C9CABCC621F3A793002DB86C /* LaunchScreen.storyboard in Resources */,
 				C9CABCC821F3A793002DB86C /* commandDictionary.plist in Resources */,
 				C9CABCC921F3A794002DB86C /* python37.zip in Resources */,
+				C946A5A322072EBC00F78C5C /* site-packages3 in Resources */,
 				C9CABCCA21F3A794002DB86C /* python27.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
