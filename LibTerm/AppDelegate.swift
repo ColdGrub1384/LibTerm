@@ -26,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         initializeEnvironment()
                 
-        replaceCommand("pbcopy", "pbcopy", true)
-        replaceCommand("pbpaste", "pbpaste", true)
+        replaceCommand("pbcopy", "pbcopy_main", true)
+        replaceCommand("pbpaste", "pbpaste_main", true)
         replaceCommand("python", "python3_swift_main", true)
         
         // Python

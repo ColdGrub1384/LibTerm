@@ -114,59 +114,76 @@ func libshellMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
 
 fileprivate func parseArgs(_ args: inout [String]) {
     
-    var parsedArgs = [String]()
-    
-    var currentArg = ""
-    
-    for arg in args {
+    func parse(quote: String) {
+        var parsedArgs = [String]()
         
-        if arg.hasPrefix("'") {
+        var currentArg = ""
+        
+        for arg in args {
             
-            if currentArg.isEmpty {
-                
-                currentArg = arg
-                currentArg.removeFirst()
-                
-            } else {
-                
-                currentArg.append(" " + arg)
-                
+            if arg.hasPrefix(quote) && arg.hasSuffix(quote) && !arg.contains(" ") {
+                var argument = arg
+                argument.removeFirst()
+                argument.removeLast()
+                parsedArgs.append(argument)
+                continue
             }
             
-        } else if arg.hasSuffix("'") {
+            if arg.isEmpty {
+                continue
+            }
             
-            if currentArg.isEmpty {
+            if arg.hasPrefix(quote) {
                 
-                currentArg.append(arg)
+                if currentArg.isEmpty {
+                    
+                    currentArg = arg
+                    currentArg.removeFirst()
+                    
+                } else {
+                    
+                    currentArg.append(" " + arg)
+                    
+                }
+                
+            } else if arg.hasSuffix(quote) {
+                
+                if currentArg.isEmpty {
+                    
+                    currentArg.append(arg)
+                    
+                } else {
+                    
+                    currentArg.append(" " + arg)
+                    currentArg.removeLast()
+                    parsedArgs.append(currentArg)
+                    currentArg = ""
+                    
+                }
                 
             } else {
                 
-                currentArg.append(" " + arg)
+                if currentArg.isEmpty {
+                    parsedArgs.append(arg)
+                } else {
+                    currentArg.append(" " + arg)
+                }
+                
+            }
+        }
+        
+        if !currentArg.isEmpty {
+            if currentArg.hasSuffix(quote) {
                 currentArg.removeLast()
-                parsedArgs.append(currentArg)
-                currentArg = ""
-                
             }
-            
-        } else {
-            
-            if currentArg.isEmpty {
-                parsedArgs.append(arg)
-            } else {
-                currentArg.append(" " + arg)
-            }
-            
+            parsedArgs.append(currentArg)
         }
+        
+        args = parsedArgs
     }
     
-    if !currentArg.isEmpty {
-        if currentArg.hasSuffix("'") {
-            currentArg.removeLast()
-        }
-        parsedArgs.append(currentArg)
-    }
-    
-    args = parsedArgs
+    parse(quote: "'")
+    parse(quote: "\"")
 }
 
 /// The shell for executing commands.
@@ -207,7 +224,7 @@ open class LibShell {
     
     /// Builtin commands per name and functions.
     open var builtins: [String:LTCommand] {
-        var commands = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain, "open" : openMain, "credits" : creditsMain, "pbpaste" : pbpasteMain, "pbcopy" : pbpasteMain]
+        var commands = ["clear" : clearMain, "help" : helpMain, "ssh" : sshMain, "sftp" : sshMain, "sh" : libshellMain, "exit" : exitMain, "open" : openMain, "credits" : creditsMain]
         #if !FRAMEWORK
             commands["package"] = packageMain
             commands["edit"] = editMain

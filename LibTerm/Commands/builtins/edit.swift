@@ -215,7 +215,7 @@ func editMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
             
             semaphore.wait()
         } catch {
-            fputs("\(argv[0]): \(arg): \(error.localizedDescription)", io.stderr)
+            fputs("\(argv[0]): \(arg): \(error.localizedDescription)\n", io.stderr)
             return 1
         }
     }

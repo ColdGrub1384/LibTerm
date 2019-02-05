@@ -52,78 +52,7 @@ extension String {
     
     /// Returns arguments from command.
     var arguments: [String] {
-        var components = self.components(separatedBy: .whitespaces)
-        
-        // Separate in to command and arguments
-        
-        let program = components[0]
-        let args = Array(components[1..<components.endIndex])
-        
-        var parsedArgs = [String]()
-        
-        var currentArg = ""
-        
-        for arg in args {
-            
-            if arg.hasPrefix("\"") {
-                
-                if currentArg.isEmpty {
-                    
-                    currentArg = arg
-                    currentArg.removeFirst()
-                    
-                } else {
-                    
-                    currentArg.append(" " + arg)
-                    
-                }
-                
-            } else if arg.hasSuffix("\"") {
-                
-                if currentArg.isEmpty {
-                    
-                    currentArg.append(arg)
-                    
-                } else {
-                    
-                    currentArg.append(" " + arg)
-                    currentArg.removeLast()
-                    parsedArgs.append(currentArg)
-                    currentArg = ""
-                    
-                }
-                
-            } else {
-                
-                if currentArg.isEmpty {
-                    parsedArgs.append(arg)
-                } else {
-                    currentArg.append(" " + arg)
-                }
-                
-            }
-            
-        }
-        
-        if !currentArg.isEmpty {
-            parsedArgs.append(currentArg)
-        }
-        
-        parsedArgs.insert(self.components(separatedBy: .whitespaces)[0], at: 0)
-        
-        func removeEmpty() {
-            var i = 0
-            for arg in parsedArgs {
-                if arg.isEmpty {
-                    parsedArgs.remove(at: i)
-                    removeEmpty()
-                    break
-                }
-                i += 1
-            }
-        }
-        removeEmpty()
-        return parsedArgs
+        return self.components(separatedBy: .whitespaces)
     }
     
     // MARK: - Equality
