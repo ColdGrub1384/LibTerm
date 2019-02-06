@@ -18,22 +18,38 @@ Third party libraries used on this project:
   - BOLDios_systemPLAIN by Nicolas Holzschuch:
     Licensed under BSD 3-Clause License
 
-  - BOLDPython3_ios by Nicolas Holzschuch
+    Copyright (c) 2018, Nicolas Holzschuch
+    All rights reserved.
+
+  - BOLDPython3_ios by Nicolas Holzschuch:
+
+    Copyright (c) 2019, Nicolas Holzschuch
+    All rights reserved.
 
   - BOLDPython Apple SupportPLAIN by BeeWare:
     Licensed under MIT license
 
+    Copyright (c) 2014-2017 Russell Keith-Magee.
+
   - BOLDTabViewPLAIN by Ian McDowell:
     Licensed under MIT license
+
+    Copyright (c) 2017 Ian McDowell
 
   - BOLDInputAssistantPLAIN by Ian McDowell:
     Licensed under MIT license
 
+    Copyright (c) 2017 Ian McDowell
+
   - BOLDHighlightrPLAIN by J.P. Illanes:
     Licensed under MIT license
 
+    Copyright (c) 2016 Illanes, Juan Pablo <jpillaness+highlightr@gmail.com>
+
   - BOLDObjectUserDefaultsPLAIN by Adrian Labbé:
     Licensed under MIT license
+
+    Copyright (c) 2018 Adrian Labbé
 
 Commands:
 
