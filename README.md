@@ -4,7 +4,7 @@ LibTerm is a terminal for iOS with Python 3.7 and Lua 5.3.
 
 [![Download on the App Store](https://pisth.github.io/appstorebadge.svg)](https://itunes.apple.com/us/app/libterm/id1380911705?ls=1&mt=8)
 
-This app is like @louisdh - [OpenTerm](https://github.com/louisdh/openterm) but this terminal is embeddable in your own app and it supports Lua and Python 2.7.
+This app is like @louisdh - [OpenTerm](https://github.com/louisdh/openterm) but this terminal is embeddable in your own app and it supports Lua and Python 3.7.
 
 ## Motivation
 
