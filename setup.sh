@@ -22,6 +22,7 @@ git submodule update --init --recursive
 #done
 
 ios_system="https://github.com/holzschu/ios_system/releases/download/v2.2/release.tar.gz"
+ios_system_v32="https://github.com/holzschu/ios_system/releases/download/v2.3/release.tar.gz"
 
 # Download and setup ios_system
 
@@ -30,7 +31,20 @@ mkdir ios_system
 curl -L $ios_system -o ios_system.tar.gz
 tar -xzf ios_system.tar.gz -Cios_system/
 mv ios_system/release/* ios_system/
+rm -rf ios_system/network_ios.framework
 rm -rf ios_system/release
+rm ios_system.tar.gz
+
+# Download and setupt network from ios_system 3.2
+
+mkdir ios_system32
+
+curl -L $ios_system_v32 -o ios_system.tar.gz
+tar -xzf ios_system.tar.gz -Cios_system32/
+mv ios_system32/release/* ios_system32/
+rm -rf ios_system32/release
+mv ios_system32/network_ios.framework ios_system/
+rm -rf ios_system32
 rm ios_system.tar.gz
 
 # bc
