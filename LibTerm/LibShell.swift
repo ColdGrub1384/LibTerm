@@ -90,7 +90,10 @@ func libshellMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
         
         for instruction_ in script.components(separatedBy: .newlines) {
             for instruction in instruction_.components(separatedBy: ";") {
-                let components = instruction.components(separatedBy: .whitespaces)
+                var components = instruction.components(separatedBy: .whitespaces)
+                while components.first?.isEmpty == true {
+                    components.remove(at: 0)
+                }
                 if components.count > 0, components[0] == "exit" { // Exit
                     if components.count > 1 {
                         exit()
@@ -100,7 +103,7 @@ func libshellMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
                         return 0
                     }
                 }
-                shell.run(command: instruction)
+                shell.run(command: instruction, appendToHistory: false)
             }
         }
     } catch {
@@ -333,7 +336,11 @@ open class LibShell {
             return builtins[arguments[0]]?(arguments.count, arguments, io) ?? 1
         }
         
-        return ios_system(command_.cValue)
+        let retValue = ios_system(command_.cValue)
+        
+        variables["?"] = "\(retValue)"
+        
+        return retValue
     }
     
     private func addToHistory(_ command: String) {
