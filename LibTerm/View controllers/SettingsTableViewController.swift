@@ -20,23 +20,26 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
     /// The object representig the terminal caret style.
     static let caretStyle = ObjectUserDefaults.standard.item(forKey: "caretStyle")
     
+    /// A Boolean for hidding or not suggestions bar.
+    static let shouldHideSuggestionsBar = ObjectUserDefaults.standard.item(forKey: "shouldHideSuggestionsBar")
+    
     private struct ProjectsIndexPaths {
         private init() {}
         
-        static let ios_system = IndexPath(row: 0, section: 1)
-        static let openTerm = IndexPath(row: 1, section: 1)
-        static let inputAssistant = IndexPath(row: 2, section: 1)
-        static let tabView = IndexPath(row: 3, section: 1)
-        static let highlightr = IndexPath(row: 4, section: 1)
-        static let objectUserDefaults = IndexPath(row: 5, section: 1)
-        static let python3_ios = IndexPath(row: 6, section: 1)
-        static let other = IndexPath(row: 7, section: 1)
+        static let ios_system = IndexPath(row: 0, section: 12)
+        static let openTerm = IndexPath(row: 1, section: 2)
+        static let inputAssistant = IndexPath(row: 2, section: 2)
+        static let tabView = IndexPath(row: 3, section: 2)
+        static let highlightr = IndexPath(row: 4, section: 2)
+        static let objectUserDefaults = IndexPath(row: 5, section: 2)
+        static let python3_ios = IndexPath(row: 6, section: 2)
+        static let other = IndexPath(row: 7, section: 2)
         
-        static let libTerm = IndexPath(row: 0, section: 2)
+        static let libTerm = IndexPath(row: 0, section: 3)
         
-        static let pisth = IndexPath(row: 0, section: 3)
-        static let pyto = IndexPath(row: 1, section: 3)
-        static let edidown = IndexPath(row: 2, section: 3)
+        static let pisth = IndexPath(row: 0, section: 4)
+        static let pyto = IndexPath(row: 1, section: 4)
+        static let edidown = IndexPath(row: 2, section: 4)
     }
     
     /// Closes this View controller.
@@ -47,6 +50,14 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
                 term.tprint(term.attributedConsole.string)
             }
         })
+    }
+    
+    /// A switch that toggles suggestions bar.
+    @IBOutlet var suggestionsSwitch: UISwitch!
+    
+    /// Toggles suggestions.
+    @IBAction func toggleSuggestions(_ sender: UISwitch) {
+        SettingsTableViewController.shouldHideSuggestionsBar.boolValue = !sender.isOn
     }
     
     /// The label containing the current font size.
@@ -74,11 +85,17 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        suggestionsSwitch.isOn = !SettingsTableViewController.shouldHideSuggestionsBar.boolValue
         caretStyleSegmentedControl.selectedSegmentIndex = SettingsTableViewController.caretStyle.integerValue
         fontSizeStepper.value = SettingsTableViewController.fontSize.doubleValue
         fontSizeLabel.text = "\(SettingsTableViewController.fontSize.doubleValue)"
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        (presentingViewController as? TerminalTabViewController)?.visibleViewController?.viewWillAppear(animated)
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

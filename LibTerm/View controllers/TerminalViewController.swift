@@ -351,6 +351,12 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if SettingsTableViewController.shouldHideSuggestionsBar.boolValue {
+            terminalTextView.inputAccessoryView = nil
+        } else {
+            assistant.attach(to: terminalTextView)
+        }
+        terminalTextView.reloadInputViews()
         terminalTextView.becomeFirstResponder()
     }
     
