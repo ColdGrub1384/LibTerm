@@ -471,7 +471,7 @@ open class LibShell {
             
             setPythonEnvironment(version: .v3_7)
             
-            return ios_system(arguments.joined(separator: " ").cValue)
+            return run(command: arguments.joined(separator: " "), appendToHistory: false)
         } else {
             return nil
         }
