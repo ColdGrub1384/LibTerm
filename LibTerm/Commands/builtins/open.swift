@@ -13,7 +13,7 @@ import UIKit
 func openMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
     if argc == 1 {
-        fputs("Usage:\n\(argv[0]) [Items to share ...]", io.stdout)
+        fputs("Usage:\n\(argv[0]) [Items to share ...]\n", io.stdout)
         return 1
     }
     
