@@ -15,7 +15,6 @@
 		C91D4D0A218FA54D003F73FF /* open.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D08218FA304003F73FF /* open.swift */; };
 		C91D4D0B218FAD05003F73FF /* InputAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; };
 		C91D4D0C218FAD05003F73FF /* InputAssistant.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F0F00B216437BB00CAC2A0 /* InputAssistant.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9425A3321F3B3BE00E7CC35 /* Python_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC8216049DD00F870B5 /* Python_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9425A3421F3B46D00E7CC35 /* libssh2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC9216049DD00F870B5 /* libssh2.framework */; };
 		C9425A3521F3B46D00E7CC35 /* libssh2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC9216049DD00F870B5 /* libssh2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9425A3621F3B48400E7CC35 /* Python3_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C91FB75F21DE9BA6001E987A /* Python3_ios.a */; };
@@ -83,6 +82,7 @@
 		C9CABCCC21F3A8A8002DB86C /* ios_system.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9CABCDB21F3ACA6002DB86C /* bc_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CABCDA21F3AC9A002DB86C /* bc_ios.framework */; };
 		C9CABCDC21F3ACA6002DB86C /* bc_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9CABCDA21F3AC9A002DB86C /* bc_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9E068F4226257C700A1DE86 /* Python_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E068F1226257AB00A1DE86 /* Python_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9E5A86A21CBF2F40060B871 /* edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E30A4B21C187C900789346 /* edit.swift */; };
 		C9E5A86B21CBF2F40060B871 /* package.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D12218FBF90003F73FF /* package.swift */; };
 		C9E5A86C21CBF2F40060B871 /* package.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D12218FBF90003F73FF /* package.swift */; };
@@ -299,8 +299,8 @@
 				C995062F21F3A1E100C0D1BB /* awk.framework in Embed Frameworks */,
 				C995062721F3A1C100C0D1BB /* network_ios.framework in Embed Frameworks */,
 				C91A0B7621F3AFD30004238F /* openssl.framework in Embed Frameworks */,
+				C9E068F4226257C700A1DE86 /* Python_ios.framework in Embed Frameworks */,
 				C9425A3521F3B46D00E7CC35 /* libssh2.framework in Embed Frameworks */,
-				C9425A3321F3B3BE00E7CC35 /* Python_ios.framework in Embed Frameworks */,
 				C995063321F3A1EE00C0D1BB /* ssh_cmd.framework in Embed Frameworks */,
 				C9CABCDC21F3ACA6002DB86C /* bc_ios.framework in Embed Frameworks */,
 				C995060F21F3A17E00C0D1BB /* ObjectUserDefaults.framework in Embed Frameworks */,
@@ -388,6 +388,7 @@
 		C9DE220B2162E12A007ED7A0 /* TerminalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 		C9DE222A2162E4E5007ED7A0 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		C9DE222C2162E621007ED7A0 /* ANSITextState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANSITextState.swift; sourceTree = "<group>"; };
+		C9E068F1226257AB00A1DE86 /* Python_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Python_ios.framework; sourceTree = "<group>"; };
 		C9E30A4521C16E1E00789346 /* GithubFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFile.swift; sourceTree = "<group>"; };
 		C9E30A4B21C187C900789346 /* edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edit.swift; sourceTree = "<group>"; };
 		C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Highlightr.xcodeproj; path = Highlightr/Highlightr.xcodeproj; sourceTree = "<group>"; };
@@ -502,6 +503,7 @@
 				C9E30A4D21C1955F00789346 /* Highlightr.xcodeproj */,
 				C91FB75F21DE9BA6001E987A /* Python3_ios.a */,
 				C9B5D4C921E17C82008AB9C8 /* libffi.a */,
+				C9E068F1226257AB00A1DE86 /* Python_ios.framework */,
 				C9806CC0216049DD00F870B5 /* ios_system */,
 				C9806BC32160467E00F870B5 /* LibTerm */,
 				C9FAD8FA216AD24B005939AC /* LibTermCore */,
@@ -1294,7 +1296,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios_system",
+					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = /System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7;
 				INFOPLIST_FILE = "$(SRCROOT)/LibTerm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1325,7 +1329,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios_system",
+					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = /System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7;
 				INFOPLIST_FILE = "$(SRCROOT)/LibTerm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
