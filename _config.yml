@@ -109,11 +109,7 @@ sass:
   style: :compressed # You might prefer to minify using :compressed
 
 # Exclude these files from your production _site
-exclude:
-  - LICENSE
-  - README.md
-  - CNAME
-  - Highlightr/_Pods.xcodeproj
+exclude: ["Highlightr"]
 
 theme: jekyll-theme-cayman
 
