@@ -108,9 +108,5 @@ footer_text_color                         : "#666666"
 sass:
   style: :compressed # You might prefer to minify using :compressed
 
-# Exclude these files from your production _site
-exclude:
-- Highlightr/
-
 theme: jekyll-theme-cayman
 
