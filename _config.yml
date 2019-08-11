@@ -114,11 +114,6 @@ exclude:
   - README.md
   - CNAME
   - Highlightr/_Pods.xcodeproj
-  - TabView/*
-  - ObjectUserDefaults/*
-  - InputAssistant/*
-  - ios_system/*
-  - ios_system_core/*
 
 theme: jekyll-theme-cayman
 
