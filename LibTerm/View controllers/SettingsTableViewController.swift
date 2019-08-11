@@ -45,10 +45,10 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
     /// Closes this View controller.
     @IBAction func done(_ sender: Any) {
         dismiss(animated: true, completion: {
-            if let term = (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.visibleViewController as? LTTerminalViewController {
+            /*if let term = (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.visibleViewController as? LTTerminalViewController {
                 term.terminalTextView.attributedText = NSAttributedString(string: "")
                 term.tprint(term.attributedConsole.string)
-            }
+            }*/
         })
     }
     

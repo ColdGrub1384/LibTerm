@@ -42,10 +42,10 @@ func openMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
     DispatchQueue.main.async {
         
-        let vc = UIApplication.shared.keyWindow?.rootViewController
+        let vc = io.terminal?.parent
         
         let controller = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        controller.popoverPresentationController?.sourceView = UIApplication.shared.keyWindow
+        controller.popoverPresentationController?.sourceView = vc?.view.window
         controller.popoverPresentationController?.sourceRect = .zero
         vc?.present(controller, animated: true, completion: nil)
     }

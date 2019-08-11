@@ -212,7 +212,7 @@ func editMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
                 let navVC = UINavigationController(rootViewController: editor)
                 navVC.navigationBar.barStyle = .black
                 
-                UIApplication.shared.keyWindow?.rootViewController?.present(navVC, animated: false, completion: {
+                io.terminal?.present(navVC, animated: false, completion: {
                     editor.view.becomeFirstResponder()
                 })
             }

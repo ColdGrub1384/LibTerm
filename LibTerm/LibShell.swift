@@ -72,7 +72,7 @@ func libshellMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
         return libshellMain(argc: 1, argv: ["-h"], io: io)
         #else
         DispatchQueue.main.async {
-            (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.addTab()
+            (io.terminal?.parent as? TerminalTabViewController)?.addTab()
         }
         return 0
         #endif

@@ -19,7 +19,7 @@ func exitMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
             delegate.perform(showBookmarks)
         }
         #else
-        let tabVC = UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController
+        let tabVC = io.terminal?.parent as? TerminalTabViewController
         
         guard let visible = tabVC?.visibleViewController else {
             return
