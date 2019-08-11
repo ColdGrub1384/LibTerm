@@ -6,7 +6,7 @@
 	url = https://github.com/ColdGrub1384/ios_system
 [submodule "Highlightr"]
 	path = Highlightr
-	url = https://github.com/raspu/Highlightr.git
+	url = https://github.com/ColdGrub1384/Highlightr.git
 [submodule "ObjectUserDefaults"]
 	path = ObjectUserDefaults
 	url = https://github.com/ColdGrub1384/ObjectUserDefaults.git
