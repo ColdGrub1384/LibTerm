@@ -13,3 +13,6 @@
 [submodule "bc"]
 	path = bc
 	url = https://github.com/holzschu/bc.git
+[submodule "TabView"]
+	path = TabView
+	url = https://github.com/ColdGrub1384/TabView.git
