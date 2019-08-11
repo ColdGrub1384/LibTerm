@@ -38,7 +38,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         }
         
         /// Terminal's keyboard appearance.
-        public var keyboardAppearance = UIKeyboardAppearance.dark
+        public var keyboardAppearance: UIKeyboardAppearance = .default
         
         /// Terminal's foreground color.
         public var foregroundColor: UIColor {
@@ -46,8 +46,8 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 foregroundColor_ = newValue
             }
             get {
-                if #available(iOS 11.0, *) {
-                    return foregroundColor_ ?? UIColor(named: "Foreground Color", in: Bundle(for: LTTerminalViewController.self), compatibleWith: nil)!
+                if #available(iOS 13.0, *) {
+                    return foregroundColor_ ?? UIColor.label
                 } else {
                     return foregroundColor_ ?? .green
                 }
@@ -164,7 +164,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     public var thread = DispatchQueue.global(qos: .userInteractive)
     
     /// The view for autocompletion.
-    let assistant = InputAssistantView()
+    var assistant = InputAssistantView()
     
     /// Asks the user for a command.
     ///
@@ -262,6 +262,37 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     
     // MARK: - View controller
     
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            preferences.keyboardAppearance = .dark
+        } else {
+            preferences.keyboardAppearance = .light
+        }
+        
+        let wasFirstResponder = terminalTextView.isFirstResponder
+        
+        if wasFirstResponder {
+            terminalTextView.resignFirstResponder()
+        }
+        
+        terminalTextView.keyboardAppearance = preferences.keyboardAppearance
+        
+        terminalTextView.inputAccessoryView = nil
+        
+        assistant = InputAssistantView()
+        assistant.trailingActions = [InputAssistantAction(image: LTTerminalViewController.downArrow, target: terminalTextView, action: #selector(terminalTextView.resignFirstResponder))]
+        assistant.delegate = self
+        assistant.dataSource = self
+        
+        assistant.attach(to: terminalTextView)
+        
+        if wasFirstResponder {
+            terminalTextView.becomeFirstResponder()
+        }
+    }
+    
     override public var title: String? {
         didSet {
             
@@ -281,6 +312,14 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            preferences.keyboardAppearance = .dark
+        } else {
+            preferences.keyboardAppearance = .light
+        }
+        
+        terminalTextView.keyboardAppearance = preferences.keyboardAppearance
         
         view.tintColor = preferences.foregroundColor
         view.backgroundColor = preferences.backgroundColor

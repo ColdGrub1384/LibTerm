@@ -12,6 +12,54 @@ import ios_system
 import ObjectUserDefaults
 import StoreKit
 
+@available(iOS 13.0, *)
+private class DefaultTheme: TabViewTheme {
+    
+    var backgroundColor: UIColor {
+        return .systemFill
+    }
+    
+    var barTitleColor: UIColor {
+        return .label
+    }
+    
+    var barTintColor: UIColor {
+        return .systemFill
+    }
+    
+    var barBlurStyle: UIBlurEffect.Style {
+        return .systemChromeMaterial
+    }
+    
+    var separatorColor: UIColor {
+        return .clear
+    }
+    
+    var tabCloseButtonColor: UIColor {
+        return TabViewThemeLight().tabCloseButtonColor
+    }
+    
+    var tabCloseButtonBackgroundColor: UIColor {
+        return TabViewThemeLight().tabCloseButtonBackgroundColor
+    }
+    
+    var tabBackgroundDeselectedColor: UIColor {
+        return TabViewThemeLight().tabBackgroundDeselectedColor
+    }
+    
+    var tabTextColor: UIColor {
+        return .label
+    }
+    
+    var tabSelectedTextColor: UIColor {
+        return .label
+    }
+    
+    var statusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+}
+
 /// The app's delegate.
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +69,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = TerminalTabViewController(theme: TabViewThemeDark())
+        if #available(iOS 13.0, *) {
+            window?.rootViewController = TerminalTabViewController(theme: DefaultTheme())
+        } else {
+            window?.rootViewController = TerminalTabViewController(theme: TabViewThemeLight())
+        }
         window?.makeKeyAndVisible()
         
         initializeEnvironment()

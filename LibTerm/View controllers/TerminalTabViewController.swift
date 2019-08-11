@@ -62,8 +62,30 @@ class TerminalTabViewController: TabViewController {
     }
     
     private func setupBarItems() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .plain, target: self, action: #selector(showSettings(_:)))
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Organize"), style: .plain, target: self, action: #selector(cd(_:))), UIBarButtonItem(image: #imageLiteral(resourceName: "Add"), style: .plain, target: self, action: #selector(addTab))]
+        
+        let settingsImage: UIImage?
+        if #available(iOS 13.0, *) {
+            settingsImage = UIImage(systemName: "gear")
+        } else {
+            settingsImage = UIImage(named: "Settings")
+        }
+        
+        let organizeImage: UIImage?
+        if #available(iOS 13.0, *) {
+            organizeImage = UIImage(systemName: "folder")
+        } else {
+            organizeImage = #imageLiteral(resourceName: "Organize")
+        }
+        
+        let addImage: UIImage?
+        if #available(iOS 13.0, *) {
+            addImage = UIImage(systemName: "plus")
+        } else {
+            addImage = #imageLiteral(resourceName: "Add")
+        }
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(showSettings(_:)))
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: organizeImage, style: .plain, target: self, action: #selector(cd(_:))), UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(addTab))]
     }
     
     /// Saves tabs on the disk.
