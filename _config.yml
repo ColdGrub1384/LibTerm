@@ -110,7 +110,7 @@ sass:
 
 # Exclude these files from your production _site
 exclude:
-  - Highlightr/
+- Highlightr/
 
 theme: jekyll-theme-cayman
 
