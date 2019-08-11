@@ -11,11 +11,6 @@ import UIKit
 /// The `exit` command.
 func exitMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
-    var exitCode: Int32 = 0
-    if argc > 1, let code = Int32(argv[1]) {
-        exitCode = code
-    }
-    
     DispatchQueue.main.async {
         #if FRAMEWORK
         // Shows bookmarks in Pisth
@@ -30,12 +25,7 @@ func exitMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
             return
         }
         
-        if tabVC?.viewControllers.count == 1 {
-            tabVC?.closeTab(visible)
-            exit(exitCode)
-        } else {
-            tabVC?.closeTab(visible)
-        }
+        tabVC?.closeTab(visible)
         #endif
     }
     return 0

@@ -198,8 +198,7 @@ open class LibShell {
         initializeEnvironment()
     }
     
-    /// The commands history.
-    open var history: [String] {
+    private var _shared_history: [String] {
         get {
             return UserDefaults.standard.stringArray(forKey: "history") ?? []
         }
@@ -207,6 +206,27 @@ open class LibShell {
         set {
             UserDefaults.standard.set(newValue, forKey: "history")
             UserDefaults.standard.synchronize()
+        }
+    }
+    
+    private var _shell_history = [String]()
+    
+    /// The commands history.
+    open var history: [String] {
+        get {
+            if #available(iOS 13.0, *) {
+                return _shell_history
+            } else {
+                return _shared_history
+            }
+        }
+        
+        set {
+            if #available(iOS 13.0, *) {
+                _shell_history = newValue
+            } else {
+                _shared_history = newValue
+            }
         }
     }
     
@@ -366,20 +386,20 @@ open class LibShell {
     }
     
     private func setStreams(arguments: [String], io: LTIO) {
-        if arguments.first == "python" || arguments.first == "python2" || arguments.first == "lua" || arguments.first == "bc" || arguments.first == "dc" { // Redirect stderr to stdout and reset input
+        if arguments.first == "python" || arguments.first == "python3" || arguments.first == "python2" || arguments.first == "lua" || arguments.first == "bc" || arguments.first == "dc" { // Redirect stderr to stdout and reset input
             
             io.inputPipe = Pipe()
             io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
             
             let _stdin = io.stdin
             
-            ios_setStreams(io.stdin, io.stdout, io.stdout)
-            
-            stdin = io.stdin ?? stdin
-            
             defer {
                 stdin = _stdin ?? stdin
             }
+            
+            ios_setStreams(io.stdin, io.stdout, io.stdout)
+            
+            stdin = io.stdin ?? stdin
         } else {
             ios_setStreams(io.stdin, io.stdout, io.stderr)
         }
@@ -446,7 +466,7 @@ open class LibShell {
     
     private func setupPython(arguments: [String]) -> Int32? {
         // When Python is called without arguments, it freezes instead of running the REPL
-        if arguments.first == "python" {
+        if arguments.first == "python" || arguments.first == "python3" {
             setPythonEnvironment(version: .v3_7)
             if arguments == ["python"] {
                 return ios_system("python \(runREPL)")

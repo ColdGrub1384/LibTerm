@@ -12,8 +12,8 @@ import ios_system
 import ObjectUserDefaults
 import StoreKit
 
-@available(iOS 13.0, *)
-private class DefaultTheme: TabViewTheme {
+/// A Tab View theme that adapts to the system appearance.
+@available(iOS 13.0, *) class DefaultTheme: TabViewTheme {
     
     var backgroundColor: UIColor {
         return .systemFill
@@ -32,7 +32,7 @@ private class DefaultTheme: TabViewTheme {
     }
     
     var separatorColor: UIColor {
-        return .clear
+        return .separator
     }
     
     var tabCloseButtonColor: UIColor {
@@ -68,13 +68,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        window = UIWindow(frame: UIScreen.main.bounds)
         if #available(iOS 13.0, *) {
-            window?.rootViewController = TerminalTabViewController(theme: DefaultTheme())
         } else {
-            window?.rootViewController = TerminalTabViewController(theme: TabViewThemeLight())
+            window = UIWindow(frame: UIScreen.main.bounds)
+            let tabVC = TerminalTabViewController(theme: TabViewThemeLight())
+            tabVC.viewControllers = [LTTerminalViewController.makeTerminal()]
+            window?.rootViewController = tabVC
+            window?.makeKeyAndVisible()
         }
-        window?.makeKeyAndVisible()
         
         initializeEnvironment()
                 
@@ -113,6 +114,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ReviewHelper.shared.requestReview()
         
         return true
+    }
+    
+    @available(iOS 13.0, *)
+    func application(_ application: UIApplication,
+                     configurationForConnecting connectingSceneSession: UISceneSession,
+                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
 }

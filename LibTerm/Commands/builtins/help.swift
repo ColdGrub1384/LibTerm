@@ -24,6 +24,14 @@ var lastLogin: Date? {
 /// The `help` command.
 func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
+    if argv.contains("--restored") || argv.contains("-r") {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        fputs("\n\nRestored on \(formatter.string(from: Date()))\n\n", io.stdout)
+        return 0
+    }
+    
     var helpText: String
     
     #if FRAMEWORK

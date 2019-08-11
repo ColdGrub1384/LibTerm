@@ -17,9 +17,15 @@ class TerminalTabViewController: TabViewController {
     private var newTerminal: LTTerminalViewController {
         return LTTerminalViewController.makeTerminal()
     }
-
-    /// Saved tabs.
-    static let tabs = ObjectUserDefaults.standard.item(forKey: "tabs")
+    
+    /// The index of the selected View controller.
+    var selectedIndex: Int? {
+        
+        guard let visible = visibleViewController else {
+            return nil
+        }
+        return viewControllers.firstIndex(of: visible)
+    }
     
     /// Open a new terminal.
     @objc func addTab() {
@@ -89,14 +95,14 @@ class TerminalTabViewController: TabViewController {
     }
     
     /// Saves tabs on the disk.
-    func saveTabs() {
+    var tabBookmarks: [Data] {
         var bookmarks = [Data]()
         for vc in viewControllers {
             if let term = vc as? LTTerminalViewController, let bookmarkData = term.bookmarkData {
                 bookmarks.append(bookmarkData)
             }
         }
-        TerminalTabViewController.tabs.arrayValue = bookmarks
+        return bookmarks
     }
     
     /// Interrupts the currently running command.
@@ -126,30 +132,6 @@ class TerminalTabViewController: TabViewController {
         view.tintColor = LTTerminalViewController.Preferences().foregroundColor
         
         setupBarItems()
-        
-        if let bookmarks = TerminalTabViewController.tabs.arrayValue as? [Data], !bookmarks.isEmpty {
-            var terminals = [LTTerminalViewController]()
-            
-            for bookmark in bookmarks {
-                var isStale = false
-                guard let url = try? URL(resolvingBookmarkData: bookmark, bookmarkDataIsStale: &isStale) else {
-                    viewControllers = [newTerminal]
-                    return
-                }
-                
-                _ = url.startAccessingSecurityScopedResource()
-                
-                let term = newTerminal
-                term.loadViewIfNeeded()
-                term.url = url
-                term.title = url.lastPathComponent
-                terminals.append(term)
-            }
-            
-            viewControllers = terminals
-        } else {
-            viewControllers = [newTerminal]
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -166,14 +148,6 @@ class TerminalTabViewController: TabViewController {
         }
         
         super.closeTab(tab)
-        
-        saveTabs()
-    }
-    
-    override func activateTab(_ tab: UIViewController) {
-        super.activateTab(tab)
-        
-        saveTabs()
     }
 }
 

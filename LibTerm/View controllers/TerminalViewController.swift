@@ -212,6 +212,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     /// The URL to navigate at View did appear.
     var url: URL?
     
+    /// Set to `true` if the session was restored.
+    var restoredSession = false
+    
     // MARK: - Private values for theming inside Pisth or other apps
     
     private var navigationController_: UINavigationController?
@@ -301,9 +304,10 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             }
             
             bookmarkData = try? URL(fileURLWithPath: FileManager.default.currentDirectoryPath).bookmarkData()
-            #if !FRAMEWORK
-            (UIApplication.shared.keyWindow?.rootViewController as? TerminalTabViewController)?.saveTabs()
-            #endif
+            
+            if #available(iOS 13.0, *) {
+                view.window?.windowScene?.title = title
+            }
         }
     }
     
@@ -311,6 +315,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name:UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
         
         if traitCollection.userInterfaceStyle == .dark {
@@ -343,7 +348,12 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             }
         }
         
-        _ = helpMain(argc: 2, argv: ["help", "--startup"], io: shell.io!)
+        if restoredSession {
+            terminalTextView.attributedText = attributedConsole
+            _ = helpMain(argc: 2, argv: ["help", "--restored"], io: shell.io!)
+        } else {
+            _ = helpMain(argc: 2, argv: ["help", "--startup"], io: shell.io!)
+        }
         
         _ = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false, block: { (_) in
             self.shell.input()
@@ -373,8 +383,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         navigationController?.setNeedsStatusBarAppearanceUpdate()
         
         terminalTextView.isEditable = true
-        terminalTextView.resignFirstResponder()
-        _ = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: { (_) in
+        _ = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: { (_) in
             self.terminalTextView.becomeFirstResponder()
         })
     }
@@ -396,7 +405,6 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             assistant.attach(to: terminalTextView)
         }
         terminalTextView.reloadInputViews()
-        terminalTextView.becomeFirstResponder()
     }
     
     override public func viewDidLayoutSubviews() {
@@ -500,7 +508,11 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             path.addLine(to: CGPoint(x: 11, y: 17))
             path.addLine(to: CGPoint(x: 22, y: 7))
             
-            UIColor.white.setStroke()
+            if #available(iOS 13.0, *) {
+                UIColor.label.setStroke()
+            } else {
+                UIColor.black.setStroke()
+            }
             path.lineWidth = 2
             path.stroke()
             
