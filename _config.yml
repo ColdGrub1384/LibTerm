@@ -109,7 +109,8 @@ sass:
   style: :compressed # You might prefer to minify using :compressed
 
 # Exclude these files from your production _site
-exclude: ['Highlightr/']
+exclude:
+  - Highlightr/
 
 theme: jekyll-theme-cayman
 
