@@ -1,9 +1,6 @@
 [submodule "InputAssistant"]
 	path = InputAssistant
 	url = https://github.com/IMcD23/InputAssistant.git
-[submodule "TabView"]
-	path = TabView
-	url = https://github.com/IMcD23/TabView.git
 [submodule "ios_system_core"]
 	path = ios_system_core
 	url = https://github.com/ColdGrub1384/ios_system
