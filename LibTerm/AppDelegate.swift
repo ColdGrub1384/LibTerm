@@ -28,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
         replaceCommand("pbcopy", "pbcopy_main", true)
         replaceCommand("pbpaste", "pbpaste_main", true)
-        replaceCommand("python", "python3_swift_main", true)
+        replaceCommand("python", "python3_main", true)
+        replaceCommand("python3", "python3_main", true)
+        replaceCommand("id", "id_main", true)
         
         // Python
         putenv("PYTHONOPTIMIZE=".cValue)
