@@ -113,6 +113,12 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
+  - Highlightr
+  - TabView
+  - ObjectUserDefaults
+  - InputAssistant
+  - ios_system
+  - ios_system_core
 
 theme: jekyll-theme-cayman
 
