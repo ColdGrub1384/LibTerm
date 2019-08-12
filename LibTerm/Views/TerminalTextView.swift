@@ -13,6 +13,12 @@ public class LTTerminalTextView: UITextView {
     
     // MARK: - Text view
     
+    public override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        
+        layoutManager.showsControlCharacters = true
+    }
+    
     override public func caretRect(for position: UITextPosition) -> CGRect {
         var rect = super.caretRect(for: position)
         

@@ -15,7 +15,7 @@ public extension FileHandle {
     ///
     /// - Parameters:
     ///     - str: Text to print.
-    public func write(_ str: String) {
+    func write(_ str: String) {
         if let data = str.data(using: .utf8) {
             write(data)
         }
