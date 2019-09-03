@@ -20,6 +20,12 @@ Third party libraries used on this project:
 
     Copyright (c) 2018, Nicolas Holzschuch
     All rights reserved.
+    
+  - BOLDllvmPLAIN forked by Nicolas Holzschuch:
+    Licensed under LLVM Release License
+    
+    Copyright (c) 2003-2017 University of Illinois at Urbana-Champaign.
+    All rights reserved.
 
   - BOLDPython3_ios by Nicolas Holzschuch:
 

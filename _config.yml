@@ -38,10 +38,14 @@ features                                  :
     
   - title                                 : Unix commands
     description                           : Run more than 80 commands locally on your device.
-    fontawesome_icon_name                 : mobile
+    fontawesome_icon_name                 : terminal
 
   - title                                 : Programming languages
-    description                           : Python 2, Python 3 and Lua are included as commands.
+    description                           : Python 2, Python 3, Lua are included as commands. C and C++ can be compiled with clang!
+    fontawesome_icon_name                 : code
+    
+  - title                                 : LLVM
+    description                           : You can compile C and C++ (without iostream) code into LLVM IR format with clang and interpret it with the lli command.
     fontawesome_icon_name                 : keyboard
 
   - title                                 : Access any directory

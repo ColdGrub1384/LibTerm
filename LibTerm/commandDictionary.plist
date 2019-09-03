@@ -2,6 +2,48 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>llvm-link</key>
+	<array>
+		<string>link.framework/link</string>
+		<string>main</string>
+		<string></string>
+		<string>file</string>
+	</array>
+	<key>opt</key>
+	<array>
+		<string>opt.framework/opt</string>
+		<string>main</string>
+		<string></string>
+		<string>file</string>
+	</array>
+	<key>lli</key>
+	<array>
+		<string>lli.framework/lli</string>
+		<string>main</string>
+		<string></string>
+		<string>file</string>
+	</array>
+	<key>nm</key>
+	<array>
+		<string>nm.framework/nm</string>
+		<string>main</string>
+		<string></string>
+		<string>file</string>
+	</array>
+	<key>clang</key>
+	<array>
+		<string>clang.framework/clang</string>
+		<string>main</string>
+		<string></string>
+		<string>file</string>
+	</array>
+	<key>clang++</key>
+	<array>
+		<string>clang.framework/clang</string>
+		<string>main</string>
+		<string></string>
+		<string>file</string>
+	</array>
 	<key>awk</key>
 	<array>
 		<string>awk.framework/awk</string>
@@ -438,8 +480,15 @@
 	</array>
 	<key>python</key>
 	<array>
-		<string>MAIN</string>
-		<string>python3_swift_main</string>
+		<string>Python3_ios.framework/python3_ios</string>
+		<string>python_main</string>
+		<string>3bBc:dEhiJm:OQ:RsStuUvVW:xX?</string>
+		<string>file</string>
+	</array>
+	<key>python3</key>
+	<array>
+		<string>Python3_ios.framework/python3_ios</string>
+		<string>python_main</string>
 		<string>3bBc:dEhiJm:OQ:RsStuUvVW:xX?</string>
 		<string>file</string>
 	</array>

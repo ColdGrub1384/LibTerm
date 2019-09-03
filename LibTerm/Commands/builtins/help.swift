@@ -24,6 +24,58 @@ var lastLogin: Date? {
 /// The `help` command.
 func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
+    if argv.contains("--compiling") || argv.contains("compiling") {
+        
+        var range = NSRange(location: 0, length: 0)
+        DispatchQueue.main.sync {
+            range = io.terminal?.terminalTextView.selectedRange ?? range
+        }
+        
+        let compiling = "To compile C or C++ code, use the 'clang' command. Code cannot be compiled as an executable binary but has to be compiled into LLVM Intermediate Representation (LLVM IR). Then, the LLVM IR code will be interpreted by the 'lli' command. To compile code:\n\n$ clang -S -emit-llvm <other options> <C or C++ file to compile>\n\nThis will generate a '.ll' file, which is in LLVM IR format. To run the code, use the 'lli' command.\n\n$ lli <file>.ll\n\nThat will run the 'main' function.\n\nA '.ll' file can be executed or multiple '.ll' files can be merged into one, so we can code a program with multiple sources. You can use the 'llvm-link' command to \"merge\" multiple files.\n\n$ clang -S -emit-llvm helper.c\n$ clang -S -emit-llvm main.c\n$ llvm-link -o program.bc *.ll\n$ lli 'program.bc'\n\nDue to some issues on redirecting output and input, 'cout', 'cin', 'cerr' and 'clog' cannot be used on C++. However, you can perfectly include 'stdio.h' and use 'printf' and 'scanf'.\nYou can put your programs in '~/Library/bin' and run them directly by their name. If the program has the 'll' or 'bc' file extension, don't type the file extension."
+        
+        guard let rowsStr = ProcessInfo.processInfo.environment["LINES"], var rows = Int(rowsStr) else {
+            fputs(compiling, stdout)
+            return 0
+        }
+        
+        rows -= 6
+        
+        let lines = compiling.components(separatedBy: "\n")
+        var currentLine = 0
+        
+        for i in 0...rows {
+            if lines.indices.contains(i) {
+                currentLine += 1
+                fputs(lines[i]+"\n", io.stdout)
+            } else {
+                break
+            }
+        }
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.7) {
+            for i in currentLine...lines.count-1 {
+                if lines.indices.contains(i) {
+                    currentLine += 1
+                    fputs(lines[i]+"\n", io.stdout)
+                } else {
+                    break
+                }
+            }
+            
+            semaphore.signal()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+1.4, execute: {
+            io.terminal?.terminalTextView.scrollRangeToVisible(range)
+        })
+        
+        semaphore.wait()
+        
+        return 0
+    }
+    
     if argv.contains("--restored") || argv.contains("-r") {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -74,7 +126,8 @@ func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     }
     
     helpText += "\nUse the 'package' command to install third party commands.\n"
+    helpText += "\n\nWith LibTerm, you can compile and run C and C++ code with the 'clang' and 'lli' commands. Type 'help compiling' for more information.\n"
     fputs(helpText, io.stdout)
-    
+        
     return 0
 }

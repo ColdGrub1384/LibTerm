@@ -346,8 +346,8 @@ open class LibShell {
             return repl
         } else if let variableSet = setVariablesIfNeeded(command: command_) {
             return variableSet
-        } else if let ranPythonModule = tryToRunPythonModule(arguments: &arguments) {
-            return ranPythonModule
+        } else if let ranScript = tryToRunScript(arguments: &arguments) {
+            return ranScript
         } else if builtins.keys.contains(arguments[0]) {
             isBuiltinRunning = true
             defer {
@@ -480,16 +480,37 @@ open class LibShell {
         return nil
     }
     
-    private func tryToRunPythonModule(arguments: inout [String]) -> Int32? {
-        // Run Python scripts located in ~/Library/scripts
-        let scriptsDirectory = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("scripts")
+    private func tryToRunScript(arguments: inout [String]) -> Int32? {
+        // Run Python scripts located in ~/Library/bin
+        let scriptsDirectory = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("bin")
+        
+        let url: URL
+        let command: String
+        
+        let llURL = scriptsDirectory.appendingPathComponent(arguments[0]+".ll")
+        let bcURL = scriptsDirectory.appendingPathComponent(arguments[0]+".bc")
+        let binURL = scriptsDirectory.appendingPathComponent(arguments[0])
         let scriptURL = scriptsDirectory.appendingPathComponent(arguments[0]+".py")
-        if FileManager.default.fileExists(atPath: scriptURL.path) {
-            arguments.insert("python", at: 0)
-            arguments.remove(at: 1)
-            arguments.insert(scriptURL.path, at: 1)
-            
+        
+        if FileManager.default.fileExists(atPath: binURL.path) {
+            url = binURL
+            command = "lli"
+        } else if FileManager.default.fileExists(atPath: llURL.path) {
+            url = llURL
+            command = "lli"
+        } else if FileManager.default.fileExists(atPath: bcURL.path) {
+            url = bcURL
+            command = "lli"
+        } else {
+            url = scriptURL
+            command = "python"
             setPythonEnvironment(version: .v3_7)
+        }
+        
+        if FileManager.default.fileExists(atPath: url.path) {
+            arguments.insert(command, at: 0)
+            arguments.remove(at: 1)
+            arguments.insert(url.path, at: 1)
             
             return run(command: arguments.joined(separator: " "), appendToHistory: false)
         } else {

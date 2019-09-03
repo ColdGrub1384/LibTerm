@@ -593,8 +593,8 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             } else {
                 var commands_ = shell.history.reversed() as [String]
                 var help = LTHelp
-                for file in (try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("scripts").path)) ?? [] {
-                    if file.lowercased().hasSuffix(".py") {
+                for file in (try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("bin").path)) ?? [] {
+                    if file.lowercased().hasSuffix(".py") || file.lowercased().hasSuffix(".ll") {
                         help.append(LTCommandHelp(commandName: (file as NSString).deletingPathExtension, commandInput: .none))
                     }
                 }

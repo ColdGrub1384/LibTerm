@@ -26,14 +26,15 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
     private struct ProjectsIndexPaths {
         private init() {}
         
-        static let ios_system = IndexPath(row: 0, section: 12)
-        static let openTerm = IndexPath(row: 1, section: 2)
-        static let inputAssistant = IndexPath(row: 2, section: 2)
-        static let tabView = IndexPath(row: 3, section: 2)
-        static let highlightr = IndexPath(row: 4, section: 2)
-        static let objectUserDefaults = IndexPath(row: 5, section: 2)
-        static let python3_ios = IndexPath(row: 6, section: 2)
-        static let other = IndexPath(row: 7, section: 2)
+        static let ios_system = IndexPath(row: 0, section: 2)
+        static let llvm = IndexPath(row: 1, section: 2)
+        static let openTerm = IndexPath(row: 2, section: 2)
+        static let inputAssistant = IndexPath(row: 3, section: 2)
+        static let tabView = IndexPath(row: 4, section: 2)
+        static let highlightr = IndexPath(row: 5, section: 2)
+        static let objectUserDefaults = IndexPath(row: 6, section: 2)
+        static let python3_ios = IndexPath(row: 7, section: 2)
+        static let other = IndexPath(row: 8, section: 2)
         
         static let libTerm = IndexPath(row: 0, section: 3)
         
@@ -112,6 +113,8 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
         switch indexPath {
         case ProjectsIndexPaths.ios_system:
             projectPath = "holzschu/ios_system"
+        case ProjectsIndexPaths.llvm:
+            projectPath = "holzschu/llvm"
         case ProjectsIndexPaths.openTerm:
             projectPath = "louisdh/openterm"
         case ProjectsIndexPaths.inputAssistant:

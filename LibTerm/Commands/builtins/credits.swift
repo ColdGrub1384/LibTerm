@@ -25,7 +25,7 @@ func creditsMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     do {
         let credits = try String(contentsOf: creditsURL).replacingOccurrences(of: "PLAIN", with: "\u{001b}[0m").replacingOccurrences(of: "BOLD", with: "\u{001b}[1m")
         
-        guard let rowsStr = ProcessInfo.processInfo.environment["ROWS"], var rows = Int(rowsStr) else {
+        guard let rowsStr = ProcessInfo.processInfo.environment["LINES"], var rows = Int(rowsStr) else {
             fputs(credits, stdout)
             return 0
         }
