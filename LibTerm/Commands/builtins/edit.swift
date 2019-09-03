@@ -55,12 +55,12 @@ fileprivate class EditTextViewController: UIViewController, InputAssistantViewDe
         let textView = UITextView(frame: .zero, textContainer: textContainer)
         
         textView.font = UIFont(name: "Courier", size: UIFont.systemFontSize)
-        textView.backgroundColor = UIColor(named: "Background Color")
         if #available(iOS 13.0, *) {
-            textView.textColor = .label
+            textView.backgroundColor = .secondarySystemBackground
         } else {
-            textView.textColor = .black
+            textView.backgroundColor = .black
         }
+        textView.textColor = .white
         
         textView.autocorrectionType = .no
         textView.autocapitalizationType = .none
@@ -211,6 +211,7 @@ func editMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
                 
                 let navVC = UINavigationController(rootViewController: editor)
                 navVC.navigationBar.barStyle = .black
+                navVC.modalPresentationStyle = .fullScreen
                 
                 io.terminal?.present(navVC, animated: false, completion: {
                     editor.view.becomeFirstResponder()
