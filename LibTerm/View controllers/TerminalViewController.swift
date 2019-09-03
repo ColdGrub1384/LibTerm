@@ -258,9 +258,11 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             // Assumes the font is monospaced
             return Int((viewHeight / charHeight).rounded(.down))
         }
+                
+        setenv("COLUMNS", "\(columns)", 1)
+        setenv("LINES", "\(rows)", 1)
         
-        putenv("COLUMNS=\(columns)".cValue)
-        putenv("ROWS=\(rows)".cValue)
+        kill(getpid(), SIGWINCH)
     }
     
     // MARK: - View controller
