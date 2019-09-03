@@ -486,10 +486,12 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                     thread = DispatchQueue.global(qos: .utility)
                     thread.async {
                         self.shell.run(command: prompt)
-                        DispatchQueue.main.asyncAfter(deadline: .now()+0.25, execute: {
-                            self.shell.input()
-                            self.thread.async(execute: Thread.current.cancel)
-                        })
+                        
+                        while (self.shell.io?.parserQueue ?? 0) > 0 {
+                            sleep(UInt32(0.2))
+                        }
+                        
+                        self.shell.input()
                     }
                 }
                 
