@@ -1052,6 +1052,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = "non-global";
@@ -1089,6 +1090,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = "non-global";
