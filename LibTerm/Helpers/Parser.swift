@@ -154,7 +154,10 @@ class Parser {
     /// return an attributed string that renders the character
     private func handle(_ character: Character) -> (output: NSAttributedString?, didEnd: Bool) {
         // Create a string with the given character
-        let str = String(character)
+        var str = String(character)
+        if str == "\t" {
+            str = "    "
+        }
         
         // Try to parse a code
         switch self.state {
