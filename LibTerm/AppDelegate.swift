@@ -95,8 +95,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try? FileManager.default.copyItem(at: cacertURL, to: cacertNewURL)
         }
         
+        if let scriptsDirectory = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask).first?.appendingPathComponent("bin"), let oldScriptsDirectory = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask).first?.appendingPathComponent("scripts"), FileManager.default.fileExists(atPath: oldScriptsDirectory.path), !FileManager.default.fileExists(atPath: scriptsDirectory.path) {
+            try? FileManager.default.moveItem(at: oldScriptsDirectory, to: scriptsDirectory)
+        }
+        
         // The directory where scripts goes
-        if let scriptsDirectory = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask).first?.appendingPathComponent("scripts"), !FileManager.default.fileExists(atPath: scriptsDirectory.path) {
+        if let scriptsDirectory = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask).first?.appendingPathComponent("bin"), !FileManager.default.fileExists(atPath: scriptsDirectory.path) {
             try? FileManager.default.createDirectory(at: scriptsDirectory, withIntermediateDirectories: false, attributes: nil)
         }
         

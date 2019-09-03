@@ -18,7 +18,7 @@ fileprivate let underline = "\u{001b}[4m"
 
 fileprivate let packagesKey = ObjectUserDefaults.standard.item(forKey: "packages")
 
-fileprivate let scriptsURL = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("scripts")
+fileprivate let scriptsURL = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("bin")
 
 /// The `package` command.
 func packageMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
