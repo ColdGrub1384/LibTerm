@@ -51,7 +51,6 @@ class TerminalTabViewController: TabViewController {
             return
         }
         let navVC = UINavigationController(rootViewController: vc)
-        navVC.navigationBar.barStyle = .black
         navVC.modalPresentationStyle = .formSheet
         present(navVC, animated: true, completion: nil)
     }

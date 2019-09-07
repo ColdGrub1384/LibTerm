@@ -55,11 +55,7 @@ fileprivate class EditTextViewController: UIViewController, InputAssistantViewDe
         let textView = UITextView(frame: .zero, textContainer: textContainer)
         
         textView.font = UIFont(name: "Courier", size: UIFont.systemFontSize)
-        if #available(iOS 13.0, *) {
-            textView.backgroundColor = .secondarySystemBackground
-        } else {
-            textView.backgroundColor = .black
-        }
+        textView.backgroundColor = .black
         textView.textColor = .white
         
         textView.autocorrectionType = .no
