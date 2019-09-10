@@ -418,6 +418,21 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         updateSize()
     }
     
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        let wasFirstResponder = terminalTextView.isFirstResponder
+        if wasFirstResponder {
+            terminalTextView.resignFirstResponder()
+        }
+        
+        coordinator.animate(alongsideTransition: nil) { (_) in
+            if wasFirstResponder {
+                self.terminalTextView.becomeFirstResponder()
+            }
+        }
+    }
+    
     // MARK: - Keyboard
 
     @objc func keyboardWillShow(_ notification: Notification) {
