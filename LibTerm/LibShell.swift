@@ -252,6 +252,9 @@ open class LibShell {
             commands["package"] = packageMain
             commands["edit"] = editMain
         #endif
+        #if targetEnvironment(simulator)
+        commands["screenshot"] = screenshotMain
+        #endif
         return commands
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90ADD5A2324347F001F0E69 /* screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ADD592324347F001F0E69 /* screenshot.swift */; };
 		C91A0B7521F3AFD30004238F /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; };
 		C91A0B7621F3AFD30004238F /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9425A3421F3B46D00E7CC35 /* libssh2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC9216049DD00F870B5 /* libssh2.framework */; };
@@ -256,6 +257,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C90ADD592324347F001F0E69 /* screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = screenshot.swift; sourceTree = "<group>"; };
 		C91C345821612DBA0003BD90 /* clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clear.swift; sourceTree = "<group>"; };
 		C91C345A21613A720003BD90 /* help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = help.swift; sourceTree = "<group>"; };
 		C91D4D08218FA304003F73FF /* open.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = open.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				C91D4D12218FBF90003F73FF /* package.swift */,
 				C9E30A4B21C187C900789346 /* edit.swift */,
 				C91D4D08218FA304003F73FF /* open.swift */,
+				C90ADD592324347F001F0E69 /* screenshot.swift */,
 			);
 			path = builtins;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C995065221F3A24600C0D1BB /* CommandHelp.swift in Sources */,
+				C90ADD5A2324347F001F0E69 /* screenshot.swift in Sources */,
 				C995064C21F3A24000C0D1BB /* TerminalViewController.swift in Sources */,
 				C995064821F3A23B00C0D1BB /* package.swift in Sources */,
 				C995065121F3A24600C0D1BB /* IO.swift in Sources */,
