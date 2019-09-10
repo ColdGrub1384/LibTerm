@@ -59,7 +59,14 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
             
         } else {
             let terminal = ((connectionOptions.userActivities.first?.viewController as? LTTerminalViewController) ?? LTTerminalViewController.makeTerminal())
-            (terminal.parent as? TerminalTabViewController)?.closeTab(terminal)
+            for window in UIApplication.shared.windows {
+                if let tabVC = window.rootViewController as? TerminalTabViewController {
+                    if tabVC.viewControllers.contains(terminal) {
+                        tabVC.closeTab(terminal)
+                        break
+                    }
+                }
+            }
             tabVC.viewControllers = [terminal]
         }
         window?.rootViewController = tabVC
