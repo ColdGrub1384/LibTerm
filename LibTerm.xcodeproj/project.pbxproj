@@ -15,6 +15,7 @@
 		C9425A4C21F3B72700E7CC35 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CBA216048FC00F870B5 /* libz.tbd */; };
 		C9425A5F21F3B73D00E7CC35 /* liblzma.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C91FB77321DEA1E3001E987A /* liblzma.tbd */; };
 		C946A5A322072EBC00F78C5C /* site-packages3 in Resources */ = {isa = PBXBuildFile; fileRef = C946A59D22072EBC00F78C5C /* site-packages3 */; };
+		C95EEA202327495B0084EA0C /* usr.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = C95EEA1F2327495B0084EA0C /* usr.tar.gz */; };
 		C965C4C622FFA33600CAA88B /* pbpaste+pbcopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C965C4C522FFA33600CAA88B /* pbpaste+pbcopy.swift */; };
 		C965C4CE22FFA3B000CAA88B /* id.c in Sources */ = {isa = PBXBuildFile; fileRef = C965C4CD22FFA3B000CAA88B /* id.c */; };
 		C965C4D82300742B00CAA88B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C965C4D72300742B00CAA88B /* SceneDelegate.swift */; };
@@ -31,7 +32,6 @@
 		C98621D3231B6BDE003408B8 /* harfbuzz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C98621D1231B6BD7003408B8 /* harfbuzz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C98621D5231B6C0C003408B8 /* openblas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98621D4231B6C0C003408B8 /* openblas.framework */; };
 		C98621D6231B6C11003408B8 /* openblas.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C98621D4231B6C0C003408B8 /* openblas.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C98621D8231B7CA5003408B8 /* usr in Resources */ = {isa = PBXBuildFile; fileRef = C98621D7231B7CA5003408B8 /* usr */; };
 		C9862835231C5C0F003408B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98621E0231C49C8003408B8 /* Foundation.framework */; };
 		C995060921F3A17B00C0D1BB /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
 		C995060E21F3A17E00C0D1BB /* ObjectUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C552D8217672EA00F43B34 /* ObjectUserDefaults.framework */; };
@@ -272,6 +272,7 @@
 		C95BE11421A3715D00FB135B /* cacert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cacert.pem; sourceTree = "<group>"; };
 		C95BE11A21A379F900FB135B /* ios_system.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ios_system.xcodeproj; path = ios_system_core/ios_system.xcodeproj; sourceTree = "<group>"; };
 		C95CEF0521C96BC7003BC599 /* python27.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python27.zip; sourceTree = "<group>"; };
+		C95EEA1F2327495B0084EA0C /* usr.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = usr.tar.gz; sourceTree = "<group>"; };
 		C95FA4AB21DEA24F0015C95C /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		C965C4C522FFA33600CAA88B /* pbpaste+pbcopy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "pbpaste+pbcopy.swift"; sourceTree = "<group>"; };
 		C965C4CD22FFA3B000CAA88B /* id.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = id.c; sourceTree = "<group>"; };
@@ -322,7 +323,6 @@
 		C98621CE231B6B6B003408B8 /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = freetype.framework; sourceTree = "<group>"; };
 		C98621D1231B6BD7003408B8 /* harfbuzz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = harfbuzz.framework; sourceTree = "<group>"; };
 		C98621D4231B6C0C003408B8 /* openblas.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openblas.framework; sourceTree = "<group>"; };
-		C98621D7231B7CA5003408B8 /* usr */ = {isa = PBXFileReference; lastKnownFileType = folder; path = usr; sourceTree = "<group>"; };
 		C98621DA231C2107003408B8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		C98621DE231C25F3003408B8 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
 		C98621E0231C49C8003408B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -522,7 +522,7 @@
 		C9806D1021612B7A00F870B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C98621D7231B7CA5003408B8 /* usr */,
+				C95EEA1F2327495B0084EA0C /* usr.tar.gz */,
 				C946A59D22072EBC00F78C5C /* site-packages3 */,
 				C96CB9E221DD4241008C508C /* site-packages */,
 				C9E771D321C7E80700C56FEE /* credits */,
@@ -809,7 +809,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C98621D8231B7CA5003408B8 /* usr in Resources */,
 				C9CABCBF21F3A793002DB86C /* site-packages in Resources */,
 				C9CABCC021F3A793002DB86C /* credits in Resources */,
 				C9CABCC121F3A793002DB86C /* langs.plist in Resources */,
@@ -817,6 +816,7 @@
 				C9CABCC321F3A793002DB86C /* Terminal.storyboard in Resources */,
 				C9CABCC421F3A793002DB86C /* Settings.storyboard in Resources */,
 				C9CABCC521F3A793002DB86C /* Assets.xcassets in Resources */,
+				C95EEA202327495B0084EA0C /* usr.tar.gz in Resources */,
 				C9CABCC621F3A793002DB86C /* LaunchScreen.storyboard in Resources */,
 				C9CABCC821F3A793002DB86C /* commandDictionary.plist in Resources */,
 				C9CABCC921F3A794002DB86C /* python37.zip in Resources */,
@@ -1037,6 +1037,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1075,6 +1076,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

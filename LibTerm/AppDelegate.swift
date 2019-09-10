@@ -83,13 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         replaceCommand("pbpaste", "pbpaste_main", true)
         replaceCommand("id", "id_main", true)
         
-        // Clang
-        //putenv("SDKPATH=\(Bundle.main.path(forResource: "iPhoneOS", ofType: "sdk") ?? "")".cValue)
-        putenv("C_INCLUDE_PATH=\(Bundle.main.path(forResource: "usr/lib/clang/7.0.0/include", ofType: "") ?? ""):\(Bundle.main.path(forResource: "usr/include", ofType: "") ?? "")".cValue)
-        //putenv("OBJC_INCLUDE_PATH=\(Bundle.main.path(forResource: "usr/lib/clang/7.0.0/include", ofType: "") ?? ""):\(Bundle.main.path(forResource: "usr/include", ofType: "") ?? "")".cValue)
-        putenv("CPLUS_INCLUDE_PATH=\(Bundle.main.path(forResource: "usr/include/c++/4.2.1", ofType: "") ?? ""):\(Bundle.main.path(forResource: "usr/lib/clang/7.0.0/include", ofType: "") ?? ""):\(Bundle.main.path(forResource: "usr/include", ofType: "") ?? "")".cValue)
-        //putenv("OBJCPLUS_INCLUDE_PATH=\(Bundle.main.path(forResource: "usr/include/c++/4.2.1", ofType: "") ?? ""):\(Bundle.main.path(forResource: "usr/lib/clang/7.0.0/include", ofType: "") ?? ""):\(Bundle.main.path(forResource: "usr/include", ofType: "") ?? "")".cValue)
-        
         // Python
         putenv("PYTHONOPTIMIZE=".cValue)
         putenv("PYTHONDONTWRITEBYTECODE=1".cValue)
