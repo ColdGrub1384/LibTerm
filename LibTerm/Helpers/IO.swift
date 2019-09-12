@@ -45,7 +45,7 @@ public class LTIO: ParserDelegate {
         }
         errorPipe.fileHandleForReading.readabilityHandler = { handle in
             self.parserQueue += 1
-            if let progname = ios_progname(), String(cString: progname) == "python" || String(cString: progname) == "bc" {
+            if let progname = ios_progname(), String(cString: progname) == "python" || String(cString: progname) == "bc" || String(cString: progname) == "clang" {
                 self.outputPipe.fileHandleForReading.readabilityHandler?(handle)
                 self.parserQueue -= 1
             } else {
