@@ -37,13 +37,6 @@
 		<string></string>
 		<string>file</string>
 	</array>
-	<key>clang++</key>
-	<array>
-		<string>clang.framework/clang</string>
-		<string>main</string>
-		<string></string>
-		<string>file</string>
-	</array>
 	<key>awk</key>
 	<array>
 		<string>awk.framework/awk</string>

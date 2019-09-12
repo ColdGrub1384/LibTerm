@@ -364,23 +364,6 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         })
         
         lastLogin = Date()
-        
-        // Clang
-        if !LTTerminalViewController.unarchivedUsr {
-            LTTerminalViewController.unarchivedUsr = true
-            DispatchQueue.global().async {
-                ios_system("rm -rf ~/Library/usr")
-                ios_system("tar -zxvf \(Bundle.main.path(forResource: "usr", ofType: "tar.gz") ?? "") -C ~/Library/")
-                
-                let usrURL = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("usr")
-                
-                //putenv("SDKPATH=\(Bundle.main.path(forResource: "iPhoneOS", ofType: "sdk") ?? "")".cValue)
-                putenv("C_INCLUDE_PATH=\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
-                //putenv("OBJC_INCLUDE_PATH=\(Bundle.main.path(forResource: "usr/lib/clang/7.0.0/include", ofType: "") ?? ""):\(Bundle.main.path(forResource: "usr/include", ofType: "") ?? "")".cValue)
-                putenv("CPLUS_INCLUDE_PATH=\(usrURL.appendingPathComponent("include/c++/4.2.1")):\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
-                //putenv("OBJCPLUS_INCLUDE_PATH=\(Bundle.main.path(forResource: "usr/include/c++/4.2.1", ofType: "") ?? ""):\(Bundle.main.path(forResource: "usr/lib/clang/7.0.0/include", ofType: "") ?? ""):\(Bundle.main.path(forResource: "usr/include", ofType: "") ?? "")".cValue)
-            }
-        }
     }
     
     override public func viewDidAppear(_ animated: Bool) {

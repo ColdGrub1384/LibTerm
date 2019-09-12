@@ -10,6 +10,7 @@
 		C90ADD5A2324347F001F0E69 /* screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ADD592324347F001F0E69 /* screenshot.swift */; };
 		C91A0B7521F3AFD30004238F /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; };
 		C91A0B7621F3AFD30004238F /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9295457232977F800D1BB81 /* libarchive.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9295456232977F800D1BB81 /* libarchive.tbd */; };
 		C9425A3421F3B46D00E7CC35 /* libssh2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC9216049DD00F870B5 /* libssh2.framework */; };
 		C9425A3521F3B46D00E7CC35 /* libssh2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC9216049DD00F870B5 /* libssh2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9425A4C21F3B72700E7CC35 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CBA216048FC00F870B5 /* libz.tbd */; };
@@ -20,7 +21,6 @@
 		C965C4CE22FFA3B000CAA88B /* id.c in Sources */ = {isa = PBXBuildFile; fileRef = C965C4CD22FFA3B000CAA88B /* id.c */; };
 		C965C4D82300742B00CAA88B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C965C4D72300742B00CAA88B /* SceneDelegate.swift */; };
 		C975C422231AF9F800932444 /* clang.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C420231AF9E500932444 /* clang.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C975C424231AF9F900932444 /* libLLVM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41D231AF9E100932444 /* libLLVM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C975C425231AF9F900932444 /* link.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41C231AF9DF00932444 /* link.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C975C426231AF9F900932444 /* lli.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41B231AF9DE00932444 /* lli.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C975C427231AF9F900932444 /* nm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41E231AF9E200932444 /* nm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -91,6 +91,8 @@
 		C9CABCDB21F3ACA6002DB86C /* bc_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CABCDA21F3AC9A002DB86C /* bc_ios.framework */; };
 		C9CABCDC21F3ACA6002DB86C /* bc_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9CABCDA21F3AC9A002DB86C /* bc_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9E068F4226257C700A1DE86 /* Python_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E068F1226257AB00A1DE86 /* Python_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9E9C2462329AFC800E139D8 /* libLLVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41D231AF9E100932444 /* libLLVM.framework */; };
+		C9E9C24C2329AFD200E139D8 /* libLLVM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41D231AF9E100932444 /* libLLVM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,12 +224,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C9E9C24C2329AFD200E139D8 /* libLLVM.framework in Embed Frameworks */,
 				C98621D6231B6C11003408B8 /* openblas.framework in Embed Frameworks */,
 				C98621D3231B6BDE003408B8 /* harfbuzz.framework in Embed Frameworks */,
 				C98621D0231B6B99003408B8 /* freetype.framework in Embed Frameworks */,
 				C98621CD231B6A2B003408B8 /* Python3_ios.framework in Embed Frameworks */,
 				C975C422231AF9F800932444 /* clang.framework in Embed Frameworks */,
-				C975C424231AF9F900932444 /* libLLVM.framework in Embed Frameworks */,
 				C975C425231AF9F900932444 /* link.framework in Embed Frameworks */,
 				C975C426231AF9F900932444 /* lli.framework in Embed Frameworks */,
 				C975C427231AF9F900932444 /* nm.framework in Embed Frameworks */,
@@ -265,6 +267,7 @@
 		C91FB77321DEA1E3001E987A /* liblzma.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = liblzma.tbd; path = usr/lib/liblzma.tbd; sourceTree = SDKROOT; };
 		C927793221696C3F0091B038 /* CommandHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandHelp.swift; sourceTree = "<group>"; };
 		C927793821696CC00091B038 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
+		C9295456232977F800D1BB81 /* libarchive.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libarchive.tbd; path = usr/lib/libarchive.tbd; sourceTree = SDKROOT; };
 		C92F574C2168001600ABE35F /* ssh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ssh.swift; sourceTree = "<group>"; };
 		C946A59D22072EBC00F78C5C /* site-packages3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "site-packages3"; sourceTree = "<group>"; };
 		C9477BCE21D50339000680AE /* python37.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python37.zip; sourceTree = "<group>"; };
@@ -288,6 +291,7 @@
 		C975C41F231AF9E200932444 /* dis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = dis.framework; sourceTree = "<group>"; };
 		C975C420231AF9E500932444 /* clang.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = clang.framework; sourceTree = "<group>"; };
 		C975C421231AF9E500932444 /* opt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opt.framework; sourceTree = "<group>"; };
+		C9777591232848980028FCAE /* libLLVM.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libLLVM.tbd; path = usr/lib/libLLVM.tbd; sourceTree = SDKROOT; };
 		C9806BC42160467E00F870B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9806BCB2160468200F870B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9806BCE2160468200F870B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E9C2462329AFC800E139D8 /* libLLVM.framework in Frameworks */,
+				C9295457232977F800D1BB81 /* libarchive.tbd in Frameworks */,
 				C9862835231C5C0F003408B8 /* Foundation.framework in Frameworks */,
 				C9425A5F21F3B73D00E7CC35 /* liblzma.tbd in Frameworks */,
 				C9425A4C21F3B72700E7CC35 /* libz.tbd in Frameworks */,
@@ -473,6 +479,8 @@
 		C9806CB9216048FC00F870B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9295456232977F800D1BB81 /* libarchive.tbd */,
+				C9777591232848980028FCAE /* libLLVM.tbd */,
 				C98621E0231C49C8003408B8 /* Foundation.framework */,
 				C98621DE231C25F3003408B8 /* libc++abi.tbd */,
 				C98621DA231C2107003408B8 /* libc++.tbd */,
@@ -1037,7 +1045,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1056,6 +1064,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/llvm",
 				);
 				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
@@ -1076,7 +1085,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1095,6 +1104,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/llvm",
 				);
 				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;

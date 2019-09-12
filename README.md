@@ -10,7 +10,7 @@ The app supports most of OpenTerm features, but LibTerm has Python 3.7 instead o
 
 ## Programming languages
 
-LibTerm contains Python 2.7, Python 3.7, Lua and you can even code C and C++. Compile your C and C++ sources with `clang` into LLVM IR code and interpret the LLVM IR code with the `lli` command. (`iostream` output and input streams are unavailable in C++, but you can use `printf` and `scanf` from `stdio.h`) 
+LibTerm contains Python 2.7, Python 3.7, Lua and you can even code C. Compile your C sources with `clang` into LLVM IR code and interpret the LLVM IR code with the `lli` command.
 
 ## `package`
 

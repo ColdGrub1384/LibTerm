@@ -41,11 +41,11 @@ features                                  :
     fontawesome_icon_name                 : terminal
 
   - title                                 : Programming languages
-    description                           : Python 2, Python 3, Lua are included as commands. C and C++ can be compiled with clang!
+    description                           : Python 2, Python 3, Lua are included as commands. C code can be compiled with clang!
     fontawesome_icon_name                 : code
     
   - title                                 : LLVM
-    description                           : You can compile C and C++ (without iostream) code into LLVM IR format with clang and interpret it with the lli command.
+    description                           : You can compile C code into LLVM IR format with clang and interpret it with the lli command.
     fontawesome_icon_name                 : keyboard
 
   - title                                 : Access any directory
