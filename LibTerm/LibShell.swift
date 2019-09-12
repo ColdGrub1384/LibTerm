@@ -329,6 +329,10 @@ open class LibShell {
         io.stdin = fdopen(io.inputPipe.fileHandleForReading.fileDescriptor, "r")
         ios_switchSession(io.stdout)
         
+        DispatchQueue.main.async {
+            io.terminal?.updateSize()
+        }
+        
         isCommandRunning = true
         
         defer {
