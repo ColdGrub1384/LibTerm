@@ -339,7 +339,10 @@ open class LibShell {
             isCommandRunning = false
         }
         
-        let command_ = commandByReplacingVariables(command)
+        var command_ = commandByReplacingVariables(command)
+        if command_.split(separator: " ").first == "clang" {
+            command_ = command_.replacingFirstOccurrence(of: "clang", with: "clang -fcolor-diagnostics")
+        }
         
         var arguments = command_.arguments
         parseArgs(&arguments)

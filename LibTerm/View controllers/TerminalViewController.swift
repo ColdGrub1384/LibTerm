@@ -49,7 +49,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 if #available(iOS 13.0, *) {
                     return foregroundColor_ ?? UIColor.label
                 } else {
-                    return foregroundColor_ ?? .green
+                    return foregroundColor_ ?? .black
                 }
             }
         }

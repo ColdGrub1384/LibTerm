@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		C90ADD5A2324347F001F0E69 /* screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ADD592324347F001F0E69 /* screenshot.swift */; };
+		C90D816D232C3E7C002F48D2 /* usr.zip in Resources */ = {isa = PBXBuildFile; fileRef = C90D816C232C3E7C002F48D2 /* usr.zip */; };
+		C90D8170232C3EB5002F48D2 /* ZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C90D8165232C3D85002F48D2 /* ZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C90D8171232C3EB9002F48D2 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90D8165232C3D85002F48D2 /* ZipArchive.framework */; };
 		C91A0B7521F3AFD30004238F /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; };
 		C91A0B7621F3AFD30004238F /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9295457232977F800D1BB81 /* libarchive.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9295456232977F800D1BB81 /* libarchive.tbd */; };
 		C9425A3421F3B46D00E7CC35 /* libssh2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC9216049DD00F870B5 /* libssh2.framework */; };
 		C9425A3521F3B46D00E7CC35 /* libssh2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC9216049DD00F870B5 /* libssh2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9425A4C21F3B72700E7CC35 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CBA216048FC00F870B5 /* libz.tbd */; };
 		C9425A5F21F3B73D00E7CC35 /* liblzma.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C91FB77321DEA1E3001E987A /* liblzma.tbd */; };
 		C946A5A322072EBC00F78C5C /* site-packages3 in Resources */ = {isa = PBXBuildFile; fileRef = C946A59D22072EBC00F78C5C /* site-packages3 */; };
-		C95EEA202327495B0084EA0C /* usr.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = C95EEA1F2327495B0084EA0C /* usr.tar.gz */; };
 		C965C4C622FFA33600CAA88B /* pbpaste+pbcopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C965C4C522FFA33600CAA88B /* pbpaste+pbcopy.swift */; };
 		C965C4CE22FFA3B000CAA88B /* id.c in Sources */ = {isa = PBXBuildFile; fileRef = C965C4CD22FFA3B000CAA88B /* id.c */; };
 		C965C4D82300742B00CAA88B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C965C4D72300742B00CAA88B /* SceneDelegate.swift */; };
+		C974D15D232C4EDD000A2F24 /* libLLVM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C974D15C232C4ED9000A2F24 /* libLLVM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C975C422231AF9F800932444 /* clang.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C420231AF9E500932444 /* clang.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C975C425231AF9F900932444 /* link.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41C231AF9DF00932444 /* link.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C975C426231AF9F900932444 /* lli.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41B231AF9DE00932444 /* lli.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -91,11 +93,44 @@
 		C9CABCDB21F3ACA6002DB86C /* bc_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CABCDA21F3AC9A002DB86C /* bc_ios.framework */; };
 		C9CABCDC21F3ACA6002DB86C /* bc_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9CABCDA21F3AC9A002DB86C /* bc_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9E068F4226257C700A1DE86 /* Python_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E068F1226257AB00A1DE86 /* Python_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9E9C2462329AFC800E139D8 /* libLLVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41D231AF9E100932444 /* libLLVM.framework */; };
-		C9E9C24C2329AFD200E139D8 /* libLLVM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41D231AF9E100932444 /* libLLVM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C90D8164232C3D85002F48D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C90D8158232C3D85002F48D2 /* ZipArchive.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B423AE1A1C0DF76A0004A2F1;
+			remoteInfo = "ZipArchive-iOS";
+		};
+		C90D8166232C3D85002F48D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C90D8158232C3D85002F48D2 /* ZipArchive.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AFF75A241C37279600F450AC;
+			remoteInfo = "ZipArchive-Mac";
+		};
+		C90D8168232C3D85002F48D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C90D8158232C3D85002F48D2 /* ZipArchive.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 37952C261F63B50D00DD6677;
+			remoteInfo = "ZipArchive-tvos";
+		};
+		C90D816A232C3D85002F48D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C90D8158232C3D85002F48D2 /* ZipArchive.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 37952C5E1F63BB7100DD6677;
+			remoteInfo = "ZipArchive-watchos";
+		};
+		C90D816E232C3E90002F48D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C90D8158232C3D85002F48D2 /* ZipArchive.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B423AE191C0DF76A0004A2F1;
+			remoteInfo = "ZipArchive-iOS";
+		};
 		C95BE11E21A379FA00FB135B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C95BE11A21A379F900FB135B /* ios_system.xcodeproj */;
@@ -224,7 +259,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C9E9C24C2329AFD200E139D8 /* libLLVM.framework in Embed Frameworks */,
+				C974D15D232C4EDD000A2F24 /* libLLVM.framework in Embed Frameworks */,
 				C98621D6231B6C11003408B8 /* openblas.framework in Embed Frameworks */,
 				C98621D3231B6BDE003408B8 /* harfbuzz.framework in Embed Frameworks */,
 				C98621D0231B6B99003408B8 /* freetype.framework in Embed Frameworks */,
@@ -252,6 +287,7 @@
 				C995061721F3A18400C0D1BB /* InputAssistant.framework in Embed Frameworks */,
 				C995062921F3A1C600C0D1BB /* curl_ios.framework in Embed Frameworks */,
 				C995063521F3A1F400C0D1BB /* text.framework in Embed Frameworks */,
+				C90D8170232C3EB5002F48D2 /* ZipArchive.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +296,8 @@
 
 /* Begin PBXFileReference section */
 		C90ADD592324347F001F0E69 /* screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = screenshot.swift; sourceTree = "<group>"; };
+		C90D8158232C3D85002F48D2 /* ZipArchive.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZipArchive.xcodeproj; path = ZipArchive/ZipArchive.xcodeproj; sourceTree = "<group>"; };
+		C90D816C232C3E7C002F48D2 /* usr.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = usr.zip; sourceTree = "<group>"; };
 		C91C345821612DBA0003BD90 /* clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clear.swift; sourceTree = "<group>"; };
 		C91C345A21613A720003BD90 /* help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = help.swift; sourceTree = "<group>"; };
 		C91D4D08218FA304003F73FF /* open.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = open.swift; sourceTree = "<group>"; };
@@ -275,7 +313,6 @@
 		C95BE11421A3715D00FB135B /* cacert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cacert.pem; sourceTree = "<group>"; };
 		C95BE11A21A379F900FB135B /* ios_system.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ios_system.xcodeproj; path = ios_system_core/ios_system.xcodeproj; sourceTree = "<group>"; };
 		C95CEF0521C96BC7003BC599 /* python27.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = python27.zip; sourceTree = "<group>"; };
-		C95EEA1F2327495B0084EA0C /* usr.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = usr.tar.gz; sourceTree = "<group>"; };
 		C95FA4AB21DEA24F0015C95C /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		C965C4C522FFA33600CAA88B /* pbpaste+pbcopy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "pbpaste+pbcopy.swift"; sourceTree = "<group>"; };
 		C965C4CD22FFA3B000CAA88B /* id.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = id.c; sourceTree = "<group>"; };
@@ -284,9 +321,9 @@
 		C96CB9F521DD48C5008C508C /* libbzip2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbzip2.a; path = BZip2/libbzip2.a; sourceTree = "<group>"; };
 		C96CB9F721DD48C8008C508C /* libxz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libxz.a; path = XZ/libxz.a; sourceTree = "<group>"; };
 		C96CB9F921DD48CD008C508C /* libOpenSSL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOpenSSL.a; path = OpenSSL/libOpenSSL.a; sourceTree = "<group>"; };
+		C974D15C232C4ED9000A2F24 /* libLLVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = libLLVM.framework; sourceTree = "<group>"; };
 		C975C41B231AF9DE00932444 /* lli.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lli.framework; sourceTree = "<group>"; };
 		C975C41C231AF9DF00932444 /* link.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = link.framework; sourceTree = "<group>"; };
-		C975C41D231AF9E100932444 /* libLLVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = libLLVM.framework; sourceTree = "<group>"; };
 		C975C41E231AF9E200932444 /* nm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nm.framework; sourceTree = "<group>"; };
 		C975C41F231AF9E200932444 /* dis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = dis.framework; sourceTree = "<group>"; };
 		C975C420231AF9E500932444 /* clang.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = clang.framework; sourceTree = "<group>"; };
@@ -363,8 +400,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9E9C2462329AFC800E139D8 /* libLLVM.framework in Frameworks */,
-				C9295457232977F800D1BB81 /* libarchive.tbd in Frameworks */,
+				C90D8171232C3EB9002F48D2 /* ZipArchive.framework in Frameworks */,
 				C9862835231C5C0F003408B8 /* Foundation.framework in Frameworks */,
 				C9425A5F21F3B73D00E7CC35 /* liblzma.tbd in Frameworks */,
 				C9425A4C21F3B72700E7CC35 /* libz.tbd in Frameworks */,
@@ -386,6 +422,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C90D8159232C3D85002F48D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C90D8165232C3D85002F48D2 /* ZipArchive.framework */,
+				C90D8167232C3D85002F48D2 /* ZipArchive.framework */,
+				C90D8169232C3D85002F48D2 /* ZipArchive.framework */,
+				C90D816B232C3D85002F48D2 /* ZipArchive.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C95BE11B21A379F900FB135B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,9 +468,9 @@
 		C975C415231AF9CD00932444 /* llvm */ = {
 			isa = PBXGroup;
 			children = (
+				C974D15C232C4ED9000A2F24 /* libLLVM.framework */,
 				C975C420231AF9E500932444 /* clang.framework */,
 				C975C41F231AF9E200932444 /* dis.framework */,
-				C975C41D231AF9E100932444 /* libLLVM.framework */,
 				C975C41C231AF9DF00932444 /* link.framework */,
 				C975C41B231AF9DE00932444 /* lli.framework */,
 				C975C41E231AF9E200932444 /* nm.framework */,
@@ -435,6 +482,7 @@
 		C9806BB82160467E00F870B5 = {
 			isa = PBXGroup;
 			children = (
+				C90D8158232C3D85002F48D2 /* ZipArchive.xcodeproj */,
 				C9CABCD521F3AC9A002DB86C /* bc_ios.xcodeproj */,
 				C95BE11A21A379F900FB135B /* ios_system.xcodeproj */,
 				C9C552D3217672EA00F43B34 /* ObjectUserDefaults.xcodeproj */,
@@ -530,7 +578,7 @@
 		C9806D1021612B7A00F870B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C95EEA1F2327495B0084EA0C /* usr.tar.gz */,
+				C90D816C232C3E7C002F48D2 /* usr.zip */,
 				C946A59D22072EBC00F78C5C /* site-packages3 */,
 				C96CB9E221DD4241008C508C /* site-packages */,
 				C9E771D321C7E80700C56FEE /* credits */,
@@ -661,6 +709,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C90D816F232C3E90002F48D2 /* PBXTargetDependency */,
 				C995060C21F3A17B00C0D1BB /* PBXTargetDependency */,
 				C995061121F3A17E00C0D1BB /* PBXTargetDependency */,
 				C995061521F3A18100C0D1BB /* PBXTargetDependency */,
@@ -724,6 +773,10 @@
 					ProductGroup = C9F0F01821654DBD00CAC2A0 /* Products */;
 					ProjectRef = C9F0F01721654DBD00CAC2A0 /* TabView.xcodeproj */;
 				},
+				{
+					ProductGroup = C90D8159232C3D85002F48D2 /* Products */;
+					ProjectRef = C90D8158232C3D85002F48D2 /* ZipArchive.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -733,6 +786,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		C90D8165232C3D85002F48D2 /* ZipArchive.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZipArchive.framework;
+			remoteRef = C90D8164232C3D85002F48D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C90D8167232C3D85002F48D2 /* ZipArchive.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZipArchive.framework;
+			remoteRef = C90D8166232C3D85002F48D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C90D8169232C3D85002F48D2 /* ZipArchive.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZipArchive.framework;
+			remoteRef = C90D8168232C3D85002F48D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C90D816B232C3D85002F48D2 /* ZipArchive.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZipArchive.framework;
+			remoteRef = C90D816A232C3D85002F48D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C95BE11F21A379FA00FB135B /* ios_system.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -824,10 +905,10 @@
 				C9CABCC321F3A793002DB86C /* Terminal.storyboard in Resources */,
 				C9CABCC421F3A793002DB86C /* Settings.storyboard in Resources */,
 				C9CABCC521F3A793002DB86C /* Assets.xcassets in Resources */,
-				C95EEA202327495B0084EA0C /* usr.tar.gz in Resources */,
 				C9CABCC621F3A793002DB86C /* LaunchScreen.storyboard in Resources */,
 				C9CABCC821F3A793002DB86C /* commandDictionary.plist in Resources */,
 				C9CABCC921F3A794002DB86C /* python37.zip in Resources */,
+				C90D816D232C3E7C002F48D2 /* usr.zip in Resources */,
 				C946A5A322072EBC00F78C5C /* site-packages3 in Resources */,
 				C9CABCCA21F3A794002DB86C /* python27.zip in Resources */,
 			);
@@ -874,6 +955,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C90D816F232C3E90002F48D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ZipArchive-iOS";
+			targetProxy = C90D816E232C3E90002F48D2 /* PBXContainerItemProxy */;
+		};
 		C995060C21F3A17B00C0D1BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ios_system;
@@ -1045,7 +1131,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1056,7 +1142,7 @@
 				);
 				HEADER_SEARCH_PATHS = /System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7;
 				INFOPLIST_FILE = "$(SRCROOT)/LibTerm/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1066,7 +1152,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/llvm",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = "non-global";
@@ -1085,7 +1171,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1096,7 +1182,7 @@
 				);
 				HEADER_SEARCH_PATHS = /System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7;
 				INFOPLIST_FILE = "$(SRCROOT)/LibTerm/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1106,7 +1192,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/llvm",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = "non-global";

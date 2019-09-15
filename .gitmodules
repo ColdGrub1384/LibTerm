@@ -16,3 +16,6 @@
 [submodule "TabView"]
 	path = TabView
 	url = https://github.com/ColdGrub1384/TabView.git
+[submodule "ZipArchive"]
+	path = ZipArchive
+	url = https://github.com/ZipArchive/ZipArchive.git

@@ -55,12 +55,15 @@ func helpMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
         let semaphore = DispatchSemaphore(value: 0)
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.7) {
-            for i in currentLine...lines.count-1 {
-                if lines.indices.contains(i) {
-                    currentLine += 1
-                    fputs(lines[i]+"\n", io.stdout)
-                } else {
-                    break
+            
+            if currentLine <= lines.count-1 {
+                for i in currentLine...lines.count-1 {
+                    if lines.indices.contains(i) {
+                        currentLine += 1
+                        fputs(lines[i]+"\n", io.stdout)
+                    } else {
+                        break
+                    }
                 }
             }
             

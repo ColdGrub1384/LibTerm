@@ -11,6 +11,7 @@ import TabView
 import ios_system
 import ObjectUserDefaults
 import StoreKit
+import ZipArchive
 
 /// A Tab View theme that adapts to the system appearance.
 @available(iOS 13.0, *) class DefaultTheme: TabViewTheme {
@@ -80,20 +81,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sideLoading = true
         
         // Clang
-        if !FileManager.default.fileExists(atPath: FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("usr").path) {
-            try? FileManager.default.removeItem(at: FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("usr"))
-        }
-        ios_switchSession(stdout)
-        ios_system("tar -zxvf \(Bundle.main.path(forResource: "usr", ofType: "tar.gz") ?? "") -C ~/Library/")
         
         let usrURL = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("usr")
         
-        putenv("SDKPATH=\(Bundle.main.path(forResource: "iPhoneOS", ofType: "sdk") ?? "")".cValue)
-        putenv("C_INCLUDE_PATH=\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
-        //putenv("OBJC_INCLUDE_PATH=\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
-        putenv("CPLUS_INCLUDE_PATH=\(usrURL.appendingPathComponent("include/c++/v1")):\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
-        //putenv("OBJCPLUS_INCLUDE_PATH=\(usrURL.appendingPathComponent("include/c++/v1")):\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
-        ios_closeSession(stdout)
+        if FileManager.default.fileExists(atPath: usrURL.path) {
+            try? FileManager.default.removeItem(at: usrURL)
+        }
+        
+        if let zipPath =  Bundle.main.path(forResource: "usr", ofType: "zip") {
+            SSZipArchive.unzipFile(atPath: zipPath, toDestination: usrURL.deletingLastPathComponent().path, progressHandler: nil) { (_, success, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                if success {
+                    putenv("SDKPATH=\(Bundle.main.path(forResource: "iPhoneOS", ofType: "sdk") ?? "")".cValue)
+                    putenv("C_INCLUDE_PATH=\(usrURL.appendingPathComponent("lib/clang/7.0.0/include").path):\(usrURL.appendingPathComponent("include").path)".cValue)
+                //putenv("OBJC_INCLUDE_PATH=\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
+                    putenv("CPLUS_INCLUDE_PATH=\(usrURL.appendingPathComponent("include/c++/v1").path):\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include").path)".cValue)
+                //putenv("OBJCPLUS_INCLUDE_PATH=\(usrURL.appendingPathComponent("include/c++/v1")):\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
+                }
+            }
+        }
+        
+        // ios_system
         
         initializeEnvironment()
                 
@@ -119,10 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let scriptsDirectory = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask).first?.appendingPathComponent("bin"), !FileManager.default.fileExists(atPath: scriptsDirectory.path) {
             try? FileManager.default.createDirectory(at: scriptsDirectory, withIntermediateDirectories: false, attributes: nil)
         }
-        
-        // Colors
-        putenv("TERM=ansi".cValue)
-        
+                
         window?.accessibilityIgnoresInvertColors = true
         
         if SettingsTableViewController.fontSize.integerValue == 0 {

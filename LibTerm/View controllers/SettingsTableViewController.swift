@@ -34,7 +34,8 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
         static let highlightr = IndexPath(row: 5, section: 2)
         static let objectUserDefaults = IndexPath(row: 6, section: 2)
         static let python3_ios = IndexPath(row: 7, section: 2)
-        static let other = IndexPath(row: 8, section: 2)
+        static let zipArchive = IndexPath(row: 8, section: 2)
+        static let other = IndexPath(row: 9, section: 2)
         
         static let libTerm = IndexPath(row: 0, section: 3)
         
@@ -127,6 +128,8 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
             projectPath = "ColdGrub1384/ObjectUserDefaults"
         case ProjectsIndexPaths.python3_ios:
             projectPath = "holzschu/Python3_ios"
+        case ProjectsIndexPaths.zipArchive:
+            projectPath = "ZipArchive/ZipArchive"
         case ProjectsIndexPaths.other:
             projectPath = "ColdGrub1384/LibTerm/blob/master/PYTHON_ACKNOWLEDGMENTS.md"
         case ProjectsIndexPaths.libTerm:

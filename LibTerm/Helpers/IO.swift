@@ -35,6 +35,7 @@ public class LTIO: ParserDelegate {
     public init(terminal: LTTerminalViewController) {
                 
         self.terminal = terminal
+        
         stdout = fdopen(outputPipe.fileHandleForWriting.fileDescriptor, "w")
         stderr = fdopen(errorPipe.fileHandleForWriting.fileDescriptor, "w")
         stdin = fdopen(inputPipe.fileHandleForReading.fileDescriptor, "r")
@@ -46,13 +47,14 @@ public class LTIO: ParserDelegate {
         errorPipe.fileHandleForReading.readabilityHandler = { handle in
             self.parserQueue += 1
             if let progname = ios_progname(), String(cString: progname) == "python" || String(cString: progname) == "bc" || String(cString: progname) == "clang" {
-                self.outputPipe.fileHandleForReading.readabilityHandler?(handle)
-                self.parserQueue -= 1
+                self.outputParser.delegate = self
+                self.outputParser.parse(handle.availableData)
             } else {
                 self.errorParser.delegate = self
                 self.errorParser.parse(handle.availableData)
             }
         }
+        
         setbuf(stdout!, nil)
         setbuf(stderr!, nil)
     }
