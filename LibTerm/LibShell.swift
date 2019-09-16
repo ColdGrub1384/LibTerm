@@ -126,8 +126,12 @@ fileprivate func parseArgs(_ args: inout [String]) {
             
             if arg.hasPrefix(quote) && arg.hasSuffix(quote) && !arg.contains(" ") {
                 var argument = arg
-                argument.removeFirst()
-                argument.removeLast()
+                if argument.count > 1 {
+                    argument.removeFirst()
+                }
+                if argument.count > 1 {
+                    argument.removeLast()
+                }
                 parsedArgs.append(argument)
                 continue
             }
