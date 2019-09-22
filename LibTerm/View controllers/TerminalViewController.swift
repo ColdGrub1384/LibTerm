@@ -413,6 +413,8 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         }
         #endif
         terminalTextView.reloadInputViews()
+        
+        (UIApplication.shared.delegate as? AppDelegate)?.movePrograms()
     }
     
     override public func viewDidLayoutSubviews() {
@@ -462,6 +464,10 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             attributedConsole = NSMutableAttributedString(attributedString: attrs)
         }
         isWrittingToStdin = false
+    }
+    
+    public func textViewDidBeginEditing(_ textView: UITextView) {
+        (UIApplication.shared.delegate as? AppDelegate)?.movePrograms()
     }
     
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -587,7 +593,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             } else if completionType == .file, var files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
                 for item in files.enumerated() {
                     files.remove(at: item.offset)
-                    files.insert("'\(item.element)'", at: item.offset)
+                    files.insert("\(item.element.replacingOccurrences(of: " ", with: "\\ ").replacingOccurrences(of: "\"", with: "\\\"").replacingOccurrences(of: "'", with: "\\\'"))", at: item.offset)
                 }
                 return [".", "../"]+files+flags
             } else if completionType == .directory, let files = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.currentDirectoryPath) {
@@ -595,7 +601,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 for file in files {
                     var isDir: ObjCBool = false
                     if FileManager.default.fileExists(atPath: file, isDirectory: &isDir) && isDir.boolValue {
-                        dirs.append("'\(file)'")
+                        dirs.append("\(file.replacingOccurrences(of: " ", with: "\\ ").replacingOccurrences(of: "\"", with: "\\\"").replacingOccurrences(of: "'", with: "\\\'"))")
                     }
                 }
                 return dirs+flags
@@ -611,7 +617,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 var commands_ = shell.history.reversed() as [String]
                 var help = LTHelp
                 for file in (try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("bin").path)) ?? [] {
-                    if file.lowercased().hasSuffix(".py") || file.lowercased().hasSuffix(".ll") {
+                    if file.lowercased().hasSuffix(".py") || file.lowercased().hasSuffix(".ll") || file.lowercased().hasSuffix(".bc") {
                         help.append(LTCommandHelp(commandName: (file as NSString).deletingPathExtension, commandInput: .none))
                     }
                 }
@@ -711,7 +717,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         }
         
         if urls[0].startAccessingSecurityScopedResource() {
-            ios_system("cd '\(urls[0].path)'")
+            ios_setDirectoryURL(urls[0])
             title = urls[0].lastPathComponent
         } else {
             tprint("Error opening \(urls[0].lastPathComponent).\n")

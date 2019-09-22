@@ -65,6 +65,34 @@ import ZipArchive
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    /// Installs programs installed from SeeLess.
+    func movePrograms() {
+        guard let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.libterm") else {
+            return
+        }
+        
+        do {
+            if !FileManager.default.fileExists(atPath: url.path) {
+                try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: [:])
+            }
+            
+            for file in try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: .skipsHiddenFiles) {
+                if file.pathExtension == "ll" || file.pathExtension == "bc" {
+                    let binURL = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("bin")
+                    let destURL = binURL.appendingPathComponent(file.lastPathComponent)
+                    if FileManager.default.fileExists(atPath: destURL.path) {
+                        try FileManager.default.removeItem(at: destURL)
+                    }
+                    try FileManager.default.moveItem(at: file, to: destURL)
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    // MARK: - Application delegate
+    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -80,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         sideLoading = true
         
-        // Clang
+        // clang
         
         let usrURL = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("usr")
         
@@ -95,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 
                 if success {
-                    putenv("SDKPATH=\(Bundle.main.path(forResource: "iPhoneOS", ofType: "sdk") ?? "")".cValue)
+                    //putenv("SDKPATH=\(Bundle.main.path(forResource: "iPhoneOS", ofType: "sdk") ?? "")".cValue)
                     putenv("C_INCLUDE_PATH=\(usrURL.appendingPathComponent("lib/clang/7.0.0/include").path):\(usrURL.appendingPathComponent("include").path)".cValue)
                 //putenv("OBJC_INCLUDE_PATH=\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
                     putenv("CPLUS_INCLUDE_PATH=\(usrURL.appendingPathComponent("include/c++/v1").path):\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include").path)".cValue)
@@ -103,6 +131,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+        
+        // programs
+        
+        movePrograms()
         
         // ios_system
         
