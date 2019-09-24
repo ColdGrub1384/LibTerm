@@ -117,17 +117,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         if let zipPath =  Bundle.main.path(forResource: "usr", ofType: "zip") {
-            SSZipArchive.unzipFile(atPath: zipPath, toDestination: usrURL.deletingLastPathComponent().path, progressHandler: nil) { (_, success, error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-                
-                if success {
-                    //putenv("SDKPATH=\(Bundle.main.path(forResource: "iPhoneOS", ofType: "sdk") ?? "")".cValue)
-                    putenv("C_INCLUDE_PATH=\(usrURL.appendingPathComponent("lib/clang/7.0.0/include").path):\(usrURL.appendingPathComponent("include").path)".cValue)
-                //putenv("OBJC_INCLUDE_PATH=\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
-                    putenv("CPLUS_INCLUDE_PATH=\(usrURL.appendingPathComponent("include/c++/v1").path):\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include").path)".cValue)
-                //putenv("OBJCPLUS_INCLUDE_PATH=\(usrURL.appendingPathComponent("include/c++/v1")):\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
+            DispatchQueue.global().async {
+                SSZipArchive.unzipFile(atPath: zipPath, toDestination: usrURL.deletingLastPathComponent().path, progressHandler: nil) { (_, success, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    
+                    if success {
+                        //putenv("SDKPATH=\(Bundle.main.path(forResource: "iPhoneOS", ofType: "sdk") ?? "")".cValue)
+                        putenv("C_INCLUDE_PATH=\(usrURL.appendingPathComponent("lib/clang/7.0.0/include").path):\(usrURL.appendingPathComponent("include").path)".cValue)
+                    //putenv("OBJC_INCLUDE_PATH=\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
+                        putenv("CPLUS_INCLUDE_PATH=\(usrURL.appendingPathComponent("include/c++/v1").path):\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include").path)".cValue)
+                    //putenv("OBJCPLUS_INCLUDE_PATH=\(usrURL.appendingPathComponent("include/c++/v1")):\(usrURL.appendingPathComponent("lib/clang/7.0.0/include")):\(usrURL.appendingPathComponent("include"))".cValue)
+                    }
                 }
             }
         }
