@@ -39,8 +39,6 @@
 		C97DE9C32348E9750050560A /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0A21610B5300F870B5 /* commandDictionary.plist */; };
 		C97DE9C42348E9810050560A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0621604B2400F870B5 /* String.swift */; };
 		C97DE9C52348EA200050560A /* cacert.pem in Resources */ = {isa = PBXBuildFile; fileRef = C95BE11421A3715D00FB135B /* cacert.pem */; };
-		C97DE9C62348EAF30050560A /* site-packages in Resources */ = {isa = PBXBuildFile; fileRef = C96CB9E221DD4241008C508C /* site-packages */; };
-		C97DE9C72348EAF50050560A /* site-packages3 in Resources */ = {isa = PBXBuildFile; fileRef = C946A59D22072EBC00F78C5C /* site-packages3 */; };
 		C98621CD231B6A2B003408B8 /* Python3_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C98621CB231B69A1003408B8 /* Python3_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C98621CF231B6B6C003408B8 /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98621CE231B6B6B003408B8 /* freetype.framework */; };
 		C98621D0231B6B99003408B8 /* freetype.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C98621CE231B6B6B003408B8 /* freetype.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -1050,11 +1048,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C97DE9C52348EA200050560A /* cacert.pem in Resources */,
-				C97DE9C72348EAF50050560A /* site-packages3 in Resources */,
 				C998F0A32348ED7B00FA1F4C /* python37.zip in Resources */,
 				C998F0A22348ED7900FA1F4C /* python27.zip in Resources */,
 				C97DE9C32348E9750050560A /* commandDictionary.plist in Resources */,
-				C97DE9C62348EAF30050560A /* site-packages in Resources */,
 				C97DE9BC2348E8E10050560A /* input.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1212,6 +1208,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Use in LibTerm/Use in LibTerm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "Use in LibTerm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1234,6 +1231,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Use in LibTerm/Use in LibTerm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "Use in LibTerm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1256,6 +1254,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "LibTerm Intents/LibTerm Intents.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "LibTerm Intents/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1278,6 +1277,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "LibTerm Intents/LibTerm Intents.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "LibTerm Intents/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1423,7 +1423,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = LibTerm/LibTerm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1464,7 +1464,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = LibTerm/LibTerm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

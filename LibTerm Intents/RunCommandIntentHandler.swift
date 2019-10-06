@@ -31,8 +31,8 @@ class RunCommandIntentHandler: NSObject, RunCommandIntentHandling {
         
         let py3SitePackages = FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0].appendingPathComponent("site-packages3").path
         
-        let bundledSitePackages = Bundle.main.bundleURL.appendingPathComponent("site-packages").path
-        let bundledSitePackages3 = Bundle.main.bundleURL.appendingPathComponent("site-packages3").path
+        let bundledSitePackages = Bundle.main.bundleURL.deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("site-packages").path
+        let bundledSitePackages3 = Bundle.main.bundleURL.deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("site-packages3").path
         
         putenv("PYTHONHOME=\(Bundle.main.bundlePath)".cValue)
         
