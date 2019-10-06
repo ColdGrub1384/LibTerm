@@ -47,9 +47,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             }
             get {
                 if #available(iOS 13.0, *) {
-                    return foregroundColor_ ?? UIColor.label
+                    return foregroundColor_ ?? (SettingsTableViewController.greenText.boolValue ? UIColor(named: "Green")! : UIColor.label)
                 } else {
-                    return foregroundColor_ ?? .black
+                    return foregroundColor_ ?? (SettingsTableViewController.greenText.boolValue ? UIColor(named: "Green")! : UIColor.black)
                 }
             }
         }

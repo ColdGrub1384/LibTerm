@@ -23,6 +23,9 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
     /// A Boolean for hidding or not suggestions bar.
     static let shouldHideSuggestionsBar = ObjectUserDefaults.standard.item(forKey: "shouldHideSuggestionsBar")
     
+    /// A Boolean indicating whether the terminal should show green text.
+    static let greenText = ObjectUserDefaults.standard.item(forKey: "greenText")
+    
     private struct ProjectsIndexPaths {
         private init() {}
         
@@ -82,6 +85,14 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
         SettingsTableViewController.caretStyle.integerValue = sender.selectedSegmentIndex
     }
     
+    /// A switch for toggling green text.
+    @IBOutlet weak var greenTextSwitch: UISwitch!
+    
+    /// Called for changing text color.
+    @IBAction func textColorChanged(_ sender: UISwitch) {
+        SettingsTableViewController.greenText.boolValue = sender.isOn
+    }
+    
     // MARK: - Table view controller
     
     override func viewDidLoad() {
@@ -91,6 +102,7 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
         caretStyleSegmentedControl.selectedSegmentIndex = SettingsTableViewController.caretStyle.integerValue
         fontSizeStepper.value = SettingsTableViewController.fontSize.doubleValue
         fontSizeLabel.text = "\(SettingsTableViewController.fontSize.doubleValue)"
+        greenTextSwitch.isOn = SettingsTableViewController.greenText.boolValue
     }
     
     override func viewWillDisappear(_ animated: Bool) {
