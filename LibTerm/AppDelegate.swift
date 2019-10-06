@@ -138,6 +138,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         movePrograms()
         
+        if let binURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.libtermbin")?.appendingPathComponent("Documents") { // ~/Library/bin is now a symlink to a shared directory
+            
+            let localBinURL = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("bin")
+            
+            if !FileManager.default.fileExists(atPath: binURL.path) {
+                try? FileManager.default.createDirectory(at: binURL, withIntermediateDirectories: true, attributes: nil)
+            }
+            
+            if (try? FileManager.default.destinationOfSymbolicLink(atPath: localBinURL.path)) != binURL.path {
+                
+                for file in (try? FileManager.default.contentsOfDirectory(at: localBinURL, includingPropertiesForKeys: nil, options: [])) ?? [] {
+                    try? FileManager.default.moveItem(at: file, to: binURL.appendingPathComponent(file.lastPathComponent))
+                }
+                
+                try? FileManager.default.removeItem(at: localBinURL)
+                try? FileManager.default.createSymbolicLink(at: localBinURL, withDestinationURL: binURL)
+            }
+        }
+        
         // ios_system
         
         initializeEnvironment()

@@ -30,6 +30,17 @@
 		C975C426231AF9F900932444 /* lli.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41B231AF9DE00932444 /* lli.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C975C427231AF9F900932444 /* nm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41E231AF9E200932444 /* nm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C975C428231AF9F900932444 /* opt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C421231AF9E500932444 /* opt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C97DE9A32348E89A0050560A /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97DE9A22348E89A0050560A /* IntentHandler.swift */; };
+		C97DE9A72348E89A0050560A /* LibTerm Intents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C97DE9A02348E89A0050560A /* LibTerm Intents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C97DE9B82348E8C20050560A /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = C97DE9B72348E8C20050560A /* Intents.intentdefinition */; };
+		C97DE9B92348E8C60050560A /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = C97DE9B72348E8C20050560A /* Intents.intentdefinition */; };
+		C97DE9BC2348E8E10050560A /* input.txt in Resources */ = {isa = PBXBuildFile; fileRef = C97DE9BA2348E8E00050560A /* input.txt */; };
+		C97DE9BD2348E8E10050560A /* RunCommandIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97DE9BB2348E8E10050560A /* RunCommandIntentHandler.swift */; };
+		C97DE9C32348E9750050560A /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0A21610B5300F870B5 /* commandDictionary.plist */; };
+		C97DE9C42348E9810050560A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0621604B2400F870B5 /* String.swift */; };
+		C97DE9C52348EA200050560A /* cacert.pem in Resources */ = {isa = PBXBuildFile; fileRef = C95BE11421A3715D00FB135B /* cacert.pem */; };
+		C97DE9C62348EAF30050560A /* site-packages in Resources */ = {isa = PBXBuildFile; fileRef = C96CB9E221DD4241008C508C /* site-packages */; };
+		C97DE9C72348EAF50050560A /* site-packages3 in Resources */ = {isa = PBXBuildFile; fileRef = C946A59D22072EBC00F78C5C /* site-packages3 */; };
 		C98621CD231B6A2B003408B8 /* Python3_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C98621CB231B69A1003408B8 /* Python3_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C98621CF231B6B6C003408B8 /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98621CE231B6B6B003408B8 /* freetype.framework */; };
 		C98621D0231B6B99003408B8 /* freetype.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C98621CE231B6B6B003408B8 /* freetype.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -80,6 +91,8 @@
 		C995065521F3A24600C0D1BB /* BuildDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAAB322194E5600042E733 /* BuildDate.swift */; };
 		C995065621F3A24600C0D1BB /* GithubFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E30A4521C16E1E00789346 /* GithubFile.swift */; };
 		C995065921F3A24D00C0D1BB /* TerminalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0F002216432B100CAC2A0 /* TerminalTextView.swift */; };
+		C998F0A22348ED7900FA1F4C /* python27.zip in Resources */ = {isa = PBXBuildFile; fileRef = C95CEF0521C96BC7003BC599 /* python27.zip */; };
+		C998F0A32348ED7B00FA1F4C /* python37.zip in Resources */ = {isa = PBXBuildFile; fileRef = C9477BCE21D50339000680AE /* python37.zip */; };
 		C9CABCBD21F3A32A002DB86C /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C95FA4AB21DEA24F0015C95C /* libbz2.tbd */; };
 		C9CABCBF21F3A793002DB86C /* site-packages in Resources */ = {isa = PBXBuildFile; fileRef = C96CB9E221DD4241008C508C /* site-packages */; };
 		C9CABCC021F3A793002DB86C /* credits in Resources */ = {isa = PBXBuildFile; fileRef = C9E771D321C7E80700C56FEE /* credits */; };
@@ -147,6 +160,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 223496AB1FD5FC71007ED1A9;
 			remoteInfo = ios_system;
+		};
+		C97DE9A52348E89A0050560A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9806BB92160467E00F870B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C97DE99F2348E89A0050560A;
+			remoteInfo = "LibTerm Intents";
 		};
 		C995060B21F3A17B00C0D1BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -270,6 +290,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				C941F2AE233802E400F89B8B /* Use in LibTerm.appex in Embed App Extensions */,
+				C97DE9A72348E89A0050560A /* LibTerm Intents.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +376,12 @@
 		C975C420231AF9E500932444 /* clang.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = clang.framework; sourceTree = "<group>"; };
 		C975C421231AF9E500932444 /* opt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opt.framework; sourceTree = "<group>"; };
 		C9777591232848980028FCAE /* libLLVM.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libLLVM.tbd; path = usr/lib/libLLVM.tbd; sourceTree = SDKROOT; };
+		C97DE9A02348E89A0050560A /* LibTerm Intents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LibTerm Intents.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C97DE9A22348E89A0050560A /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		C97DE9A42348E89A0050560A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C97DE9B72348E8C20050560A /* Intents.intentdefinition */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		C97DE9BA2348E8E00050560A /* input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
+		C97DE9BB2348E8E10050560A /* RunCommandIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunCommandIntentHandler.swift; sourceTree = "<group>"; };
 		C9806BC42160467E00F870B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9806BCB2160468200F870B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9806BCE2160468200F870B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -394,6 +421,7 @@
 		C98621DE231C25F3003408B8 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
 		C98621E0231C49C8003408B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C99505F721F3A12200C0D1BB /* LibTerm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibTerm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C998F0A523494CDF00FA1F4C /* LibTerm Intents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "LibTerm Intents.entitlements"; sourceTree = "<group>"; };
 		C9AAAB322194E5600042E733 /* BuildDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildDate.swift; sourceTree = "<group>"; };
 		C9C552CF21766E8F00F43B34 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C9C552D12176716C00F43B34 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -424,6 +452,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		C941F2A1233802E400F89B8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C97DE99D2348E89A0050560A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -524,6 +559,18 @@
 			path = llvm;
 			sourceTree = "<group>";
 		};
+		C97DE9A12348E89A0050560A /* LibTerm Intents */ = {
+			isa = PBXGroup;
+			children = (
+				C998F0A523494CDF00FA1F4C /* LibTerm Intents.entitlements */,
+				C97DE9A22348E89A0050560A /* IntentHandler.swift */,
+				C97DE9BB2348E8E10050560A /* RunCommandIntentHandler.swift */,
+				C97DE9BA2348E8E00050560A /* input.txt */,
+				C97DE9A42348E89A0050560A /* Info.plist */,
+			);
+			path = "LibTerm Intents";
+			sourceTree = "<group>";
+		};
 		C9806BB82160467E00F870B5 = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +587,7 @@
 				C9806BC32160467E00F870B5 /* LibTerm */,
 				C9FAD8FA216AD24B005939AC /* LibTermCore */,
 				C941F2A5233802E400F89B8B /* Use in LibTerm */,
+				C97DE9A12348E89A0050560A /* LibTerm Intents */,
 				C9806BC22160467E00F870B5 /* Products */,
 				C9806CB9216048FC00F870B5 /* Frameworks */,
 			);
@@ -550,6 +598,7 @@
 			children = (
 				C99505F721F3A12200C0D1BB /* LibTerm.app */,
 				C941F2A4233802E400F89B8B /* Use in LibTerm.appex */,
+				C97DE9A02348E89A0050560A /* LibTerm Intents.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -641,6 +690,7 @@
 				C9E5FFBF21C42ED200ED4C57 /* LibTerm-Bridging-Header.h */,
 				C9477BCE21D50339000680AE /* python37.zip */,
 				C95CEF0521C96BC7003BC599 /* python27.zip */,
+				C97DE9B72348E8C20050560A /* Intents.intentdefinition */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -762,6 +812,23 @@
 			productReference = C941F2A4233802E400F89B8B /* Use in LibTerm.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		C97DE99F2348E89A0050560A /* LibTerm Intents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C97DE9B22348E89A0050560A /* Build configuration list for PBXNativeTarget "LibTerm Intents" */;
+			buildPhases = (
+				C97DE99C2348E89A0050560A /* Sources */,
+				C97DE99D2348E89A0050560A /* Frameworks */,
+				C97DE99E2348E89A0050560A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LibTerm Intents";
+			productName = "LibTerm Intents";
+			productReference = C97DE9A02348E89A0050560A /* LibTerm Intents.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		C99505F621F3A12200C0D1BB /* LibTerm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C995060621F3A12400C0D1BB /* Build configuration list for PBXNativeTarget "LibTerm" */;
@@ -783,6 +850,7 @@
 				C995061D21F3A18B00C0D1BB /* PBXTargetDependency */,
 				C9CABCDE21F3ACA6002DB86C /* PBXTargetDependency */,
 				C941F2AD233802E400F89B8B /* PBXTargetDependency */,
+				C97DE9A62348E89A0050560A /* PBXTargetDependency */,
 			);
 			name = LibTerm;
 			productName = Terminal;
@@ -800,6 +868,9 @@
 				ORGANIZATIONNAME = "Adrian Labbe";
 				TargetAttributes = {
 					C941F2A3233802E400F89B8B = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					C97DE99F2348E89A0050560A = {
 						CreatedOnToolsVersion = 11.0;
 					};
 					C99505F621F3A12200C0D1BB = {
@@ -852,6 +923,7 @@
 			targets = (
 				C99505F621F3A12200C0D1BB /* LibTerm */,
 				C941F2A3233802E400F89B8B /* Use in LibTerm */,
+				C97DE99F2348E89A0050560A /* LibTerm Intents */,
 			);
 		};
 /* End PBXProject section */
@@ -973,6 +1045,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C97DE99E2348E89A0050560A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C97DE9C52348EA200050560A /* cacert.pem in Resources */,
+				C97DE9C72348EAF50050560A /* site-packages3 in Resources */,
+				C998F0A32348ED7B00FA1F4C /* python37.zip in Resources */,
+				C998F0A22348ED7900FA1F4C /* python27.zip in Resources */,
+				C97DE9C32348E9750050560A /* commandDictionary.plist in Resources */,
+				C97DE9C62348EAF30050560A /* site-packages in Resources */,
+				C97DE9BC2348E8E10050560A /* input.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C99505F521F3A12200C0D1BB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1004,6 +1090,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C97DE99C2348E89A0050560A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C97DE9B92348E8C60050560A /* Intents.intentdefinition in Sources */,
+				C97DE9A32348E89A0050560A /* IntentHandler.swift in Sources */,
+				C97DE9C42348E9810050560A /* String.swift in Sources */,
+				C97DE9BD2348E8E10050560A /* RunCommandIntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C99505F321F3A12200C0D1BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1019,6 +1116,7 @@
 				C995065021F3A24600C0D1BB /* Keys.swift in Sources */,
 				C995064E21F3A24000C0D1BB /* SettingsTableViewController.swift in Sources */,
 				C995064321F3A23B00C0D1BB /* credits.swift in Sources */,
+				C97DE9B82348E8C20050560A /* Intents.intentdefinition in Sources */,
 				C995065321F3A24600C0D1BB /* Parser.swift in Sources */,
 				C995063E21F3A23600C0D1BB /* AppDelegate.swift in Sources */,
 				C965C4CE22FFA3B000CAA88B /* id.c in Sources */,
@@ -1051,6 +1149,11 @@
 			isa = PBXTargetDependency;
 			target = C941F2A3233802E400F89B8B /* Use in LibTerm */;
 			targetProxy = C941F2AC233802E400F89B8B /* PBXContainerItemProxy */;
+		};
+		C97DE9A62348E89A0050560A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C97DE99F2348E89A0050560A /* LibTerm Intents */;
+			targetProxy = C97DE9A52348E89A0050560A /* PBXContainerItemProxy */;
 		};
 		C995060C21F3A17B00C0D1BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1141,6 +1244,48 @@
 				);
 				MARKETING_VERSION = 5.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.marcela.ada.LibTerm.Use-in-LibTerm";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C97DE9A82348E89A0050560A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "LibTerm Intents/LibTerm Intents.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y96PL6G497;
+				INFOPLIST_FILE = "LibTerm Intents/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.marcela.ada.LibTerm.LibTerm-Intents";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C97DE9A92348E89A0050560A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "LibTerm Intents/LibTerm Intents.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y96PL6G497;
+				INFOPLIST_FILE = "LibTerm Intents/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.marcela.ada.LibTerm.LibTerm-Intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1356,6 +1501,15 @@
 			buildConfigurations = (
 				C941F2B0233802E400F89B8B /* Debug */,
 				C941F2B1233802E400F89B8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C97DE9B22348E89A0050560A /* Build configuration list for PBXNativeTarget "LibTerm Intents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C97DE9A82348E89A0050560A /* Debug */,
+				C97DE9A92348E89A0050560A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

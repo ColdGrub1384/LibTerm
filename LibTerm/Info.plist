@@ -40,6 +40,7 @@
 	</dict>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>RunCommandIntent</string>
 		<string>net.ianmcdowell.TabView.tab</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

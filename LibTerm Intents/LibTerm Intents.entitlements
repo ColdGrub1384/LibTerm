@@ -4,7 +4,6 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.libterm</string>
 		<string>group.libtermbin</string>
 	</array>
 </dict>
