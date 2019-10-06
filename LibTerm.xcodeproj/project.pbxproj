@@ -1220,7 +1220,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.1.1;
+				MARKETING_VERSION = 5.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.marcela.ada.LibTerm.Use-in-LibTerm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1242,7 +1242,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.1.1;
+				MARKETING_VERSION = 5.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.marcela.ada.LibTerm.Use-in-LibTerm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1264,6 +1264,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 5.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.marcela.ada.LibTerm.LibTerm-Intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1285,6 +1286,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 5.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.marcela.ada.LibTerm.LibTerm-Intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1442,7 +1444,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/llvm",
 				);
-				MARKETING_VERSION = 5.1.1;
+				MARKETING_VERSION = 5.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = "non-global";
@@ -1483,7 +1485,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/llvm",
 				);
-				MARKETING_VERSION = 5.1.1;
+				MARKETING_VERSION = 5.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = "non-global";
