@@ -132,7 +132,7 @@ fileprivate func parseArgs(_ args: inout [String]) {
                 if argument.count > 1 {
                     argument.removeLast()
                 }
-                parsedArgs.append(argument)
+                parsedArgs.append(argument.replacingOccurrences(of: ";", with: "%SEMICOLON%"))
                 continue
             }
             
@@ -161,6 +161,7 @@ fileprivate func parseArgs(_ args: inout [String]) {
                     
                 } else {
                     
+                    currentArg = currentArg.replacingOccurrences(of: ";", with: "%SEMICOLON%")
                     currentArg.append(" " + arg)
                     currentArg.removeLast()
                     parsedArgs.append(currentArg)
@@ -305,17 +306,6 @@ open class LibShell {
     ///
     /// - Returns: The exit code.
     @discardableResult open func run(command: String, appendToHistory: Bool = true) -> Int32 {
-        
-        let commands = command.components(separatedBy: ";")
-        if commands.count > 1 {
-            addToHistory(command)
-            var lastResult: Int32!
-            for command in commands {
-                lastResult = run(command: command, appendToHistory: false)
-            }
-            
-            return lastResult
-        }
         
         guard let io = self.io else {
             return 1
