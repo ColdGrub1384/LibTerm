@@ -45,13 +45,22 @@ public class LTIO: ParserDelegate {
             self.outputParser.parse(handle.availableData)
         }
         errorPipe.fileHandleForReading.readabilityHandler = { handle in
+            
+            let data = handle.availableData
+            if var str = String(data: data, encoding: .utf8) {
+                str.removeLast()
+                guard !str.hasPrefix("Freeing unary") && !str.hasPrefix("Freeing leaf") && !str.hasPrefix("Freeing tree") && str.components(separatedBy: " ").last?.count != 8 else {
+                    return
+                }
+            }
+            
             self.parserQueue += 1
             if let progname = ios_progname(), String(cString: progname) == "python" || String(cString: progname) == "bc" || String(cString: progname) == "clang" {
                 self.outputParser.delegate = self
-                self.outputParser.parse(handle.availableData)
+                self.outputParser.parse(data)
             } else {
                 self.errorParser.delegate = self
-                self.errorParser.parse(handle.availableData)
+                self.errorParser.parse(data)
             }
         }
         
