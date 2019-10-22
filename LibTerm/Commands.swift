@@ -33,6 +33,7 @@ public var LTHelp: [LTCommandHelp] = {
     commands.append(LTCommandHelp(commandName: "help", commandInput: .none))
     commands.append(LTCommandHelp(commandName: "exit", commandInput: .none))
     commands.append(LTCommandHelp(commandName: "open", commandInput: .file))
+    commands.append(LTCommandHelp(commandName: "python3", commandInput: .file))
     
     #if !FRAMEWORK
         var package = LTCommandHelp(commandName: "package", commandInput: .none)

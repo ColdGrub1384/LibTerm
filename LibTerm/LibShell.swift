@@ -338,6 +338,10 @@ open class LibShell {
             command_ = command_.replacingFirstOccurrence(of: "clang", with: "clang -fcolor-diagnostics")
         }
         
+        if command_.split(separator: " ").first == "python3" {
+            command_ = command_.replacingFirstOccurrence(of: "python3", with: "python")
+        }
+        
         var arguments = command_.arguments
         parseArgs(&arguments)
         guard arguments.count > 0 else {
