@@ -28,10 +28,10 @@
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>21</integer>
+			<integer>23</integer>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
-				<key>command,cwd</key>
+				<key>command,cwd,input</key>
 				<dict>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
@@ -119,15 +119,91 @@
 					<key>INIntentParameterCustomDisambiguation</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Current directory </string>
+					<string>Input</string>
 					<key>INIntentParameterDisplayNameID</key>
-					<string>JR0U73</string>
+					<string>NBHtM2</string>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>2</integer>
 					<key>INIntentParameterMetadata</key>
 					<dict>
 						<key>INIntentParameterMetadataCapitalization</key>
 						<string>Sentences</string>
+						<key>INIntentParameterMetadataDisableAutocorrect</key>
+						<true/>
+						<key>INIntentParameterMetadataDisableSmartDashes</key>
+						<true/>
+						<key>INIntentParameterMetadataDisableSmartQuotes</key>
+						<true/>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>input</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Where would you like to run the command?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>DMDs1B</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>There are ${count} options matching ‘${input}’.</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>bAsny1</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>DisambiguationIntroduction</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Which one?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>5TQACz</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>DisambiguationSelection</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Just to confirm, you wanted ‘${input}’?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>GxH7ja</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Confirmation</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsResolution</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>23</integer>
+					<key>INIntentParameterType</key>
+					<string>String</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterCustomDisambiguation</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Current directory </string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>JR0U73</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>3</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>Sentences</string>
+						<key>INIntentParameterMetadataDisableAutocorrect</key>
+						<true/>
+						<key>INIntentParameterMetadataDisableSmartDashes</key>
+						<true/>
+						<key>INIntentParameterMetadataDisableSmartQuotes</key>
+						<true/>
 					</dict>
 					<key>INIntentParameterName</key>
 					<string>cwd</string>

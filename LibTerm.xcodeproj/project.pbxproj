@@ -35,7 +35,6 @@
 		C97DE9A72348E89A0050560A /* LibTerm Intents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C97DE9A02348E89A0050560A /* LibTerm Intents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C97DE9B82348E8C20050560A /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = C97DE9B72348E8C20050560A /* Intents.intentdefinition */; };
 		C97DE9B92348E8C60050560A /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = C97DE9B72348E8C20050560A /* Intents.intentdefinition */; };
-		C97DE9BC2348E8E10050560A /* input.txt in Resources */ = {isa = PBXBuildFile; fileRef = C97DE9BA2348E8E00050560A /* input.txt */; };
 		C97DE9BD2348E8E10050560A /* RunCommandIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97DE9BB2348E8E10050560A /* RunCommandIntentHandler.swift */; };
 		C97DE9C32348E9750050560A /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9806D0A21610B5300F870B5 /* commandDictionary.plist */; };
 		C97DE9C42348E9810050560A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9806D0621604B2400F870B5 /* String.swift */; };
@@ -379,7 +378,6 @@
 		C97DE9A22348E89A0050560A /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		C97DE9A42348E89A0050560A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C97DE9B72348E8C20050560A /* Intents.intentdefinition */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
-		C97DE9BA2348E8E00050560A /* input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
 		C97DE9BB2348E8E10050560A /* RunCommandIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunCommandIntentHandler.swift; sourceTree = "<group>"; };
 		C9806BC42160467E00F870B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9806BCB2160468200F870B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -565,7 +563,6 @@
 				C998F0A523494CDF00FA1F4C /* LibTerm Intents.entitlements */,
 				C97DE9A22348E89A0050560A /* IntentHandler.swift */,
 				C97DE9BB2348E8E10050560A /* RunCommandIntentHandler.swift */,
-				C97DE9BA2348E8E00050560A /* input.txt */,
 				C97DE9A42348E89A0050560A /* Info.plist */,
 			);
 			path = "LibTerm Intents";
@@ -1053,7 +1050,6 @@
 				C998F0A32348ED7B00FA1F4C /* python37.zip in Resources */,
 				C998F0A22348ED7900FA1F4C /* python27.zip in Resources */,
 				C97DE9C32348E9750050560A /* commandDictionary.plist in Resources */,
-				C97DE9BC2348E8E10050560A /* input.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

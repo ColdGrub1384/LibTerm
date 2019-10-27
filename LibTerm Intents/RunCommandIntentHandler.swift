@@ -47,10 +47,16 @@ class RunCommandIntentHandler: NSObject, RunCommandIntentHandling {
         sideLoading = true
                 
         let output = Pipe()
-                    
+        
+        let inputURL = FileManager.default.urls(for: .libraryDirectory, in: .allDomainsMask)[0].appendingPathComponent("input.txt")
+        if !FileManager.default.fileExists(atPath: inputURL.path) {
+            FileManager.default.createFile(atPath: inputURL.path, contents: nil, attributes: nil)
+        }
+        try? intent.input?.write(to: inputURL, atomically: true, encoding: .utf8)
+        
         let _stdout = fdopen(output.fileHandleForWriting.fileDescriptor, "w")
         let _stderr = fdopen(output.fileHandleForWriting.fileDescriptor, "w")
-        let _stdin = fopen(Bundle.main.path(forResource: "input", ofType: "txt")!.cValue, "r")
+        let _stdin = fopen(inputURL.path.cValue, "r")
         
         initializeEnvironment()
         unsetenv("TERM")
@@ -136,5 +142,13 @@ class RunCommandIntentHandler: NSObject, RunCommandIntentHandling {
         }
         
         return completion(.success(with: cwd))
+    }
+    
+    func resolveInput(for intent: RunCommandIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
+        guard let input = intent.input else {
+            return completion(.success(with: ""))
+        }
+        
+        return completion(.success(with: input))
     }
 }
