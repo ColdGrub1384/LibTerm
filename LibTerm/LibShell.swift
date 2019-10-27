@@ -266,7 +266,11 @@ open class LibShell {
     /// Writes the prompt to the terminal.
     public func input() {
         DispatchQueue.main.async {
-            self.io?.terminal?.input(prompt: "\(UIDevice.current.name) $ ")
+            if let ps1 = getenv("PS1") {
+                self.io?.terminal?.input(prompt: String(cString: ps1))
+            } else {
+                self.io?.terminal?.input(prompt: "\(UIDevice.current.name) $ ")
+            }
         }
     }
     

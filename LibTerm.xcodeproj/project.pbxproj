@@ -24,6 +24,7 @@
 		C965C4C622FFA33600CAA88B /* pbpaste+pbcopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C965C4C522FFA33600CAA88B /* pbpaste+pbcopy.swift */; };
 		C965C4CE22FFA3B000CAA88B /* id.c in Sources */ = {isa = PBXBuildFile; fileRef = C965C4CD22FFA3B000CAA88B /* id.c */; };
 		C965C4D82300742B00CAA88B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C965C4D72300742B00CAA88B /* SceneDelegate.swift */; };
+		C972DD272366124300911098 /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95BE11F21A379FA00FB135B /* ios_system.framework */; };
 		C974D15D232C4EDD000A2F24 /* libLLVM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C974D15C232C4ED9000A2F24 /* libLLVM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C975C422231AF9F800932444 /* clang.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C420231AF9E500932444 /* clang.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C975C425231AF9F900932444 /* link.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C975C41C231AF9DF00932444 /* link.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -460,6 +461,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C972DD272366124300911098 /* ios_system.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
