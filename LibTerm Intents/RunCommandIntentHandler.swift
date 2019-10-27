@@ -56,6 +56,7 @@ class RunCommandIntentHandler: NSObject, RunCommandIntentHandling {
         unsetenv("TERM")
         unsetenv("LSCOLORS")
         unsetenv("CLICOLOR")
+        putenv("SHAREDDIR=\(FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.libterm")?.path ?? "")".cValue)
         try? FileManager.default.copyItem(at: Bundle.main.url(forResource: "cacert", withExtension: "pem")!, to: FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0].appendingPathComponent("cacert.pem"))
         
         ios_switchSession(_stdout)
@@ -106,7 +107,9 @@ class RunCommandIntentHandler: NSObject, RunCommandIntentHandling {
         
         if let cwd = intent.cwd, !cwd.isEmpty {
             ios_system("cd \(cwd.replacingOccurrences(of: " ", with: "\\ ").replacingOccurrences(of: "\"", with: "\\\"").replacingOccurrences(of: "'", with: "\\'"))")
-         }
+        } else {
+            ios_system("cd $SHAREDDIR")
+        }
         retValue = ios_system(command)
         
         let response = RunCommandIntentResponse(code: retValue == 0 ? .success : .failure, userActivity: nil)

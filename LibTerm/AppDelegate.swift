@@ -165,6 +165,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         replaceCommand("pbpaste", "pbpaste_main", true)
         replaceCommand("id", "id_main", true)
         
+        putenv("SHAREDDIR=\(FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.libterm")?.path ?? "")".cValue)
+        
         // Python
         putenv("PYTHONOPTIMIZE=".cValue)
         putenv("PYTHONDONTWRITEBYTECODE=1".cValue)
