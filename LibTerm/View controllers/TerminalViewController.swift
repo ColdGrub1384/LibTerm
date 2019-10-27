@@ -359,7 +359,13 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             _ = helpMain(argc: 2, argv: ["help", "--startup"], io: shell.io!)
         }
         
-        _ = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false, block: { (_) in
+        if FileManager.default.fileExists(atPath: FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0].appendingPathComponent(".shrc").path) {
+            _ = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false, block: { (_) in
+                self.shell.run(command: "sh ~/Documents/.shrc")
+            })
+        }
+        
+        _ = Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false, block: { (_) in
             self.shell.input()
         })
         
