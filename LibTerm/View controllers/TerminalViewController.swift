@@ -477,32 +477,40 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     }
     
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
-        let location:Int = textView.offset(from: textView.beginningOfDocument, to: textView.endOfDocument)
-        let length:Int = textView.offset(from: textView.endOfDocument, to: textView.endOfDocument)
-        let end =  NSMakeRange(location, length)
-        
-        if end != range && !(text == "" && range.length == 1 && range.location+1 == end.location) {
-            // Only allow inserting text from the end
-            return false
-        }
-        
-        if (textView.text as NSString).replacingCharacters(in: range, with: text).count >= attributedConsole.string.count {
-            
-            isWrittingToStdin = !isAskingForInput
-            
-            self.prompt += text
-            
-            if text == "\n" {
                 
-                if !isAskingForInput, let data = self.prompt.data(using: .utf8) {
-                    tprint("\n")
-                    shell.io?.inputPipe.fileHandleForWriting.write(data)
-                    self.prompt = ""
-                    return false
+        if !isAskingForInput {
+            let location: Int = textView.offset(from: textView.beginningOfDocument, to: textView.endOfDocument)
+            let length: Int = textView.offset(from: textView.endOfDocument, to: textView.endOfDocument)
+            let end = NSMakeRange(location, length)
+            
+            if end != range && !(text == "" && range.length == 1 && range.location+1 == end.location) {
+                // Only allow inserting text from the end
+                return false
+            }
+            
+            if (textView.text as NSString).replacingCharacters(in: range, with: text).count >= attributedConsole.string.count {
+                
+                isWrittingToStdin = !isAskingForInput
+                
+                self.prompt += text
+                
+                if text == "\n" {
+                    
+                    if let data = self.prompt.data(using: .utf8) {
+                        tprint("\n")
+                        shell.io?.inputPipe.fileHandleForWriting.write(data)
+                        self.prompt = ""
+                        return false
+                    }
+                } else if text == "" && range.length == 1 {
+                    prompt = String(prompt.dropLast())
                 }
                 
-                self.prompt = String(self.prompt.dropLast())
+                return true
+            }
+        } else if let consoleRange = textView.text.range(of: attributedConsole.string) {
+            
+            if text == "\n" {
                 tprint("\n")
                 textViewDidChange(textView)
                 isAskingForInput = false
@@ -511,9 +519,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 let prompt = self.prompt
                 self.prompt = ""
                 
-                defer {
-                    thread = DispatchQueue.global(qos: .utility)
-                    thread.async {
+                _ = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: { (_) in
+                    self.thread = DispatchQueue.global(qos: .utility)
+                    self.thread.async {
                         self.shell.run(command: prompt)
                         
                         while (self.shell.io?.parserQueue ?? 0) > 0 {
@@ -522,13 +530,26 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                         
                         self.shell.input()
                     }
-                }
+                })
                 
                 return false
-            } else if text == "" && range.length == 1 {
-                prompt = String(prompt.dropLast())
+            } else {
+                
+                if text == "" && range.length == 1 && self.prompt.isEmpty { // Delete not allowed
+                    return false
+                }
+                
+                if range.location < (attributedConsole.string as NSString).length {
+                    return false
+                }
+                
+                var prompt = textView.text ?? ""
+                prompt = (prompt as NSString).replacingCharacters(in: range, with: text)
+                prompt.replaceSubrange(consoleRange, with: "")
+                
+                self.prompt = prompt
             }
-            
+                        
             return true
         }
         
