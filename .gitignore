@@ -11,4 +11,5 @@ InputAssistant/build
 ObjectUserDefaults/build
 
 ios_system
+!LibTerm/Commands/ios_system
 llvm

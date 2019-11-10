@@ -311,6 +311,8 @@ open class LibShell {
     /// - Returns: The exit code.
     @discardableResult open func run(command: String, appendToHistory: Bool = true) -> Int32 {
         
+        putenv("TERM=xterm-color".cValue)
+        
         guard let io = self.io else {
             return 1
         }

@@ -160,6 +160,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ios_system
         
         initializeEnvironment()
+        
+        putenv("TERM=xterm-color".cValue)
                 
         replaceCommand("pbcopy", "pbcopy_main", true)
         replaceCommand("pbpaste", "pbpaste_main", true)
