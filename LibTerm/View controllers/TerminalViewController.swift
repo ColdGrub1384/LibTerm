@@ -609,7 +609,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             if shell.isBuiltinRunning {
                 return []
             } else {
-                return ["Stop"]
+                return ["Stop", "EOF"]
             }
         }
         
@@ -694,8 +694,12 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     public func inputAssistantView(_ inputAssistantView: InputAssistantView, didSelectSuggestionAtIndex index: Int) {
         
         if completionType == .running {
-            tprint("\u{003}\n")
-            return shell.killCommand()
+            if index == 0 {
+                tprint("\u{003}\n")
+                return shell.killCommand()
+            } else if index == 1 {
+                return shell.sendEOF()
+            }
         } else if completionType != .command && completionType != .history {
             prompt += commands_[index]+" "
         } else {

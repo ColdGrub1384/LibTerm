@@ -277,6 +277,25 @@ open class LibShell {
     /// Shell's variables.
     open var variables = [String:String]()
     
+    /// Closes `stdin`.
+    @objc public func sendEOF() {
+        
+        guard let io = io else {
+            return
+        }
+        
+        if #available(iOS 13.0, *) {
+            try? io.inputPipe.fileHandleForWriting.close()
+        } else {
+            io.inputPipe.fileHandleForWriting.closeFile()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            if let term = io.terminal {
+                self.io = LTIO(terminal: term)
+            }
+        }
+    }
+    
     /// Kills the current running command.
     @objc public func killCommand() {
         guard isCommandRunning, let io = self.io else {

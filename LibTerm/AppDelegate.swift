@@ -12,6 +12,7 @@ import ios_system
 import ObjectUserDefaults
 import StoreKit
 import ZipArchive
+import Darwin
 
 /// A Tab View theme that adapts to the system appearance.
 @available(iOS 13.0, *) class DefaultTheme: TabViewTheme {

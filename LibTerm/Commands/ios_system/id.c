@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  */
 
-#include "../../ios_system_core/ios_error.h"
+#include "../../../ios_system_core/ios_error.h"
 
 #ifndef lint
 static const char copyright[] =

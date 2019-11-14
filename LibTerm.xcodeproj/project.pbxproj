@@ -538,6 +538,7 @@
 		C968D2512209CF96006247DA /* ios_system */ = {
 			isa = PBXGroup;
 			children = (
+				C965C4CD22FFA3B000CAA88B /* id.c */,
 				C965C4C522FFA33600CAA88B /* pbpaste+pbcopy.swift */,
 			);
 			path = ios_system;
@@ -745,7 +746,6 @@
 		C9E5A86921CBF2E60060B871 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
-				C965C4CD22FFA3B000CAA88B /* id.c */,
 				C968D24B2209CF67006247DA /* builtins */,
 				C968D2512209CF96006247DA /* ios_system */,
 			);
@@ -1206,7 +1206,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Use in LibTerm/Use in LibTerm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "Use in LibTerm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1229,7 +1229,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Use in LibTerm/Use in LibTerm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "Use in LibTerm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1252,7 +1252,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "LibTerm Intents/LibTerm Intents.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "LibTerm Intents/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1275,7 +1275,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "LibTerm Intents/LibTerm Intents.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "LibTerm Intents/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1421,7 +1421,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = LibTerm/LibTerm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1462,7 +1462,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = LibTerm/LibTerm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

@@ -109,6 +109,11 @@ class TerminalTabViewController: TabViewController {
         (visibleViewController as? LTTerminalViewController)?.shell.killCommand()
     }
     
+    /// Sends `EOF` to `stdin`.
+    @objc func sendEOF() {
+        (visibleViewController as? LTTerminalViewController)?.shell.sendEOF()
+    }
+    
     // MARK: - Tab view controller
     
     override var keyCommands: [UIKeyCommand]? {
@@ -119,7 +124,8 @@ class TerminalTabViewController: TabViewController {
         
         if let shell = (visibleViewController as? LTTerminalViewController)?.shell, shell.isCommandRunning && !shell.isBuiltinRunning {
             
-            commands.append(UIKeyCommand(input: "C", modifierFlags: .control, action: #selector(interrupt), discoverabilityTitle: "Interrupt"))            
+            commands.append(UIKeyCommand(input: "C", modifierFlags: .control, action: #selector(interrupt), discoverabilityTitle: "Interrupt"))
+            commands.append(UIKeyCommand(input: "D", modifierFlags: .control, action: #selector(sendEOF), discoverabilityTitle: "Send End of File"))
         }
         
         return commands
