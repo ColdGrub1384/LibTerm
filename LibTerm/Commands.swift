@@ -41,6 +41,7 @@ public var LTHelp: [LTCommandHelp] = {
         commands.append(package)
     
         commands.append(LTCommandHelp(commandName: "edit", commandInput: .file))
+        commands.append(LTCommandHelp(commandName: "jsc", commandInput: .file))
     #endif
     
     return commands
