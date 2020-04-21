@@ -54,7 +54,7 @@ fileprivate class EditTextViewController: UIViewController, InputAssistantViewDe
         
         let textView = UITextView(frame: .zero, textContainer: textContainer)
         
-        textView.font = UIFont(name: "Courier", size: UIFont.systemFontSize)
+        textView.font = UIFont(name: "Courier", size: CGFloat(SettingsTableViewController.fontSize.floatValue))
         textView.backgroundColor = .black
         textView.textColor = .white
         
