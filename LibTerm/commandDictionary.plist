@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>ssh</key>
+    <array>
+        <string>ssh_cmd.framework/ssh_cmd</string>
+        <string>ssh_main</string>
+        <string>q</string>
+        <string>no</string>
+    </array>
+    <key>sftp</key>
+    <array>
+        <string>curl_ios.framework/curl_ios</string>
+        <string>curl_main</string>
+        <string>q</string>
+        <string>file</string>
+    </array>
 	<key>llvm-link</key>
 	<array>
 		<string>link.framework/link</string>

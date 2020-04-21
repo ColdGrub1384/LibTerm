@@ -42,7 +42,7 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
         
         static let libTerm = IndexPath(row: 0, section: 3)
         
-        static let pisth = IndexPath(row: 0, section: 4)
+        static let seeless = IndexPath(row: 0, section: 4)
         static let pyto = IndexPath(row: 1, section: 4)
         static let edidown = IndexPath(row: 2, section: 4)
     }
@@ -146,8 +146,8 @@ class SettingsTableViewController: UITableViewController, SKStoreProductViewCont
             projectPath = "ColdGrub1384/LibTerm/blob/master/PYTHON_ACKNOWLEDGMENTS.md"
         case ProjectsIndexPaths.libTerm:
             projectPath = "ColdGrub1384/LibTerm"
-        case ProjectsIndexPaths.pisth:
-            present(appWithID: "1331070425")
+        case ProjectsIndexPaths.seeless:
+            present(appWithID: "1481018071")
         case ProjectsIndexPaths.pyto:
             present(appWithID: "1436650069")
         case ProjectsIndexPaths.edidown:
