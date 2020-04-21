@@ -258,7 +258,13 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             // Assumes the font is monospaced
             return Int((viewHeight / charHeight).rounded(.down))
         }
+        
+        if let io = shell.io {
+            ios_switchSession(io.stdout)
                 
+            ios_setWindowSize(Int32(columns), Int32(rows))
+        }
+        
         setenv("COLUMNS", "\(columns)", 1)
         setenv("LINES", "\(rows)", 1)
         
@@ -594,7 +600,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             return .running
         }
         
-        if let command = currentCommand, prompt.hasSuffix(" ") {
+        if let command = currentCommand {
             return command.commandInput
         } else if prompt.isEmpty {
             return .history
@@ -668,7 +674,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
 
         var suggestions_ = [String]()
         for suggestion in suggestions {
-            if !suggestions_.contains(suggestion) {
+            if !suggestions_.contains(suggestion) && suggestion.hasPrefix(prompt.components(separatedBy: " ").last ?? "") {
                 suggestions_.append(suggestion)
             }
         }
@@ -693,6 +699,8 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
     
     public func inputAssistantView(_ inputAssistantView: InputAssistantView, didSelectSuggestionAtIndex index: Int) {
         
+        let text = (commands_[index]+" ").replacingFirstOccurrence(of: prompt.components(separatedBy: " ").last ?? "", with: "")
+        
         if completionType == .running {
             if index == 0 {
                 tprint("\u{003}\n")
@@ -700,10 +708,8 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             } else if index == 1 {
                 return shell.sendEOF()
             }
-        } else if completionType != .command && completionType != .history {
-            prompt += commands_[index]+" "
         } else {
-            prompt = commands_[index]+" "
+            prompt += text
         }
         terminalTextView.attributedText = attributedConsole
         tprint(prompt)

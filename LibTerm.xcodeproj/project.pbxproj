@@ -11,6 +11,7 @@
 		C90D816D232C3E7C002F48D2 /* usr.zip in Resources */ = {isa = PBXBuildFile; fileRef = C90D816C232C3E7C002F48D2 /* usr.zip */; };
 		C90D8170232C3EB5002F48D2 /* ZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C90D8165232C3D85002F48D2 /* ZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C90D8171232C3EB9002F48D2 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90D8165232C3D85002F48D2 /* ZipArchive.framework */; };
+		C918BFEF244F385700FD09F2 /* jsc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C918BFEE244F385700FD09F2 /* jsc.swift */; };
 		C91A0B7521F3AFD30004238F /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; };
 		C91A0B7621F3AFD30004238F /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9806CC7216049DD00F870B5 /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C941F2A7233802E400F89B8B /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941F2A6233802E400F89B8B /* ShareViewController.swift */; };
@@ -72,7 +73,6 @@
 		C995064221F3A23B00C0D1BB /* clear.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345821612DBA0003BD90 /* clear.swift */; };
 		C995064321F3A23B00C0D1BB /* credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E771D521C7EB9E00C56FEE /* credits.swift */; };
 		C995064421F3A23B00C0D1BB /* help.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91C345A21613A720003BD90 /* help.swift */; };
-		C995064521F3A23B00C0D1BB /* ssh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92F574C2168001600ABE35F /* ssh.swift */; };
 		C995064621F3A23B00C0D1BB /* exit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB2CDC216971EE004D9FFB /* exit.swift */; };
 		C995064721F3A23B00C0D1BB /* open.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D08218FA304003F73FF /* open.swift */; };
 		C995064821F3A23B00C0D1BB /* package.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D4D12218FBF90003F73FF /* package.swift */; };
@@ -338,6 +338,7 @@
 		C90ADD592324347F001F0E69 /* screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = screenshot.swift; sourceTree = "<group>"; };
 		C90D8158232C3D85002F48D2 /* ZipArchive.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZipArchive.xcodeproj; path = ZipArchive/ZipArchive.xcodeproj; sourceTree = "<group>"; };
 		C90D816C232C3E7C002F48D2 /* usr.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = usr.zip; sourceTree = "<group>"; };
+		C918BFEE244F385700FD09F2 /* jsc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jsc.swift; sourceTree = "<group>"; };
 		C91C345821612DBA0003BD90 /* clear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clear.swift; sourceTree = "<group>"; };
 		C91C345A21613A720003BD90 /* help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = help.swift; sourceTree = "<group>"; };
 		C91D4D08218FA304003F73FF /* open.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = open.swift; sourceTree = "<group>"; };
@@ -346,7 +347,6 @@
 		C927793221696C3F0091B038 /* CommandHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandHelp.swift; sourceTree = "<group>"; };
 		C927793821696CC00091B038 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		C9295456232977F800D1BB81 /* libarchive.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libarchive.tbd; path = usr/lib/libarchive.tbd; sourceTree = SDKROOT; };
-		C92F574C2168001600ABE35F /* ssh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ssh.swift; sourceTree = "<group>"; };
 		C941F2A4233802E400F89B8B /* Use in LibTerm.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Use in LibTerm.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C941F2A6233802E400F89B8B /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		C941F2A9233802E400F89B8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -525,12 +525,12 @@
 				C91C345821612DBA0003BD90 /* clear.swift */,
 				C91C345A21613A720003BD90 /* help.swift */,
 				C9E771D521C7EB9E00C56FEE /* credits.swift */,
-				C92F574C2168001600ABE35F /* ssh.swift */,
 				C9CB2CDC216971EE004D9FFB /* exit.swift */,
 				C91D4D12218FBF90003F73FF /* package.swift */,
 				C9E30A4B21C187C900789346 /* edit.swift */,
 				C91D4D08218FA304003F73FF /* open.swift */,
 				C90ADD592324347F001F0E69 /* screenshot.swift */,
+				C918BFEE244F385700FD09F2 /* jsc.swift */,
 			);
 			path = builtins;
 			sourceTree = "<group>";
@@ -1102,11 +1102,11 @@
 				C995065221F3A24600C0D1BB /* CommandHelp.swift in Sources */,
 				C90ADD5A2324347F001F0E69 /* screenshot.swift in Sources */,
 				C995064C21F3A24000C0D1BB /* TerminalViewController.swift in Sources */,
+				C918BFEF244F385700FD09F2 /* jsc.swift in Sources */,
 				C995064821F3A23B00C0D1BB /* package.swift in Sources */,
 				C995065121F3A24600C0D1BB /* IO.swift in Sources */,
 				C995063F21F3A23600C0D1BB /* LibShell.swift in Sources */,
 				C995064021F3A23600C0D1BB /* Commands.swift in Sources */,
-				C995064521F3A23B00C0D1BB /* ssh.swift in Sources */,
 				C995065021F3A24600C0D1BB /* Keys.swift in Sources */,
 				C995064E21F3A24000C0D1BB /* SettingsTableViewController.swift in Sources */,
 				C995064321F3A23B00C0D1BB /* credits.swift in Sources */,
@@ -1206,7 +1206,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Use in LibTerm/Use in LibTerm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "Use in LibTerm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1215,7 +1215,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.1.4;
+				MARKETING_VERSION = 5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.marcela.ada.LibTerm.Use-in-LibTerm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1229,7 +1229,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Use in LibTerm/Use in LibTerm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "Use in LibTerm/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1238,7 +1238,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.1.4;
+				MARKETING_VERSION = 5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.marcela.ada.LibTerm.Use-in-LibTerm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1252,7 +1252,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "LibTerm Intents/LibTerm Intents.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "LibTerm Intents/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1261,7 +1261,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.1.4;
+				MARKETING_VERSION = 5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.marcela.ada.LibTerm.LibTerm-Intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1275,7 +1275,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "LibTerm Intents/LibTerm Intents.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				INFOPLIST_FILE = "LibTerm Intents/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1284,7 +1284,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.1.4;
+				MARKETING_VERSION = 5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.marcela.ada.LibTerm.LibTerm-Intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1421,7 +1421,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = LibTerm/LibTerm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1442,7 +1442,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/llvm",
 				);
-				MARKETING_VERSION = 5.1.4;
+				MARKETING_VERSION = 5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = "non-global";
@@ -1462,7 +1462,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_ENTITLEMENTS = LibTerm/LibTerm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y96PL6G497;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1483,7 +1483,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/llvm",
 				);
-				MARKETING_VERSION = 5.1.4;
+				MARKETING_VERSION = 5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.marcela.ada.LibTerm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_STYLE = "non-global";
