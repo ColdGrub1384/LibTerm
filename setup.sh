@@ -7,6 +7,9 @@ cd "$DIR"
 
 git submodule update --init --recursive
 
+rm ios_system/ios_system.m
+cp ios_system.m ios_system_core/
+
 # Get ios_system release URL
 
 #ios_system="$(curl -s 'https://api.github.com/repos/holzschu/ios_system/releases/latest' \

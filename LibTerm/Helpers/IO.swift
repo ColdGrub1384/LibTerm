@@ -47,7 +47,7 @@ public class LTIO: ParserDelegate {
         errorPipe.fileHandleForReading.readabilityHandler = { handle in
             
             let data = handle.availableData
-            if var str = String(data: data, encoding: .utf8) {
+            if var str = String(data: data, encoding: .utf8), !str.isEmpty {
                 str.removeLast()
                 guard !str.hasPrefix("Freeing unary") && !str.hasPrefix("Freeing leaf") && !str.hasPrefix("Freeing tree") && str.components(separatedBy: " ").last?.count != 8 else {
                     return

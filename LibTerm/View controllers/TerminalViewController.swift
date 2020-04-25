@@ -259,12 +259,6 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
             return Int((viewHeight / charHeight).rounded(.down))
         }
         
-        if let io = shell.io {
-            ios_switchSession(io.stdout)
-                
-            ios_setWindowSize(Int32(columns), Int32(rows))
-        }
-        
         setenv("COLUMNS", "\(columns)", 1)
         setenv("LINES", "\(rows)", 1)
         
@@ -525,18 +519,16 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                 let prompt = self.prompt
                 self.prompt = ""
                 
-                _ = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: { (_) in
-                    self.thread = DispatchQueue.global(qos: .utility)
-                    self.thread.async {
-                        self.shell.run(command: prompt)
-                        
-                        while (self.shell.io?.parserQueue ?? 0) > 0 {
-                            sleep(UInt32(0.2))
-                        }
-                        
-                        self.shell.input()
+                self.thread = DispatchQueue.global(qos: .utility)
+                self.thread.async {
+                    self.shell.run(command: prompt)
+                    
+                    while (self.shell.io?.parserQueue ?? 0) > 0 {
+                        sleep(UInt32(0.2))
                     }
-                })
+                    
+                    self.shell.input()
+                }
                 
                 return false
             } else {
@@ -754,6 +746,7 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
         }
         
         if urls[0].startAccessingSecurityScopedResource() {
+            ios_switchSession(shell.io?.stdout)
             ios_setDirectoryURL(urls[0])
             title = urls[0].lastPathComponent
         } else {
