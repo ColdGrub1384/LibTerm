@@ -527,7 +527,9 @@ public class LTTerminalViewController: UIViewController, UITextViewDelegate, Inp
                         sleep(UInt32(0.2))
                     }
                     
-                    self.shell.input()
+                    self.thread.asyncAfter(deadline: .now()+0.2) {
+                        self.shell.input()
+                    }
                 }
                 
                 return false

@@ -30,6 +30,12 @@ fileprivate class WebViewDelegate: NSObject, WKUIDelegate {
 
 /// Runs JavaScript.
 func jscMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
+    
+    guard argv.indices.contains(1) else {
+        fputs("Usage: \(argv[0]) file\n", io.stderr)
+        return 1
+    }
+    
     let command = argv[1]
     let fileName = URL(fileURLWithPath: command, relativeTo: URL(fileURLWithPath: FileManager.default.currentDirectoryPath)).path
     
@@ -44,54 +50,61 @@ func jscMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
             WebViewDelegate.shared.vc = io.terminal
             
             webView.uiDelegate = WebViewDelegate.shared
-            webView.evaluateJavaScript(javascript) { (result, error) in
-                if error != nil {
-                    // Extract information about *where* the error is, etc.
-                    let userInfo = (error! as NSError).userInfo
-                    fputs("jsc: Error ", thread_stderr_copy)
-                    // WKJavaScriptExceptionSourceURL is hterm.html, of course.
-                    fputs("in file " + command + " ", thread_stderr_copy)
-                    if let line = userInfo["WKJavaScriptExceptionLineNumber"] as? Int32 {
-                        fputs("at line \(line)", thread_stderr_copy)
+            if webView.tag != 2 {
+                webView.tag = 2
+                webView.configuration.userContentController.add(WebViewDelegate.shared, name: "logging")
+            }
+            
+            webView.evaluateJavaScript(overrideConsole) { (_, _) in
+                webView.evaluateJavaScript(javascript) { (result, error) in
+                    if error != nil {
+                        // Extract information about *where* the error is, etc.
+                        let userInfo = (error! as NSError).userInfo
+                        fputs("jsc: Error ", thread_stderr_copy)
+                        // WKJavaScriptExceptionSourceURL is hterm.html, of course.
+                        fputs("in file " + command + " ", thread_stderr_copy)
+                        if let line = userInfo["WKJavaScriptExceptionLineNumber"] as? Int32 {
+                            fputs("at line \(line)", thread_stderr_copy)
+                        }
+                        if let column = userInfo["WKJavaScriptExceptionColumnNumber"] as? Int32 {
+                            fputs(", column \(column): ", thread_stderr_copy)
+                        } else {
+                            fputs(": ", thread_stderr_copy)
+                        }
+                        if let message = userInfo["WKJavaScriptExceptionMessage"] as? String {
+                            fputs(message + "\n", thread_stderr_copy)
+                        }
+                        fflush(thread_stderr_copy)
                     }
-                    if let column = userInfo["WKJavaScriptExceptionColumnNumber"] as? Int32 {
-                        fputs(", column \(column): ", thread_stderr_copy)
-                    } else {
-                        fputs(": ", thread_stderr_copy)
+                    if (result != nil) {
+                        if let string = result! as? String {
+                            fputs(string, thread_stdout_copy)
+                            fputs("\n", thread_stdout_copy)
+                        }  else if let number = result! as? Int32 {
+                            fputs("\(number)", thread_stdout_copy)
+                            fputs("\n", thread_stdout_copy)
+                        } else if let number = result! as? Float {
+                            fputs("\(number)", thread_stdout_copy)
+                            fputs("\n", thread_stdout_copy)
+                        } else {
+                            fputs("\(result ?? "")", thread_stdout_copy)
+                            fputs("\n", thread_stdout_copy)
+                        }
+                        fflush(thread_stdout_copy)
+                        fflush(thread_stderr_copy)
                     }
-                    if let message = userInfo["WKJavaScriptExceptionMessage"] as? String {
-                        fputs(message + "\n", thread_stderr_copy)
-                    }
-                    fflush(thread_stderr_copy)
+                    executionDone = true
                 }
-                if (result != nil) {
-                    if let string = result! as? String {
-                        fputs(string, thread_stdout_copy)
-                        fputs("\n", thread_stdout_copy)
-                    }  else if let number = result! as? Int32 {
-                        fputs("\(number)", thread_stdout_copy)
-                        fputs("\n", thread_stdout_copy)
-                    } else if let number = result! as? Float {
-                        fputs("\(number)", thread_stdout_copy)
-                        fputs("\n", thread_stdout_copy)
-                    } else {
-                        fputs("\(result)", thread_stdout_copy)
-                        fputs("\n", thread_stdout_copy)
-                    }
-                    fflush(thread_stdout_copy)
-                    fflush(thread_stderr_copy)
-                }
-                executionDone = true
             }
         }
     }
     catch {
-      fputs("Error executing JavaScript  file: " + command + ": \(error) \n", thread_stderr)
+      fputs("Error executing JavaScript  file: " + command + ": \(error) \n", thread_stderr_copy)
       executionDone = true
     }
     while (!executionDone) {
-        fflush(thread_stdout)
-        fflush(thread_stderr)
+        fflush(thread_stdout_copy)
+        fflush(thread_stderr_copy)
     }
     
     return 0
