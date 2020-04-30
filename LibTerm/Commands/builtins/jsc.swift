@@ -11,11 +11,13 @@ import WebKit
 
 fileprivate let webView = WKWebView()
 
-fileprivate class WebViewDelegate: NSObject, WKUIDelegate {
+fileprivate class WebViewDelegate: NSObject, WKUIDelegate, WKScriptMessageHandler {
     
     static let shared = WebViewDelegate()
     
     var vc: UIViewController?
+    
+    var io: LTIO?
     
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         
@@ -26,17 +28,64 @@ fileprivate class WebViewDelegate: NSObject, WKUIDelegate {
         
         vc?.present(alert, animated: true, completion: nil)
     }
+    
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        guard let stdout = io?.stdout else {
+            return
+        }
+        
+        fputs("\((message.body as? String) ?? "")\n", stdout)
+    }
 }
 
 /// Runs JavaScript.
 func jscMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
     
+    func help() {
+        fputs("\(argv[0]) shows the result of the evaluation of a JavaScript script. To show custom output use the 'console' functions, 'debug()' or 'print()'.\n\nUsage: \(argv[0]) file\n", io.stderr)
+    }
+    
     guard argv.indices.contains(1) else {
-        fputs("Usage: \(argv[0]) file\n", io.stderr)
+        help()
         return 1
     }
     
     let command = argv[1]
+    
+    guard command != "-h" && command != "--help" else {
+        help()
+        return 1
+    }
+    
+    let overrideConsole = """
+        function log(emoji, type, args) {
+          window.webkit.messageHandlers.logging.postMessage(
+            `${emoji} JS ${type}: ${Object.values(args)
+              .map(v => typeof(v) === "undefined" ? "undefined" : typeof(v) === "object" ? JSON.stringify(v) : v.toString())
+              .map(v => v.substring(0, 3000)) // Limit msg to 3000 chars
+              .join(", ")}`
+          )
+        }
+
+        function debug(text) {
+            window.webkit.messageHandlers.logging.postMessage(text)
+        }
+
+        function print(text) {
+            window.webkit.messageHandlers.logging.postMessage(text)
+        }
+
+        let originalLog = console.log
+        let originalWarn = console.warn
+        let originalError = console.error
+        let originalDebug = console.debug
+
+        console.log = function() { log("📗", "log", arguments); originalLog.apply(null, arguments) }
+        console.warn = function() { log("📙", "warning", arguments); originalWarn.apply(null, arguments) }
+        console.error = function() { log("📕", "error", arguments); originalError.apply(null, arguments) }
+        console.debug = function() { log("📘", "debug", arguments); originalDebug.apply(null, arguments) }
+    """
+    
     let fileName = URL(fileURLWithPath: command, relativeTo: URL(fileURLWithPath: FileManager.default.currentDirectoryPath)).path
     
     let thread_stdout_copy = io.stdout
@@ -48,6 +97,7 @@ func jscMain(argc: Int, argv: [String], io: LTIO) -> Int32 {
         DispatchQueue.main.async {
             
             WebViewDelegate.shared.vc = io.terminal
+            WebViewDelegate.shared.io = io
             
             webView.uiDelegate = WebViewDelegate.shared
             if webView.tag != 2 {
